@@ -32,6 +32,17 @@ export const metadata: Metadata = {
   keywords: siteConfig.keywords,
   authors: siteConfig.authors,
   creator: siteConfig.name,
+  // hreflang — content is in English targeting both US and UK audiences.
+  // All hreflang URLs resolve to the same pages (single-language site).
+  // x-default is the canonical fallback for unrecognised locales.
+  alternates: {
+    canonical: siteConfig.url,
+    languages: {
+      'en-US': siteConfig.url,
+      'en-GB': siteConfig.url,
+      'x-default': siteConfig.url,
+    },
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -39,13 +50,14 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
-    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
+    // opengraph-image.tsx auto-generates a branded image — this is the fallback URL
+    images: [{ url: `${siteConfig.url}/opengraph-image`, width: 1200, height: 630, alt: `${siteConfig.name} — ${siteConfig.tagline}` }],
   },
   twitter: {
     card: 'summary_large_image',
     title: siteConfig.name,
     description: siteConfig.description,
-    images: [siteConfig.ogImage],
+    images: [`${siteConfig.url}/opengraph-image`],
     creator: siteConfig.twitterHandle,
   },
   robots: {

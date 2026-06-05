@@ -110,9 +110,16 @@ export function BabyNamesBrowser() {
         </div>
       </div>
 
-      {/* Results count */}
-      <p className="text-sm text-gray-500 mb-5">
-        Showing {names.length} of {total} names
+      {/* Results count — aria-live announces changes to screen readers when filters change */}
+      <p
+        className="text-sm text-gray-500 mb-5"
+        aria-live="polite"
+        aria-atomic="true"
+        role="status"
+      >
+        {total === 0
+          ? 'No names match your filters'
+          : `Showing ${names.length} of ${total} name${total !== 1 ? 's' : ''}`}
       </p>
 
       {/* Names Grid */}

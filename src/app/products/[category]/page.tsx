@@ -4,6 +4,7 @@ import { ChevronRight, Star, ShieldCheck, RefreshCw } from 'lucide-react';
 import { getProductsByCategory } from '@/lib/products';
 import { siteConfig } from '@/config/site';
 import { ProductCard } from '@/components/affiliate/ProductCard';
+import { ProductComparison } from '@/components/affiliate/ProductComparison';
 import { InContentAd } from '@/components/ads/InContentAd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import type { ProductCategory } from '@/types/product';
@@ -86,14 +87,21 @@ export default async function CategoryPage({ params }: Props) {
           <p className="text-sm">We are currently testing products in this category.</p>
         </div>
       ) : (
-        <div className="space-y-6">
-          {products.map((product, i) => (
-            <div key={product.slug}>
-              <ProductCard product={product} variant="featured" />
-              {(i + 1) % 3 === 0 && <InContentAd />}
-            </div>
-          ))}
-        </div>
+        <>
+          {/* Comparison tool — only shown when 2+ products exist */}
+          {products.length >= 2 && (
+            <ProductComparison products={products} categoryLabel={label} />
+          )}
+
+          <div className="space-y-6">
+            {products.map((product, i) => (
+              <div key={product.slug}>
+                <ProductCard product={product} variant="featured" />
+                {(i + 1) % 3 === 0 && <InContentAd />}
+              </div>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );

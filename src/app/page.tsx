@@ -28,10 +28,54 @@ const tools = [
 const featuredWeeks = [8, 12, 20, 28, 36, 40];
 
 const categories = [
-  { title: 'Pregnancy', desc: 'Week-by-week guides and tips', href: '/pregnancy', emoji: '🤰', color: 'from-pink-500 to-rose-500', bg: 'bg-pink-50', border: 'hover:border-pink-300', img: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=400&q=80&auto=format&fit=crop' },
-  { title: 'Baby Names', desc: 'Search baby names with meanings and origins', href: '/baby-names', emoji: '✨', color: 'from-purple-500 to-violet-500', bg: 'bg-purple-50', border: 'hover:border-purple-300', img: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=400&q=80&auto=format&fit=crop' },
-  { title: 'Product Reviews', desc: 'Honest reviews for every budget', href: '/products', emoji: '⭐', color: 'from-amber-500 to-orange-500', bg: 'bg-amber-50', border: 'hover:border-amber-300', img: 'https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=400&q=80&auto=format&fit=crop' },
-  { title: 'Parenting Tips', desc: 'Expert advice for new parents', href: '/parenting', emoji: '💡', color: 'from-teal-500 to-green-500', bg: 'bg-teal-50', border: 'hover:border-teal-300', img: 'https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=400&q=80&auto=format&fit=crop' },
+  {
+    title: 'Pregnancy',
+    desc: 'Week-by-week guides and tips',
+    href: '/pregnancy',
+    emoji: '🤰',
+    color: 'from-pink-500 to-rose-600',
+    bg: 'bg-pink-50',
+    border: 'hover:border-pink-300',
+    // Pregnant woman holding belly — clearly pregnancy-specific
+    img: 'https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?w=600&q=85&auto=format&fit=crop&crop=faces,center',
+    imgAlt: 'Pregnant woman cradling her bump, smiling warmly',
+  },
+  {
+    title: 'Baby Names',
+    desc: 'Search baby names with meanings and origins',
+    href: '/baby-names',
+    emoji: '✨',
+    color: 'from-purple-500 to-violet-600',
+    bg: 'bg-purple-50',
+    border: 'hover:border-purple-300',
+    // Newborn baby close-up — clearly baby-specific
+    img: 'https://images.unsplash.com/photo-1544143086-6b66a5f0f0a5?w=600&q=85&auto=format&fit=crop&crop=faces,top',
+    imgAlt: 'Newborn baby sleeping peacefully, perfect for choosing a name',
+  },
+  {
+    title: 'Product Reviews',
+    desc: 'Honest reviews for every budget',
+    href: '/products',
+    emoji: '⭐',
+    color: 'from-amber-500 to-orange-500',
+    bg: 'bg-amber-50',
+    border: 'hover:border-amber-300',
+    // Baby stroller/pram in soft focus — product niche specific
+    img: 'https://images.unsplash.com/photo-1590492239080-e50b66d15a3d?w=600&q=85&auto=format&fit=crop&crop=center',
+    imgAlt: 'Modern baby stroller in a sunny park — product reviews for parents',
+  },
+  {
+    title: 'Parenting Tips',
+    desc: 'Expert advice for new parents',
+    href: '/parenting',
+    emoji: '💡',
+    color: 'from-teal-500 to-emerald-500',
+    bg: 'bg-teal-50',
+    border: 'hover:border-teal-300',
+    // Parent holding newborn skin-to-skin — emotionally resonant
+    img: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&q=85&auto=format&fit=crop&crop=faces,center',
+    imgAlt: 'Parent lovingly holding their newborn baby — expert parenting guidance',
+  },
 ];
 
 export default function HomePage() {
@@ -53,8 +97,8 @@ export default function HomePage() {
           {/* Mobile hero image — shows only on small screens */}
           <div className="md:hidden relative h-44 rounded-2xl overflow-hidden mb-5">
             <Image
-              src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=800&q=85&auto=format&fit=crop"
-              alt="Happy pregnant mother holding her belly"
+              src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=900&q=85&auto=format&fit=crop&crop=faces,center"
+              alt="Happy expectant mother with radiant pregnancy glow, representing the PregnancySprout community"
               fill
               className="object-cover"
               priority
@@ -153,7 +197,7 @@ export default function HomePage() {
                 <div className="relative h-36 overflow-hidden rounded-t-2xl">
                   <Image
                     src={cat.img}
-                    alt={`${cat.title} — ${cat.desc}`}
+                    alt={cat.imgAlt}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 48vw, 24vw"

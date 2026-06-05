@@ -25,7 +25,9 @@ export function WebSiteJsonLd() {
       url: siteConfig.url,
       logo: {
         '@type': 'ImageObject',
-        url: `${siteConfig.url}/logo.png`,
+        url: `${siteConfig.url}/logo.svg`,
+        width: 200,
+        height: 48,
       },
       contactPoint: {
         '@type': 'ContactPoint',

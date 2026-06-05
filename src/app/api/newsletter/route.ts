@@ -1,17 +1,30 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { rateLimit } from '@/lib/rate-limit';
 
+// Cloudflare Pages: all API routes run as Cloudflare Workers (edge runtime).
+// The nodejs_compat flag in wrangler.toml provides Node.js built-in support.
+export const runtime = 'edge';
+
 export async function POST(req: NextRequest) {
   // Rate limit: 5 subscriptions per IP per minute
   const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
-  const { success } = rateLimit(ip, { limit: 5, windowMs: 60_000 });
+  const { success, remaining, resetAt } = rateLimit(ip, { limit: 5, windowMs: 60_000 });
 
   if (!success) {
     return NextResponse.json(
       { error: 'Too many requests. Please try again later.' },
-      { status: 429 }
+      {
+        status: 429,
+        headers: {
+          'Retry-After': String(Math.ceil((resetAt - Date.now()) / 1000)),
+          'X-RateLimit-Limit': '5',
+          'X-RateLimit-Remaining': '0',
+          'X-RateLimit-Reset': String(Math.ceil(resetAt / 1000)),
+        },
+      }
     );
   }
+  void remaining; // used in headers on success path if needed
 
   try {
     const body = await req.json();

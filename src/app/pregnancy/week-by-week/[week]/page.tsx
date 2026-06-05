@@ -11,6 +11,9 @@ import { SidebarAd } from '@/components/ads/SidebarAd';
 import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { InlineNewsletter } from '@/components/shared/InlineNewsletter';
+import { BookmarkButton, SavedWeeksPanel } from '@/components/shared/BookmarkButton';
+import { MedicalWebPageJsonLd } from '@/components/seo/MedicalWebPageJsonLd';
+import { SourceCitations, PREGNANCY_CITATIONS } from '@/components/shared/SourceCitations';
 
 // Beautiful trimester-specific images
 const trimesterImages = {
@@ -73,8 +76,14 @@ export default async function WeekPage({ params }: Props) {
         description={`Baby development and symptoms at ${weekNum} weeks pregnant`}
         publishedAt="2026-01-01"
         author={siteConfig.name}
-        image="/og-default.jpg"
+        image={`${siteConfig.url}/opengraph-image`}
         url={`/pregnancy/week-by-week/week-${weekNum}`}
+      />
+      <MedicalWebPageJsonLd
+        title={`${weekNum} Weeks Pregnant — Baby Development & Symptoms`}
+        description={`Evidence-based guide to week ${weekNum} of pregnancy: baby development, maternal symptoms, and health tips reviewed against NHS and WHO guidelines.`}
+        url={`/pregnancy/week-by-week/week-${weekNum}`}
+        about={`Week ${weekNum} Pregnancy`}
       />
 
       {/* Breadcrumb */}
@@ -114,9 +123,14 @@ export default async function WeekPage({ params }: Props) {
                   <p className="text-sm font-medium text-white/80 uppercase tracking-widest mb-1">
                     {trimesterLabel} Trimester · Week {weekNum} of 40
                   </p>
-                  <h1 className="font-serif text-4xl md:text-5xl font-bold">
-                    {weekNum} Weeks Pregnant
-                  </h1>
+                  <div className="flex items-end justify-between gap-4">
+                    <h1 className="font-serif text-4xl md:text-5xl font-bold">
+                      {weekNum} Weeks Pregnant
+                    </h1>
+                    <div className="flex-shrink-0 pb-1">
+                      <BookmarkButton weekNum={weekNum} />
+                    </div>
+                  </div>
                 </div>
               </div>
               {/* Stats bar */}
@@ -246,6 +260,9 @@ export default async function WeekPage({ params }: Props) {
               </section>
             )}
 
+            {/* Source citations */}
+            <SourceCitations citations={PREGNANCY_CITATIONS} />
+
             {/* Newsletter CTA */}
             <InlineNewsletter
               headline={nextWeek ? `Get updates for Week ${nextWeek}` : 'Congratulations — Week 40!'}
@@ -286,6 +303,9 @@ export default async function WeekPage({ params }: Props) {
           {/* Sidebar */}
           <aside className="hidden lg:block">
             <SidebarAd />
+            <div className="mt-8">
+              <SavedWeeksPanel />
+            </div>
             <div className="mt-8 bg-gray-50 rounded-2xl p-5">
               <h3 className="font-semibold text-gray-900 mb-4">Jump to a Week</h3>
               <div className="grid grid-cols-4 gap-2">

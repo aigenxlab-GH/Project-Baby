@@ -25,9 +25,28 @@ export default function BabyNamesPage() {
           Filter by gender, starting letter, or origin to find the perfect name.
         </p>
       </div>
-      <Suspense fallback={<div className="text-center py-12 text-gray-400">Loading names…</div>}>
-        <BabyNamesBrowser />
-      </Suspense>
+      {/* aria-busy on the Suspense boundary so screen readers announce the loading state */}
+      <div role="region" aria-label="Baby names browser" aria-live="polite">
+        <Suspense fallback={
+          <div
+            role="status"
+            aria-label="Loading baby names"
+            aria-busy="true"
+            className="text-center py-12 text-gray-400 animate-pulse"
+          >
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mb-8">
+              {Array.from({ length: 24 }).map((_, i) => (
+                <div key={i} className="bg-white rounded-xl border border-gray-100 p-4 text-center">
+                  <div className="h-6 bg-gray-100 rounded w-3/4 mx-auto mb-2" />
+                  <div className="h-3 bg-gray-100 rounded w-1/2 mx-auto" />
+                </div>
+              ))}
+            </div>
+          </div>
+        }>
+          <BabyNamesBrowser />
+        </Suspense>
+      </div>
     </div>
   );
 }

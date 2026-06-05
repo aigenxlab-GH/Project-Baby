@@ -52,7 +52,10 @@ const config: Config = {
             color: '#374151',
             h2: { color: '#111827', fontFamily: 'var(--font-playfair)' },
             h3: { color: '#111827' },
-            a: { color: '#db2777', textDecoration: 'underline' },
+            // brand-800 (#9d174d) = 7.2:1 contrast on white → WCAG AAA ✓
+            // brand-600 (#db2777) = 4.8:1 → only AA; not used for body text links
+            a: { color: '#9d174d', textDecoration: 'underline' },
+            'a:hover': { color: '#831843' },
           },
         },
       },

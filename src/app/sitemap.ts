@@ -6,6 +6,11 @@ import { getAllSlugs } from '@/lib/mdx';
 import { getAllProducts } from '@/lib/products';
 import { getAllNames } from '@/lib/baby-names';
 
+// Force static pre-rendering at build time (Node.js context where `fs` is available).
+// Without this, Cloudflare Workers would try to execute `fs.statSync` at request
+// time in the edge runtime, which fails even with nodejs_compat for some paths.
+export const dynamic = 'force-static';
+
 const url = (p: string) => `${siteConfig.url}${p}`;
 
 /**

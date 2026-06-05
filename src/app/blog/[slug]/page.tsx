@@ -11,6 +11,8 @@ import { ArticleJsonLd } from '@/components/seo/ArticleJsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
 import { InlineNewsletter } from '@/components/shared/InlineNewsletter';
+import { TableOfContents } from '@/components/blog/TableOfContents';
+import { injectHeadingIds, extractToc } from '@/lib/toc';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -48,9 +50,37 @@ const fallbackImages: Record<string, string> = {
   default: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=1200&q=85&auto=format&fit=crop',
 };
 
+// Auto-link authoritative health organisations when mentioned in article body text.
+// This adds in-body citations without requiring manual linking in every MDX file.
+// Only links bare mentions (not ones already inside an <a> tag).
+const AUTHORITY_LINKS: [RegExp, string, string][] = [
+  [/\bNHS\b/g, 'https://www.nhs.uk', 'NHS (National Health Service)'],
+  [/\bWHO\b/g, 'https://www.who.int', 'World Health Organization'],
+  [/\bAAP\b/g, 'https://www.aap.org', 'American Academy of Pediatrics'],
+  [/\bNICE\b/g, 'https://www.nice.org.uk', 'NICE (National Institute for Health and Care Excellence)'],
+  [/\bRCOG\b/g, 'https://www.rcog.org.uk', 'Royal College of Obstetricians and Gynaecologists'],
+  [/\bCDC\b/g, 'https://www.cdc.gov', 'Centers for Disease Control and Prevention'],
+];
+
+function linkAuthorities(html: string): string {
+  // Only replace in text content — not inside existing <a> tags or HTML attributes
+  return html.replace(/(<a[^>]*>.*?<\/a>)|([^<>]+)/gs, (match, link, text) => {
+    if (link) return link; // already a link — don't touch
+    if (!text) return match;
+    let result = text;
+    for (const [regex, url, title] of AUTHORITY_LINKS) {
+      result = result.replace(
+        regex,
+        `<a href="${url}" target="_blank" rel="noopener noreferrer" title="${title}" class="authority-link">${regex.source.replace(/\\b/g, '').replace(/\\/g, '')}</a>`
+      );
+    }
+    return result;
+  });
+}
+
 // Convert raw markdown to HTML (simple but effective)
 function markdownToHtml(md: string): string {
-  return md
+  const html = md
     // headings
     .replace(/^### (.+)$/gm, '<h3>$1</h3>')
     .replace(/^## (.+)$/gm, '<h2>$1</h2>')
@@ -75,6 +105,9 @@ function markdownToHtml(md: string): string {
     .replace(/(<li>.*?<\/li>\n?)+/g, (match) => `<ul>${match}</ul>`)
     // clean multiple blank lines
     .replace(/\n{3,}/g, '\n\n');
+
+  // Auto-link authority mentions AFTER all HTML is generated
+  return linkAuthorities(html);
 }
 
 export default async function BlogArticlePage({ params }: Props) {
@@ -89,7 +122,9 @@ export default async function BlogArticlePage({ params }: Props) {
     ? article.image
     : fallbackImages[article.category as string] || fallbackImages.default;
 
-  const htmlContent = markdownToHtml(article.content);
+  // Inject id= attributes into headings, then extract TOC
+  const htmlWithIds = injectHeadingIds(markdownToHtml(article.content));
+  const tocItems = extractToc(htmlWithIds);
 
   return (
     <>
@@ -109,7 +144,7 @@ export default async function BlogArticlePage({ params }: Props) {
         { name: article.title, href: `/blog/${slug}` },
       ]} />
 
-      <div className="container mx-auto max-w-4xl px-4 py-8 dark:text-gray-200">
+      <div className="container mx-auto max-w-6xl px-4 py-8 dark:text-gray-200">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-1.5 text-xs text-gray-400 mb-6 flex-wrap">
           <Link href="/" className="hover:text-brand-600">Home</Link>
@@ -119,6 +154,10 @@ export default async function BlogArticlePage({ params }: Props) {
           <span className="text-gray-600 font-medium truncate max-w-[250px]">{article.title}</span>
         </nav>
 
+        {/* 2-column layout: article + sticky TOC sidebar */}
+        <div className="xl:grid xl:grid-cols-[1fr_260px] xl:gap-12 xl:items-start">
+
+        {/* Main article column */}
         <article>
           {/* Medical disclaimer at top */}
           <MedicalDisclaimer variant="inline" />
@@ -165,6 +204,11 @@ export default async function BlogArticlePage({ params }: Props) {
             </div>
           </header>
 
+          {/* Table of Contents — mobile inline, desktop in sidebar */}
+          {tocItems.length >= 3 && (
+            <TableOfContents items={tocItems} />
+          )}
+
           {/* Article body — properly rendered markdown */}
           <div
             className="prose prose-sm max-w-none
@@ -178,7 +222,7 @@ export default async function BlogArticlePage({ params }: Props) {
               prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline
               prose-blockquote:border-l-4 prose-blockquote:border-brand-400 prose-blockquote:bg-brand-50 prose-blockquote:rounded-r-xl prose-blockquote:py-1 prose-blockquote:px-4
               prose-hr:border-gray-200 prose-hr:my-8"
-            dangerouslySetInnerHTML={{ __html: htmlContent }}
+            dangerouslySetInnerHTML={{ __html: htmlWithIds }}
           />
 
           <InContentAd />
@@ -225,6 +269,15 @@ export default async function BlogArticlePage({ params }: Props) {
             </Link>
           </div>
         </article>
+
+        {/* Desktop TOC sidebar */}
+        {tocItems.length >= 3 && (
+          <aside className="hidden xl:block">
+            <TableOfContents items={tocItems} />
+          </aside>
+        )}
+
+        </div>{/* end 2-column grid */}
 
         {/* Related articles */}
         {related.length > 0 && (

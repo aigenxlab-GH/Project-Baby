@@ -8,6 +8,7 @@ import { formatDate } from '@/lib/utils';
 import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { InlineNewsletter } from '@/components/shared/InlineNewsletter';
+import { SourceCitations, NEWBORN_CITATIONS, SLEEP_CITATIONS, FEEDING_CITATIONS, PREGNANCY_CITATIONS } from '@/components/shared/SourceCitations';
 
 interface Props {
   params: Promise<{ topic: string; slug: string }>;
@@ -65,6 +66,14 @@ const topicLabels: Record<string, string> = {
   sleep: 'Baby Sleep',
   feeding: 'Feeding & Nutrition',
   development: 'Baby Development',
+};
+
+// Map each topic to its authoritative source citations
+const topicCitations: Record<string, typeof NEWBORN_CITATIONS> = {
+  newborn: NEWBORN_CITATIONS,
+  sleep: SLEEP_CITATIONS,
+  feeding: FEEDING_CITATIONS,
+  development: NEWBORN_CITATIONS,
 };
 
 export default async function ParentingArticlePage({ params }: Props) {
@@ -141,6 +150,9 @@ export default async function ParentingArticlePage({ params }: Props) {
             prose-hr:border-gray-200 prose-hr:my-8"
           dangerouslySetInnerHTML={{ __html: markdownToHtml(article.content) }}
         />
+
+        {/* Source citations */}
+        <SourceCitations citations={topicCitations[topic] ?? PREGNANCY_CITATIONS} />
 
         {/* Inline newsletter CTA */}
         <InlineNewsletter variant="compact" headline="Get more parenting tips in your inbox" />

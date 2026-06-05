@@ -223,12 +223,24 @@ export default async function ProductReviewPage({ params }: Props) {
 
           <InContentAd />
 
-          {/* Specs table */}
+          {/* Specs table — card list on mobile, table on sm+ */}
           {product.specsTable && Object.keys(product.specsTable).length > 0 && (
             <div className="mb-8">
               <h2 className="font-serif text-xl font-bold text-gray-900 mb-4">Specifications</h2>
-              <div className="rounded-2xl border border-gray-100 overflow-hidden overflow-x-auto">
-                <table className="w-full text-sm min-w-[320px]">
+
+              {/* Mobile: stacked key-value cards */}
+              <dl className="sm:hidden space-y-2">
+                {Object.entries(product.specsTable).map(([key, value]) => (
+                  <div key={key} className="flex justify-between items-start gap-4 bg-gray-50 rounded-xl px-4 py-3">
+                    <dt className="text-sm font-medium text-gray-700 flex-shrink-0">{key}</dt>
+                    <dd className="text-sm text-gray-600 text-right">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+
+              {/* Desktop: proper table */}
+              <div className="hidden sm:block rounded-2xl border border-gray-100 overflow-hidden">
+                <table className="w-full text-sm">
                   <caption className="sr-only">
                     Product specifications for {product.title}
                   </caption>
