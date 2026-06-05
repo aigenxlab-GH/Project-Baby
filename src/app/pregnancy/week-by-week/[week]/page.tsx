@@ -10,6 +10,7 @@ import { InContentAd } from '@/components/ads/InContentAd';
 import { SidebarAd } from '@/components/ads/SidebarAd';
 import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { InlineNewsletter } from '@/components/shared/InlineNewsletter';
 
 // Beautiful trimester-specific images
 const trimesterImages = {
@@ -160,7 +161,14 @@ export default async function WeekPage({ params }: Props) {
                 <span className="font-medium text-brand-600">Week {weekNum} ({Math.round((weekNum / 40) * 100)}%)</span>
                 <span>Week 40</span>
               </div>
-              <div className="w-full bg-gray-100 rounded-full h-3">
+              <div
+                role="progressbar"
+                aria-valuenow={weekNum}
+                aria-valuemin={1}
+                aria-valuemax={40}
+                aria-label={`Pregnancy progress: week ${weekNum} of 40`}
+                className="w-full bg-gray-100 rounded-full h-3"
+              >
                 <div
                   className="bg-gradient-to-r from-brand-400 to-brand-600 h-3 rounded-full transition-all"
                   style={{ width: `${(weekNum / 40) * 100}%` }}
@@ -237,6 +245,14 @@ export default async function WeekPage({ params }: Props) {
                 </ul>
               </section>
             )}
+
+            {/* Newsletter CTA */}
+            <InlineNewsletter
+              headline={nextWeek ? `Get updates for Week ${nextWeek}` : 'Congratulations — Week 40!'}
+              subtext={nextWeek
+                ? `Weekly pregnancy tips delivered to your inbox — plus a free Birth Plan template.`
+                : 'Get postpartum recovery tips and newborn care guides delivered free.'}
+            />
 
             {/* Prev / Next Navigation */}
             <div className="flex justify-between gap-4 mt-10 pt-6 border-t border-gray-100">

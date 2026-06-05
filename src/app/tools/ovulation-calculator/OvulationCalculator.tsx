@@ -38,24 +38,30 @@ export function OvulationCalculator() {
       <div className="p-8">
         <div className="space-y-5 mb-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="ovulation-lmp" className="block text-sm font-medium text-gray-700 mb-2">
               First day of your last period
             </label>
             <input
+              id="ovulation-lmp"
               type="date"
               value={lmpDate}
               onChange={(e) => setLmpDate(e.target.value)}
               max={today}
+              aria-required="true"
               className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-300"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="ovulation-cycle" className="block text-sm font-medium text-gray-700 mb-2">
               Average cycle length: <strong>{cycleLength} days</strong>
             </label>
             <input
+              id="ovulation-cycle"
               type="range" min={21} max={45} value={cycleLength}
               onChange={(e) => setCycleLength(parseInt(e.target.value))}
+              aria-label={`Cycle length: ${cycleLength} days`}
+              aria-valuemin={21} aria-valuemax={45} aria-valuenow={cycleLength}
+              aria-valuetext={`${cycleLength} days`}
               className="w-full accent-brand-600"
             />
             <div className="flex justify-between text-xs text-gray-400 mt-1">
@@ -63,12 +69,12 @@ export function OvulationCalculator() {
             </div>
           </div>
         </div>
-        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+        {error && <p className="text-red-500 text-sm mb-4" role="alert">{error}</p>}
         <button
           onClick={calculate}
           className="w-full flex items-center justify-center gap-2 py-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl text-lg transition-colors"
         >
-          <Heart className="h-5 w-5" /> Calculate Fertile Window
+          <Heart className="h-5 w-5" aria-hidden="true" /> Calculate Fertile Window
         </button>
 
         {result && (

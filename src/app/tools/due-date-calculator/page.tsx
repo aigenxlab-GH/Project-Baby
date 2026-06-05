@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
 import { DueDateCalculator } from './DueDateCalculator';
 import { JsonLd } from '@/components/seo/JsonLd';
+import { InlineNewsletter } from '@/components/shared/InlineNewsletter';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
 export const metadata: Metadata = {
   title: 'Due Date Calculator — Find Your Baby\'s Due Date',
@@ -44,6 +46,11 @@ export default function DueDateCalculatorPage() {
   return (
     <div>
       <JsonLd data={faqSchema} />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', href: '/' },
+        { name: 'Tools', href: '/tools' },
+        { name: 'Due Date Calculator', href: '/tools/due-date-calculator' },
+      ]} />
       <div className="container mx-auto max-w-3xl px-4 py-12">
         <div className="text-center mb-10">
           <h1 className="font-serif text-4xl font-bold text-gray-900 mb-3">
@@ -55,6 +62,12 @@ export default function DueDateCalculatorPage() {
           </p>
         </div>
         <DueDateCalculator />
+
+        {/* Newsletter CTA — highest converting placement */}
+        <InlineNewsletter
+          headline="Get weekly pregnancy updates for your stage"
+          subtext="We'll send you a personalised week-by-week guide + free Birth Plan template."
+        />
 
         {/* FAQs */}
         <section className="mt-16">

@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { siteConfig } from '@/config/site';
@@ -6,6 +5,7 @@ import { getAllArticles } from '@/lib/mdx';
 import Link from 'next/link';
 import { formatDate } from '@/lib/utils';
 import { Clock, User } from 'lucide-react';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
 export const metadata: Metadata = {
   title: 'Blog — Pregnancy & Baby Articles',
@@ -26,6 +26,10 @@ export default function BlogPage() {
 
   return (
     <div className="container mx-auto max-w-5xl px-4 py-12">
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', href: '/' },
+        { name: 'Blog', href: '/blog' },
+      ]} />
       {/* Header */}
       <div className="mb-12">
         <h1 className="font-serif text-4xl font-bold text-gray-900 mb-3">Blog</h1>
@@ -69,8 +73,8 @@ export default function BlogPage() {
                 {/* Content */}
                 <div className="p-6">
                   <div className="flex items-center gap-4 text-xs text-gray-400 mb-3">
-                    <span className="flex items-center gap-1"><User className="h-3 w-3" />{article.author}</span>
-                    <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{article.readingTime} min read</span>
+                    <span className="flex items-center gap-1"><User className="h-3 w-3" aria-hidden="true" />{article.author}</span>
+                    <span className="flex items-center gap-1"><Clock className="h-3 w-3" aria-hidden="true" />{article.readingTime} min read</span>
                     <span>{formatDate(article.publishedAt)}</span>
                   </div>
                   <h2 className={`font-serif font-bold text-gray-900 group-hover:text-brand-600 transition-colors mb-2 leading-snug ${i === 0 ? 'text-2xl' : 'text-lg'}`}>

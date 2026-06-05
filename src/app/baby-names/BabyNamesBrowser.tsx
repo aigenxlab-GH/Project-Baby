@@ -33,22 +33,28 @@ export function BabyNamesBrowser() {
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 mb-8">
         {/* Search */}
         <div className="relative mb-4">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" aria-hidden="true" />
+          <label htmlFor="name-search" className="sr-only">Search baby names</label>
           <input
-            type="text"
+            id="name-search"
+            type="search"
             placeholder="Search baby names..."
             value={filters.query || ''}
             onChange={(e) => updateFilter('query', e.target.value || undefined)}
+            aria-label="Search baby names"
             className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-300 text-gray-900"
           />
         </div>
 
         {/* Gender Filter */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <fieldset className="mb-4">
+          <legend className="sr-only">Filter by gender</legend>
+          <div className="flex flex-wrap gap-2">
           {(['all', 'girl', 'boy', 'neutral'] as const).map((g) => (
             <button
               key={g}
               onClick={() => updateFilter('gender', g)}
+              aria-pressed={filters.gender === g}
               className={`px-4 py-2 rounded-full text-sm font-medium capitalize transition-colors
                 ${filters.gender === g
                   ? g === 'girl' ? 'bg-pink-500 text-white' : g === 'boy' ? 'bg-blue-500 text-white' : g === 'neutral' ? 'bg-purple-500 text-white' : 'bg-gray-900 text-white'
@@ -58,31 +64,40 @@ export function BabyNamesBrowser() {
               {g === 'all' ? 'All Names' : g === 'girl' ? 'Girl Names' : g === 'boy' ? 'Boy Names' : 'Neutral'}
             </button>
           ))}
-        </div>
+          </div>
+        </fieldset>
 
         {/* Letter Filter */}
-        <div className="flex flex-wrap gap-1 mb-4">
-          <button
-            onClick={() => updateFilter('startingLetter', undefined)}
-            className={`px-2 py-1 rounded text-xs font-medium ${!filters.startingLetter ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
-          >
-            All
-          </button>
-          {LETTERS.map((l) => (
+        <fieldset className="mb-4">
+          <legend className="sr-only">Filter by starting letter</legend>
+          <div className="flex flex-wrap gap-1">
             <button
-              key={l}
-              onClick={() => updateFilter('startingLetter', filters.startingLetter === l ? undefined : l)}
-              className={`px-2 py-1 rounded text-xs font-medium transition-colors ${filters.startingLetter === l ? 'bg-brand-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-brand-50 hover:text-brand-600'}`}
+              onClick={() => updateFilter('startingLetter', undefined)}
+              aria-pressed={!filters.startingLetter}
+              className={`px-2 py-1 rounded text-xs font-medium ${!filters.startingLetter ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
             >
-              {l}
+              All
             </button>
-          ))}
-        </div>
+            {LETTERS.map((l) => (
+              <button
+                key={l}
+                onClick={() => updateFilter('startingLetter', filters.startingLetter === l ? undefined : l)}
+                aria-pressed={filters.startingLetter === l}
+                aria-label={`Names starting with ${l}`}
+                className={`px-2 py-1 rounded text-xs font-medium transition-colors ${filters.startingLetter === l ? 'bg-brand-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-brand-50 hover:text-brand-600'}`}
+              >
+                {l}
+              </button>
+            ))}
+          </div>
+        </fieldset>
 
         {/* Origin Filter */}
         <div className="flex items-center gap-2">
-          <Filter className="h-4 w-4 text-gray-400 flex-shrink-0" />
+          <Filter className="h-4 w-4 text-gray-400 flex-shrink-0" aria-hidden="true" />
+          <label htmlFor="origin-filter" className="sr-only">Filter by origin</label>
           <select
+            id="origin-filter"
             value={filters.origin || ''}
             onChange={(e) => updateFilter('origin', e.target.value || undefined)}
             className="text-sm border border-gray-200 rounded-lg px-3 py-1.5 text-gray-600 focus:outline-none focus:ring-2 focus:ring-brand-300"

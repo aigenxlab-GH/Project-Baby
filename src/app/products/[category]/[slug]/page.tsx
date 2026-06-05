@@ -3,13 +3,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { ChevronRight, Star, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
-import { getProductBySlug, getProductsByCategory, getAllProducts } from '@/lib/products';
+import { getProductBySlug, getAllProducts } from '@/lib/products';
 import { siteConfig } from '@/config/site';
 import { BuyButton } from '@/components/affiliate/BuyButton';
 import { InContentAd } from '@/components/ads/InContentAd';
 import { ProductJsonLd } from '@/components/seo/ProductJsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
-import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
 import type { ProductCategory } from '@/types/product';
 
 interface Props {

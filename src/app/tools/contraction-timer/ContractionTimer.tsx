@@ -97,18 +97,20 @@ export function ContractionTimer() {
 
         <button
           onClick={active ? stopContraction : startContraction}
-          className={`w-full py-5 rounded-2xl text-xl font-bold transition-all active:scale-95 ${active
+          aria-live="polite"
+          aria-label={active ? 'Stop recording contraction' : 'Start recording contraction'}
+          className={`w-full py-6 rounded-2xl text-xl font-bold transition-all active:scale-95 min-h-[72px] touch-manipulation ${active
             ? 'bg-red-500 hover:bg-red-600 text-white'
             : 'bg-brand-600 hover:bg-brand-700 text-white'
           }`}
         >
           {active ? (
             <span className="flex items-center justify-center gap-2">
-              <Pause className="h-6 w-6" /> Stop Contraction
+              <Pause className="h-6 w-6" aria-hidden="true" /> Stop Contraction
             </span>
           ) : (
             <span className="flex items-center justify-center gap-2">
-              <Play className="h-6 w-6" /> Start Contraction
+              <Play className="h-6 w-6" aria-hidden="true" /> Start Contraction
             </span>
           )}
         </button>
@@ -141,17 +143,18 @@ export function ContractionTimer() {
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
           <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
             <h3 className="font-semibold text-gray-900">Contraction History</h3>
-            <button onClick={clear} className="text-sm text-red-500 hover:text-red-700 flex items-center gap-1">
-              <Trash2 className="h-4 w-4" /> Clear
+            <button onClick={clear} aria-label="Clear all contraction history" className="text-sm text-red-500 hover:text-red-700 flex items-center gap-1">
+              <Trash2 className="h-4 w-4" aria-hidden="true" /> Clear
             </button>
           </div>
-          <table className="w-full text-sm">
+          <table className="w-full text-sm" aria-label="Contraction history">
+            <caption className="sr-only">Recorded contractions — most recent first</caption>
             <thead className="bg-gray-50">
               <tr>
-                <th className="text-left px-5 py-2 text-xs text-gray-500 font-medium">#</th>
-                <th className="text-left px-5 py-2 text-xs text-gray-500 font-medium">Time</th>
-                <th className="text-left px-5 py-2 text-xs text-gray-500 font-medium">Duration</th>
-                <th className="text-left px-5 py-2 text-xs text-gray-500 font-medium">Frequency</th>
+                <th scope="col" className="text-left px-5 py-2 text-xs text-gray-500 font-medium">#</th>
+                <th scope="col" className="text-left px-5 py-2 text-xs text-gray-500 font-medium">Time</th>
+                <th scope="col" className="text-left px-5 py-2 text-xs text-gray-500 font-medium">Duration</th>
+                <th scope="col" className="text-left px-5 py-2 text-xs text-gray-500 font-medium">Frequency</th>
               </tr>
             </thead>
             <tbody>

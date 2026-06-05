@@ -67,7 +67,7 @@ export default function HomePage() {
             {/* Text */}
             <div>
               <div className="inline-flex items-center gap-1.5 bg-brand-100 text-brand-700 rounded-full px-3 py-1 text-xs font-semibold mb-4 shadow-sm">
-                <Baby className="h-3 w-3" />
+                <Baby className="h-3 w-3" aria-hidden="true" />
                 Your trusted pregnancy &amp; baby resource
               </div>
               <h1 className="font-serif text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight mb-4">
@@ -98,9 +98,9 @@ export default function HomePage() {
               </div>
               {/* Trust badges */}
               <div className="flex flex-wrap gap-4 text-xs text-gray-500">
-                <span className="flex items-center gap-1">✅ Free forever</span>
-                <span className="flex items-center gap-1">✅ 72 expert guides</span>
-                <span className="flex items-center gap-1">✅ 1,188+ baby names</span>
+                <span className="flex items-center gap-1"><span aria-hidden="true">✅</span> Free forever</span>
+                <span className="flex items-center gap-1"><span aria-hidden="true">✅</span> 72 expert guides</span>
+                <span className="flex items-center gap-1"><span aria-hidden="true">✅</span> 1,188+ baby names</span>
               </div>
             </div>
             {/* Hero Image — visible from md up */}
@@ -118,7 +118,7 @@ export default function HomePage() {
               </div>
               {/* Floating badge */}
               <div className="absolute -bottom-3 -left-3 bg-white rounded-xl shadow-lg p-3 flex items-center gap-2.5">
-                <div className="w-9 h-9 bg-green-100 rounded-lg flex items-center justify-center text-lg">🌱</div>
+                <div className="w-9 h-9 bg-green-100 rounded-lg flex items-center justify-center text-lg" aria-hidden="true">🌱</div>
                 <div>
                   <p className="font-bold text-gray-900 text-xs">Week by Week</p>
                   <p className="text-[11px] text-gray-500">40 detailed guides</p>
@@ -126,7 +126,7 @@ export default function HomePage() {
               </div>
               {/* Floating badge 2 */}
               <div className="absolute -top-3 -right-3 bg-white rounded-xl shadow-lg p-3 flex items-center gap-2.5">
-                <div className="w-9 h-9 bg-pink-100 rounded-lg flex items-center justify-center text-lg">👶</div>
+                <div className="w-9 h-9 bg-pink-100 rounded-lg flex items-center justify-center text-lg" aria-hidden="true">👶</div>
                 <div>
                   <p className="font-bold text-gray-900 text-xs">Baby Names</p>
                   <p className="text-[11px] text-gray-500">Meanings &amp; origins</p>
@@ -221,7 +221,7 @@ export default function HomePage() {
                 href={`/pregnancy/week-by-week/${week.slug}`}
                 className="group bg-gradient-to-br from-brand-50 to-pink-50 rounded-2xl p-4 text-center border border-brand-100 hover:border-brand-300 hover:shadow-md transition-all"
               >
-                <div className="text-2xl mb-1.5">
+                <div className="text-2xl mb-1.5" aria-hidden="true">
                   {week.week <= 13 ? '🌱' : week.week <= 27 ? '🥑' : '👶'}
                 </div>
                 <p className="font-bold text-brand-700 text-base">Week {week.week}</p>

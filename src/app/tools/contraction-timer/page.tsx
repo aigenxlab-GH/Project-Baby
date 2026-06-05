@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
 import { ContractionTimer } from './ContractionTimer';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
 export const metadata: Metadata = {
   title: 'Contraction Timer — Track Labor Contractions',
@@ -11,6 +12,11 @@ export const metadata: Metadata = {
 export default function ContractionTimerPage() {
   return (
     <div className="container mx-auto max-w-2xl px-4 py-12">
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', href: '/' },
+        { name: 'Tools', href: '/tools' },
+        { name: 'Contraction Timer', href: '/tools/contraction-timer' },
+      ]} />
       <div className="text-center mb-10">
         <h1 className="font-serif text-4xl font-bold text-gray-900 mb-3">
           Contraction Timer

@@ -61,9 +61,12 @@ export function SymptomChecker() {
               <button
                 key={s.id}
                 onClick={() => toggle(s.id)}
+                role="checkbox"
+                aria-checked={isSelected}
+                aria-label={s.label}
                 className={`flex items-center gap-3 px-4 py-3 rounded-xl border text-left transition-all ${isSelected ? (s.urgency === 'call-doctor' ? 'border-red-300 bg-red-50' : s.urgency === 'monitor' ? 'border-amber-300 bg-amber-50' : 'border-green-300 bg-green-50') : 'border-gray-100 hover:border-brand-200 hover:bg-brand-50'}`}
               >
-                <div className={`w-4 h-4 rounded-full border-2 flex-shrink-0 ${isSelected ? 'bg-brand-600 border-brand-600' : 'border-gray-300'}`} />
+                <div className={`w-4 h-4 rounded-full border-2 flex-shrink-0 ${isSelected ? 'bg-brand-600 border-brand-600' : 'border-gray-300'}`} aria-hidden="true" />
                 <span className="text-sm font-medium text-gray-700">{s.label}</span>
               </button>
             );
@@ -73,10 +76,10 @@ export function SymptomChecker() {
 
       {/* Urgent Alert */}
       {hasUrgent && (
-        <div className="bg-red-50 border border-red-300 rounded-2xl p-5 flex items-start gap-3">
-          <AlertTriangle className="h-6 w-6 text-red-500 flex-shrink-0 mt-0.5" />
+        <div role="alert" aria-live="assertive" className="bg-red-50 border border-red-300 rounded-2xl p-5 flex items-start gap-3">
+          <AlertTriangle className="h-6 w-6 text-red-500 flex-shrink-0 mt-0.5" aria-hidden="true" />
           <div>
-            <p className="font-bold text-red-900 text-lg">⚠️ Call Your Doctor or Go to the ER</p>
+            <p className="font-bold text-red-900 text-lg">Call Your Doctor or Go to the ER</p>
             <p className="text-red-800 text-sm mt-1">You have selected one or more symptoms that require immediate medical attention.</p>
           </div>
         </div>
