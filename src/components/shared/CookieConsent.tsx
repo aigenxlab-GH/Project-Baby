@@ -48,7 +48,9 @@ export function CookieConsent() {
             We use cookies to improve your experience and show relevant ads. See our{' '}
             <Link href="/privacy-policy" className="text-brand-600 hover:underline">Privacy Policy</Link>{' '}
             and{' '}
-            <Link href="/privacy-policy#cookies" className="text-brand-600 hover:underline">Cookie Policy</Link>.
+            <Link href="/cookie-policy" className="text-brand-600 hover:underline">Cookie Policy</Link>.
+            {' '}California residents:{' '}
+            <Link href="/cookie-policy#ccpa" className="text-brand-600 hover:underline">Do Not Sell My Info</Link>.
           </p>
         </div>
         <button

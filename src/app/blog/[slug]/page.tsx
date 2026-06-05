@@ -12,6 +12,7 @@ import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
 import { InlineNewsletter } from '@/components/shared/InlineNewsletter';
 import { TableOfContents } from '@/components/blog/TableOfContents';
+import { AuthorBox } from '@/components/blog/AuthorBox';
 import { injectHeadingIds, extractToc } from '@/lib/toc';
 
 interface Props {
@@ -64,7 +65,7 @@ const AUTHORITY_LINKS: [RegExp, string, string][] = [
 
 function linkAuthorities(html: string): string {
   // Only replace in text content — not inside existing <a> tags or HTML attributes
-  return html.replace(/(<a[^>]*>.*?<\/a>)|([^<>]+)/gs, (match, link, text) => {
+  return html.replace(/(<a[^>]*>[\s\S]*?<\/a>)|([^<>]+)/g, (match, link, text) => {
     if (link) return link; // already a link — don't touch
     if (!text) return match;
     let result = text;
@@ -260,6 +261,14 @@ export default async function BlogArticlePage({ params }: Props) {
               ))}
             </div>
           )}
+
+          {/* Author attribution box */}
+          <AuthorBox
+            author={article.author}
+            reviewedBy="NHS, WHO, and NICE"
+            publishedAt={article.publishedAt}
+            updatedAt={article.updatedAt}
+          />
 
           {/* Nav */}
           <div className="mt-10 pt-6 border-t border-gray-100 flex items-center justify-between">

@@ -9,6 +9,7 @@ import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { InlineNewsletter } from '@/components/shared/InlineNewsletter';
 import { SourceCitations, NEWBORN_CITATIONS, SLEEP_CITATIONS, FEEDING_CITATIONS, PREGNANCY_CITATIONS } from '@/components/shared/SourceCitations';
+import { AuthorBox } from '@/components/blog/AuthorBox';
 
 interface Props {
   params: Promise<{ topic: string; slug: string }>;
@@ -173,6 +174,14 @@ export default async function ParentingArticlePage({ params }: Props) {
             </div>
           </section>
         )}
+
+        {/* Author attribution box */}
+        <AuthorBox
+          author={article.author}
+          reviewedBy="NHS, WHO, and NICE"
+          publishedAt={article.publishedAt}
+          updatedAt={article.updatedAt}
+        />
 
         {/* Back navigation */}
         <div className="mt-10 pt-6 border-t border-gray-100 flex items-center justify-between">

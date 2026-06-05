@@ -131,7 +131,11 @@ export function Footer() {
             <span className="text-gray-700">·</span>
             <Link href="/privacy-policy" className="hover:text-gray-400 transition-colors">Privacy</Link>
             <span className="text-gray-700">·</span>
+            <Link href="/cookie-policy" className="hover:text-gray-400 transition-colors">Cookies</Link>
+            <span className="text-gray-700">·</span>
             <Link href="/terms" className="hover:text-gray-400 transition-colors">Terms</Link>
+            <span className="text-gray-700">·</span>
+            <Link href="/cookie-policy#ccpa" className="hover:text-gray-400 transition-colors text-gray-500">Do Not Sell My Info</Link>
           </div>
         </div>
       </div>
