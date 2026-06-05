@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
 import { RegistryChecklist } from './RegistryChecklist';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
 export const metadata: Metadata = {
   title: 'Baby Registry Checklist — Everything You Need for Your Newborn',
@@ -11,6 +13,8 @@ export const metadata: Metadata = {
 export default function RegistryChecklistPage() {
   return (
     <div className="container mx-auto max-w-3xl px-4 py-12">
+      <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Tools', href: '/tools' }, { name: 'Registry Checklist', href: '/tools/registry-checklist' }]} />
+      <Breadcrumb items={[{ name: 'Tools', href: '/tools' }, { name: 'Registry Checklist', href: '/tools/registry-checklist' }]} />
       <div className="text-center mb-10">
         <h1 className="font-serif text-4xl font-bold text-gray-900 mb-3">
           Baby Registry Checklist

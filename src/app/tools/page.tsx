@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import { Calculator, Heart, Timer, Search, List, Activity, ChevronRight } from 'lucide-react';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
 export const metadata: Metadata = {
   title: 'Free Pregnancy & Baby Tools',
@@ -21,6 +23,8 @@ const tools = [
 export default function ToolsPage() {
   return (
     <div className="container mx-auto max-w-4xl px-4 py-12">
+      <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Tools', href: '/tools' }]} />
+      <Breadcrumb items={[{ name: 'Free Tools', href: '/tools' }]} />
       <div className="text-center mb-12">
         <h1 className="font-serif text-4xl font-bold text-gray-900 mb-4">Free Pregnancy & Baby Tools</h1>
         <p className="text-gray-600 text-lg">Helpful calculators, timers, and planners — all free.</p>

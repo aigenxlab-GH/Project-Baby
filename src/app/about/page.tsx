@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import { Heart, Shield, Star, Baby, FileText, Users, CheckCircle, BookOpen, Globe } from 'lucide-react';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
 export const metadata: Metadata = {
   title: 'About PregnancySprout — Our Mission and Editorial Standards',
@@ -59,6 +61,10 @@ const editorialProcess = [
 export default function AboutPage() {
   return (
     <div className="bg-[#fdf8fa] min-h-screen">
+      <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'About', href: '/about' }]} />
+      <div className="container mx-auto max-w-4xl px-4 pt-4">
+        <Breadcrumb items={[{ name: 'About', href: '/about' }]} />
+      </div>
       {/* Hero */}
       <div className="relative overflow-hidden h-72 md:h-96">
         <Image

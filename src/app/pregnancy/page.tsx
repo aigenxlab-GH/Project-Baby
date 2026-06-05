@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, Baby, Calculator } from 'lucide-react';
 import { siteConfig } from '@/config/site';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
 export const metadata: Metadata = {
   title: 'Pregnancy Guide — Week by Week, Symptoms & Tips',
@@ -12,6 +14,8 @@ export const metadata: Metadata = {
 export default function PregnancyHubPage() {
   return (
     <div className="container mx-auto max-w-7xl px-4 py-12">
+      <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Pregnancy', href: '/pregnancy' }]} />
+      <Breadcrumb items={[{ name: 'Pregnancy', href: '/pregnancy' }]} />
       <div className="text-center mb-12">
         <h1 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 mb-4">
           Pregnancy Guide

@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import { CheckCircle, AlertCircle, BookOpen, Users } from 'lucide-react';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
 export const metadata: Metadata = {
   title: 'Editorial Standards — PregnancySprout',
@@ -12,6 +14,10 @@ export const metadata: Metadata = {
 export default function EditorialStandardsPage() {
   return (
     <div className="bg-white">
+      <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'About', href: '/about' }, { name: 'Editorial Standards', href: '/editorial-standards' }]} />
+      <div className="container mx-auto max-w-4xl px-4 pt-4">
+        <Breadcrumb items={[{ name: 'About', href: '/about' }, { name: 'Editorial Standards', href: '/editorial-standards' }]} />
+      </div>
       {/* Hero */}
       <div className="bg-gradient-to-br from-brand-50 to-purple-50 border-b border-brand-100">
         <div className="container mx-auto max-w-4xl px-4 py-12 md:py-16">

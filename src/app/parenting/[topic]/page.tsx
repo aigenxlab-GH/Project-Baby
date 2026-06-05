@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import { siteConfig } from '@/config/site';
 import { ChevronRight, Baby, Moon, Utensils, TrendingUp, Clock, ArrowRight } from 'lucide-react';
 import { getAllArticles } from '@/lib/mdx';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
 const topicMeta: Record<string, {
   title: string;
@@ -96,16 +98,16 @@ export default async function ParentingTopicPage({ params }: { params: Promise<{
 
   return (
     <div className="bg-[#fdf8fa] dark:bg-[#0f0f13] min-h-screen">
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', href: '/' },
+        { name: 'Parenting', href: '/parenting' },
+        { name: meta.title, href: `/parenting/${topic}` },
+      ]} />
       <div className="container mx-auto max-w-5xl px-4 py-8">
-
-        {/* Breadcrumb */}
-        <nav className="flex items-center gap-1.5 text-xs text-gray-400 mb-6 flex-wrap">
-          <Link href="/" className="hover:text-brand-600 dark:hover:text-brand-400">Home</Link>
-          <ChevronRight className="h-3 w-3" />
-          <Link href="/parenting" className="hover:text-brand-600 dark:hover:text-brand-400">Parenting</Link>
-          <ChevronRight className="h-3 w-3" />
-          <span className="text-gray-600 dark:text-gray-300 font-medium">{meta.title}</span>
-        </nav>
+        <Breadcrumb items={[
+          { name: 'Parenting', href: '/parenting' },
+          { name: meta.title, href: `/parenting/${topic}` },
+        ]} />
 
         {/* Hero */}
         <div className="bg-gradient-to-br from-brand-50 to-purple-50 dark:from-brand-950/30 dark:to-purple-950/30 rounded-3xl p-8 md:p-10 mb-10 border border-brand-100 dark:border-brand-900">

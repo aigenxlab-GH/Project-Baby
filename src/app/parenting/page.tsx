@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import { ChevronRight } from 'lucide-react';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
 export const metadata: Metadata = {
   title: 'Parenting Tips & Baby Development Guides',
@@ -19,6 +21,8 @@ const topics = [
 export default function ParentingPage() {
   return (
     <div className="container mx-auto max-w-7xl px-4 py-12">
+      <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Parenting', href: '/parenting' }]} />
+      <Breadcrumb items={[{ name: 'Parenting', href: '/parenting' }]} />
       <div className="text-center mb-12">
         <h1 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 mb-4">Parenting Tips & Guides</h1>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">

@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllWeeks } from '@/lib/pregnancy-data';
 import { siteConfig } from '@/config/site';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
 export const metadata: Metadata = {
   title: 'Pregnancy Week by Week — Your Complete Guide',
@@ -21,6 +23,8 @@ export default function WeekByWeekPage() {
 
   return (
     <div className="container mx-auto max-w-7xl px-4 py-12">
+      <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Pregnancy', href: '/pregnancy' }, { name: 'Week by Week', href: '/pregnancy/week-by-week' }]} />
+      <Breadcrumb items={[{ name: 'Pregnancy', href: '/pregnancy' }, { name: 'Week by Week', href: '/pregnancy/week-by-week' }]} />
       <div className="text-center mb-12">
         <h1 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 mb-4">
           Pregnancy Week by Week

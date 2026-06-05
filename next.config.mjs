@@ -9,6 +9,10 @@ const nextConfig = {
       { protocol: 'https', hostname: 'plus.unsplash.com' },
     ],
   },
+
+  // No trailing slash on any URL.
+  // Next.js will automatically 308-redirect /blog/ → /blog
+  // This keeps canonical tags, sitemap, and actual URLs all consistent.
   trailingSlash: false,
 
   async headers() {

@@ -2,6 +2,8 @@ import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
 import { BabyNamesBrowser } from './BabyNamesBrowser';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
 export const metadata: Metadata = {
   title: 'Baby Names — Browse 1,188+ Names with Meanings & Origins',
@@ -12,6 +14,8 @@ export const metadata: Metadata = {
 export default function BabyNamesPage() {
   return (
     <div className="container mx-auto max-w-7xl px-4 py-12">
+      <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Baby Names', href: '/baby-names' }]} />
+      <Breadcrumb items={[{ name: 'Baby Names', href: '/baby-names' }]} />
       <div className="text-center mb-10">
         <h1 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 mb-4">
           Baby Names

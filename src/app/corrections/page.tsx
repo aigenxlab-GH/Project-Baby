@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import { AlertCircle, CheckCircle } from 'lucide-react';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
 export const metadata: Metadata = {
   title: 'Corrections & Updates — PregnancySprout',
@@ -29,6 +31,10 @@ export default function CorrectionsPage() {
 
   return (
     <div className="bg-white">
+      <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'About', href: '/about' }, { name: 'Corrections', href: '/corrections' }]} />
+      <div className="container mx-auto max-w-4xl px-4 pt-4">
+        <Breadcrumb items={[{ name: 'About', href: '/about' }, { name: 'Corrections', href: '/corrections' }]} />
+      </div>
       {/* Hero */}
       <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border-b border-blue-100">
         <div className="container mx-auto max-w-4xl px-4 py-12 md:py-16">
