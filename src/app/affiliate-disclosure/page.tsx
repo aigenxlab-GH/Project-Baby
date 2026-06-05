@@ -13,7 +13,7 @@ export default function AffiliateDisclosurePage() {
     <div className="container mx-auto max-w-3xl px-4 py-12">
       <h1 className="font-serif text-4xl font-bold text-gray-900 mb-6">Affiliate Disclosure</h1>
       <div className="prose prose-gray max-w-none space-y-4 text-gray-700">
-        <p className="text-lg font-medium text-gray-900">Last updated: January 1, 2026</p>
+        <p className="text-lg font-medium text-gray-900">Last updated: June 5, 2026</p>
 
         <p>
           {siteConfig.name} participates in affiliate marketing programs, including the{' '}

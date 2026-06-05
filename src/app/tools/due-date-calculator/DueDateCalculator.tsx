@@ -111,16 +111,19 @@ export function DueDateCalculator() {
       <div className="p-8">
         {/* Date Input */}
         <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            <Calendar className="h-4 w-4 inline mr-1" />
+          <label htmlFor="date-input" className="block text-sm font-medium text-gray-700 mb-2">
+            <Calendar className="h-4 w-4 inline mr-1" aria-hidden="true" />
             {method === 'lmp' ? 'First day of your last period' : method === 'conception' ? 'Conception date' : 'IVF transfer date'}
           </label>
           <input
+            id="date-input"
             type="date"
             value={dateInput}
             onChange={(e) => setDateInput(e.target.value)}
             min={minDate}
             max={maxDate}
+            aria-required="true"
+            aria-describedby={error ? 'date-error' : undefined}
             className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-300"
           />
         </div>
@@ -128,15 +131,21 @@ export function DueDateCalculator() {
         {/* Cycle length (LMP only) */}
         {method === 'lmp' && (
           <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="cycle-length" className="block text-sm font-medium text-gray-700 mb-2">
               Average cycle length: <strong>{cycleLength} days</strong>
             </label>
             <input
+              id="cycle-length"
               type="range"
               min={21}
               max={45}
               value={cycleLength}
               onChange={(e) => setCycleLength(parseInt(e.target.value))}
+              aria-label={`Cycle length: ${cycleLength} days`}
+              aria-valuemin={21}
+              aria-valuemax={45}
+              aria-valuenow={cycleLength}
+              aria-valuetext={`${cycleLength} days`}
               className="w-full accent-brand-600"
             />
             <div className="flex justify-between text-xs text-gray-400 mt-1">
@@ -147,7 +156,7 @@ export function DueDateCalculator() {
           </div>
         )}
 
-        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+        {error && <p id="date-error" className="text-red-500 text-sm mb-4" role="alert">{error}</p>}
 
         <button
           onClick={calculate}

@@ -9,6 +9,7 @@ import { ArticleJsonLd } from '@/components/seo/ArticleJsonLd';
 import { InContentAd } from '@/components/ads/InContentAd';
 import { SidebarAd } from '@/components/ads/SidebarAd';
 import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
 // Beautiful trimester-specific images
 const trimesterImages = {
@@ -60,6 +61,12 @@ export default async function WeekPage({ params }: Props) {
 
   return (
     <div>
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', href: '/' },
+        { name: 'Pregnancy', href: '/pregnancy' },
+        { name: 'Week by Week', href: '/pregnancy/week-by-week' },
+        { name: `Week ${weekNum}`, href: `/pregnancy/week-by-week/week-${weekNum}` },
+      ]} />
       <ArticleJsonLd
         title={`${weekNum} Weeks Pregnant`}
         description={`Baby development and symptoms at ${weekNum} weeks pregnant`}

@@ -8,7 +8,9 @@ import { siteConfig } from '@/config/site';
 import { formatDate } from '@/lib/utils';
 import { InContentAd } from '@/components/ads/InContentAd';
 import { ArticleJsonLd } from '@/components/seo/ArticleJsonLd';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
+import { InlineNewsletter } from '@/components/shared/InlineNewsletter';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -101,6 +103,11 @@ export default async function BlogArticlePage({ params }: Props) {
         url={`${siteConfig.url}/blog/${slug}`}
         faqs={article.faqs}
       />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', href: '/' },
+        { name: 'Blog', href: '/blog' },
+        { name: article.title, href: `/blog/${slug}` },
+      ]} />
 
       <div className="container mx-auto max-w-4xl px-4 py-8 dark:text-gray-200">
         {/* Breadcrumb */}
@@ -175,6 +182,12 @@ export default async function BlogArticlePage({ params }: Props) {
           />
 
           <InContentAd />
+
+          {/* Inline newsletter CTA */}
+          <InlineNewsletter
+            headline="Enjoying this article?"
+            subtext="Get weekly pregnancy tips, baby guides, and a free Birth Plan template — straight to your inbox."
+          />
 
           {/* FAQs */}
           {article.faqs && article.faqs.length > 0 && (

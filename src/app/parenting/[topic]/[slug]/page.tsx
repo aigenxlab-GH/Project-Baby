@@ -6,6 +6,8 @@ import { getArticleBySlug, getAllSlugs } from '@/lib/mdx';
 import { siteConfig } from '@/config/site';
 import { formatDate } from '@/lib/utils';
 import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { InlineNewsletter } from '@/components/shared/InlineNewsletter';
 
 interface Props {
   params: Promise<{ topic: string; slug: string }>;
@@ -74,6 +76,12 @@ export default async function ParentingArticlePage({ params }: Props) {
 
   return (
     <div className="container mx-auto max-w-4xl px-4 py-10">
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', href: '/' },
+        { name: 'Parenting', href: '/parenting' },
+        { name: topicLabel, href: `/parenting/${topic}` },
+        { name: article.title, href: `/parenting/${topic}/${slug}` },
+      ]} />
       {/* Breadcrumb */}
       <nav className="flex items-center gap-1.5 text-xs text-gray-400 mb-6 flex-wrap">
         <Link href="/" className="hover:text-brand-600">Home</Link>
@@ -133,6 +141,9 @@ export default async function ParentingArticlePage({ params }: Props) {
             prose-hr:border-gray-200 prose-hr:my-8"
           dangerouslySetInnerHTML={{ __html: markdownToHtml(article.content) }}
         />
+
+        {/* Inline newsletter CTA */}
+        <InlineNewsletter variant="compact" headline="Get more parenting tips in your inbox" />
 
         {/* FAQs */}
         {article.faqs && article.faqs.length > 0 && (

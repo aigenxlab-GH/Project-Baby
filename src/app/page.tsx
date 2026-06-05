@@ -4,6 +4,7 @@ import { siteConfig } from '@/config/site';
 import Image from 'next/image';
 import { getAllWeeks } from '@/lib/pregnancy-data';
 import { HeaderAd } from '@/components/ads/HeaderAd';
+import { WebSiteJsonLd } from '@/components/seo/WebSiteJsonLd';
 import {
   Baby, Calculator, Timer, List, Search,
   ChevronRight, Heart, BookOpen
@@ -11,7 +12,8 @@ import {
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} — ${siteConfig.tagline}`,
-  description: siteConfig.description,
+  description:
+    'Free pregnancy week-by-week guides (weeks 1–40), 1,188+ baby names with meanings, honest product reviews, and pregnancy tools including due date calculator, ovulation calculator & contraction timer.',
 };
 
 const tools = [
@@ -38,6 +40,7 @@ export default function HomePage() {
 
   return (
     <div>
+      <WebSiteJsonLd />
       <HeaderAd />
 
       {/* Hero */}
@@ -150,14 +153,14 @@ export default function HomePage() {
                 <div className="relative h-36 overflow-hidden rounded-t-2xl">
                   <Image
                     src={cat.img}
-                    alt={cat.title}
+                    alt={`${cat.title} — ${cat.desc}`}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 48vw, 24vw"
                   />
                   <div className={`absolute inset-0 bg-gradient-to-br ${cat.color} opacity-40`} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                  <div className="absolute bottom-3 left-3 text-3xl drop-shadow-sm">{cat.emoji}</div>
+                  <div className="absolute bottom-3 left-3 text-3xl drop-shadow-sm" aria-hidden="true">{cat.emoji}</div>
                 </div>
                 <div className="p-4">
                   <h3 className="font-serif text-base font-bold text-gray-900 mb-1">{cat.title}</h3>
@@ -239,7 +242,7 @@ export default function HomePage() {
       {/* Baby Names CTA */}
       <section className="py-8 px-4 bg-gradient-to-br from-purple-50 to-pink-50">
         <div className="container mx-auto max-w-3xl text-center">
-          <div className="text-3xl mb-3">✨</div>
+          <div className="text-3xl mb-3" aria-hidden="true">✨</div>
           <h2 className="font-serif text-2xl font-bold text-gray-900 mb-3">
             Find the Perfect Baby Name
           </h2>

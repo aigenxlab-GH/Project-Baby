@@ -5,6 +5,7 @@ import { ChevronRight, TrendingUp, TrendingDown, Minus, BookOpen } from 'lucide-
 import { getNameBySlug, getRelatedNames } from '@/lib/baby-names';
 import { siteConfig } from '@/config/site';
 import { JsonLd } from '@/components/seo/JsonLd';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { InContentAd } from '@/components/ads/InContentAd';
 
 interface Props {
@@ -55,6 +56,11 @@ export default async function NameDetailPage({ params }: Props) {
   return (
     <div>
       <JsonLd data={schema} />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', href: '/' },
+        { name: 'Baby Names', href: '/baby-names' },
+        { name: nameData.name, href: `/baby-names/${nameData.name.toLowerCase()}` },
+      ]} />
 
       {/* Breadcrumb */}
       <div className="bg-gray-50 border-b border-gray-100 py-3 px-4">

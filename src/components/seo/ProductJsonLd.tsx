@@ -30,13 +30,9 @@ export function ProductJsonLd({ product }: Props) {
         reviewBody: product.bottomLine,
         datePublished: product.publishedAt,
       },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: product.starRating,
-        bestRating: 5,
-        worstRating: 1,
-        ratingCount: 1,
-      },
+      // Only include aggregateRating when we have genuine multi-source data
+      // Single editorial review is expressed via Review only (no AggregateRating)
+      // to comply with Google's structured data guidelines
       ...(primaryLink && {
         offers: {
           '@type': 'Offer',

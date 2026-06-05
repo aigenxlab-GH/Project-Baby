@@ -8,6 +8,7 @@ import { siteConfig } from '@/config/site';
 import { BuyButton } from '@/components/affiliate/BuyButton';
 import { InContentAd } from '@/components/ads/InContentAd';
 import { ProductJsonLd } from '@/components/seo/ProductJsonLd';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
 import type { ProductCategory } from '@/types/product';
 
@@ -87,6 +88,12 @@ export default async function ProductReviewPage({ params }: Props) {
   return (
     <>
       <ProductJsonLd product={product} />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', href: '/' },
+        { name: 'Products', href: '/products' },
+        { name: catLabel, href: `/products/${category}` },
+        { name: product.productName, href: `/products/${category}/${slug}` },
+      ]} />
 
       <div className="container mx-auto max-w-4xl px-4 py-8">
         {/* Breadcrumb */}

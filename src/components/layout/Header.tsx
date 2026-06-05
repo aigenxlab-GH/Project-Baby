@@ -128,13 +128,14 @@ export function Header() {
 
             {/* Right: CTA + mobile trigger */}
             <div className="flex items-center gap-2">
-              {/* Search link — desktop */}
+              {/* Site search — desktop */}
               <Link
-                href="/baby-names"
-                className="hidden md:flex items-center gap-1.5 px-3 py-2 text-sm text-gray-500 hover:text-brand-600 hover:bg-brand-50 rounded-lg transition-colors"
-                title="Search baby names"
+                href="/search"
+                className="hidden md:flex items-center gap-1.5 px-3 py-2 text-sm text-gray-500 hover:text-brand-600 hover:bg-brand-50 rounded-lg transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-600"
+                aria-label="Search site"
+                title="Search PregnancySprout"
               >
-                <Search className="h-4 w-4" />
+                <Search className="h-4 w-4" aria-hidden="true" />
               </Link>
 
               {/* CTA button */}
@@ -172,15 +173,17 @@ export function Header() {
             {/* Mobile search */}
             <div className="px-4 pt-4 pb-2">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" aria-hidden="true" />
+                <label htmlFor="mobile-search" className="sr-only">Search site</label>
                 <input
-                  type="text"
-                  placeholder="Search baby names…"
+                  id="mobile-search"
+                  type="search"
+                  placeholder="Search PregnancySprout…"
                   value={mobileSearch}
                   onChange={(e) => setMobileSearch(e.target.value)}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' && mobileSearch.trim()) {
-                      window.location.href = `/baby-names?q=${encodeURIComponent(mobileSearch)}`;
+                      window.location.href = `/search?q=${encodeURIComponent(mobileSearch)}`;
                     }
                   }}
                   className="w-full pl-9 pr-4 py-2.5 text-sm border border-gray-200 rounded-xl focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-100 bg-gray-50"
@@ -192,26 +195,36 @@ export function Header() {
             <div className="px-4 pb-4 space-y-0.5">
               {mainNav.map((item) => (
                 <div key={item.href}>
-                  <Link
-                    href={item.href}
-                    className={`flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-xl transition-colors ${
-                      isActive(item.href)
-                        ? 'text-brand-600 bg-brand-50'
-                        : 'text-gray-700 hover:text-brand-600 hover:bg-brand-50'
-                    }`}
-                  >
-                    {item.title}
-                    {isActive(item.href) && (
-                      <span className="w-1.5 h-1.5 bg-brand-500 rounded-full" />
+                  <div className="flex items-center justify-between">
+                    <Link
+                      href={item.href}
+                      className={`flex-1 flex items-center px-3 py-2.5 text-sm font-medium rounded-xl transition-colors ${
+                        isActive(item.href)
+                          ? 'text-brand-600 bg-brand-50'
+                          : 'text-gray-700 hover:text-brand-600 hover:bg-brand-50'
+                      }`}
+                    >
+                      {item.title}
+                    </Link>
+                    {item.items && (
+                      <button
+                        onClick={() => setOpenDropdown(openDropdown === item.title ? null : item.title)}
+                        className="p-2.5 text-gray-400 hover:text-brand-600 transition-colors rounded-xl"
+                        aria-label={`${openDropdown === item.title ? 'Collapse' : 'Expand'} ${item.title} submenu`}
+                        aria-expanded={openDropdown === item.title}
+                      >
+                        <ChevronDown className={`h-4 w-4 transition-transform ${openDropdown === item.title ? 'rotate-180' : ''}`} aria-hidden="true" />
+                      </button>
                     )}
-                  </Link>
-                  {item.items && (
-                    <div className="ml-4 mb-1 space-y-0.5">
+                  </div>
+                  {item.items && openDropdown === item.title && (
+                    <div className="ml-4 mb-1 space-y-0.5 overflow-hidden">
                       {item.items.map((sub) => (
                         <Link
                           key={sub.href}
                           href={sub.href}
-                          className="block px-3 py-1.5 text-xs text-gray-500 hover:text-brand-600 hover:bg-brand-50 rounded-lg transition-colors"
+                          onClick={() => { setMobileOpen(false); setOpenDropdown(null); }}
+                          className="block px-3 py-2 text-xs text-gray-500 hover:text-brand-600 hover:bg-brand-50 rounded-lg transition-colors"
                         >
                           {sub.title}
                         </Link>
@@ -227,7 +240,7 @@ export function Header() {
                   href="/tools/due-date-calculator"
                   className="flex items-center justify-center gap-2 w-full py-3 text-sm font-semibold text-white bg-gradient-to-r from-brand-500 to-brand-600 rounded-xl"
                 >
-                  <Calculator className="h-4 w-4" />
+                  <Calculator className="h-4 w-4" aria-hidden="true" />
                   Calculate Your Due Date
                 </Link>
               </div>

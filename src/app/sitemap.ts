@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { siteConfig } from '@/config/site';
 import { getAllSlugs } from '@/lib/mdx';
 import { getAllProducts } from '@/lib/products';
+import { getAllNames } from '@/lib/baby-names';
 
 const url = (path: string) => `${siteConfig.url}${path}`;
 
@@ -82,12 +83,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // Add editorial/trust pages
+  const trustPages: MetadataRoute.Sitemap = [
+    { url: url('/editorial-standards'), lastModified: now, changeFrequency: 'yearly', priority: 0.4 },
+    { url: url('/corrections'), lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
+  ];
+
+  // Baby name detail pages
+  const allNames = getAllNames();
+  const namePages: MetadataRoute.Sitemap = allNames.map((n) => ({
+    url: url(`/baby-names/${n.name.toLowerCase()}`),
+    lastModified: now,
+    changeFrequency: 'yearly' as const,
+    priority: 0.6,
+  }));
+
   return [
     ...staticPages,
+    ...trustPages,
     ...weekPages,
     ...blogPages,
     ...parentingPages,
     ...productPages,
     ...productCategoryPages,
+    ...namePages,
   ];
 }

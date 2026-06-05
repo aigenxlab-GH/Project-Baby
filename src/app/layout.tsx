@@ -8,6 +8,7 @@ import { Footer } from '@/components/layout/Footer';
 import { BackToTop } from '@/components/shared/BackToTop';
 import { ReadingProgress } from '@/components/shared/ReadingProgress';
 import { ThemeProvider } from '@/components/shared/ThemeProvider';
+import { CookieConsent } from '@/components/shared/CookieConsent';
 
 const inter = Inter({
   subsets: ['latin', 'latin-ext'],
@@ -87,6 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="main-content" className="flex-1">{children}</main>
           <Footer />
           <BackToTop />
+          <CookieConsent />
         </ThemeProvider>
       </body>
     </html>

@@ -21,7 +21,7 @@ export default function NotFound() {
             404
           </p>
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-5xl animate-bounce">🌱</span>
+            <span className="text-5xl animate-bounce" aria-hidden="true">🌱</span>
           </div>
         </div>
 
