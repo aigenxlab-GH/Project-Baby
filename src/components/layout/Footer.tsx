@@ -107,6 +107,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/corrections" className="text-sm hover:text-white hover:translate-x-0.5 transition-all inline-block">
+                  Corrections
+                </Link>
+              </li>
+              <li>
                 <Link href="/terms" className="text-sm hover:text-white hover:translate-x-0.5 transition-all inline-block">
                   Terms &amp; Conditions
                 </Link>

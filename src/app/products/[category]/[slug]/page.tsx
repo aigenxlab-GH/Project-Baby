@@ -223,6 +223,15 @@ export default async function ProductReviewPage({ params }: Props) {
               <h2 className="font-serif text-xl font-bold text-gray-900 mb-4">Specifications</h2>
               <div className="rounded-2xl border border-gray-100 overflow-hidden overflow-x-auto">
                 <table className="w-full text-sm min-w-[320px]">
+                  <caption className="sr-only">
+                    Product specifications for {product.title}
+                  </caption>
+                  <thead className="sr-only">
+                    <tr>
+                      <th scope="col">Specification</th>
+                      <th scope="col">Value</th>
+                    </tr>
+                  </thead>
                   <tbody>
                     {Object.entries(product.specsTable).map(([key, value], i) => (
                       <tr key={key} className={i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>

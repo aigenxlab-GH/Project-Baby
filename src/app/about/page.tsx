@@ -94,6 +94,55 @@ export default function AboutPage() {
           </p>
         </div>
 
+        {/* Editorial Team */}
+        <section className="mb-14">
+          <h2 className="font-serif text-2xl font-bold text-gray-900 mb-8 text-center">Our Editorial Team</h2>
+          <p className="text-gray-600 text-center mb-10 max-w-2xl mx-auto">
+            PregnancySprout is maintained by a dedicated team committed to evidence-based, accurate content. All articles are reviewed against NHS, WHO, and NICE guidelines.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Team member 1 */}
+            <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+              <div className="w-16 h-16 bg-gradient-to-br from-brand-400 to-brand-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-serif text-2xl font-bold">
+                PS
+              </div>
+              <h3 className="font-serif text-lg font-bold text-gray-900 text-center mb-1">
+                PregnancySprout Editorial Team
+              </h3>
+              <p className="text-sm text-brand-600 text-center font-medium mb-3">
+                Content Research & Review
+              </p>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Our editorial team researches and reviews all content against current NHS, WHO, NICE, AAP, and RCOG guidelines. Every article is fact-checked for accuracy and clarity before publication.
+              </p>
+            </div>
+
+            {/* Transparency note */}
+            <div className="bg-amber-50 rounded-2xl border border-amber-200 p-6">
+              <h3 className="font-serif text-lg font-bold text-amber-900 mb-3">
+                Content Quality Standards
+              </h3>
+              <ul className="text-sm text-amber-800 space-y-2">
+                <li className="flex items-start gap-2">
+                  <span className="text-amber-600 font-bold mt-0.5">✓</span> All articles researched against official health guidelines
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-amber-600 font-bold mt-0.5">✓</span> Medical claims backed by peer-reviewed sources
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-amber-600 font-bold mt-0.5">✓</span> Updated quarterly for medical accuracy
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-amber-600 font-bold mt-0.5">✓</span> Clear publication & update dates on every article
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-amber-600 font-bold mt-0.5">✓</span> Transparent correction process
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* Values grid */}
         <h2 className="font-serif text-2xl font-bold text-gray-900 mb-6">What We Stand For</h2>
         <div className="grid md:grid-cols-2 gap-5 mb-14">
