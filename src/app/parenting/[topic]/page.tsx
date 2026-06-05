@@ -94,8 +94,6 @@ export default async function ParentingTopicPage({ params }: { params: Promise<{
   // ✅ Load articles DYNAMICALLY from actual MDX files — eliminates all 404s
   const articles = getAllArticles(`parenting/${topic}`);
 
-  const Icon = meta.icon;
-
   return (
     <div className="bg-[#fdf8fa] dark:bg-[#0f0f13] min-h-screen">
       <div className="container mx-auto max-w-5xl px-4 py-8">
