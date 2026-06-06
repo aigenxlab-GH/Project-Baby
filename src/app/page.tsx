@@ -37,7 +37,7 @@ const categories = [
     bg: 'bg-pink-50',
     border: 'hover:border-pink-300',
     // Pregnant woman holding belly — clearly pregnancy-specific
-    img: 'https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?w=600&q=85&auto=format&fit=crop&crop=faces,center',
+    img: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&q=85&auto=format&fit=crop&crop=faces,center',
     imgAlt: 'Pregnant woman cradling her bump, smiling warmly',
   },
   {
@@ -48,8 +48,8 @@ const categories = [
     color: 'from-purple-500 to-violet-600',
     bg: 'bg-purple-50',
     border: 'hover:border-purple-300',
-    // Newborn baby close-up — clearly baby-specific
-    img: 'https://images.unsplash.com/photo-1544143086-6b66a5f0f0a5?w=600&q=85&auto=format&fit=crop&crop=faces,top',
+    // Newborn baby sleeping — baby-specific
+    img: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&q=85&auto=format&fit=crop&crop=center',
     imgAlt: 'Newborn baby sleeping peacefully, perfect for choosing a name',
   },
   {
@@ -60,8 +60,8 @@ const categories = [
     color: 'from-amber-500 to-orange-500',
     bg: 'bg-amber-50',
     border: 'hover:border-amber-300',
-    // Baby stroller/pram in soft focus — product niche specific
-    img: 'https://images.unsplash.com/photo-1590492239080-e50b66d15a3d?w=600&q=85&auto=format&fit=crop&crop=center',
+    // Baby car seat — product niche specific
+    img: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=85&auto=format&fit=crop&crop=center',
     imgAlt: 'Modern baby stroller in a sunny park — product reviews for parents',
   },
   {

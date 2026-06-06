@@ -125,7 +125,7 @@ export function Logo({ size = 'md', variant = 'light', href = '/' }: LogoProps) 
 
   const t = textSizes[size];
 
-  const pregnancyColor = variant === 'dark' ? 'text-gray-300' : 'text-gray-400';
+  const pregnancyColor = variant === 'dark' ? 'text-gray-200' : 'text-gray-500 dark:text-gray-200';
 
   return (
     <Link href={href} className="flex items-center gap-2.5 group select-none">
@@ -137,7 +137,7 @@ export function Logo({ size = 'md', variant = 'light', href = '/' }: LogoProps) 
       {/* Two-tone wordmark */}
       <div className="flex flex-col leading-none">
         <span
-          className={`${t.pregnancy} ${pregnancyColor} font-light tracking-widest uppercase`}
+          className={`${t.pregnancy} ${pregnancyColor} font-bold tracking-widest uppercase`}
           style={{ letterSpacing: '0.18em' }}
         >
           Pregnancy

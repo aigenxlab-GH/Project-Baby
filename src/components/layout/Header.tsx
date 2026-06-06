@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, Search, Calculator } from 'lucide-react';
@@ -12,6 +12,7 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [mobileSearch, setMobileSearch] = useState('');
   const pathname = usePathname();
 
@@ -56,8 +57,13 @@ export function Header() {
                 <div
                   key={item.href}
                   className="relative"
-                  onMouseEnter={() => setOpenDropdown(item.title)}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseEnter={() => {
+                    if (leaveTimer.current) clearTimeout(leaveTimer.current);
+                    setOpenDropdown(item.title);
+                  }}
+                  onMouseLeave={() => {
+                    leaveTimer.current = setTimeout(() => setOpenDropdown(null), 120);
+                  }}
                 >
                   <div className="flex items-center">
                     <Link
