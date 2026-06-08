@@ -19,6 +19,9 @@ export interface AffiliateProduct {
     buyBaby?: string;
     target?: string;
     walmart?: string;
+    wayfair?: string;
+    bestBuy?: string;
+    etsy?: string;
   };
   commissionRate: number; // percentage
   priority: 'premium' | 'high' | 'medium' | 'low';
@@ -394,9 +397,160 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
       amazon: 'https://amazon.com/s?k=humidifier+baby&tag=pregnancysprout-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=humidifier',
       target: 'https://www.target.com/s?searchTerm=humidifier',
+      walmart: 'https://www.walmart.com/search?q=baby+humidifier',
     },
     commissionRate: 6,
     priority: 'medium',
+  },
+
+  // ============================================
+  // WAYFAIR (FURNITURE & DECOR)
+  // ============================================
+  'nursery-furniture-sets': {
+    id: 'nursery-furniture-sets',
+    name: 'Nursery Furniture Sets',
+    category: 'furniture',
+    description: 'Complete nursery furniture collections and sets',
+    affiliateLinks: {
+      wayfair: 'https://www.wayfair.com/nursery/sb0/nursery-furniture_1.html',
+      amazon: 'https://amazon.com/s?k=nursery+furniture+set&tag=pregnancysprout-20',
+      target: 'https://www.target.com/s?searchTerm=nursery+furniture',
+    },
+    commissionRate: 12,
+    priority: 'premium',
+  },
+
+  'baby-bedding-sets': {
+    id: 'baby-bedding-sets',
+    name: 'Baby Bedding Sets',
+    category: 'furniture',
+    description: 'Crib bedding sets with pillows and blankets',
+    affiliateLinks: {
+      wayfair: 'https://www.wayfair.com/nursery/sb0/crib-bedding_1.html',
+      amazon: 'https://amazon.com/s?k=baby+bedding+set&tag=pregnancysprout-20',
+      target: 'https://www.target.com/s?searchTerm=baby+bedding',
+    },
+    commissionRate: 10,
+    priority: 'high',
+  },
+
+  'changing-tables': {
+    id: 'changing-tables',
+    name: 'Changing Tables',
+    category: 'furniture',
+    description: 'Nursery changing tables with storage',
+    affiliateLinks: {
+      wayfair: 'https://www.wayfair.com/nursery/sb0/changing-tables_1.html',
+      amazon: 'https://amazon.com/s?k=changing+table&tag=pregnancysprout-20',
+      target: 'https://www.target.com/s?searchTerm=changing+table',
+    },
+    commissionRate: 11,
+    priority: 'high',
+  },
+
+  // ============================================
+  // BEST BUY (TECH & MONITORS)
+  // ============================================
+  'baby-monitor-wifi': {
+    id: 'baby-monitor-wifi',
+    name: 'WiFi Baby Monitors',
+    category: 'monitors',
+    description: 'Smart WiFi-enabled baby monitors with app control',
+    affiliateLinks: {
+      bestBuy: 'https://www.bestbuy.com/site/searchpage.jsp?st=baby+monitor',
+      amazon: 'https://amazon.com/s?k=wifi+baby+monitor&tag=pregnancysprout-20',
+      target: 'https://www.target.com/s?searchTerm=smart+baby+monitor',
+    },
+    commissionRate: 8,
+    priority: 'high',
+  },
+
+  'night-light-projectors': {
+    id: 'night-light-projectors',
+    name: 'Night Light Projectors',
+    category: 'sleep',
+    description: 'Star/moon projector night lights for nursery',
+    affiliateLinks: {
+      bestBuy: 'https://www.bestbuy.com/site/searchpage.jsp?st=night+light+projector',
+      amazon: 'https://amazon.com/s?k=projector+night+light&tag=pregnancysprout-20',
+      target: 'https://www.target.com/s?searchTerm=night+light+projector',
+    },
+    commissionRate: 7,
+    priority: 'medium',
+  },
+
+  // ============================================
+  // ETSY (HANDMADE & UNIQUE ITEMS)
+  // ============================================
+  'personalized-nursery-decor': {
+    id: 'personalized-nursery-decor',
+    name: 'Personalized Nursery Decor',
+    category: 'furniture',
+    description: 'Custom name signs and personalized room decorations',
+    affiliateLinks: {
+      etsy: 'https://www.etsy.com/search?q=personalized+nursery+decor',
+      amazon: 'https://amazon.com/s?k=personalized+nursery+wall+decor&tag=pregnancysprout-20',
+    },
+    commissionRate: 9,
+    priority: 'medium',
+  },
+
+  'handmade-baby-quilts': {
+    id: 'handmade-baby-quilts',
+    name: 'Handmade Baby Quilts',
+    category: 'bedding',
+    description: 'Custom handmade baby quilts and blankets',
+    affiliateLinks: {
+      etsy: 'https://www.etsy.com/search?q=baby+quilt+handmade',
+      amazon: 'https://amazon.com/s?k=baby+quilt&tag=pregnancysprout-20',
+    },
+    commissionRate: 10,
+    priority: 'medium',
+  },
+
+  'wooden-toys': {
+    id: 'wooden-toys',
+    name: 'Wooden Baby Toys',
+    category: 'toys',
+    description: 'Eco-friendly wooden toys and teethers',
+    affiliateLinks: {
+      etsy: 'https://www.etsy.com/search?q=wooden+baby+toys',
+      amazon: 'https://amazon.com/s?k=wooden+baby+toys&tag=pregnancysprout-20',
+      target: 'https://www.target.com/s?searchTerm=wooden+toys',
+    },
+    commissionRate: 8,
+    priority: 'medium',
+  },
+
+  // ============================================
+  // WALMART (BUDGET-FRIENDLY OPTIONS)
+  // ============================================
+  'budget-strollers': {
+    id: 'budget-strollers',
+    name: 'Budget-Friendly Strollers',
+    category: 'strollers',
+    description: 'Affordable strollers without breaking the bank',
+    affiliateLinks: {
+      walmart: 'https://www.walmart.com/cp/strollers/1088666',
+      amazon: 'https://amazon.com/s?k=affordable+stroller&tag=pregnancysprout-20',
+      target: 'https://www.target.com/s?searchTerm=affordable+stroller',
+    },
+    commissionRate: 6,
+    priority: 'high',
+  },
+
+  'budget-car-seats': {
+    id: 'budget-car-seats',
+    name: 'Budget Car Seats',
+    category: 'car-seats',
+    description: 'Affordable infant and convertible car seats',
+    affiliateLinks: {
+      walmart: 'https://www.walmart.com/cp/car-seats/1088665',
+      amazon: 'https://amazon.com/s?k=affordable+car+seat&tag=pregnancysprout-20',
+      target: 'https://www.target.com/s?searchTerm=affordable+car+seat',
+    },
+    commissionRate: 6,
+    priority: 'high',
   },
 };
 
@@ -404,7 +558,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
  * Helper function to get affiliate link
  * Usage: getAffiliateLink('best-car-seats', 'amazon')
  */
-export function getAffiliateLink(productId: string, retailer: 'amazon' | 'buyBaby' | 'target' | 'walmart'): string | null {
+export function getAffiliateLink(productId: string, retailer: 'amazon' | 'buyBaby' | 'target' | 'walmart' | 'wayfair' | 'bestBuy' | 'etsy'): string | null {
   const product = affiliateProducts[productId];
   if (!product) return null;
   return product.affiliateLinks[retailer] || null;

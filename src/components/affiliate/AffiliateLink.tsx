@@ -5,7 +5,7 @@ import { getAffiliateLink, getProduct } from '@/config/affiliateProducts';
 
 interface AffiliateLinkProps {
   productId: string;
-  retailer: 'amazon' | 'buyBaby' | 'target' | 'walmart';
+  retailer: 'amazon' | 'buyBaby' | 'target' | 'walmart' | 'wayfair' | 'bestBuy' | 'etsy';
   text: string;
   variant?: 'link' | 'button' | 'badge';
   className?: string;
