@@ -30,32 +30,32 @@ export function AuthorBox({ author, reviewedBy, publishedAt, updatedAt, compact 
   }
 
   return (
-    <div className="mt-10 border-t border-gray-100 pt-8">
-      <div className="flex items-start gap-4 p-5 bg-gray-50 rounded-2xl">
+    <div className="mt-10 border-t border-gray-100 dark:border-gray-800 pt-8">
+      <div className="flex items-start gap-4 p-5 bg-gray-50 dark:bg-gray-900 rounded-2xl">
         {/* Avatar placeholder */}
         <div
-          className="flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-br from-brand-100 to-brand-200 flex items-center justify-center"
+          className="flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-br from-brand-100 to-brand-200 dark:from-brand-900 dark:to-brand-800 flex items-center justify-center"
           aria-hidden="true"
         >
-          <Users className="h-7 w-7 text-brand-600" />
+          <Users className="h-7 w-7 text-brand-600 dark:text-brand-400" />
         </div>
 
         <div className="flex-1 min-w-0">
-          <p className="font-semibold text-gray-900 text-base">{displayAuthor}</p>
+          <p className="font-semibold text-gray-900 dark:text-white text-base">{displayAuthor}</p>
 
-          <p className="text-sm text-gray-600 mt-1 leading-relaxed">
+          <p className="text-sm text-gray-600 dark:text-gray-300 mt-1 leading-relaxed">
             Our editorial team researches every article against primary medical sources — NHS, WHO,
             NICE, and RCOG guidelines. We are health writers and parents, not doctors; content is
             reviewed for accuracy but does not constitute medical advice.
           </p>
 
           {reviewedBy && (
-            <p className="text-sm text-brand-700 mt-2 font-medium">
+            <p className="text-sm text-brand-700 dark:text-brand-400 mt-2 font-medium">
               ✓ Fact-checked against {reviewedBy} guidelines
             </p>
           )}
 
-          <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-500">
+          <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-500 dark:text-gray-400">
             {publishedAt && (
               <span>
                 Published{' '}
@@ -78,7 +78,7 @@ export function AuthorBox({ author, reviewedBy, publishedAt, updatedAt, compact 
             )}
             <Link
               href="/editorial-standards"
-              className="inline-flex items-center gap-1 text-brand-700 hover:underline"
+              className="inline-flex items-center gap-1 text-brand-700 dark:text-brand-400 hover:underline"
             >
               Editorial standards <ExternalLink className="h-3 w-3" aria-hidden="true" />
             </Link>

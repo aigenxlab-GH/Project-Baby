@@ -2,8 +2,6 @@ import type { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
 import { OvulationCalculator } from './OvulationCalculator';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
-import { InlineNewsletter } from '@/components/shared/InlineNewsletter';
-
 export const metadata: Metadata = {
   title: 'Ovulation Calculator — Find Your Fertile Window',
   description: 'Calculate your ovulation date and most fertile days. Enter your last period and average cycle length to find the best days to conceive.',
@@ -19,18 +17,14 @@ export default function OvulationCalculatorPage() {
         { name: 'Ovulation Calculator', href: '/tools/ovulation-calculator' },
       ]} />
       <div className="text-center mb-10">
-        <h1 className="font-serif text-4xl font-bold text-gray-900 mb-3">
+        <h1 className="font-serif text-4xl font-bold text-gray-900 dark:text-white mb-3">
           Ovulation Calculator
         </h1>
-        <p className="text-gray-600 text-lg">
+        <p className="text-gray-600 dark:text-gray-300 text-lg">
           Find your most fertile days and best chance to conceive. Enter your cycle details below.
         </p>
       </div>
       <OvulationCalculator />
-      <InlineNewsletter
-        headline="Planning to conceive?"
-        subtext="Get fertility tips, ovulation guides and pregnancy advice delivered weekly — free."
-      />
     </div>
   );
 }

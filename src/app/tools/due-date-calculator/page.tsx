@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
 import { DueDateCalculator } from './DueDateCalculator';
 import { JsonLd } from '@/components/seo/JsonLd';
-import { InlineNewsletter } from '@/components/shared/InlineNewsletter';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
 export const metadata: Metadata = {
@@ -53,30 +52,24 @@ export default function DueDateCalculatorPage() {
       ]} />
       <div className="container mx-auto max-w-3xl px-4 py-12">
         <div className="text-center mb-10">
-          <h1 className="font-serif text-4xl font-bold text-gray-900 mb-3">
+          <h1 className="font-serif text-4xl font-bold text-gray-900 dark:text-white mb-3">
             Pregnancy Due Date Calculator
           </h1>
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-600 dark:text-gray-300 text-lg">
             Enter your last period or conception date to instantly calculate your due date,
             current pregnancy week, and trimester.
           </p>
         </div>
         <DueDateCalculator />
 
-        {/* Newsletter CTA — highest converting placement */}
-        <InlineNewsletter
-          headline="Get weekly pregnancy updates for your stage"
-          subtext="We'll send you a personalised week-by-week guide + free Birth Plan template."
-        />
-
         {/* FAQs */}
         <section className="mt-16">
-          <h2 className="font-serif text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+          <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-6">Frequently Asked Questions</h2>
           <div className="space-y-5">
             {faqSchema.mainEntity.map((faq) => (
-              <div key={faq.name} className="bg-gray-50 rounded-2xl p-6">
-                <h3 className="font-semibold text-gray-900 mb-2">{faq.name}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{faq.acceptedAnswer.text}</p>
+              <div key={faq.name} className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-6">
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{faq.name}</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{faq.acceptedAnswer.text}</p>
               </div>
             ))}
           </div>

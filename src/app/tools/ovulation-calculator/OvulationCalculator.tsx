@@ -34,11 +34,11 @@ export function OvulationCalculator() {
   const today = format(new Date(), 'yyyy-MM-dd');
 
   return (
-    <div className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
+    <div className="bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden">
       <div className="p-8">
         <div className="space-y-5 mb-6">
           <div>
-            <label htmlFor="ovulation-lmp" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="ovulation-lmp" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               First day of your last period
             </label>
             <input
@@ -48,11 +48,11 @@ export function OvulationCalculator() {
               onChange={(e) => setLmpDate(e.target.value)}
               max={today}
               aria-required="true"
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-300"
+              className="w-full border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-gray-900 dark:text-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-300"
             />
           </div>
           <div>
-            <label htmlFor="ovulation-cycle" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="ovulation-cycle" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Average cycle length: <strong>{cycleLength} days</strong>
             </label>
             <input
@@ -64,7 +64,7 @@ export function OvulationCalculator() {
               aria-valuetext={`${cycleLength} days`}
               className="w-full accent-brand-600"
             />
-            <div className="flex justify-between text-xs text-gray-400 mt-1">
+            <div className="flex justify-between text-xs text-gray-400 dark:text-gray-500 mt-1">
               <span>21 days</span><span>28 typical</span><span>45 days</span>
             </div>
           </div>
@@ -79,34 +79,34 @@ export function OvulationCalculator() {
 
         {result && (
           <div className="mt-8 space-y-4">
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 text-center border border-purple-100">
-              <p className="text-sm text-gray-500 uppercase tracking-wide font-medium mb-1">Estimated Ovulation Date</p>
-              <p className="font-serif text-4xl font-bold text-gray-900">{format(result.ovulationDate, 'MMMM d, yyyy')}</p>
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/40 dark:to-pink-950/40 rounded-2xl p-6 text-center border border-purple-100 dark:border-purple-900">
+              <p className="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wide font-medium mb-1">Estimated Ovulation Date</p>
+              <p className="font-serif text-4xl font-bold text-gray-900 dark:text-white">{format(result.ovulationDate, 'MMMM d, yyyy')}</p>
             </div>
-            <div className="bg-green-50 rounded-2xl p-5 border border-green-200">
-              <p className="font-semibold text-green-900 mb-1">🟢 Most Fertile Window</p>
-              <p className="text-green-800">
+            <div className="bg-green-50 dark:bg-green-950/30 rounded-2xl p-5 border border-green-200 dark:border-green-900">
+              <p className="font-semibold text-green-900 dark:text-green-300 mb-1">🟢 Most Fertile Window</p>
+              <p className="text-green-800 dark:text-green-300">
                 <strong>{format(result.fertileStart, 'MMM d')}</strong> — <strong>{format(result.fertileEnd, 'MMM d, yyyy')}</strong>
               </p>
-              <p className="text-sm text-green-700 mt-1">Your 6 highest-fertility days</p>
+              <p className="text-sm text-green-700 dark:text-green-400 mt-1">Your 6 highest-fertility days</p>
             </div>
             <div className="grid grid-cols-2 gap-3">
-              <div className="bg-gray-50 rounded-xl p-4 text-center">
-                <p className="text-xs text-gray-500 mb-1">Next Period (est.)</p>
-                <p className="font-bold text-gray-900">{format(result.nextPeriod, 'MMM d, yyyy')}</p>
+              <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 text-center">
+                <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Next Period (est.)</p>
+                <p className="font-bold text-gray-900 dark:text-white">{format(result.nextPeriod, 'MMM d, yyyy')}</p>
               </div>
-              <div className="bg-gray-50 rounded-xl p-4 text-center">
-                <p className="text-xs text-gray-500 mb-1">Cycle Length</p>
-                <p className="font-bold text-gray-900">{cycleLength} days</p>
+              <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 text-center">
+                <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Cycle Length</p>
+                <p className="font-bold text-gray-900 dark:text-white">{cycleLength} days</p>
               </div>
             </div>
             <Link
               href="/tools/due-date-calculator"
-              className="flex items-center justify-between p-4 bg-white border border-brand-100 rounded-xl hover:border-brand-400 transition-all"
+              className="flex items-center justify-between p-4 bg-white dark:bg-gray-800 border border-brand-100 dark:border-brand-900 rounded-xl hover:border-brand-400 transition-all"
             >
               <div>
-                <p className="font-semibold text-gray-900">Got a positive test?</p>
-                <p className="text-sm text-gray-500">Calculate your due date →</p>
+                <p className="font-semibold text-gray-900 dark:text-white">Got a positive test?</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Calculate your due date →</p>
               </div>
               <ChevronRight className="h-5 w-5 text-brand-500" />
             </Link>

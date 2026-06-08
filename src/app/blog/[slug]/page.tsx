@@ -10,7 +10,6 @@ import { InContentAd } from '@/components/ads/InContentAd';
 import { ArticleJsonLd } from '@/components/seo/ArticleJsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
-import { InlineNewsletter } from '@/components/shared/InlineNewsletter';
 import { TableOfContents } from '@/components/blog/TableOfContents';
 import { AuthorBox } from '@/components/blog/AuthorBox';
 import { injectHeadingIds, extractToc } from '@/lib/toc';
@@ -183,11 +182,11 @@ export default async function BlogArticlePage({ params }: Props) {
 
           {/* Header */}
           <header className="mb-8">
-            <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4">
+            <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-4">
               {article.title}
             </h1>
-            <p className="text-base text-gray-600 leading-relaxed mb-5">{article.description}</p>
-            <div className="flex flex-wrap items-center gap-5 text-xs text-gray-400 pb-6 border-b border-gray-100">
+            <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-5">{article.description}</p>
+            <div className="flex flex-wrap items-center gap-5 text-xs text-gray-400 dark:text-gray-500 pb-6 border-b border-gray-100 dark:border-gray-800">
               <span className="flex items-center gap-1.5">
                 <User className="h-3.5 w-3.5" /> {article.author || 'PregnancySprout Editorial Team'}
               </span>
@@ -195,7 +194,7 @@ export default async function BlogArticlePage({ params }: Props) {
                 <Calendar className="h-3.5 w-3.5" /> Published {formatDate(article.publishedAt)}
               </span>
               {article.updatedAt && article.updatedAt !== article.publishedAt && (
-                <span className="flex items-center gap-1.5 text-gray-500">
+                <span className="flex items-center gap-1.5 text-gray-500 dark:text-gray-400">
                   <Calendar className="h-3.5 w-3.5" /> Updated {formatDate(article.updatedAt)}
                 </span>
               )}
@@ -212,39 +211,33 @@ export default async function BlogArticlePage({ params }: Props) {
 
           {/* Article body — properly rendered markdown */}
           <div
-            className="prose prose-sm max-w-none
-              prose-headings:font-serif prose-headings:text-gray-900
+            className="prose prose-sm max-w-none dark:prose-invert
+              prose-headings:font-serif prose-headings:text-gray-900 dark:prose-headings:text-white
               prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:font-bold
               prose-h3:text-xl prose-h3:mt-7 prose-h3:mb-3 prose-h3:font-semibold
-              prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4
-              prose-li:text-gray-700 prose-li:leading-relaxed
+              prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-4
+              prose-li:text-gray-700 dark:prose-li:text-gray-300 prose-li:leading-relaxed
               prose-ul:my-4 prose-ol:my-4
-              prose-strong:text-gray-900
+              prose-strong:text-gray-900 dark:prose-strong:text-white
               prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline
-              prose-blockquote:border-l-4 prose-blockquote:border-brand-400 prose-blockquote:bg-brand-50 prose-blockquote:rounded-r-xl prose-blockquote:py-1 prose-blockquote:px-4
-              prose-hr:border-gray-200 prose-hr:my-8"
+              prose-blockquote:border-l-4 prose-blockquote:border-brand-400 prose-blockquote:bg-brand-50 dark:prose-blockquote:bg-brand-950/30 prose-blockquote:rounded-r-xl prose-blockquote:py-1 prose-blockquote:px-4
+              prose-hr:border-gray-200 dark:prose-hr:border-gray-700 prose-hr:my-8"
             dangerouslySetInnerHTML={{ __html: htmlWithIds }}
           />
 
           <InContentAd />
 
-          {/* Inline newsletter CTA */}
-          <InlineNewsletter
-            headline="Enjoying this article?"
-            subtext="Get weekly pregnancy tips, baby guides, and a free Birth Plan template — straight to your inbox."
-          />
-
           {/* FAQs */}
           {article.faqs && article.faqs.length > 0 && (
-            <section className="mt-10 bg-gray-50 rounded-2xl p-6 border border-gray-100">
-              <h2 className="font-serif text-xl font-bold text-gray-900 mb-5">
+            <section className="mt-10 bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800">
+              <h2 className="font-serif text-xl font-bold text-gray-900 dark:text-white mb-5">
                 Frequently Asked Questions
               </h2>
               <div className="space-y-4">
                 {article.faqs.map((faq: { q: string; a: string }, i: number) => (
-                  <div key={i} className="bg-white rounded-xl p-4 border border-gray-100">
-                    <h3 className="font-semibold text-gray-900 text-sm mb-2">{faq.q}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
+                  <div key={i} className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-100 dark:border-gray-700">
+                    <h3 className="font-semibold text-gray-900 dark:text-white text-sm mb-2">{faq.q}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{faq.a}</p>
                   </div>
                 ))}
               </div>
@@ -255,7 +248,7 @@ export default async function BlogArticlePage({ params }: Props) {
           {article.tags && article.tags.length > 0 && (
             <div className="mt-8 flex flex-wrap gap-2">
               {article.tags.map((tag) => (
-                <span key={tag} className="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">
+                <span key={tag} className="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs px-3 py-1 rounded-full">
                   #{tag}
                 </span>
               ))}
@@ -271,7 +264,7 @@ export default async function BlogArticlePage({ params }: Props) {
           />
 
           {/* Nav */}
-          <div className="mt-10 pt-6 border-t border-gray-100 flex items-center justify-between">
+          <div className="mt-10 pt-6 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
             <Link href="/blog" className="flex items-center gap-1.5 text-sm text-brand-600 hover:underline font-medium">
               <ChevronRight className="h-4 w-4 rotate-180" />
               Back to Blog
@@ -290,21 +283,21 @@ export default async function BlogArticlePage({ params }: Props) {
 
         {/* Related articles */}
         {related.length > 0 && (
-          <section className="mt-14 pt-8 border-t border-gray-100">
-            <h2 className="font-serif text-xl font-bold text-gray-900 mb-6">Related Articles</h2>
+          <section className="mt-14 pt-8 border-t border-gray-100 dark:border-gray-800">
+            <h2 className="font-serif text-xl font-bold text-gray-900 dark:text-white mb-6">Related Articles</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {related.map((rel) => {
                 const relImg = rel.image?.startsWith('http')
                   ? rel.image
                   : fallbackImages[rel.category as string] || fallbackImages.default;
                 return (
-                  <Link key={rel.slug} href={`/blog/${rel.slug}`} className="group bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-md transition-all">
+                  <Link key={rel.slug} href={`/blog/${rel.slug}`} className="group bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-md transition-all">
                     <div className="relative h-36 overflow-hidden">
                       <Image src={relImg} alt={rel.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" sizes="300px" />
                     </div>
                     <div className="p-4">
-                      <p className="font-semibold text-gray-900 text-sm leading-snug group-hover:text-brand-600 transition-colors line-clamp-2">{rel.title}</p>
-                      <p className="text-xs text-gray-400 mt-1">{rel.readingTime} min read</p>
+                      <p className="font-semibold text-gray-900 dark:text-white text-sm leading-snug group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors line-clamp-2">{rel.title}</p>
+                      <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">{rel.readingTime} min read</p>
                     </div>
                   </Link>
                 );

@@ -88,9 +88,9 @@ export function DueDateCalculator() {
   const minDate = format(addDays(new Date(), -280), 'yyyy-MM-dd');
 
   return (
-    <div className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
+    <div className="bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden">
       {/* Method selector */}
-      <div className="bg-gray-50 border-b border-gray-100 p-4">
+      <div className="bg-gray-50 dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 p-4">
         <div className="flex gap-2 flex-wrap">
           {([
             { id: 'lmp', label: 'Last Period (LMP)' },
@@ -100,7 +100,7 @@ export function DueDateCalculator() {
             <button
               key={m.id}
               onClick={() => { setMethod(m.id); setResult(null); setError(''); }}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${method === m.id ? 'bg-brand-600 text-white' : 'bg-white text-gray-600 hover:bg-brand-50 border border-gray-200'}`}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${method === m.id ? 'bg-brand-600 text-white' : 'bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-brand-950/40 border border-gray-200 dark:border-gray-600'}`}
             >
               {m.label}
             </button>
@@ -111,7 +111,7 @@ export function DueDateCalculator() {
       <div className="p-8">
         {/* Date Input */}
         <div className="mb-6">
-          <label htmlFor="date-input" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="date-input" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             <Calendar className="h-4 w-4 inline mr-1" aria-hidden="true" />
             {method === 'lmp' ? 'First day of your last period' : method === 'conception' ? 'Conception date' : 'IVF transfer date'}
           </label>
@@ -124,14 +124,14 @@ export function DueDateCalculator() {
             max={maxDate}
             aria-required="true"
             aria-describedby={error ? 'date-error' : undefined}
-            className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-300"
+            className="w-full border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-gray-900 dark:text-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-300"
           />
         </div>
 
         {/* Cycle length (LMP only) */}
         {method === 'lmp' && (
           <div className="mb-6">
-            <label htmlFor="cycle-length" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="cycle-length" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Average cycle length: <strong>{cycleLength} days</strong>
             </label>
             <input
@@ -148,7 +148,7 @@ export function DueDateCalculator() {
               aria-valuetext={`${cycleLength} days`}
               className="w-full accent-brand-600"
             />
-            <div className="flex justify-between text-xs text-gray-400 mt-1">
+            <div className="flex justify-between text-xs text-gray-400 dark:text-gray-500 mt-1">
               <span>21 days</span>
               <span>28 days (typical)</span>
               <span>45 days</span>
@@ -170,15 +170,15 @@ export function DueDateCalculator() {
         {result && (
           <div className="mt-8 space-y-4">
             {/* Due Date — Hero */}
-            <div className="bg-gradient-to-br from-brand-50 to-pink-50 rounded-2xl p-6 text-center border border-brand-100">
+            <div className="bg-gradient-to-br from-brand-50 to-pink-50 dark:from-brand-950/40 dark:to-pink-950/40 rounded-2xl p-6 text-center border border-brand-100 dark:border-brand-900">
               <Baby className="h-10 w-10 text-brand-500 mx-auto mb-3" />
-              <p className="text-sm text-gray-500 uppercase tracking-wide font-medium mb-1">
+              <p className="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wide font-medium mb-1">
                 {result.isOverdue ? 'Your due date was' : 'Your estimated due date'}
               </p>
-              <p className="font-serif text-4xl font-bold text-gray-900">
+              <p className="font-serif text-4xl font-bold text-gray-900 dark:text-white">
                 {format(result.dueDate, 'MMMM d, yyyy')}
               </p>
-              <p className="text-brand-600 font-medium mt-2">
+              <p className="text-brand-600 dark:text-brand-400 font-medium mt-2">
                 {result.isOverdue
                   ? `${Math.abs(result.daysUntilDue)} days past due`
                   : `${result.daysUntilDue} days to go`}
@@ -193,9 +193,9 @@ export function DueDateCalculator() {
                 { label: 'Due Date (Alt)', value: format(result.dueDate, 'dd MMM yyyy') },
                 { label: 'Week in Trimester', value: `Week ${result.weekInTrimester}` },
               ].map((stat) => (
-                <div key={stat.label} className="bg-gray-50 rounded-xl p-4 text-center">
-                  <p className="text-xs text-gray-500 mb-1">{stat.label}</p>
-                  <p className="font-bold text-gray-900">{stat.value}</p>
+                <div key={stat.label} className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 text-center">
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">{stat.label}</p>
+                  <p className="font-bold text-gray-900 dark:text-white">{stat.value}</p>
                 </div>
               ))}
             </div>
@@ -204,11 +204,11 @@ export function DueDateCalculator() {
             {result.weeksPregnant >= 1 && result.weeksPregnant <= 40 && (
               <Link
                 href={`/pregnancy/week-by-week/week-${result.weeksPregnant}`}
-                className="flex items-center justify-between p-4 bg-white border border-brand-100 rounded-xl hover:border-brand-400 hover:shadow-sm transition-all"
+                className="flex items-center justify-between p-4 bg-white dark:bg-gray-800 border border-brand-100 dark:border-brand-900 rounded-xl hover:border-brand-400 hover:shadow-sm transition-all"
               >
                 <div>
-                  <p className="font-semibold text-gray-900">Read Week {result.weeksPregnant} Guide</p>
-                  <p className="text-sm text-gray-500">Baby development, symptoms & tips</p>
+                  <p className="font-semibold text-gray-900 dark:text-white">Read Week {result.weeksPregnant} Guide</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Baby development, symptoms & tips</p>
                 </div>
                 <ChevronRight className="h-5 w-5 text-brand-500" />
               </Link>

@@ -10,7 +10,6 @@ import { InContentAd } from '@/components/ads/InContentAd';
 import { SidebarAd } from '@/components/ads/SidebarAd';
 import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
-import { InlineNewsletter } from '@/components/shared/InlineNewsletter';
 import { BookmarkButton, SavedWeeksPanel } from '@/components/shared/BookmarkButton';
 import { MedicalWebPageJsonLd } from '@/components/seo/MedicalWebPageJsonLd';
 import { SourceCitations, PREGNANCY_CITATIONS } from '@/components/shared/SourceCitations';
@@ -87,16 +86,16 @@ export default async function WeekPage({ params }: Props) {
       />
 
       {/* Breadcrumb */}
-      <div className="bg-gray-50 border-b border-gray-100 py-3 px-4">
+      <div className="bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 py-3 px-4">
         <div className="container mx-auto max-w-7xl">
-          <nav className="flex items-center gap-2 text-sm text-gray-500">
-            <Link href="/" className="hover:text-brand-600">Home</Link>
+          <nav className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+            <Link href="/" className="hover:text-brand-600 dark:hover:text-brand-400">Home</Link>
             <ChevronRight className="h-3 w-3" />
-            <Link href="/pregnancy" className="hover:text-brand-600">Pregnancy</Link>
+            <Link href="/pregnancy" className="hover:text-brand-600 dark:hover:text-brand-400">Pregnancy</Link>
             <ChevronRight className="h-3 w-3" />
-            <Link href="/pregnancy/week-by-week" className="hover:text-brand-600">Week by Week</Link>
+            <Link href="/pregnancy/week-by-week" className="hover:text-brand-600 dark:hover:text-brand-400">Week by Week</Link>
             <ChevronRight className="h-3 w-3" />
-            <span className="text-gray-900 font-medium">Week {weekNum}</span>
+            <span className="text-gray-900 dark:text-white font-medium">Week {weekNum}</span>
           </nav>
         </div>
       </div>
@@ -134,26 +133,26 @@ export default async function WeekPage({ params }: Props) {
                 </div>
               </div>
               {/* Stats bar */}
-              <div className="bg-gradient-to-br from-brand-50 to-pink-50 border border-brand-100 rounded-b-3xl p-6">
-                <div className="flex flex-wrap justify-center gap-8 text-sm text-gray-600 mb-4">
+              <div className="bg-gradient-to-br from-brand-50 to-pink-50 dark:from-brand-950/40 dark:to-pink-950/40 border border-brand-100 dark:border-brand-900 rounded-b-3xl p-6">
+                <div className="flex flex-wrap justify-center gap-8 text-sm text-gray-600 dark:text-gray-300 mb-4">
                   <div className="text-center">
                     <p className="text-3xl mb-1">{emoji}</p>
-                    <p className="font-medium text-gray-700">Size of {data.babySize.comparison}</p>
+                    <p className="font-medium text-gray-700 dark:text-gray-200">Size of {data.babySize.comparison}</p>
                   </div>
                   {data.babySize.lengthCm > 0 && (
                     <div className="text-center">
-                      <p className="font-bold text-2xl text-gray-900">{data.babySize.lengthCm} cm</p>
+                      <p className="font-bold text-2xl text-gray-900 dark:text-white">{data.babySize.lengthCm} cm</p>
                       <p>Length</p>
                     </div>
                   )}
                   {data.babySize.weightGrams > 0 && (
                     <div className="text-center">
-                      <p className="font-bold text-2xl text-gray-900">{data.babySize.weightGrams}g</p>
+                      <p className="font-bold text-2xl text-gray-900 dark:text-white">{data.babySize.weightGrams}g</p>
                       <p>Weight</p>
                     </div>
                   )}
                   <div className="text-center">
-                    <p className="font-bold text-2xl text-gray-900">{data.trimester}</p>
+                    <p className="font-bold text-2xl text-gray-900 dark:text-white">{data.trimester}</p>
                     <p>Trimester</p>
                   </div>
                 </div>
@@ -170,9 +169,9 @@ export default async function WeekPage({ params }: Props) {
 
             {/* Progress bar */}
             <div className="mb-10">
-              <div className="flex justify-between text-xs text-gray-500 mb-1">
+              <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mb-1">
                 <span>Week 1</span>
-                <span className="font-medium text-brand-600">Week {weekNum} ({Math.round((weekNum / 40) * 100)}%)</span>
+                <span className="font-medium text-brand-600 dark:text-brand-400">Week {weekNum} ({Math.round((weekNum / 40) * 100)}%)</span>
                 <span>Week 40</span>
               </div>
               <div
@@ -181,7 +180,7 @@ export default async function WeekPage({ params }: Props) {
                 aria-valuemin={1}
                 aria-valuemax={40}
                 aria-label={`Pregnancy progress: week ${weekNum} of 40`}
-                className="w-full bg-gray-100 rounded-full h-3"
+                className="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-3"
               >
                 <div
                   className="bg-gradient-to-r from-brand-400 to-brand-600 h-3 rounded-full transition-all"
@@ -197,15 +196,15 @@ export default async function WeekPage({ params }: Props) {
 
             {/* Baby Development */}
             <section className="mb-10">
-              <h2 className="font-serif text-2xl font-bold text-gray-900 mb-5 flex items-center gap-2">
+              <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-5 flex items-center gap-2">
                 <Baby className="h-6 w-6 text-brand-500" />
                 Baby Development at {weekNum} Weeks
               </h2>
               <ul className="space-y-3">
                 {data.babyDevelopment.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 bg-brand-50 rounded-xl px-4 py-3">
+                  <li key={i} className="flex items-start gap-3 bg-brand-50 dark:bg-brand-950/30 rounded-xl px-4 py-3">
                     <CheckCircle className="h-5 w-5 text-brand-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">{item}</span>
+                    <span className="text-gray-700 dark:text-gray-200">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -213,14 +212,14 @@ export default async function WeekPage({ params }: Props) {
 
             {/* Mom Symptoms */}
             <section className="mb-10">
-              <h2 className="font-serif text-2xl font-bold text-gray-900 mb-5">
+              <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-5">
                 Symptoms at {weekNum} Weeks Pregnant
               </h2>
               <ul className="space-y-3">
                 {data.momSymptoms.map((symptom, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <span className="w-2 h-2 rounded-full bg-pink-400 mt-2 flex-shrink-0" />
-                    <span className="text-gray-700">{symptom}</span>
+                    <span className="text-gray-700 dark:text-gray-200">{symptom}</span>
                   </li>
                 ))}
               </ul>
@@ -230,14 +229,14 @@ export default async function WeekPage({ params }: Props) {
 
             {/* Tips */}
             <section className="mb-10">
-              <h2 className="font-serif text-2xl font-bold text-gray-900 mb-5">
+              <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-5">
                 Tips for Week {weekNum}
               </h2>
               <ul className="space-y-3">
                 {data.momTips.map((tip, i) => (
-                  <li key={i} className="flex items-start gap-3 bg-green-50 rounded-xl px-4 py-3">
+                  <li key={i} className="flex items-start gap-3 bg-green-50 dark:bg-green-950/30 rounded-xl px-4 py-3">
                     <span className="text-green-500 font-bold flex-shrink-0">{i + 1}.</span>
-                    <span className="text-gray-700">{tip}</span>
+                    <span className="text-gray-700 dark:text-gray-200">{tip}</span>
                   </li>
                 ))}
               </ul>
@@ -245,15 +244,15 @@ export default async function WeekPage({ params }: Props) {
 
             {/* Checklist */}
             {data.checklistItems && data.checklistItems.length > 0 && (
-              <section className="mb-10 bg-amber-50 rounded-2xl p-6 border border-amber-200">
-                <h2 className="font-serif text-xl font-bold text-gray-900 mb-4">
+              <section className="mb-10 bg-amber-50 dark:bg-amber-950/30 rounded-2xl p-6 border border-amber-200 dark:border-amber-900">
+                <h2 className="font-serif text-xl font-bold text-gray-900 dark:text-white mb-4">
                   Week {weekNum} Checklist
                 </h2>
                 <ul className="space-y-2">
                   {data.checklistItems.map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <CheckCircle className="h-5 w-5 text-amber-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{item}</span>
+                      <span className="text-gray-700 dark:text-gray-200">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -263,20 +262,12 @@ export default async function WeekPage({ params }: Props) {
             {/* Source citations */}
             <SourceCitations citations={PREGNANCY_CITATIONS} />
 
-            {/* Newsletter CTA */}
-            <InlineNewsletter
-              headline={nextWeek ? `Get updates for Week ${nextWeek}` : 'Congratulations — Week 40!'}
-              subtext={nextWeek
-                ? `Weekly pregnancy tips delivered to your inbox — plus a free Birth Plan template.`
-                : 'Get postpartum recovery tips and newborn care guides delivered free.'}
-            />
-
             {/* Prev / Next Navigation */}
-            <div className="flex justify-between gap-4 mt-10 pt-6 border-t border-gray-100">
+            <div className="flex justify-between gap-4 mt-10 pt-6 border-t border-gray-100 dark:border-gray-800">
               {prevWeek ? (
                 <Link
                   href={`/pregnancy/week-by-week/week-${prevWeek}`}
-                  className="flex items-center gap-2 px-5 py-3 bg-white border border-gray-200 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-colors text-sm font-medium"
+                  className="flex items-center gap-2 px-5 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:border-brand-300 hover:text-brand-600 dark:text-gray-200 dark:hover:text-brand-400 transition-colors text-sm font-medium"
                 >
                   <ChevronLeft className="h-4 w-4" /> Week {prevWeek}
                 </Link>
@@ -306,8 +297,8 @@ export default async function WeekPage({ params }: Props) {
             <div className="mt-8">
               <SavedWeeksPanel />
             </div>
-            <div className="mt-8 bg-gray-50 rounded-2xl p-5">
-              <h3 className="font-semibold text-gray-900 mb-4">Jump to a Week</h3>
+            <div className="mt-8 bg-gray-50 dark:bg-gray-900 rounded-2xl p-5">
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-4">Jump to a Week</h3>
               <div className="grid grid-cols-4 gap-2">
                 {Array.from({ length: 40 }, (_, i) => i + 1).map((w) => (
                   <Link
@@ -316,7 +307,7 @@ export default async function WeekPage({ params }: Props) {
                     className={`text-center py-1.5 rounded-lg text-sm font-medium transition-colors
                       ${w === weekNum
                         ? 'bg-brand-600 text-white'
-                        : 'bg-white text-gray-600 hover:bg-brand-50 hover:text-brand-600 border border-gray-100'
+                        : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-brand-950/40 hover:text-brand-600 dark:hover:text-brand-400 border border-gray-100 dark:border-gray-700'
                       }`}
                   >
                     {w}

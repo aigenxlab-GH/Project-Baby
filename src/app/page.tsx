@@ -88,7 +88,7 @@ export default function HomePage() {
       <HeaderAd />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-pink-50 via-white to-purple-50 py-10 px-4">
+      <section className="relative overflow-hidden bg-gradient-to-br from-pink-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-purple-950/30 py-10 px-4">
         {/* Background decorative blobs */}
         <div className="absolute -top-20 -right-20 w-72 h-72 bg-brand-100 rounded-full opacity-40 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-10 -left-10 w-56 h-56 bg-purple-100 rounded-full opacity-40 blur-3xl pointer-events-none" />
@@ -114,13 +114,13 @@ export default function HomePage() {
                 <Baby className="h-3 w-3" aria-hidden="true" />
                 Your trusted pregnancy &amp; baby resource
               </div>
-              <h1 className="font-serif text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight mb-4">
+              <h1 className="font-serif text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-4">
                 Your Complete<br />
                 <span className="bg-gradient-to-r from-brand-500 to-purple-600 bg-clip-text text-transparent">
                   Pregnancy &amp; Baby
                 </span>{' '}Guide
               </h1>
-              <p className="text-sm text-gray-600 max-w-md mb-6 leading-relaxed">
+              <p className="text-sm text-gray-600 dark:text-gray-300 max-w-md mb-6 leading-relaxed">
                 Week-by-week pregnancy guides, 1,188+ baby names, honest product reviews,
                 and free tools — everything you need for your journey to parenthood.
               </p>
@@ -134,14 +134,14 @@ export default function HomePage() {
                 </Link>
                 <Link
                   href="/pregnancy/week-by-week"
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-white hover:bg-gray-50 text-gray-700 font-semibold rounded-full text-sm border border-gray-200 hover:border-brand-300 transition-all hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 font-semibold rounded-full text-sm border border-gray-200 dark:border-gray-700 hover:border-brand-300 transition-all hover:-translate-y-0.5"
                 >
                   Week by Week Guide
                   <ChevronRight className="h-4 w-4" />
                 </Link>
               </div>
               {/* Trust badges */}
-              <div className="flex flex-wrap gap-4 text-xs text-gray-500">
+              <div className="flex flex-wrap gap-4 text-xs text-gray-500 dark:text-gray-400">
                 <span className="flex items-center gap-1"><span aria-hidden="true">✅</span> Free forever</span>
                 <span className="flex items-center gap-1"><span aria-hidden="true">✅</span> 72 expert guides</span>
                 <span className="flex items-center gap-1"><span aria-hidden="true">✅</span> 1,188+ baby names</span>
@@ -161,19 +161,19 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-pink-900/20 to-transparent" />
               </div>
               {/* Floating badge */}
-              <div className="absolute -bottom-3 -left-3 bg-white rounded-xl shadow-lg p-3 flex items-center gap-2.5">
-                <div className="w-9 h-9 bg-green-100 rounded-lg flex items-center justify-center text-lg" aria-hidden="true">🌱</div>
+              <div className="absolute -bottom-3 -left-3 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-3 flex items-center gap-2.5">
+                <div className="w-9 h-9 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center text-lg" aria-hidden="true">🌱</div>
                 <div>
-                  <p className="font-bold text-gray-900 text-xs">Week by Week</p>
-                  <p className="text-[11px] text-gray-500">40 detailed guides</p>
+                  <p className="font-bold text-gray-900 dark:text-white text-xs">Week by Week</p>
+                  <p className="text-[11px] text-gray-500 dark:text-gray-400">40 detailed guides</p>
                 </div>
               </div>
               {/* Floating badge 2 */}
-              <div className="absolute -top-3 -right-3 bg-white rounded-xl shadow-lg p-3 flex items-center gap-2.5">
-                <div className="w-9 h-9 bg-pink-100 rounded-lg flex items-center justify-center text-lg" aria-hidden="true">👶</div>
+              <div className="absolute -top-3 -right-3 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-3 flex items-center gap-2.5">
+                <div className="w-9 h-9 bg-pink-100 dark:bg-pink-900/30 rounded-lg flex items-center justify-center text-lg" aria-hidden="true">👶</div>
                 <div>
-                  <p className="font-bold text-gray-900 text-xs">Baby Names</p>
-                  <p className="text-[11px] text-gray-500">Meanings &amp; origins</p>
+                  <p className="font-bold text-gray-900 dark:text-white text-xs">Baby Names</p>
+                  <p className="text-[11px] text-gray-500 dark:text-gray-400">Meanings &amp; origins</p>
                 </div>
               </div>
             </div>
@@ -182,9 +182,9 @@ export default function HomePage() {
       </section>
 
       {/* Categories */}
-      <section className="py-8 px-4 bg-white">
+      <section className="py-8 px-4 bg-white dark:bg-gray-950">
         <div className="container mx-auto max-w-5xl">
-          <h2 className="font-serif text-2xl font-bold text-gray-900 text-center mb-7">
+          <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white text-center mb-7">
             Everything You Need
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -192,7 +192,7 @@ export default function HomePage() {
               <Link
                 key={cat.href}
                 href={cat.href}
-                className={`group relative overflow-hidden rounded-2xl bg-white border border-gray-100 ${cat.border} hover:shadow-2xl transition-all duration-300 hover:-translate-y-1`}
+                className={`group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 ${cat.border} hover:shadow-2xl transition-all duration-300 hover:-translate-y-1`}
               >
                 <div className="relative h-36 overflow-hidden rounded-t-2xl">
                   <Image
@@ -207,9 +207,9 @@ export default function HomePage() {
                   <div className="absolute bottom-3 left-3 text-3xl drop-shadow-sm" aria-hidden="true">{cat.emoji}</div>
                 </div>
                 <div className="p-4">
-                  <h3 className="font-serif text-base font-bold text-gray-900 mb-1">{cat.title}</h3>
-                  <p className="text-gray-500 text-xs mb-3 leading-relaxed">{cat.desc}</p>
-                  <div className="text-brand-600 text-xs font-semibold flex items-center gap-1">
+                  <h3 className="font-serif text-base font-bold text-gray-900 dark:text-white mb-1">{cat.title}</h3>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs mb-3 leading-relaxed">{cat.desc}</p>
+                  <div className="text-brand-600 dark:text-brand-400 text-xs font-semibold flex items-center gap-1">
                     Explore <ChevronRight className="h-3.5 w-3.5 group-hover:translate-x-1.5 transition-transform" />
                   </div>
                 </div>
@@ -220,29 +220,29 @@ export default function HomePage() {
       </section>
 
       {/* Free Tools */}
-      <section className="py-8 px-4 bg-gray-50">
+      <section className="py-8 px-4 bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-7">
-            <h2 className="font-serif text-2xl font-bold text-gray-900 mb-2">Free Pregnancy Tools</h2>
-            <p className="text-gray-500 text-sm">Helpful calculators and trackers for your pregnancy journey</p>
+            <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-2">Free Pregnancy Tools</h2>
+            <p className="text-gray-500 dark:text-gray-400 text-sm">Helpful calculators and trackers for your pregnancy journey</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {tools.map((tool) => (
               <Link
                 key={tool.href}
                 href={tool.href}
-                className="group flex items-start gap-4 bg-white p-5 rounded-2xl border border-gray-100 hover:shadow-md transition-all"
+                className="group flex items-start gap-4 bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all"
               >
                 <div className={`p-3 rounded-xl ${tool.color} flex-shrink-0`}>
                   <tool.icon className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 group-hover:text-brand-600 transition-colors">
+                  <h3 className="font-semibold text-gray-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                     {tool.title}
                   </h3>
-                  <p className="text-sm text-gray-500 mt-0.5">{tool.desc}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{tool.desc}</p>
                 </div>
-                <ChevronRight className="h-5 w-5 text-gray-300 group-hover:text-brand-400 ml-auto flex-shrink-0 mt-1" />
+                <ChevronRight className="h-5 w-5 text-gray-300 dark:text-gray-600 group-hover:text-brand-400 ml-auto flex-shrink-0 mt-1" />
               </Link>
             ))}
           </div>
@@ -250,11 +250,11 @@ export default function HomePage() {
       </section>
 
       {/* Week by Week Preview */}
-      <section className="py-8 px-4 bg-white">
+      <section className="py-8 px-4 bg-white dark:bg-gray-950">
         <div className="container mx-auto max-w-5xl">
           <div className="flex items-center justify-between mb-7">
-            <h2 className="font-serif text-2xl font-bold text-gray-900">Pregnancy Week by Week</h2>
-            <Link href="/pregnancy/week-by-week" className="text-brand-600 hover:underline text-sm font-medium flex items-center gap-1">
+            <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white">Pregnancy Week by Week</h2>
+            <Link href="/pregnancy/week-by-week" className="text-brand-600 dark:text-brand-400 hover:underline text-sm font-medium flex items-center gap-1">
               View all 40 weeks <ChevronRight className="h-4 w-4" />
             </Link>
           </div>
@@ -263,17 +263,17 @@ export default function HomePage() {
               <Link
                 key={week.week}
                 href={`/pregnancy/week-by-week/${week.slug}`}
-                className="group bg-gradient-to-br from-brand-50 to-pink-50 rounded-2xl p-4 text-center border border-brand-100 hover:border-brand-300 hover:shadow-md transition-all"
+                className="group bg-gradient-to-br from-brand-50 to-pink-50 dark:from-brand-950/40 dark:to-pink-950/40 rounded-2xl p-4 text-center border border-brand-100 dark:border-brand-900 hover:border-brand-300 dark:hover:border-brand-700 hover:shadow-md transition-all"
               >
                 <div className="text-2xl mb-1.5" aria-hidden="true">
                   {week.week <= 13 ? '🌱' : week.week <= 27 ? '🥑' : '👶'}
                 </div>
-                <p className="font-bold text-brand-700 text-base">Week {week.week}</p>
-                <p className="text-xs text-gray-500 mt-1 line-clamp-2">
+                <p className="font-bold text-brand-700 dark:text-brand-400 text-base">Week {week.week}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2">
                   Size of {week.babySize.comparison}
                 </p>
                 {week.keyMilestone && (
-                  <p className="text-xs text-brand-600 mt-2 font-medium line-clamp-2">
+                  <p className="text-xs text-brand-600 dark:text-brand-400 mt-2 font-medium line-clamp-2">
                     {week.keyMilestone}
                   </p>
                 )}
@@ -284,13 +284,13 @@ export default function HomePage() {
       </section>
 
       {/* Baby Names CTA */}
-      <section className="py-8 px-4 bg-gradient-to-br from-purple-50 to-pink-50">
+      <section className="py-8 px-4 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/30 dark:to-pink-950/30">
         <div className="container mx-auto max-w-3xl text-center">
           <div className="text-3xl mb-3" aria-hidden="true">✨</div>
-          <h2 className="font-serif text-2xl font-bold text-gray-900 mb-3">
+          <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-3">
             Find the Perfect Baby Name
           </h2>
-          <p className="text-gray-600 text-sm mb-6 max-w-xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-6 max-w-xl mx-auto">
             Browse our collection of baby names with meanings, origins, and popularity trends.
             Filter by gender, origin, starting letter, and more.
           </p>

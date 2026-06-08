@@ -71,7 +71,7 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
             value={query}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search articles…"
-            className="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-300"
+            className="w-full pl-11 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white dark:bg-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-300"
           />
         </div>
 
@@ -87,7 +87,7 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
                 className={`px-4 py-1.5 rounded-full text-sm font-medium capitalize transition-colors ${
                   activeCategory === cat
                     ? 'bg-brand-600 text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-brand-50 hover:text-brand-600'
+                    : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-brand-950/40 hover:text-brand-600 dark:hover:text-brand-400'
                 }`}
               >
                 {cat === 'all' ? 'All Articles' : cat}
@@ -97,7 +97,7 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
         </fieldset>
 
         {/* Results count */}
-        <p className="text-sm text-gray-500" aria-live="polite">
+        <p className="text-sm text-gray-500 dark:text-gray-400" aria-live="polite">
           {filtered.length === 0
             ? 'No articles found'
             : `Showing ${start + 1}–${Math.min(start + PER_PAGE, filtered.length)} of ${filtered.length} articles`}
@@ -106,9 +106,9 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
 
       {/* Article grid */}
       {paginated.length === 0 ? (
-        <div className="text-center py-20 bg-gray-50 rounded-2xl">
-          <p className="text-gray-500 mb-2">No articles match your search.</p>
-          <button onClick={() => { setSearch(''); setFilter('all'); }} className="text-brand-600 text-sm hover:underline">
+        <div className="text-center py-20 bg-gray-50 dark:bg-gray-900 rounded-2xl">
+          <p className="text-gray-500 dark:text-gray-300 mb-2">No articles match your search.</p>
+          <button onClick={() => { setSearch(''); setFilter('all'); }} className="text-brand-600 dark:text-brand-400 text-sm hover:underline">
             Clear filters
           </button>
         </div>
@@ -124,7 +124,7 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
               <Link
                 key={article.slug}
                 href={`/blog/${article.slug}`}
-                className={`group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 ${isFirst ? 'md:col-span-2' : ''}`}
+                className={`group bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-xl transition-all duration-300 ${isFirst ? 'md:col-span-2' : ''}`}
               >
                 <div className={`relative overflow-hidden ${isFirst ? 'h-72' : 'h-48'}`}>
                   <Image
@@ -142,16 +142,16 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
                   )}
                 </div>
                 <div className="p-6">
-                  <div className="flex items-center gap-4 text-xs text-gray-400 mb-3">
+                  <div className="flex items-center gap-4 text-xs text-gray-400 dark:text-gray-500 mb-3">
                     <span className="flex items-center gap-1"><User className="h-3 w-3" aria-hidden="true" />{article.author}</span>
                     <span className="flex items-center gap-1"><Clock className="h-3 w-3" aria-hidden="true" />{article.readingTime} min read</span>
                     <span>{formatDate(article.publishedAt)}</span>
                   </div>
-                  <h2 className={`font-serif font-bold text-gray-900 group-hover:text-brand-600 transition-colors mb-2 leading-snug ${isFirst ? 'text-2xl' : 'text-lg'}`}>
+                  <h2 className={`font-serif font-bold text-gray-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors mb-2 leading-snug ${isFirst ? 'text-2xl' : 'text-lg'}`}>
                     {article.title}
                   </h2>
-                  <p className="text-gray-500 text-sm line-clamp-2 leading-relaxed">{article.description}</p>
-                  <span className="inline-block mt-4 text-brand-600 text-sm font-semibold group-hover:underline">
+                  <p className="text-gray-500 dark:text-gray-400 text-sm line-clamp-2 leading-relaxed">{article.description}</p>
+                  <span className="inline-block mt-4 text-brand-600 dark:text-brand-400 text-sm font-semibold group-hover:underline">
                     Read article →
                   </span>
                 </div>
@@ -169,7 +169,7 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={page === 1}
             aria-label="Previous page"
-            className="flex items-center gap-1 px-4 py-2 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="flex items-center gap-1 px-4 py-2 rounded-xl border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             <ChevronLeft className="h-4 w-4" aria-hidden="true" /> Prev
           </button>
@@ -177,8 +177,8 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
           {/* Page numbers */}
           {pageNums[0] > 1 && (
             <>
-              <button onClick={() => setPage(1)} className="w-9 h-9 rounded-xl border border-gray-200 text-sm text-gray-600 hover:bg-gray-50 transition-colors">1</button>
-              {pageNums[0] > 2 && <span className="text-gray-400 px-1">…</span>}
+              <button onClick={() => setPage(1)} className="w-9 h-9 rounded-xl border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">1</button>
+              {pageNums[0] > 2 && <span className="text-gray-400 dark:text-gray-500 px-1">…</span>}
             </>
           )}
 
@@ -191,7 +191,7 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
               className={`w-9 h-9 rounded-xl text-sm font-medium transition-colors ${
                 n === page
                   ? 'bg-brand-600 text-white border border-brand-600'
-                  : 'border border-gray-200 text-gray-600 hover:bg-gray-50'
+                  : 'border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
               }`}
             >
               {n}
@@ -200,8 +200,8 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
 
           {pageNums[pageNums.length - 1] < totalPages && (
             <>
-              {pageNums[pageNums.length - 1] < totalPages - 1 && <span className="text-gray-400 px-1">…</span>}
-              <button onClick={() => setPage(totalPages)} className="w-9 h-9 rounded-xl border border-gray-200 text-sm text-gray-600 hover:bg-gray-50 transition-colors">{totalPages}</button>
+              {pageNums[pageNums.length - 1] < totalPages - 1 && <span className="text-gray-400 dark:text-gray-500 px-1">…</span>}
+              <button onClick={() => setPage(totalPages)} className="w-9 h-9 rounded-xl border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">{totalPages}</button>
             </>
           )}
 
@@ -210,7 +210,7 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
             onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
             disabled={page === totalPages}
             aria-label="Next page"
-            className="flex items-center gap-1 px-4 py-2 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="flex items-center gap-1 px-4 py-2 rounded-xl border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             Next <ChevronRight className="h-4 w-4" aria-hidden="true" />
           </button>

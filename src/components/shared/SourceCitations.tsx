@@ -22,41 +22,41 @@ export function SourceCitations({ citations }: Props) {
   return (
     <aside
       aria-label="Sources and references"
-      className="mt-10 bg-gray-50 border border-gray-200 rounded-2xl p-6"
+      className="mt-10 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-6"
     >
       <div className="flex items-center gap-2 mb-4">
-        <BookOpen className="h-4 w-4 text-gray-500" aria-hidden="true" />
-        <h2 className="font-semibold text-gray-900 text-sm">Sources & References</h2>
+        <BookOpen className="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" />
+        <h2 className="font-semibold text-gray-900 dark:text-white text-sm">Sources & References</h2>
       </div>
-      <p className="text-xs text-gray-500 mb-4">
+      <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">
         This article was researched against the following authoritative health sources:
       </p>
       <ol className="space-y-2">
         {citations.map((c, i) => (
           <li key={i} className="flex items-start gap-2">
-            <span className="text-xs text-gray-400 font-mono mt-0.5 flex-shrink-0 w-5">
+            <span className="text-xs text-gray-400 dark:text-gray-500 font-mono mt-0.5 flex-shrink-0 w-5">
               [{i + 1}]
             </span>
             <a
               href={c.url}
               target="_blank"
               rel="noopener noreferrer nofollow"
-              className="text-xs text-brand-600 hover:underline leading-relaxed group flex items-start gap-1"
+              className="text-xs text-brand-600 dark:text-brand-400 hover:underline leading-relaxed group flex items-start gap-1"
             >
               <span>
                 <span className="font-medium">{c.organisation}</span>
                 {' — '}
                 <span className="italic">{c.title}</span>
-                {c.year && <span className="text-gray-400"> ({c.year})</span>}
+                {c.year && <span className="text-gray-400 dark:text-gray-500"> ({c.year})</span>}
               </span>
               <ExternalLink className="h-3 w-3 flex-shrink-0 mt-0.5 opacity-50 group-hover:opacity-100" aria-label="Opens in new tab" />
             </a>
           </li>
         ))}
       </ol>
-      <p className="text-xs text-gray-400 mt-4 leading-relaxed">
+      <p className="text-xs text-gray-400 dark:text-gray-500 mt-4 leading-relaxed">
         Content reviewed against NHS, WHO, AAP, NICE and RCOG guidelines. See our{' '}
-        <a href="/editorial-standards" className="text-brand-600 hover:underline">
+        <a href="/editorial-standards" className="text-brand-600 dark:text-brand-400 hover:underline">
           editorial standards
         </a>{' '}
         for our full fact-checking process.

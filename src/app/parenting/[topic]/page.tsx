@@ -128,7 +128,7 @@ export default async function ParentingTopicPage({ params }: { params: Promise<{
             </h2>
 
             {articles.length === 0 ? (
-              <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-8 text-center text-gray-400">
+              <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-8 text-center text-gray-500 dark:text-gray-300">
                 <p className="text-base mb-2">More guides coming soon!</p>
                 <p className="text-sm">Check back shortly for expert {meta.title.toLowerCase()} content.</p>
               </div>
