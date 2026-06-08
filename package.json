@@ -5,13 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:cloudflare": "npm run search-index && npx @opennextjs/cloudflare build",
+    "build:cloudflare": "npm run content-cache && npm run search-index && npx @opennextjs/cloudflare build",
     "start": "next start",
     "lint": "next lint",
     "generate": "tsx scripts/generate-content.ts",
     "generate:batch": "tsx scripts/generate-content.ts --batch",
     "generate:mega": "tsx scripts/generate-content.ts --mega",
     "search-index": "tsx scripts/build-search-index.ts",
+    "content-cache": "tsx scripts/build-content-cache.ts",
     "dev:cf": "npx @opennextjs/cloudflare dev",
     "preview": "npm run build:cloudflare && wrangler dev",
     "deploy": "npm run build:cloudflare && wrangler deploy"
