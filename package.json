@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:cloudflare": "npm run search-index && npx @opennextjs/cloudflare build && node scripts/cf-postbuild.mjs",
+    "build:cloudflare": "npm run search-index && npx @opennextjs/cloudflare build",
     "start": "next start",
     "lint": "next lint",
     "generate": "tsx scripts/generate-content.ts",
@@ -13,8 +13,8 @@
     "generate:mega": "tsx scripts/generate-content.ts --mega",
     "search-index": "tsx scripts/build-search-index.ts",
     "dev:cf": "npx @opennextjs/cloudflare dev",
-    "preview": "wrangler pages dev .open-next/assets --compatibility-flag nodejs_compat",
-    "deploy": "wrangler pages deploy .open-next/assets --project-name=pregnancysprout"
+    "preview": "npm run build:cloudflare && wrangler dev",
+    "deploy": "npm run build:cloudflare && wrangler deploy"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.1.4",
