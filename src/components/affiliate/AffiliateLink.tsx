@@ -3,6 +3,13 @@
 import React from 'react';
 import { getAffiliateLink, getProduct } from '@/config/affiliateProducts';
 
+// Declare gtag on window object for TypeScript
+declare global {
+  interface Window {
+    gtag?: (command: string, eventName: string, eventParams?: Record<string, any>) => void;
+  }
+}
+
 interface AffiliateLinkProps {
   productId: string;
   retailer: 'amazon' | 'buyBaby' | 'target' | 'walmart' | 'wayfair' | 'bestBuy' | 'etsy';
