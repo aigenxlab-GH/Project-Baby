@@ -110,22 +110,46 @@ function ollamaRequest(prompt) {
         'Content-Type': 'application/json',
         'Content-Length': Buffer.byteLength(requestData),
       },
+      timeout: 120000, // 2 minutes timeout for Ollama
     };
 
     const req = http.request(options, (res) => {
       let data = '';
-      res.on('data', (chunk) => { data += chunk; });
+
+      // Set a timeout for reading response
+      const responseTimeout = setTimeout(() => {
+        reject(new Error('Response timeout from Ollama'));
+      }, 120000);
+
+      res.on('data', (chunk) => {
+        clearTimeout(responseTimeout);
+        data += chunk;
+      });
+
       res.on('end', () => {
+        clearTimeout(responseTimeout);
         try {
           const response = JSON.parse(data);
           resolve(response.response || '');
         } catch (e) {
-          reject(new Error(`Invalid JSON`));
+          reject(new Error(`Invalid JSON response from Ollama`));
         }
       });
     });
 
-    req.on('error', reject);
+    req.on('error', (err) => {
+      if (err.message.includes('ECONNREFUSED')) {
+        reject(new Error('Ollama is not running. Start Ollama with: ollama serve'));
+      } else {
+        reject(err);
+      }
+    });
+
+    req.on('timeout', () => {
+      req.destroy();
+      reject(new Error('Request timeout to Ollama API'));
+    });
+
     req.write(requestData);
     req.end();
   });
