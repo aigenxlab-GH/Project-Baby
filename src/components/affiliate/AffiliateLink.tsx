@@ -3,13 +3,6 @@
 import React from 'react';
 import { getAffiliateLink, getProduct } from '@/config/affiliateProducts';
 
-// Declare gtag on window object for TypeScript
-declare global {
-  interface Window {
-    gtag?: (command: string, eventName: string, eventParams?: Record<string, any>) => void;
-  }
-}
-
 interface AffiliateLinkProps {
   productId: string;
   retailer: 'amazon' | 'buyBaby' | 'target' | 'walmart' | 'wayfair' | 'bestBuy' | 'etsy';
@@ -35,8 +28,8 @@ export const AffiliateLink: React.FC<AffiliateLinkProps> = ({
   }
 
   const handleClick = () => {
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'affiliate_click', {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'affiliate_click', {
         product_id: productId,
         product_name: product.name,
         retailer: retailer,
