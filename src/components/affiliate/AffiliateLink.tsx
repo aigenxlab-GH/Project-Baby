@@ -28,13 +28,14 @@ export const AffiliateLink: React.FC<AffiliateLinkProps> = ({
   }
 
   const handleClick = () => {
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'affiliate_click', {
-        product_id: productId,
-        product_name: product.name,
-        retailer: retailer,
-      });
-    }
+    // Google Analytics tracking (optional, can be added later)
+    // if (typeof window !== 'undefined' && (window as any).gtag) {
+    //   (window as any).gtag('event', 'affiliate_click', {
+    //     product_id: productId,
+    //     product_name: product.name,
+    //     retailer: retailer,
+    //   });
+    // }
   };
 
   const baseStyles = 'font-semibold transition-colors duration-200';
