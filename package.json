@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run search-index && next build && npx @cloudflare/next-on-pages",
+    "build": "npm run search-index && next build && npx @cloudflare/next-on-pages --skip-build",
     "start": "next start",
     "lint": "next lint",
     "generate": "tsx scripts/generate-content.ts",
