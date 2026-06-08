@@ -7,7 +7,7 @@ interface CommentsSectionProps {
   pageTitle: string;
 }
 
-export function CommentsSection({ pageId, pageTitle }: CommentsSectionProps) {
+export function CommentsSection({ pageId, pageTitle: _pageTitle }: CommentsSectionProps) {
   useEffect(() => {
     // Load Utterances script for comments
     const script = document.createElement('script');

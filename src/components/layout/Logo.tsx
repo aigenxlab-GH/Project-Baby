@@ -160,7 +160,7 @@ export function Logo({ size = 'md', variant = 'light', href = '/' }: LogoProps) 
 }
 
 /* Compact single-line version for tight spaces */
-export function LogoCompact({ variant = 'light' }: { variant?: 'light' | 'dark' }) {
+export function LogoCompact({ variant: _variant = 'light' }: { variant?: 'light' | 'dark' }) {
   return (
     <Link href="/" className="flex items-center gap-2 group select-none">
       <div className="transition-transform duration-300 group-hover:scale-110">

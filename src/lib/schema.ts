@@ -7,7 +7,7 @@ export interface FAQItem {
   answer: string;
 }
 
-export function generateFAQSchema(faqs: FAQItem[], pageUrl: string) {
+export function generateFAQSchema(faqs: FAQItem[], _pageUrl: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',

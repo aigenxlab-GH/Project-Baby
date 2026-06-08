@@ -130,7 +130,7 @@ export function SearchBar() {
             </ul>
           ) : (
             <div className="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">
-              No articles found matching "{query}"
+              No articles found matching &quot;{query}&quot;
             </div>
           )}
         </div>
