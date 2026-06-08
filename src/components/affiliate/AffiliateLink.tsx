@@ -28,7 +28,7 @@ export const AffiliateLink: React.FC<AffiliateLinkProps> = ({
   }
 
   const handleClick = () => {
-    // Google Analytics tracking (optional, can be added later)
+    // Google Analytics tracking - can be re-enabled after deployment
     // if (typeof window !== 'undefined' && (window as any).gtag) {
     //   (window as any).gtag('event', 'affiliate_click', {
     //     product_id: productId,

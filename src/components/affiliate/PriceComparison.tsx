@@ -32,15 +32,16 @@ export function PriceComparison({ productId, showLabel = true }: PriceComparison
     Object.keys(product.affiliateLinks) as RetailerType[]
   ).filter((retailer) => product.affiliateLinks[retailer as RetailerType]);
 
-  const handleClick = (retailer: RetailerType) => {
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'affiliate_click', {
-        product_id: productId,
-        product_name: product.name,
-        retailer: retailer,
-        source: 'price_comparison',
-      });
-    }
+  const handleClick = (_retailer: RetailerType) => {
+    // Google Analytics tracking - can be re-enabled after deployment
+    // if (typeof window !== 'undefined' && (window as any).gtag) {
+    //   (window as any).gtag('event', 'affiliate_click', {
+    //     product_id: productId,
+    //     product_name: product.name,
+    //     retailer: _retailer,
+    //     source: 'price_comparison',
+    //   });
+    // }
   };
 
   return (
