@@ -4,16 +4,17 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run search-index && next build && npx @cloudflare/next-on-pages --skip-build",
+    "build": "next build",
+    "build:cloudflare": "npm run search-index && npx @opennextjs/cloudflare build && node scripts/cf-postbuild.mjs",
     "start": "next start",
     "lint": "next lint",
     "generate": "tsx scripts/generate-content.ts",
     "generate:batch": "tsx scripts/generate-content.ts --batch",
     "generate:mega": "tsx scripts/generate-content.ts --mega",
     "search-index": "tsx scripts/build-search-index.ts",
-    "pages:build": "npm run build && npx @cloudflare/next-on-pages",
-    "pages:preview": "npm run pages:build && wrangler pages dev .vercel/output/static",
-    "pages:deploy": "npm run pages:build && wrangler pages deploy .vercel/output/static --project-name=pregnancysprout"
+    "dev:cf": "npx @opennextjs/cloudflare dev",
+    "preview": "wrangler pages dev .open-next/assets --compatibility-flag nodejs_compat",
+    "deploy": "wrangler pages deploy .open-next/assets --project-name=pregnancysprout"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.1.4",
@@ -39,7 +40,7 @@
   },
   "devDependencies": {
     "@anthropic-ai/sdk": "^0.100.1",
-    "@cloudflare/next-on-pages": "^1.13.16",
+    "@opennextjs/cloudflare": "^1.19.11",
     "@tailwindcss/typography": "^0.5.15",
     "@types/ms": "^2.1.0",
     "@types/node": "^22.0.0",

@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { searchNames } from '@/lib/baby-names';
 import type { NameFilters } from '@/types/baby-name';
 
-// Cloudflare Pages edge runtime — baby-names lib imports JSON directly (no fs).
-export const runtime = 'edge';
 
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;

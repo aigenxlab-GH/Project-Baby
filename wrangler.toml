@@ -1,25 +1,21 @@
 # Cloudflare Pages — PregnancySprout
-# https://developers.cloudflare.com/pages/framework-guides/nextjs/
+# Docs: https://developers.cloudflare.com/pages/framework-guides/nextjs/
 
 name = "pregnancysprout"
 
-# Compatibility date: use a recent date to get modern Workers features.
-# Update this annually. See: https://developers.cloudflare.com/workers/configuration/compatibility-dates/
+# Keep this date current (update annually).
+# See: https://developers.cloudflare.com/workers/configuration/compatibility-dates/
 compatibility_date = "2024-09-23"
 
-# nodejs_compat enables Node.js built-in modules (fs, path, stream, crypto, etc.)
-# in Cloudflare Workers. Required for:
-#   - fs.statSync in sitemap.ts (lastmod dates)
-#   - fs.readFileSync in lib/mdx.ts and lib/products.ts
-#   - path.join in content helpers
+# nodejs_compat enables Node.js built-in modules in Cloudflare Workers.
+# Required for fs, path, stream, crypto used in lib/mdx.ts, sitemap.ts etc.
 # See: https://developers.cloudflare.com/workers/runtime-apis/nodejs/
 compatibility_flags = ["nodejs_compat"]
 
-# Cloudflare Pages looks for the built output in this directory.
-# @cloudflare/next-on-pages writes to .vercel/output/static
-pages_build_output_dir = ".vercel/output/static"
+# Cloudflare Pages reads built output from this directory.
+# @opennextjs/cloudflare writes static assets here.
+pages_build_output_dir = ".open-next/assets"
 
 [vars]
-# Public env vars can be set here for preview deployments.
+# Public env vars for preview deployments.
 # Production secrets must be set in the Cloudflare Pages dashboard.
-# NEXT_PUBLIC_SITE_URL is set via the dashboard, NOT here (it's build-time).

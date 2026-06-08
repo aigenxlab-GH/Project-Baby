@@ -4,19 +4,9 @@ import path from 'path';
 // Resolve __dirname in ESM context
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
-// @cloudflare/next-on-pages dev platform — only in development.
-// Uses dynamic import + try/catch to avoid:
-//   (a) top-level await warnings in CI/production builds
-//   (b) hard crash if package is not installed in all environments
-if (process.env.NODE_ENV === 'development') {
-  try {
-    const { setupDevPlatform } = await import('@cloudflare/next-on-pages/next-dev');
-    await setupDevPlatform();
-  } catch {
-    // Safe to ignore — package may not be present in all dev environments.
-    // Run `npm install -D @cloudflare/next-on-pages` if you need Cloudflare dev emulation.
-  }
-}
+// Cloudflare dev emulation is provided by @opennextjs/cloudflare.
+// Run `npm run dev:cf` to start the dev server with Cloudflare bindings.
+// Standard `npm run dev` (next dev) works for most development tasks.
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { rateLimit } from '@/lib/rate-limit';
 
-// Cloudflare Pages: all API routes run as Cloudflare Workers (edge runtime).
-// The nodejs_compat flag in wrangler.toml provides Node.js built-in support.
-export const runtime = 'edge';
 
 export async function POST(req: NextRequest) {
   // Rate limit: 5 subscriptions per IP per minute
