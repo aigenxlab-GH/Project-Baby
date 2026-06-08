@@ -1,5 +1,4 @@
 import { ShoppingCart, ExternalLink } from 'lucide-react';
-import { AffiliateLink } from './AffiliateLink';
 import { getRetailerName } from '@/lib/affiliate';
 
 interface Props {
@@ -10,8 +9,8 @@ interface Props {
   size?: 'sm' | 'md' | 'lg';
 }
 
-export function BuyButton({ href, price, productName, variant = 'primary', size = 'md' }: Props) {
-  const retailer = getRetailerName(href);
+export function BuyButton({ href, price, variant = 'primary', size = 'md' }: Props) {
+  const retailer = getRetailerName(href) as string;
 
   const sizeClasses = {
     sm: 'px-4 py-2 text-sm',
@@ -25,16 +24,15 @@ export function BuyButton({ href, price, productName, variant = 'primary', size 
   };
 
   return (
-    <AffiliateLink href={href} productName={productName} retailer={retailer}>
-      <span
-        className={`inline-flex items-center gap-2 rounded-full transition-colors cursor-pointer ${sizeClasses[size]} ${variantClasses[variant]}`}
-      >
-        <ShoppingCart className="h-4 w-4" />
-        <span>
-          {price ? `Buy for ${price}` : `Buy on ${retailer}`}
-        </span>
-        <ExternalLink className="h-3 w-3 opacity-60" />
-      </span>
-    </AffiliateLink>
+    <a
+      href={href}
+      target="_blank"
+      rel="nofollow sponsored noopener noreferrer"
+      className={`inline-flex items-center gap-2 rounded-full transition-colors cursor-pointer ${sizeClasses[size]} ${variantClasses[variant]}`}
+    >
+      <ShoppingCart className="h-4 w-4" />
+      <span>{price ? `Buy for ${price}` : `Buy on ${retailer}`}</span>
+      <ExternalLink className="h-3 w-3 opacity-60" />
+    </a>
   );
 }
