@@ -39,6 +39,10 @@ export const mainNav = [
       { title: 'Sleep Training', href: '/parenting/sleep' },
       { title: 'Feeding & Nutrition', href: '/parenting/feeding' },
       { title: 'Baby Development', href: '/parenting/development' },
+      { title: 'Toddler Care', href: '/parenting/toddler' },
+      { title: 'Baby Health', href: '/parenting/health' },
+      { title: 'Postpartum Recovery', href: '/parenting/postpartum' },
+      { title: 'Activities & Play', href: '/parenting/activities' },
     ],
   },
   {

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { siteConfig } from '@/config/site';
-import { ChevronRight, Baby, Moon, Utensils, TrendingUp, Clock, ArrowRight } from 'lucide-react';
+import { ChevronRight, Baby, Moon, Utensils, TrendingUp, Clock, ArrowRight, Smile, Heart, Activity, Puzzle } from 'lucide-react';
 import { getAllArticles } from '@/lib/mdx';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
@@ -69,6 +69,62 @@ const topicMeta: Record<string, {
       'Tummy time is essential for physical development from birth',
       'Responsive parenting builds secure attachment',
       'Bring a list of developmental questions to every well-baby check-up',
+    ],
+  },
+  toddler: {
+    title: 'Toddler Care',
+    description: 'Tantrums, potty training, sleep, behaviour, and activities for toddlers aged 1–3 years.',
+    emoji: '🧒',
+    icon: Smile,
+    intro: 'The toddler years (ages 1–3) are a whirlwind of "no!", big emotions, and incredible growth. Understanding toddler behaviour and development helps you respond with patience and confidence. Our toddler guides cover everything from tantrums to potty training.',
+    tips: [
+      'Toddlers crave routine — keep mealtimes, naps, and bedtime consistent',
+      'Offer limited choices to give toddlers control without overwhelm',
+      'Name emotions out loud to help them build emotional vocabulary',
+      'Tantrums are normal brain development — stay calm and ride them out',
+      'Outdoor play every day regulates mood and improves night sleep',
+    ],
+  },
+  postpartum: {
+    title: 'Postpartum Recovery',
+    description: 'Physical recovery, postpartum depression, breastfeeding support, and self-care for new mothers.',
+    emoji: '💛',
+    icon: Heart,
+    intro: 'The postpartum period is a time of profound change — physically, emotionally, and mentally. Recovery after birth takes time, and it\'s important to ask for help. Our postpartum guides cover everything from physical healing to recognising postpartum depression.',
+    tips: [
+      'Rest as much as possible in the first two weeks — healing is your priority',
+      'Eat iron-rich foods to replenish blood loss and support energy levels',
+      'Postpartum mood changes affect 1 in 5 mothers — you are not alone',
+      'Accept help — delegate cooking, cleaning, and errands without guilt',
+      'Talk to your doctor if you feel persistently sad, anxious, or numb',
+    ],
+  },
+  health: {
+    title: 'Baby Health',
+    description: 'Fever, teething, vaccinations, common illnesses, and when to call the doctor — evidence-based guidance.',
+    emoji: '🩺',
+    icon: Activity,
+    intro: 'Every cough, rash, and temperature spike can feel alarming when it\'s your baby. Our baby health guides help you know when to manage symptoms at home and when to seek medical care, with clear and evidence-based advice.',
+    tips: [
+      'Always call your doctor if a baby under 3 months has any fever above 38°C / 100.4°F',
+      'Keep a record of your baby\'s vaccinations and upcoming due dates',
+      'Teething does not cause high fever — if your baby has one, look for another cause',
+      'Trust your gut — if something feels wrong, seek medical advice',
+      'Keep a digital thermometer, saline drops, and infant paracetamol on hand',
+    ],
+  },
+  activities: {
+    title: 'Activities & Play',
+    description: 'Age-appropriate play ideas, sensory activities, and learning games to support your baby\'s development.',
+    emoji: '🎨',
+    icon: Puzzle,
+    intro: 'Play is how babies and toddlers learn about the world. The right activities at the right age can boost brain development, language, motor skills, and emotional intelligence. Our activity guides are organised by age and developmental stage so you always know what to try.',
+    tips: [
+      'Simple household items make the best sensory toys — no expensive gear needed',
+      'Follow your baby\'s lead — if they lose interest, try again another day',
+      'Reading aloud from birth builds language and bonding simultaneously',
+      'Outdoor play offers sensory input no indoor activity can replicate',
+      'Unstructured free play is just as valuable as guided activities',
     ],
   },
 };
