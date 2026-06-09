@@ -143,8 +143,12 @@ export default function HomePage() {
               {/* Trust badges */}
               <div className="flex flex-wrap gap-4 text-xs text-gray-500 dark:text-gray-400">
                 <span className="flex items-center gap-1"><span aria-hidden="true">✅</span> Free forever</span>
-                <span className="flex items-center gap-1"><span aria-hidden="true">✅</span> 219+ expert articles</span>
-                <span className="flex items-center gap-1"><span aria-hidden="true">✅</span> 1,188+ baby names</span>
+                <Link href="/blog" className="flex items-center gap-1 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                  <span aria-hidden="true">✅</span> 219+ expert articles
+                </Link>
+                <Link href="/baby-names" className="flex items-center gap-1 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                  <span aria-hidden="true">✅</span> 1,188+ baby names
+                </Link>
               </div>
             </div>
             {/* Hero Image — visible from md up */}
@@ -160,22 +164,22 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-pink-900/20 to-transparent" />
               </div>
-              {/* Floating badge */}
-              <div className="absolute -bottom-3 -left-3 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-3 flex items-center gap-2.5">
+              {/* Floating badge — Week by Week */}
+              <Link href="/pregnancy/week-by-week" className="absolute -bottom-3 -left-3 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-3 flex items-center gap-2.5 hover:shadow-xl hover:-translate-y-0.5 transition-all">
                 <div className="w-9 h-9 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center text-lg" aria-hidden="true">🌱</div>
                 <div>
                   <p className="font-bold text-gray-900 dark:text-white text-xs">Week by Week</p>
-                  <p className="text-[11px] text-gray-500 dark:text-gray-400">40 detailed guides</p>
+                  <p className="text-[11px] text-brand-600 dark:text-brand-400">40 detailed guides →</p>
                 </div>
-              </div>
-              {/* Floating badge 2 */}
-              <div className="absolute -top-3 -right-3 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-3 flex items-center gap-2.5">
+              </Link>
+              {/* Floating badge 2 — Baby Names */}
+              <Link href="/baby-names" className="absolute -top-3 -right-3 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-3 flex items-center gap-2.5 hover:shadow-xl hover:-translate-y-0.5 transition-all">
                 <div className="w-9 h-9 bg-pink-100 dark:bg-pink-900/30 rounded-lg flex items-center justify-center text-lg" aria-hidden="true">👶</div>
                 <div>
                   <p className="font-bold text-gray-900 dark:text-white text-xs">Baby Names</p>
-                  <p className="text-[11px] text-gray-500 dark:text-gray-400">Meanings &amp; origins</p>
+                  <p className="text-[11px] text-brand-600 dark:text-brand-400">Meanings &amp; origins →</p>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
