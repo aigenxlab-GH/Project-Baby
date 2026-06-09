@@ -26,6 +26,10 @@ const categoryLabels: Record<string, string> = {
   'white-noise-machines': 'Best White Noise Machines',
 };
 
+export async function generateStaticParams() {
+  return Object.keys(categoryLabels).map((category) => ({ category }));
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category } = await params;
   const label = categoryLabels[category] || category;
