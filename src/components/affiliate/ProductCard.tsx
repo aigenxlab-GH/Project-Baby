@@ -15,10 +15,10 @@ function StarRating({ rating }: { rating: number }) {
       {Array.from({ length: 5 }).map((_, i) => (
         <Star
           key={i}
-          className={`h-4 w-4 ${i < Math.floor(rating) ? 'fill-amber-400 text-amber-400' : 'text-gray-200'}`}
+          className={`h-4 w-4 ${i < Math.floor(rating) ? 'fill-amber-400 text-amber-400' : 'text-gray-200 dark:text-gray-600'}`}
         />
       ))}
-      <span className="ml-1.5 text-sm text-gray-500">{rating.toFixed(1)}</span>
+      <span className="ml-1.5 text-sm text-gray-500 dark:text-gray-400">{rating.toFixed(1)}</span>
     </div>
   );
 }
@@ -28,9 +28,9 @@ export function ProductCard({ product, variant = 'card' }: Props) {
   const productUrl = `/products/${product.category}/${product.slug}`;
 
   return (
-    <div className={`bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow ${variant === 'featured' ? 'lg:flex' : ''}`}>
-      {/* Image */}
-      <div className={`relative bg-gray-50 ${variant === 'featured' ? 'lg:w-64 lg:flex-shrink-0' : 'aspect-video'}`}>
+    <div className={`bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden hover:shadow-md transition-shadow ${variant === 'featured' ? 'lg:flex' : ''}`}>
+      {/* Image — featured: fixed height on mobile, fixed width on desktop */}
+      <div className={`relative bg-gray-50 dark:bg-gray-700 ${variant === 'featured' ? 'h-52 lg:h-auto lg:w-64 lg:flex-shrink-0' : 'aspect-video'}`}>
         <Link href={productUrl}>
           <Image
             src={product.image || '/images/product-placeholder.jpg'}
@@ -50,8 +50,8 @@ export function ProductCard({ product, variant = 'card' }: Props) {
       {/* Content */}
       <div className="p-5 flex flex-col gap-3 flex-1">
         <div>
-          <p className="text-xs text-gray-500 uppercase tracking-wide font-medium">{product.brand}</p>
-          <Link href={productUrl} className="font-serif text-lg font-bold text-gray-900 hover:text-brand-600 leading-snug">
+          <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide font-medium">{product.brand}</p>
+          <Link href={productUrl} className="font-serif text-lg font-bold text-gray-900 dark:text-white hover:text-brand-600 dark:hover:text-brand-400 leading-snug">
             {product.productName}
           </Link>
           <div className="mt-1.5">
@@ -59,16 +59,16 @@ export function ProductCard({ product, variant = 'card' }: Props) {
           </div>
         </div>
 
-        {/* Pros */}
+        {/* Pros & Cons */}
         <ul className="space-y-1">
           {product.pros.slice(0, 3).map((pro) => (
-            <li key={pro} className="flex items-start gap-2 text-sm text-gray-600">
+            <li key={pro} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
               <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
               {pro}
             </li>
           ))}
           {product.cons.slice(0, 1).map((con) => (
-            <li key={con} className="flex items-start gap-2 text-sm text-gray-500">
+            <li key={con} className="flex items-start gap-2 text-sm text-gray-500 dark:text-gray-400">
               <XCircle className="h-4 w-4 text-red-400 mt-0.5 flex-shrink-0" />
               {con}
             </li>
@@ -76,7 +76,7 @@ export function ProductCard({ product, variant = 'card' }: Props) {
         </ul>
 
         {/* Bottom Line */}
-        <p className="text-sm text-gray-700 bg-gray-50 rounded-lg px-3 py-2 italic">
+        <p className="text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-700/50 rounded-lg px-3 py-2 italic">
           &ldquo;{product.bottomLine}&rdquo;
         </p>
 
@@ -89,7 +89,7 @@ export function ProductCard({ product, variant = 'card' }: Props) {
               productName={product.productName}
             />
           )}
-          <Link href={productUrl} className="text-sm text-brand-600 hover:underline">
+          <Link href={productUrl} className="text-sm text-brand-600 dark:text-brand-400 hover:underline">
             Full review →
           </Link>
         </div>
