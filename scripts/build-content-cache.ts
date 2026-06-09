@@ -16,7 +16,9 @@ import readingTime from 'reading-time';
 
 const projectRoot = process.cwd();
 const contentRoot = path.join(projectRoot, 'content');
-const outputPath = path.join(projectRoot, 'src', 'data', 'content-cache.json');
+const outputPath         = path.join(projectRoot, 'src', 'data', 'content-cache.json');
+const outputPathProducts = path.join(projectRoot, 'src', 'data', 'content-cache-products.json');
+const outputPathArticles = path.join(projectRoot, 'src', 'data', 'content-cache-articles.json');
 
 type ContentEntry = Record<string, unknown>;
 
@@ -96,6 +98,28 @@ for (const relPath of allPaths) {
   }
 }
 
-// Write compact JSON (no whitespace) to keep bundle size minimal
+// ── Write combined cache (backwards compatibility) ───────────────────────────
 fs.writeFileSync(outputPath, JSON.stringify(cache));
+
+// ── Write split caches (used by lib/products.ts and lib/mdx.ts) ──────────────
+// Products cache: only keys under products/  (~300–500 KB)
+const productsCache: typeof cache = {};
+const articlesCache: typeof cache = {};
+
+for (const [key, value] of Object.entries(cache)) {
+  if (key.startsWith('products/')) {
+    productsCache[key] = value;
+  } else {
+    articlesCache[key] = value;
+  }
+}
+
+fs.writeFileSync(outputPathProducts, JSON.stringify(productsCache));
+fs.writeFileSync(outputPathArticles, JSON.stringify(articlesCache));
+
+const productEntries = Object.values(productsCache).reduce((n, v) => n + Object.keys(v).length, 0);
+const articleEntries = Object.values(articlesCache).reduce((n, v) => n + Object.keys(v).length, 0);
+
 console.log(`\n✓ Content cache built: ${totalArticles} total articles → src/data/content-cache.json`);
+console.log(`  ├─ content-cache-products.json : ${productEntries} products  (${Math.round(JSON.stringify(productsCache).length / 1024)} KB)`);
+console.log(`  └─ content-cache-articles.json : ${articleEntries} articles  (${Math.round(JSON.stringify(articlesCache).length / 1024)} KB)`);

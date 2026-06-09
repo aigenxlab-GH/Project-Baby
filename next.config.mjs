@@ -17,18 +17,17 @@ const nextConfig = {
   outputFileTracingRoot: path.join(__dirname),
 
   // ── Images ─────────────────────────────────────────────────────────────────
+  // Cloudflare Workers don't support the built-in `sharp` image optimiser.
+  // We use a custom loader (src/lib/image-loader.ts) that routes images through
+  // wsrv.nl — a free image proxy CDN — for WebP conversion + resizing.
+  // This gives full image optimisation with zero server-side processing.
   images: {
-    // Cloudflare Workers don't support the built-in `sharp` image optimiser.
-    // All images are served from Unsplash/Amazon CDN with query-string params
-    // already applied (?w=800&q=85), so unoptimized: true is zero-cost here.
-    unoptimized: true,
-    remotePatterns: [
-      { protocol: 'https', hostname: 'm.media-amazon.com' },
-      { protocol: 'https', hostname: 'images-na.ssl-images-amazon.com' },
-      { protocol: 'https', hostname: 'via.placeholder.com' },
-      { protocol: 'https', hostname: 'images.unsplash.com' },
-      { protocol: 'https', hostname: 'plus.unsplash.com' },
-    ],
+    loader: 'custom',
+    loaderFile: './src/lib/image-loader.ts',
+    // Sizes cover all common breakpoints: mobile → tablet → desktop → wide
+    deviceSizes: [375, 640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    formats: ['image/webp'],
   },
 
   // ── URL canonicalization ───────────────────────────────────────────────────
