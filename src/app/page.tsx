@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = {
   title: `${siteConfig.name} — ${siteConfig.tagline}`,
   description:
-    'Free pregnancy week-by-week guides (weeks 1–40), 1,188+ baby names with meanings, honest product reviews, and pregnancy tools including due date calculator, ovulation calculator & contraction timer.',
+    'Free pregnancy week-by-week guides (weeks 1–40), 219+ expert articles, 1,188+ baby names with meanings, honest product reviews, and pregnancy tools including due date calculator, ovulation calculator & contraction timer.',
 };
 
 const tools = [
@@ -143,7 +143,7 @@ export default function HomePage() {
               {/* Trust badges */}
               <div className="flex flex-wrap gap-4 text-xs text-gray-500 dark:text-gray-400">
                 <span className="flex items-center gap-1"><span aria-hidden="true">✅</span> Free forever</span>
-                <span className="flex items-center gap-1"><span aria-hidden="true">✅</span> 72 expert guides</span>
+                <span className="flex items-center gap-1"><span aria-hidden="true">✅</span> 219+ expert articles</span>
                 <span className="flex items-center gap-1"><span aria-hidden="true">✅</span> 1,188+ baby names</span>
               </div>
             </div>
