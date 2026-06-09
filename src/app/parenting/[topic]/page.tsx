@@ -115,7 +115,7 @@ export default async function ParentingTopicPage({ params }: { params: Promise<{
             <span className="text-4xl">{meta.emoji}</span>
           </div>
           <h1 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">{meta.title}</h1>
-          <p className="text-base text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed">{meta.intro}</p>
+          <p className="text-base text-gray-700 dark:text-gray-200 max-w-2xl leading-relaxed">{meta.intro}</p>
         </div>
 
         <div className="grid lg:grid-cols-[1fr_280px] gap-8">
@@ -199,7 +199,7 @@ export default async function ParentingTopicPage({ params }: { params: Promise<{
                     <Link
                       key={slug}
                       href={`/parenting/${slug}`}
-                      className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 py-1.5 transition-colors"
+                      className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-brand-400 py-1.5 transition-colors"
                     >
                       <span>{t.emoji}</span>
                       <span>{t.title}</span>

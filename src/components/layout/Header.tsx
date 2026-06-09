@@ -119,8 +119,8 @@ export function Header() {
                           onClick={() => setOpenDropdown(null)}
                           className={`flex items-center px-4 py-2 text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-600 ${
                             pathname === sub.href
-                              ? 'text-brand-600 bg-brand-50 font-medium'
-                              : 'text-gray-600 hover:text-brand-600 hover:bg-brand-50'
+                              ? 'text-brand-600 bg-brand-50 dark:bg-brand-950/40 font-medium'
+                              : 'text-gray-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-brand-50 dark:hover:bg-gray-800'
                           }`}
                         >
                           {sub.title}
@@ -192,7 +192,7 @@ export function Header() {
                       window.location.href = `/search?q=${encodeURIComponent(mobileSearch)}`;
                     }
                   }}
-                  className="w-full pl-9 pr-4 py-2.5 text-sm border border-gray-200 rounded-xl focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-100 bg-gray-50"
+                  className="w-full pl-9 pr-4 py-2.5 text-sm border border-gray-200 dark:border-gray-700 rounded-xl focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-100 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500"
                 />
               </div>
             </div>
@@ -206,8 +206,8 @@ export function Header() {
                       href={item.href}
                       className={`flex-1 flex items-center px-3 py-2.5 text-sm font-medium rounded-xl transition-colors ${
                         isActive(item.href)
-                          ? 'text-brand-600 bg-brand-50'
-                          : 'text-gray-700 hover:text-brand-600 hover:bg-brand-50'
+                          ? 'text-brand-600 bg-brand-50 dark:bg-brand-950/40'
+                          : 'text-gray-700 dark:text-gray-200 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-brand-50 dark:hover:bg-gray-800'
                       }`}
                     >
                       {item.title}
@@ -230,7 +230,7 @@ export function Header() {
                           key={sub.href}
                           href={sub.href}
                           onClick={() => { setMobileOpen(false); setOpenDropdown(null); }}
-                          className="block px-3 py-2 text-xs text-gray-500 hover:text-brand-600 hover:bg-brand-50 rounded-lg transition-colors"
+                          className="block px-3 py-2 text-xs text-gray-500 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-brand-50 dark:hover:bg-gray-800 rounded-lg transition-colors"
                         >
                           {sub.title}
                         </Link>
@@ -241,7 +241,7 @@ export function Header() {
               ))}
 
               {/* Mobile CTA */}
-              <div className="pt-3 border-t border-gray-100 mt-2">
+              <div className="pt-3 border-t border-gray-100 dark:border-gray-800 mt-2">
                 <Link
                   href="/tools/due-date-calculator"
                   className="flex items-center justify-center gap-2 w-full py-3 text-sm font-semibold text-white bg-gradient-to-r from-brand-500 to-brand-600 rounded-xl"

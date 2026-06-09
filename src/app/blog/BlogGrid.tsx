@@ -142,7 +142,7 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
                   )}
                 </div>
                 <div className="p-6">
-                  <div className="flex items-center gap-4 text-xs text-gray-400 dark:text-gray-500 mb-3">
+                  <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400 mb-3">
                     <span className="flex items-center gap-1"><User className="h-3 w-3" aria-hidden="true" />{article.author}</span>
                     <span className="flex items-center gap-1"><Clock className="h-3 w-3" aria-hidden="true" />{article.readingTime} min read</span>
                     <span>{formatDate(article.publishedAt)}</span>
@@ -150,7 +150,7 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
                   <h2 className={`font-serif font-bold text-gray-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors mb-2 leading-snug ${isFirst ? 'text-2xl' : 'text-lg'}`}>
                     {article.title}
                   </h2>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm line-clamp-2 leading-relaxed">{article.description}</p>
+                  <p className="text-gray-500 dark:text-gray-300 text-sm line-clamp-2 leading-relaxed">{article.description}</p>
                   <span className="inline-block mt-4 text-brand-600 dark:text-brand-400 text-sm font-semibold group-hover:underline">
                     Read article →
                   </span>

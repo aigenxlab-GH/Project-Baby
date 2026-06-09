@@ -12,13 +12,13 @@ interface PriceComparisonProps {
 type RetailerType = 'amazon' | 'buyBaby' | 'target' | 'walmart' | 'wayfair' | 'bestBuy' | 'etsy';
 
 const retailerInfo: Record<RetailerType, { name: string; color: string; icon: string }> = {
-  amazon: { name: 'Amazon', color: 'bg-amber-100 hover:bg-amber-200', icon: '🛒' },
-  buyBaby: { name: 'Buy Buy Baby', color: 'bg-pink-100 hover:bg-pink-200', icon: '👶' },
-  target: { name: 'Target', color: 'bg-red-100 hover:bg-red-200', icon: '🎯' },
-  walmart: { name: 'Walmart', color: 'bg-blue-100 hover:bg-blue-200', icon: '🏪' },
-  wayfair: { name: 'Wayfair', color: 'bg-purple-100 hover:bg-purple-200', icon: '🛋️' },
-  bestBuy: { name: 'Best Buy', color: 'bg-yellow-100 hover:bg-yellow-200', icon: '📱' },
-  etsy: { name: 'Etsy', color: 'bg-amber-100 hover:bg-amber-200', icon: '🎨' },
+  amazon: { name: 'Amazon', color: 'bg-amber-100 hover:bg-amber-200 dark:bg-amber-900/50 dark:hover:bg-amber-900', icon: '🛒' },
+  buyBaby: { name: 'Buy Buy Baby', color: 'bg-pink-100 hover:bg-pink-200 dark:bg-pink-900/50 dark:hover:bg-pink-900', icon: '👶' },
+  target: { name: 'Target', color: 'bg-red-100 hover:bg-red-200 dark:bg-red-900/50 dark:hover:bg-red-900', icon: '🎯' },
+  walmart: { name: 'Walmart', color: 'bg-blue-100 hover:bg-blue-200 dark:bg-blue-900/50 dark:hover:bg-blue-900', icon: '🏪' },
+  wayfair: { name: 'Wayfair', color: 'bg-purple-100 hover:bg-purple-200 dark:bg-purple-900/50 dark:hover:bg-purple-900', icon: '🛋️' },
+  bestBuy: { name: 'Best Buy', color: 'bg-yellow-100 hover:bg-yellow-200 dark:bg-yellow-900/50 dark:hover:bg-yellow-900', icon: '📱' },
+  etsy: { name: 'Etsy', color: 'bg-amber-100 hover:bg-amber-200 dark:bg-amber-900/50 dark:hover:bg-amber-900', icon: '🎨' },
 };
 
 export function PriceComparison({ productId, showLabel = true }: PriceComparisonProps) {
@@ -66,7 +66,7 @@ export function PriceComparison({ productId, showLabel = true }: PriceComparison
               target="_blank"
               rel="nofollow sponsored noopener noreferrer"
               onClick={() => handleClick(retailer)}
-              className={`inline-flex items-center gap-2 px-3 py-2 rounded-lg ${info.color} dark:${info.color} text-gray-800 dark:text-gray-900 text-sm font-medium transition-all hover:shadow-md`}
+              className={`inline-flex items-center gap-2 px-3 py-2 rounded-lg ${info.color} text-gray-800 dark:text-gray-100 text-sm font-medium transition-all hover:shadow-md`}
             >
               <span>{info.icon}</span>
               <span>{info.name}</span>

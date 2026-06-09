@@ -158,7 +158,7 @@ export default async function WeekPage({ params }: Props) {
                 </div>
                 {data.keyMilestone && (
                   <div className="flex justify-center">
-                    <div className="inline-flex items-center gap-2 bg-white rounded-full px-5 py-2 text-sm font-medium text-brand-700 shadow-sm border border-brand-100">
+                    <div className="inline-flex items-center gap-2 bg-white dark:bg-gray-800 rounded-full px-5 py-2 text-sm font-medium text-brand-700 dark:text-brand-400 shadow-sm border border-brand-100 dark:border-brand-800">
                       <Baby className="h-4 w-4" />
                       Milestone: {data.keyMilestone}
                     </div>

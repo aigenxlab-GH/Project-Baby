@@ -17,7 +17,7 @@ export function BreadcrumbNav({ items, current }: BreadcrumbNavProps) {
       aria-label="Breadcrumb"
       className="mb-6"
     >
-      <ol className="flex items-center gap-1.5 text-xs text-gray-400 dark:text-gray-600 flex-wrap">
+      <ol className="flex items-center gap-1.5 text-xs text-gray-400 dark:text-gray-400 flex-wrap">
         <li>
           <Link
             href="/"

@@ -64,7 +64,7 @@ export function OvulationCalculator() {
               aria-valuetext={`${cycleLength} days`}
               className="w-full accent-brand-600"
             />
-            <div className="flex justify-between text-xs text-gray-400 dark:text-gray-500 mt-1">
+            <div className="flex justify-between text-xs text-gray-400 dark:text-gray-400 mt-1">
               <span>21 days</span><span>28 typical</span><span>45 days</span>
             </div>
           </div>

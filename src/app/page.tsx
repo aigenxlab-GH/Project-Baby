@@ -17,12 +17,12 @@ export const metadata: Metadata = {
 };
 
 const tools = [
-  { title: 'Due Date Calculator', desc: "Find your baby's due date instantly", href: '/tools/due-date-calculator', icon: Calculator, color: 'bg-pink-50 text-pink-600' },
-  { title: 'Ovulation Calculator', desc: 'Track your fertile window', href: '/tools/ovulation-calculator', icon: Heart, color: 'bg-purple-50 text-purple-600' },
-  { title: 'Contraction Timer', desc: 'Time contractions during labour', href: '/tools/contraction-timer', icon: Timer, color: 'bg-blue-50 text-blue-600' },
-  { title: 'Baby Name Generator', desc: 'Find the perfect name', href: '/tools/baby-name-generator', icon: Search, color: 'bg-green-50 text-green-600' },
-  { title: 'Registry Checklist', desc: 'Everything you need for baby', href: '/tools/registry-checklist', icon: List, color: 'bg-amber-50 text-amber-600' },
-  { title: 'Symptom Checker', desc: 'Is this normal in pregnancy?', href: '/tools/symptom-checker', icon: BookOpen, color: 'bg-teal-50 text-teal-600' },
+  { title: 'Due Date Calculator', desc: "Find your baby's due date instantly", href: '/tools/due-date-calculator', icon: Calculator, color: 'bg-pink-50 dark:bg-pink-950/50 text-pink-600 dark:text-pink-400' },
+  { title: 'Ovulation Calculator', desc: 'Track your fertile window', href: '/tools/ovulation-calculator', icon: Heart, color: 'bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400' },
+  { title: 'Contraction Timer', desc: 'Time contractions during labour', href: '/tools/contraction-timer', icon: Timer, color: 'bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400' },
+  { title: 'Baby Name Generator', desc: 'Find the perfect name', href: '/tools/baby-name-generator', icon: Search, color: 'bg-green-50 dark:bg-green-950/50 text-green-600 dark:text-green-400' },
+  { title: 'Registry Checklist', desc: 'Everything you need for baby', href: '/tools/registry-checklist', icon: List, color: 'bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400' },
+  { title: 'Symptom Checker', desc: 'Is this normal in pregnancy?', href: '/tools/symptom-checker', icon: BookOpen, color: 'bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-400' },
 ];
 
 const featuredWeeks = [8, 12, 20, 28, 36, 40];
@@ -240,7 +240,7 @@ export default function HomePage() {
                   <h3 className="font-semibold text-gray-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                     {tool.title}
                   </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{tool.desc}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-300 mt-0.5">{tool.desc}</p>
                 </div>
                 <ChevronRight className="h-5 w-5 text-gray-300 dark:text-gray-600 group-hover:text-brand-400 ml-auto flex-shrink-0 mt-1" />
               </Link>
