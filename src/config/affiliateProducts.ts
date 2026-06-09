@@ -37,7 +37,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'car-seats',
     description: 'Top-rated infant car seats with safety features',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=infant+car+seat&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=infant+car+seat&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=car+seat',
       target: 'https://www.target.com/s?searchTerm=car+seat',
     },
@@ -51,7 +51,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'car-seats',
     description: 'Convertible car seats that grow with your child',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=convertible+car+seat&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=convertible+car+seat&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=convertible+car+seat',
       target: 'https://www.target.com/s?searchTerm=convertible+car+seat',
     },
@@ -65,7 +65,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'carriers',
     description: 'Structured carriers, wraps, and slings',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=baby+carrier&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=baby+carrier&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=baby+carrier',
       target: 'https://www.target.com/s?searchTerm=baby+carrier',
     },
@@ -82,7 +82,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'strollers',
     description: 'Full-featured strollers with excellent maneuverability',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=stroller+newborn&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=stroller+newborn&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=stroller',
       target: 'https://www.target.com/s?searchTerm=stroller',
     },
@@ -96,7 +96,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'strollers',
     description: 'Stroller and car seat combinations',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=travel+system+stroller+car+seat&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=travel+system+stroller+car+seat&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=travel+system',
       target: 'https://www.target.com/s?searchTerm=travel+system',
     },
@@ -110,7 +110,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'strollers',
     description: 'Lightweight strollers for growing toddlers',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=toddler+stroller&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=toddler+stroller&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=toddler+stroller',
       target: 'https://www.target.com/s?searchTerm=toddler+stroller',
     },
@@ -127,7 +127,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'furniture',
     description: 'Safe, durable cribs meeting CPSC standards',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=baby+crib&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=baby+crib&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=crib',
       target: 'https://www.target.com/s?searchTerm=crib',
     },
@@ -141,7 +141,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'furniture',
     description: 'Cribs that convert to toddler beds',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=convertible+crib&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=convertible+crib&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=convertible+crib',
       target: 'https://www.target.com/s?searchTerm=convertible+crib',
     },
@@ -155,7 +155,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'furniture',
     description: 'Coordinated nursery furniture collections',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=baby+furniture+set&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=baby+furniture+set&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=furniture+set',
       target: 'https://www.target.com/s?searchTerm=furniture+set',
     },
@@ -169,7 +169,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'furniture',
     description: 'Low toddler beds for safe transitions',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=toddler+bed&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=toddler+bed&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=toddler+bed',
       target: 'https://www.target.com/s?searchTerm=toddler+bed',
     },
@@ -186,7 +186,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'feeding',
     description: 'Electric and manual breast pump options',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=breast+pump&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=breast+pump&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=breast+pump',
       target: 'https://www.target.com/s?searchTerm=breast+pump',
     },
@@ -200,7 +200,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'feeding',
     description: 'Comfortable support pillows for breastfeeding',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=nursing+pillow&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=nursing+pillow&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=nursing+pillow',
       target: 'https://www.target.com/s?searchTerm=nursing+pillow',
     },
@@ -214,7 +214,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'feeding',
     description: 'Easy-to-clean high chairs for mealtime',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=high+chair&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=high+chair&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=high+chair',
       target: 'https://www.target.com/s?searchTerm=high+chair',
     },
@@ -228,7 +228,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'feeding',
     description: 'UV, steam, and microwave sterilizers',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=bottle+sterilizer&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=bottle+sterilizer&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=sterilizer',
       target: 'https://www.target.com/s?searchTerm=sterilizer',
     },
@@ -245,7 +245,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'sleep',
     description: 'Video, audio, and wearable monitors',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=baby+monitor&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=baby+monitor&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=baby+monitor',
       target: 'https://www.target.com/s?searchTerm=baby+monitor',
     },
@@ -259,7 +259,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'sleep',
     description: 'Soothing swings with various motion options',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=baby+swing&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=baby+swing&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=swing',
       target: 'https://www.target.com/s?searchTerm=swing',
     },
@@ -273,7 +273,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'sleep',
     description: 'Gentle bouncers and rockers',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=baby+bouncer&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=baby+bouncer&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=bouncer',
       target: 'https://www.target.com/s?searchTerm=bouncer',
     },
@@ -287,7 +287,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'sleep',
     description: 'Soothing sound machines for better sleep',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=white+noise+machine&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=white+noise+machine&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=white+noise',
       target: 'https://www.target.com/s?searchTerm=white+noise',
     },
@@ -304,7 +304,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'health',
     description: 'Advanced video monitoring with night vision',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=video+baby+monitor&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=video+baby+monitor&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=video+monitor',
       target: 'https://www.target.com/s?searchTerm=video+monitor',
     },
@@ -318,7 +318,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'health',
     description: 'Digital, infrared, and pacifier thermometers',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=baby+thermometer&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=baby+thermometer&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=thermometer',
       target: 'https://www.target.com/s?searchTerm=thermometer',
     },
@@ -332,7 +332,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'safety',
     description: 'Safety gates for stairs and doorways',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=baby+gate&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=baby+gate&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=baby+gate',
       target: 'https://www.target.com/s?searchTerm=baby+gate',
     },
@@ -349,7 +349,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'bathing',
     description: 'Safe, supportive baby bathing solutions',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=baby+bath+tub&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=baby+bath+tub&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=bath+tub',
       target: 'https://www.target.com/s?searchTerm=bath+tub',
     },
@@ -363,7 +363,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'bathing',
     description: 'Complete bathing systems with seats and support',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=baby+bathing+system&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=baby+bathing+system&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=bathing+system',
       target: 'https://www.target.com/s?searchTerm=bathing',
     },
@@ -380,7 +380,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'utility',
     description: 'Odor-control diaper disposal solutions',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=diaper+pail&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=diaper+pail&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=diaper+pail',
       target: 'https://www.target.com/s?searchTerm=diaper+pail',
     },
@@ -394,7 +394,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     category: 'utility',
     description: 'Cool mist humidifiers for baby rooms',
     affiliateLinks: {
-      amazon: 'https://amazon.com/s?k=humidifier+baby&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=humidifier+baby&tag=pregnancysp0a-20',
       buyBaby: 'https://www.buybuybaby.com/search?q=humidifier',
       target: 'https://www.target.com/s?searchTerm=humidifier',
       walmart: 'https://www.walmart.com/search?q=baby+humidifier',
@@ -413,7 +413,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     description: 'Complete nursery furniture collections and sets',
     affiliateLinks: {
       wayfair: 'https://www.wayfair.com/nursery/sb0/nursery-furniture_1.html',
-      amazon: 'https://amazon.com/s?k=nursery+furniture+set&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=nursery+furniture+set&tag=pregnancysp0a-20',
       target: 'https://www.target.com/s?searchTerm=nursery+furniture',
     },
     commissionRate: 12,
@@ -427,7 +427,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     description: 'Crib bedding sets with pillows and blankets',
     affiliateLinks: {
       wayfair: 'https://www.wayfair.com/nursery/sb0/crib-bedding_1.html',
-      amazon: 'https://amazon.com/s?k=baby+bedding+set&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=baby+bedding+set&tag=pregnancysp0a-20',
       target: 'https://www.target.com/s?searchTerm=baby+bedding',
     },
     commissionRate: 10,
@@ -441,7 +441,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     description: 'Nursery changing tables with storage',
     affiliateLinks: {
       wayfair: 'https://www.wayfair.com/nursery/sb0/changing-tables_1.html',
-      amazon: 'https://amazon.com/s?k=changing+table&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=changing+table&tag=pregnancysp0a-20',
       target: 'https://www.target.com/s?searchTerm=changing+table',
     },
     commissionRate: 11,
@@ -458,7 +458,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     description: 'Smart WiFi-enabled baby monitors with app control',
     affiliateLinks: {
       bestBuy: 'https://www.bestbuy.com/site/searchpage.jsp?st=baby+monitor',
-      amazon: 'https://amazon.com/s?k=wifi+baby+monitor&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=wifi+baby+monitor&tag=pregnancysp0a-20',
       target: 'https://www.target.com/s?searchTerm=smart+baby+monitor',
     },
     commissionRate: 8,
@@ -472,7 +472,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     description: 'Star/moon projector night lights for nursery',
     affiliateLinks: {
       bestBuy: 'https://www.bestbuy.com/site/searchpage.jsp?st=night+light+projector',
-      amazon: 'https://amazon.com/s?k=projector+night+light&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=projector+night+light&tag=pregnancysp0a-20',
       target: 'https://www.target.com/s?searchTerm=night+light+projector',
     },
     commissionRate: 7,
@@ -489,7 +489,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     description: 'Custom name signs and personalized room decorations',
     affiliateLinks: {
       etsy: 'https://www.etsy.com/search?q=personalized+nursery+decor',
-      amazon: 'https://amazon.com/s?k=personalized+nursery+wall+decor&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=personalized+nursery+wall+decor&tag=pregnancysp0a-20',
     },
     commissionRate: 9,
     priority: 'medium',
@@ -502,7 +502,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     description: 'Custom handmade baby quilts and blankets',
     affiliateLinks: {
       etsy: 'https://www.etsy.com/search?q=baby+quilt+handmade',
-      amazon: 'https://amazon.com/s?k=baby+quilt&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=baby+quilt&tag=pregnancysp0a-20',
     },
     commissionRate: 10,
     priority: 'medium',
@@ -515,7 +515,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     description: 'Eco-friendly wooden toys and teethers',
     affiliateLinks: {
       etsy: 'https://www.etsy.com/search?q=wooden+baby+toys',
-      amazon: 'https://amazon.com/s?k=wooden+baby+toys&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=wooden+baby+toys&tag=pregnancysp0a-20',
       target: 'https://www.target.com/s?searchTerm=wooden+toys',
     },
     commissionRate: 8,
@@ -532,7 +532,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     description: 'Affordable strollers without breaking the bank',
     affiliateLinks: {
       walmart: 'https://www.walmart.com/cp/strollers/1088666',
-      amazon: 'https://amazon.com/s?k=affordable+stroller&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=affordable+stroller&tag=pregnancysp0a-20',
       target: 'https://www.target.com/s?searchTerm=affordable+stroller',
     },
     commissionRate: 6,
@@ -546,7 +546,7 @@ export const affiliateProducts: Record<string, AffiliateProduct> = {
     description: 'Affordable infant and convertible car seats',
     affiliateLinks: {
       walmart: 'https://www.walmart.com/cp/car-seats/1088665',
-      amazon: 'https://amazon.com/s?k=affordable+car+seat&tag=pregnancysprout-20',
+      amazon: 'https://amazon.com/s?k=affordable+car+seat&tag=pregnancysp0a-20',
       target: 'https://www.target.com/s?searchTerm=affordable+car+seat',
     },
     commissionRate: 6,

@@ -1,6 +1,6 @@
 export const affiliateConfig = {
   amazon: {
-    tag: process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG || 'pregnancysprout-20',
+    tag: process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG || 'pregnancysp0a-20',
     baseUrl: 'https://www.amazon.com',
   },
   walmart: { tag: 'pregnancysprout' },

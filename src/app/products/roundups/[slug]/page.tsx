@@ -61,7 +61,7 @@ const roundups: Record<string, RoundupData> = {
         pros: ['Best-in-class suspension', 'Self-standing fold', 'Reversible seat', 'Lifetime frame warranty'],
         cons: ['Very expensive', 'Bassinet sold separately'],
         summary: 'The Bugaboo Fox 5 is the finest full-size stroller on the market. The suspension, reversible seat, and build quality justify the price for families who want the best daily experience.',
-        affiliateUrl: 'https://www.amazon.com/dp/B0C3PXGZDP?tag=pregnancysprout-20',
+        affiliateUrl: 'https://www.amazon.com/dp/B0C3PXGZDP?tag=pregnancysp0a-20',
         affiliatePrice: '$1,399',
       },
       {
@@ -79,7 +79,7 @@ const roundups: Record<string, RoundupData> = {
         pros: ['Converts to double without new frame', 'Included bassinet (RumbleSeat)', 'Large storage basket', 'Premium build quality'],
         cons: ['Heavy at 27 lbs', 'Expensive accessories'],
         summary: 'The Vista V2 is the smart choice for families planning more than one child. The included bassinet and double-configuration upgrade path set it apart from competitors.',
-        affiliateUrl: 'https://www.amazon.com/dp/B08BHPBQFL?tag=pregnancysprout-20',
+        affiliateUrl: 'https://www.amazon.com/dp/B08BHPBQFL?tag=pregnancysp0a-20',
         affiliatePrice: '$969',
       },
       {
@@ -97,7 +97,7 @@ const roundups: Record<string, RoundupData> = {
         pros: ['All-terrain wheels', 'Quick one-hand fold', 'Lightweight at 21 lbs', 'Decent canopy coverage'],
         cons: ['No bassinet compatible', 'Seat recline not fully flat'],
         summary: 'The City Mini GT2 punches well above its price. The all-terrain wheels, quick fold, and comfortable seat make it the pick for active families who won\'t compromise on quality.',
-        affiliateUrl: 'https://www.amazon.com/dp/B07WQ7DQ3K?tag=pregnancysprout-20',
+        affiliateUrl: 'https://www.amazon.com/dp/B07WQ7DQ3K?tag=pregnancysp0a-20',
         affiliatePrice: '$399',
       },
       {
@@ -115,7 +115,7 @@ const roundups: Record<string, RoundupData> = {
         pros: ['Pram mode from birth', 'Compatible with SnugRide car seats', 'Large storage basket', 'Excellent value'],
         cons: ['Heavier than premium alternatives', 'Fold less intuitive'],
         summary: 'The best value travel system available. The Graco Modes Pramette\'s pram configuration and SnugRide compatibility make it a complete newborn-to-toddler solution at a fraction of premium prices.',
-        affiliateUrl: 'https://www.amazon.com/dp/B08JY96JTZ?tag=pregnancysprout-20',
+        affiliateUrl: 'https://www.amazon.com/dp/B08JY96JTZ?tag=pregnancysp0a-20',
         affiliatePrice: '$249',
       },
       {
@@ -133,7 +133,7 @@ const roundups: Record<string, RoundupData> = {
         pros: ['Fits in overhead cabin storage', 'Folds to carry-on dimensions', 'Lightweight at 13.6 lbs', 'Premium materials'],
         cons: ['Expensive for its size', 'Small canopy', 'Narrow storage basket'],
         summary: 'The only full-featured stroller that fits in an aeroplane overhead bin. For frequent travellers or families in cities with small apartments, the YOYO2 is in a category of its own.',
-        affiliateUrl: 'https://www.amazon.com/dp/B07Z5BJR6L?tag=pregnancysprout-20',
+        affiliateUrl: 'https://www.amazon.com/dp/B07Z5BJR6L?tag=pregnancysp0a-20',
         affiliatePrice: '$499',
       },
     ],
@@ -194,7 +194,7 @@ const roundups: Record<string, RoundupData> = {
         pros: ['Overhead camera for complete crib view', 'Breathing motion monitoring (with band)', 'Excellent sleep analytics', 'HD night vision'],
         cons: ['Subscription required for full features', 'Expensive', 'Breathing band sold separately'],
         summary: 'The Nanit Pro is the most data-rich baby monitor available. The overhead mount gives a complete view of the crib, and the sleep analytics are genuinely useful for tracking patterns over weeks.',
-        affiliateUrl: 'https://www.amazon.com/dp/B087Y38BVH?tag=pregnancysprout-20',
+        affiliateUrl: 'https://www.amazon.com/dp/B087Y38BVH?tag=pregnancysp0a-20',
         affiliatePrice: '$299',
       },
       {
@@ -212,7 +212,7 @@ const roundups: Record<string, RoundupData> = {
         pros: ['Real-time heart rate + oxygen monitoring', 'Comfortable sock design', 'Excellent companion app', 'Gentle pre-alert notifications'],
         cons: ['Not an FDA-cleared medical device', 'Daily charging required', 'False alerts possible'],
         summary: 'The best wearable monitor for parents who want vital sign data. Not a substitute for medical monitoring, but genuinely reassuring for high-anxiety parents and families with premature babies.',
-        affiliateUrl: 'https://www.amazon.com/dp/B09R3GX1D8?tag=pregnancysprout-20',
+        affiliateUrl: 'https://www.amazon.com/dp/B09R3GX1D8?tag=pregnancysp0a-20',
         affiliatePrice: '$299',
       },
       {
@@ -230,7 +230,7 @@ const roundups: Record<string, RoundupData> = {
         pros: ['No WiFi — no hacking risk', 'Dedicated parent unit (no phone needed)', 'Interchangeable lenses', 'Long battery life (10 hrs)'],
         cons: ['No smartphone app', 'Lower resolution than WiFi cameras', 'Range limited to ~700 ft'],
         summary: 'The best choice for parents who want a dedicated baby monitor without WiFi security concerns. The DXR-8 Pro\'s FHSS radio signal keeps feeds private and eliminates app dependency.',
-        affiliateUrl: 'https://www.amazon.com/dp/B08GFKH2X3?tag=pregnancysprout-20',
+        affiliateUrl: 'https://www.amazon.com/dp/B08GFKH2X3?tag=pregnancysp0a-20',
         affiliatePrice: '$169',
       },
       {
@@ -248,7 +248,7 @@ const roundups: Record<string, RoundupData> = {
         pros: ['Affordable', 'Tilt/pan/zoom', 'Night vision works well', 'Two-way audio'],
         cons: ['No WiFi app', 'Lower build quality', 'Basic sound sensitivity'],
         summary: 'The best value video monitor under $100. The VM75 covers the essentials well — clear night vision, two-way audio, and pan/tilt/zoom — without the subscription fees of smart monitors.',
-        affiliateUrl: 'https://www.amazon.com/dp/B09C3S6GRP?tag=pregnancysprout-20',
+        affiliateUrl: 'https://www.amazon.com/dp/B09C3S6GRP?tag=pregnancysp0a-20',
         affiliatePrice: '$89',
       },
     ],
@@ -301,7 +301,7 @@ const roundups: Record<string, RoundupData> = {
         pros: ['Usable from birth without insert', '4 carry positions', 'Excellent lumbar support', 'High weight limit (45 lbs)'],
         cons: ['Warmer than mesh alternatives', 'Bulkier to pack than wraps'],
         summary: 'The Ergobaby Omni 360 is the most versatile structured carrier we tested. All four carry positions work well, the lumbar support is excellent for long carries, and the high weight limit means it grows with your child.',
-        affiliateUrl: 'https://www.amazon.com/dp/B07FLMKXFN?tag=pregnancysprout-20',
+        affiliateUrl: 'https://www.amazon.com/dp/B07FLMKXFN?tag=pregnancysp0a-20',
         affiliatePrice: '$180',
       },
       {
@@ -319,7 +319,7 @@ const roundups: Record<string, RoundupData> = {
         pros: ['3D mesh — best breathability tested', 'IHDI-approved ergonomic seat', 'Simplest buckle system', 'No insert needed from birth'],
         cons: ['Lower weight limit (33 lbs)', 'Less padded waist belt'],
         summary: 'The most breathable structured carrier available. For parents in warm climates or who run hot, the 3D mesh makes a meaningful difference. The buckle system is also the simplest of any carrier we tested.',
-        affiliateUrl: 'https://www.amazon.com/dp/B07GRPNJQF?tag=pregnancysprout-20',
+        affiliateUrl: 'https://www.amazon.com/dp/B07GRPNJQF?tag=pregnancysp0a-20',
         affiliatePrice: '$209',
       },
       {
@@ -337,7 +337,7 @@ const roundups: Record<string, RoundupData> = {
         pros: ['No insert needed (newborn-ready)', 'Wide padded waist belt', 'Good back carry support', 'Attractive designs'],
         cons: ['Less breathable than mesh options', 'Adjustment can be fiddly for beginners'],
         summary: 'The Tula Free-to-Grow offers premium comfort at a mid-range price. The wide waist belt and padded shoulder straps make it the best choice for long carries with heavier babies and toddlers.',
-        affiliateUrl: 'https://www.amazon.com/dp/B07MKN25F8?tag=pregnancysprout-20',
+        affiliateUrl: 'https://www.amazon.com/dp/B07MKN25F8?tag=pregnancysp0a-20',
         affiliatePrice: '$159',
       },
       {
@@ -355,7 +355,7 @@ const roundups: Record<string, RoundupData> = {
         pros: ['Incredibly soft TENCEL fabric', 'Distributes weight evenly', 'Machine washable', 'Great for newborn bonding'],
         cons: ['Learning curve for wrapping', 'Gets warm in summer', 'Not suitable for back carry'],
         summary: 'The Solly Wrap is the best carrier for the fourth trimester. The TENCEL fabric is exceptionally soft against newborn skin, and the even weight distribution makes it comfortable for long stretches. The learning curve is real but short.',
-        affiliateUrl: 'https://www.amazon.com/dp/B07TGKL5VF?tag=pregnancysprout-20',
+        affiliateUrl: 'https://www.amazon.com/dp/B07TGKL5VF?tag=pregnancysp0a-20',
         affiliatePrice: '$82',
       },
     ],
