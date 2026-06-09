@@ -24,11 +24,18 @@ const categoryLabels: Record<string, string> = {
   bouncers: 'Best Bouncers & Swings',
   swings: 'Best Baby Swings',
   'white-noise-machines': 'Best White Noise Machines',
+  'baby-swings': 'Best Baby Swings',
+  'white-noise': 'Best White Noise Machines',
+  'nursing-feeding': 'Best Nursing & Feeding Products',
+  'diaper-bags': 'Best Diaper Bags',
+  'baby-bathtubs': 'Best Baby Bathtubs',
+  'baby-bouncers': 'Best Baby Bouncers',
 };
 
 export async function generateStaticParams() {
   return Object.keys(categoryLabels).map((category) => ({ category }));
 }
+
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category } = await params;

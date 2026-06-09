@@ -29,6 +29,13 @@ export const mainNav = [
       { title: 'Cribs & Bassinets', href: '/products/cribs' },
       { title: 'Breast Pumps', href: '/products/breast-pumps' },
       { title: 'Baby Carriers', href: '/products/baby-carriers' },
+      { title: 'High Chairs', href: '/products/high-chairs' },
+      { title: 'Baby Swings', href: '/products/baby-swings' },
+      { title: 'White Noise', href: '/products/white-noise' },
+      { title: 'Nursing & Feeding', href: '/products/nursing-feeding' },
+      { title: 'Diaper Bags', href: '/products/diaper-bags' },
+      { title: 'Baby Bathtubs', href: '/products/baby-bathtubs' },
+      { title: 'Baby Bouncers', href: '/products/baby-bouncers' },
     ],
   },
   {
