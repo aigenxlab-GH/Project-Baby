@@ -14,7 +14,7 @@ export const siteConfig = {
   // Never reference the old /og-default.jpg — that file does not exist.
   ogImage: `${siteUrl}/opengraph-image`,
   twitterHandle: '@pregnancysprout',
-  email: 'hello@pregnancysprout.com',
+  email: 'aigenxlab@gmail.com',
   authors: [{ name: 'PregnancySprout Editorial Team', url: 'https://pregnancysprout.com/about' }],
   keywords: [
     'pregnancy',
