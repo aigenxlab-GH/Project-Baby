@@ -94,12 +94,23 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://www.google-analytics.com https://googleads.g.doubleclick.net",
+              // GA4 loads from googletagmanager; AdSense from pagead2 + adsbygoogle subdomains.
+              // googleads.g.doubleclick.net: AdSense ad serving.
+              // adservice.google.com: AdSense impression & conversion pixels.
+              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://*.doubleclick.net https://adservice.google.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
-              "img-src 'self' data: blob: https://images.unsplash.com https://plus.unsplash.com https://wsrv.nl https://*.mattel.com https://www.google-analytics.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://*.amazon.com https://*.amazonaws.com",
-              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://pagead2.googlesyndication.com",
-              "frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com",
+              // stats.g.doubleclick.net: GA4 + AdSense image beacons (blocked without this → CSP error).
+              // region1.google-analytics.com: GA4 regional data collection endpoint.
+              // *.googlesyndication.com: AdSense creative images.
+              "img-src 'self' data: blob: https://images.unsplash.com https://plus.unsplash.com https://wsrv.nl https://*.mattel.com https://www.google-analytics.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.doubleclick.net https://stats.g.doubleclick.net https://adservice.google.com https://*.amazon.com https://*.amazonaws.com",
+              // region1.google-analytics.com + region1.analytics.google.com: GA4 regional fetch endpoints.
+              // stats.g.doubleclick.net: GA/AdSense beacon XHR.
+              // *.doubleclick.net + *.googlesyndication.com: AdSense RTB + ad serving XHR.
+              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://region1.analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.doubleclick.net https://adservice.google.com",
+              // *.googlesyndication.com: AdSense ad iframes (all subdomains, not just tpc.).
+              // *.doubleclick.net: AdSense DFP iframes.
+              "frame-src https://googleads.g.doubleclick.net https://*.doubleclick.net https://tpc.googlesyndication.com https://*.googlesyndication.com",
               "worker-src 'self' blob:",
               "object-src 'none'",
               "base-uri 'self'",

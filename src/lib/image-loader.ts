@@ -28,9 +28,27 @@ export default function imageLoader({ src, width, quality }: ImageLoaderProps): 
   // Pass through relative paths (local public/ assets) unchanged
   if (!src.startsWith('http://') && !src.startsWith('https://')) return src;
 
-  // Unsplash already applies optimisation via its URL params (?w=, &q=, &auto=format)
-  // wsrv.nl re-fetching them would add latency with no quality gain — skip
-  if (src.includes('images.unsplash.com') || src.includes('plus.unsplash.com')) return src;
+  // Unsplash has a native Image API — use it directly instead of piping through wsrv.nl.
+  // Benefits vs the old "pass through unchanged" approach:
+  //   • w=<width>     → correct breakpoint size (was always 400px before, ignoring Next.js width)
+  //   • q=<quality>   → matches our quality setting
+  //   • auto=format   → serves WebP to modern browsers; JPEG fallback for older ones
+  //   • fit=crop      → consistent 16:9 crop, prevents layout shifts on aspect-ratio containers
+  //   • fm=webp       → explicitly request WebP (strips EXIF metadata in the process)
+  // Fixes: SEOptimizer "properly sized images" (MEDIUM) + "image metadata" (LOW).
+  if (src.includes('images.unsplash.com') || src.includes('plus.unsplash.com')) {
+    try {
+      const url = new URL(src);
+      url.searchParams.set('w', String(width));
+      url.searchParams.set('q', String(quality ?? 72));
+      url.searchParams.set('auto', 'format');
+      url.searchParams.set('fit', 'crop');
+      url.searchParams.set('fm', 'webp');
+      return url.toString();
+    } catch {
+      // Malformed URL — fall through to wsrv.nl path
+    }
+  }
 
   // Lower default quality saves significant bytes on mobile (was 80, now 72).
   // Visual difference is imperceptible at typical mobile screen density.

@@ -11,15 +11,20 @@ import { ThemeProvider } from '@/components/shared/ThemeProvider';
 import { CookieConsent } from '@/components/shared/CookieConsent';
 
 const inter = Inter({
-  subsets: ['latin', 'latin-ext'],
+  // 'latin-ext' adds accented characters for Central/Eastern European languages.
+  // An English-only pregnancy site doesn't need them — removing saves 1 font request.
+  subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
 });
 
 const playfair = Playfair_Display({
-  subsets: ['latin', 'latin-ext'],
+  subsets: ['latin'],
   variable: '--font-playfair',
   display: 'swap',
+  // Only load weights actually used in the design (400 for body text in serif,
+  // 700 for headings) to reduce font payload size.
+  weight: ['400', '700'],
 });
 
 export const metadata: Metadata = {

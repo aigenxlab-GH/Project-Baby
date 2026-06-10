@@ -20,5 +20,11 @@ export async function GET(req: NextRequest) {
 
   const result = searchNames(filters, page, pageSize);
 
-  return NextResponse.json(result);
+  return NextResponse.json(result, {
+    headers: {
+      // Cache at Cloudflare CDN edge for 5 min; serve stale for 10 min while revalidating.
+      // Repeated searches (same params) never reach the Worker.
+      'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
+    },
+  });
 }

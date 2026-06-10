@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ChevronRight, TrendingUp, TrendingDown, Minus, BookOpen } from 'lucide-react';
-import { getNameBySlug, getRelatedNames } from '@/lib/baby-names';
+import { getNameBySlug, getRelatedNames, getAllNames } from '@/lib/baby-names';
 import { siteConfig } from '@/config/site';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
@@ -11,6 +11,15 @@ import { InContentAd } from '@/components/ads/InContentAd';
 interface Props {
   params: Promise<{ name: string }>;
 }
+
+// Pre-render all 1205 name pages at build time as static HTML.
+// Cloudflare serves them from the CDN edge — zero Worker CPU usage.
+export function generateStaticParams() {
+  return getAllNames().map((n) => ({ name: n.name.toLowerCase() }));
+}
+
+// Any slug not in the pre-rendered list → 404 (never hits the Worker at runtime).
+export const dynamicParams = false;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { name: nameSlug } = await params;

@@ -18,14 +18,19 @@ declare global {
 
 export function AdSlot({ slot, format = 'auto', responsive = true, className }: Props) {
   const publisherId = adsConfig.publisherId;
-  const isConfigured = publisherId && !publisherId.includes('XXXX');
+  // Both publisherId AND the specific slot must be real (no XXXX placeholder).
+  // Without this double-check, setting a real publisher ID but leaving slot IDs
+  // as placeholders causes AdSense to throw TagError in the browser console.
+  const isConfigured =
+    publisherId && !publisherId.includes('XXXX') &&
+    slot && !slot.includes('XXXX');
 
   useEffect(() => {
     if (!isConfigured) return;
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch {
-      // AdSense not loaded yet
+      // AdSense script not yet loaded — safe to ignore
     }
   }, [isConfigured]);
 

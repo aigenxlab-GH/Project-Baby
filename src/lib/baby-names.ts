@@ -3,13 +3,40 @@ import type { BabyName, NameFilters } from '@/types/baby-name';
 
 const names = namesData as BabyName[];
 
+// Pre-built lookup indexes — computed once at module load, O(1) access at runtime.
+const nameBySlugMap = new Map<string, BabyName>(
+  names.map((n) => [n.name.toLowerCase(), n])
+);
+
+// Index names by gender and by each origin tag for fast related-name lookup.
+const namesByGender = new Map<string, BabyName[]>();
+const namesByOrigin = new Map<string, BabyName[]>();
+const namesByTag    = new Map<string, BabyName[]>();
+
+for (const n of names) {
+  const gKey = n.gender;
+  if (!namesByGender.has(gKey)) namesByGender.set(gKey, []);
+  namesByGender.get(gKey)!.push(n);
+
+  for (const o of n.origin) {
+    const oKey = o.toLowerCase();
+    if (!namesByOrigin.has(oKey)) namesByOrigin.set(oKey, []);
+    namesByOrigin.get(oKey)!.push(n);
+  }
+
+  for (const t of n.tags) {
+    const tKey = t.toLowerCase();
+    if (!namesByTag.has(tKey)) namesByTag.set(tKey, []);
+    namesByTag.get(tKey)!.push(n);
+  }
+}
+
 export function getAllNames(): BabyName[] {
   return names;
 }
 
 export function getNameBySlug(slug: string): BabyName | null {
-  const normalized = slug.toLowerCase();
-  return names.find((n) => n.name.toLowerCase() === normalized) ?? null;
+  return nameBySlugMap.get(slug.toLowerCase()) ?? null;
 }
 
 export function searchNames(filters: NameFilters, page = 1, pageSize = 48): {
@@ -57,15 +84,33 @@ export function searchNames(filters: NameFilters, page = 1, pageSize = 48): {
 }
 
 export function getRelatedNames(name: BabyName, limit = 6): BabyName[] {
-  return names
-    .filter(
-      (n) =>
-        n.id !== name.id &&
-        (n.gender === name.gender || n.gender === 'neutral') &&
-        (n.origin.some((o) => name.origin.includes(o)) ||
-          n.tags.some((t) => name.tags.includes(t)))
-    )
-    .slice(0, limit);
+  // Use pre-built indexes instead of scanning all 1205 names.
+  const seen = new Set<string>([name.id]);
+  const related: BabyName[] = [];
+
+  // Gather candidates via origin index (highest relevance first)
+  for (const o of name.origin) {
+    for (const n of namesByOrigin.get(o.toLowerCase()) ?? []) {
+      if (!seen.has(n.id) && (n.gender === name.gender || n.gender === 'neutral')) {
+        seen.add(n.id);
+        related.push(n);
+        if (related.length >= limit) return related;
+      }
+    }
+  }
+
+  // Fill remaining slots via tag index
+  for (const t of name.tags) {
+    for (const n of namesByTag.get(t.toLowerCase()) ?? []) {
+      if (!seen.has(n.id) && (n.gender === name.gender || n.gender === 'neutral')) {
+        seen.add(n.id);
+        related.push(n);
+        if (related.length >= limit) return related;
+      }
+    }
+  }
+
+  return related;
 }
 
 export function getAllOrigins(): string[] {

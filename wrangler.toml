@@ -9,18 +9,32 @@ main = ".open-next/worker.js"
 
 # Keep current (update annually).
 # OpenNext requires a recent date + nodejs_compat.
-compatibility_date = "2025-03-25"
+compatibility_date = "2025-04-01"
 
-# nodejs_compat enables Node.js built-in modules (fs, path, crypto, stream…)
+# nodejs_compat_v2: updated flag (replaces nodejs_compat on 2024-09-23+ dates).
+# Enables Node.js built-in modules with better performance and spec compliance.
 # Required by OpenNext server runtime and lib/mdx.ts, sitemap.ts, etc.
-compatibility_flags = ["nodejs_compat"]
+compatibility_flags = ["nodejs_compat_v2"]
 
 # Static assets (prerendered HTML, _next/static, images) served from the
 # edge. The Worker handles SSR + API routes; assets are served directly.
 [assets]
 directory = ".open-next/assets"
 binding = "ASSETS"
+# Serve static assets with long-lived cache (Next.js hashes filenames).
+html_handling = "auto-trailing-slash"
+
+# Observability: enable Worker logs in Cloudflare dashboard (free).
+# Helps diagnose future 1102 errors — see CPU time per request.
+[observability]
+enabled = true
 
 [vars]
 # Public env vars for the Worker.
 # Production secrets must be set via the dashboard or `wrangler secret put`.
+
+# ── IMPORTANT: Upgrade to Workers Paid plan to fix Error 1102 ─────────────────
+# Free plan: 10ms CPU time per request → too low for a Next.js Worker cold start.
+# Paid plan ($5/month): 50ms CPU time → sufficient for this site.
+# Set in Cloudflare dashboard: Workers & Pages → project-baby → Settings → Usage Model
+# Or run: wrangler deploy --compatibility-flags nodejs_compat_v2

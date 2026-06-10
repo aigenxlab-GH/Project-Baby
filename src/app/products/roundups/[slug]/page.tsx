@@ -1610,10 +1610,13 @@ export default async function RoundupPage({ params }: { params: Promise<{ slug: 
               <div className="aspect-video relative overflow-hidden rounded-xl mb-5 bg-gray-100">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={product.image}
+                  src={`${product.image}${product.image.includes('?') ? '&' : '?'}w=640&q=72&auto=format&fit=crop&fm=webp`}
                   alt={product.imageAlt}
                   className="w-full h-full object-cover"
                   loading="lazy"
+                  width={640}
+                  height={360}
+                  decoding="async"
                 />
               </div>
 
