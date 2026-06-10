@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
@@ -26,6 +26,15 @@ const playfair = Playfair_Display({
   // 700 for headings) to reduce font payload size.
   weight: ['400', '700'],
 });
+
+// Viewport is managed here so Next.js generates exactly ONE viewport <meta> tag.
+// Previously we had a manual <meta name="viewport"> in <head> JSX AND Next.js
+// auto-generating one → SEOmator flagged "2 viewport meta tags" (fix #4).
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#db2777',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -56,7 +65,9 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     siteName: siteConfig.name,
     // opengraph-image.tsx auto-generates a branded image — this is the fallback URL
-    images: [{ url: `${siteConfig.url}/opengraph-image`, width: 1200, height: 630, alt: `${siteConfig.name} — ${siteConfig.tagline}` }],
+    // type: 'image/png' is explicit so crawlers don't have to guess from
+    // the URL format — fixes SEOmator "OG image format" warning (fix #22).
+    images: [{ url: `${siteConfig.url}/opengraph-image`, width: 1200, height: 630, alt: `${siteConfig.name} — ${siteConfig.tagline}`, type: 'image/png' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -88,14 +99,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#db2777" />
-        {/* ── Preconnect to external image CDNs for faster LCP ── */}
+        {/* viewport + themeColor are now in the `viewport` export above —
+            Next.js generates a single <meta name="viewport"> from that.
+            Manual <meta name="viewport"> removed to fix duplicate-tag audit warning. */}
+        {/* ── Preconnect: image CDNs + analytics (fix #14 — missing GTM preconnect) ── */}
         <link rel="preconnect" href="https://images.unsplash.com" />
-        <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <link rel="preconnect" href="https://wsrv.nl" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://wsrv.nl" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        {/* ── LCP image preload: homepage hero (fix #6 — LCP image not preloaded) ──
+            Unsplash serves via CDN; this hint starts the fetch before React renders.
+            Cost on non-homepage pages: one extra preload request (cached after first hit). */}
+        <link
+          rel="preload"
+          as="image"
+          href="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=600&q=75&auto=format&fit=crop&fm=webp"
+        />
         {/* ── Google Analytics 4 ── */}
         {gaMeasurementId && gaMeasurementId !== 'G-XXXXXXXXXX' && (
           <>
@@ -103,16 +125,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
               strategy="afterInteractive"
             />
-            <Script id="ga-init" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gaMeasurementId}', {
-                  page_path: window.location.pathname,
-                });
-              `}
-            </Script>
+            {/* Minified GA init — fixes "unminified inline script" audit warning (fix #8) */}
+            <Script id="ga-init" strategy="afterInteractive">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaMeasurementId}',{page_path:window.location.pathname});`}</Script>
           </>
         )}
         {/* ── Google AdSense ── */}

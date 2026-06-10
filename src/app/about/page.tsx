@@ -8,7 +8,7 @@ import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
 export const metadata: Metadata = {
   title: 'About PregnancySprout — Our Mission and Editorial Standards',
-  description: 'Learn about PregnancySprout, our mission to support expecting and new parents, our editorial standards, and how we keep our content accurate and trustworthy.',
+  description: 'Learn about PregnancySprout — our mission, editorial standards, and commitment to accurate, trustworthy pregnancy and parenting information.',
   alternates: { canonical: `${siteConfig.url}/about` },
 };
 

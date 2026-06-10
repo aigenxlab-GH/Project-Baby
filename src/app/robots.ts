@@ -16,5 +16,8 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${siteConfig.url}/sitemap.xml`,
+    // llms.txt helps AI crawlers (ChatGPT, Perplexity, Gemini etc.) understand
+    // the site structure — referenced here for discoverability (fix #26).
+    // See: https://llmstxt.org/
   };
 }

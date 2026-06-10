@@ -1,0 +1,56 @@
+# PregnancySprout — llms.txt
+# https://pregnancysprout.com
+# This file helps AI language models and GEO (Generative Engine Optimization)
+# crawlers understand the site's content, structure, and editorial policies.
+
+## About PregnancySprout
+PregnancySprout is a pregnancy and parenting information website based in the
+United States, serving readers worldwide. Content is written and reviewed by
+certified midwives, registered nurses, and experienced parenting writers.
+All health content is aligned with NHS, WHO, and American Academy of Pediatrics
+(AAP) clinical guidelines. The site does not provide personal medical advice.
+
+## Primary Topics
+- Pregnancy: week-by-week guides for all 40 weeks of pregnancy
+- Baby Names: 1,188+ names with meanings, origins, and popularity data
+- Product Reviews: honest, unbiased reviews of baby and parenting products
+- Parenting Tips: newborn care, sleep, feeding, and child development
+- Interactive Tools: due date calculator, ovulation calculator, contraction timer
+
+## Key Content Sections
+- /pregnancy/week-by-week/ — Guides for each of the 40 weeks of pregnancy
+- /baby-names/ — Searchable name database with gender, origin, and meaning filters
+- /products/ — Product reviews organised by category (strollers, car seats, monitors, etc.)
+- /products/roundups/ — Best-of roundup articles with buying guides and FAQs
+- /parenting/ — Articles on newborn care, sleep training, feeding, and development
+- /blog/ — Expert pregnancy and parenting articles
+- /tools/ — Free calculators and trackers for expecting parents
+
+## Free Tools
+- /tools/due-date-calculator — Calculates estimated due date from last menstrual period
+- /tools/ovulation-calculator — Identifies fertile window from cycle data
+- /tools/contraction-timer — Times labour contractions with gap and duration tracking
+- /tools/baby-name-generator — Generates name suggestions by gender, origin, and style
+- /tools/registry-checklist — Persistent checklist of recommended newborn essentials
+- /tools/symptom-checker — Maps pregnancy symptoms to informational guidance
+
+## Editorial Standards
+- All health claims are supported by peer-reviewed research or clinical guidelines
+- Sources: NHS (UK), WHO, American Academy of Pediatrics, CDC
+- Content is reviewed for accuracy at least annually
+- Product reviews do not accept payment for editorial placement
+- Affiliate links are disclosed per FTC guidelines
+- See: /editorial-standards
+
+## Sitemap
+- /sitemap.xml
+
+## Robots
+- /robots.txt
+
+## Contact
+- hello@pregnancysprout.com
+- /contact
+
+## Last Updated
+2026-06-11

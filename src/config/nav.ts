@@ -22,6 +22,9 @@ export const mainNav = [
   {
     title: 'Products',
     href: '/products',
+    // Trimmed from 13 → 10 items to keep homepage link count under 100 (fix #21).
+    // Baby Swings, Nursing & Feeding, Baby Bathtubs still exist as pages — just
+    // not featured in the top nav. They remain accessible via /products hub.
     items: [
       { title: 'Strollers', href: '/products/strollers' },
       { title: 'Car Seats', href: '/products/car-seats' },
@@ -30,11 +33,8 @@ export const mainNav = [
       { title: 'Breast Pumps', href: '/products/breast-pumps' },
       { title: 'Baby Carriers', href: '/products/baby-carriers' },
       { title: 'High Chairs', href: '/products/high-chairs' },
-      { title: 'Baby Swings', href: '/products/baby-swings' },
       { title: 'White Noise', href: '/products/white-noise' },
-      { title: 'Nursing & Feeding', href: '/products/nursing-feeding' },
       { title: 'Diaper Bags', href: '/products/diaper-bags' },
-      { title: 'Baby Bathtubs', href: '/products/baby-bathtubs' },
       { title: 'Baby Bouncers', href: '/products/baby-bouncers' },
     ],
   },
@@ -81,10 +81,10 @@ export const footerNav = {
     { title: 'Tools', href: '/tools' },
     { title: 'Blog', href: '/blog' },
   ],
+  // Trimmed to 3 items (removed Registry Checklist) to stay under 100 links (fix #21).
   tools: [
     { title: 'Due Date Calculator', href: '/tools/due-date-calculator' },
     { title: 'Ovulation Calculator', href: '/tools/ovulation-calculator' },
     { title: 'Contraction Timer', href: '/tools/contraction-timer' },
-    { title: 'Registry Checklist', href: '/tools/registry-checklist' },
   ],
 };

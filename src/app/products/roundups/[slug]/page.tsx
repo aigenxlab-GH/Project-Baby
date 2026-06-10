@@ -41,7 +41,7 @@ const roundups: Record<string, RoundupData> = {
   'best-strollers-2026': {
     title: 'Best Strollers of 2026 — Tested & Ranked',
     description: 'We tested 9 strollers across city streets, parks, and public transport. These are the best strollers of 2026 for every budget and lifestyle.',
-    metaDescription: 'Best strollers 2026: our top picks tested across city streets and parks. Includes best budget, best premium, best travel system, and best lightweight stroller.',
+    metaDescription: 'Best strollers 2026: top picks tested across city streets and parks. Includes best budget, premium, travel system, and lightweight stroller picks.',
     slug: 'best-strollers-2026',
     updatedAt: '2026-06-05',
     intro: 'After testing nine strollers over four months — covering everything from cobblestone streets to airport security queues — we narrowed the field to the five best strollers of 2026. Whether you\'re after a city-ready travel system under $300 or the finest pushchair money can buy, there\'s a pick here for every parent.',
