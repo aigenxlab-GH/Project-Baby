@@ -37,7 +37,7 @@ const categories = [
     bg: 'bg-pink-50',
     border: 'hover:border-pink-300',
     // Pregnant woman holding belly — clearly pregnancy-specific
-    img: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&q=85&auto=format&fit=crop&crop=faces,center',
+    img: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=400&q=70&auto=format&fit=crop&crop=faces,center&fm=webp',
     imgAlt: 'Pregnant woman cradling her bump, smiling warmly',
   },
   {
@@ -48,8 +48,7 @@ const categories = [
     color: 'from-purple-500 to-violet-600',
     bg: 'bg-purple-50',
     border: 'hover:border-purple-300',
-    // Newborn baby sleeping — baby-specific
-    img: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&q=85&auto=format&fit=crop&crop=center',
+    img: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=400&q=70&auto=format&fit=crop&crop=center&fm=webp',
     imgAlt: 'Newborn baby sleeping peacefully, perfect for choosing a name',
   },
   {
@@ -60,8 +59,7 @@ const categories = [
     color: 'from-amber-500 to-orange-500',
     bg: 'bg-amber-50',
     border: 'hover:border-amber-300',
-    // Baby car seat — product niche specific
-    img: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=85&auto=format&fit=crop&crop=center',
+    img: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&q=70&auto=format&fit=crop&crop=center&fm=webp',
     imgAlt: 'Modern baby stroller in a sunny park — product reviews for parents',
   },
   {
@@ -72,8 +70,7 @@ const categories = [
     color: 'from-teal-500 to-emerald-500',
     bg: 'bg-teal-50',
     border: 'hover:border-teal-300',
-    // Parent holding newborn skin-to-skin — emotionally resonant
-    img: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&q=85&auto=format&fit=crop&crop=faces,center',
+    img: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&q=70&auto=format&fit=crop&crop=faces,center&fm=webp',
     imgAlt: 'Parent lovingly holding their newborn baby — expert parenting guidance',
   },
 ];
@@ -97,11 +94,12 @@ export default function HomePage() {
           {/* Mobile hero image — shows only on small screens */}
           <div className="md:hidden relative h-44 rounded-2xl overflow-hidden mb-5">
             <Image
-              src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=900&q=85&auto=format&fit=crop&crop=faces,center"
+              src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=480&q=70&auto=format&fit=crop&crop=faces,center&fm=webp"
               alt="Happy expectant mother with radiant pregnancy glow, representing the PregnancySprout community"
               fill
               className="object-cover"
               priority
+              fetchPriority="high"
               sizes="100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-pink-900/30 to-transparent" />
@@ -141,12 +139,12 @@ export default function HomePage() {
                 </Link>
               </div>
               {/* Trust badges */}
-              <div className="flex flex-wrap gap-4 text-xs text-gray-500 dark:text-gray-400">
+              <div className="flex flex-wrap gap-4 text-xs text-gray-600 dark:text-gray-300">
                 <span className="flex items-center gap-1"><span aria-hidden="true">✅</span> Free forever</span>
-                <Link href="/blog" className="flex items-center gap-1 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                <Link href="/blog" className="flex items-center gap-1 underline underline-offset-2 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
                   <span aria-hidden="true">✅</span> 219+ expert articles
                 </Link>
-                <Link href="/baby-names" className="flex items-center gap-1 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                <Link href="/baby-names" className="flex items-center gap-1 underline underline-offset-2 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
                   <span aria-hidden="true">✅</span> 1,188+ baby names
                 </Link>
               </div>
@@ -155,11 +153,12 @@ export default function HomePage() {
             <div className="relative hidden md:block">
               <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
                 <Image
-                  src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=800&q=85&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=600&q=75&auto=format&fit=crop&fm=webp"
                   alt="Happy pregnant mother holding her belly"
                   fill
                   className="object-cover"
                   priority
+                  fetchPriority="high"
                   sizes="(max-width: 1024px) 0px, 45vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-pink-900/20 to-transparent" />
@@ -196,7 +195,7 @@ export default function HomePage() {
               <Link
                 key={cat.href}
                 href={cat.href}
-                className={`group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 ${cat.border} hover:shadow-2xl transition-all duration-300 hover:-translate-y-1`}
+                className={`group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 ${cat.border} transition-transform duration-300 hover:-translate-y-1 will-change-transform`}
               >
                 <div className="relative h-36 overflow-hidden rounded-t-2xl">
                   <Image
@@ -212,7 +211,7 @@ export default function HomePage() {
                 </div>
                 <div className="p-4">
                   <h3 className="font-serif text-base font-bold text-gray-900 dark:text-white mb-1">{cat.title}</h3>
-                  <p className="text-gray-500 dark:text-gray-400 text-xs mb-3 leading-relaxed">{cat.desc}</p>
+                  <p className="text-gray-600 dark:text-gray-300 text-xs mb-3 leading-relaxed">{cat.desc}</p>
                   <div className="text-brand-600 dark:text-brand-400 text-xs font-semibold flex items-center gap-1">
                     Explore <ChevronRight className="h-3.5 w-3.5 group-hover:translate-x-1.5 transition-transform" />
                   </div>
@@ -228,14 +227,14 @@ export default function HomePage() {
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-7">
             <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-2">Free Pregnancy Tools</h2>
-            <p className="text-gray-500 dark:text-gray-400 text-sm">Helpful calculators and trackers for your pregnancy journey</p>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">Helpful calculators and trackers for your pregnancy journey</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {tools.map((tool) => (
               <Link
                 key={tool.href}
                 href={tool.href}
-                className="group flex items-start gap-4 bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all"
+                className="group flex items-start gap-4 bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 transition-colors"
               >
                 <div className={`p-3 rounded-xl ${tool.color} flex-shrink-0`}>
                   <tool.icon className="h-5 w-5" />
@@ -244,7 +243,7 @@ export default function HomePage() {
                   <h3 className="font-semibold text-gray-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                     {tool.title}
                   </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-300 mt-0.5">{tool.desc}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mt-0.5">{tool.desc}</p>
                 </div>
                 <ChevronRight className="h-5 w-5 text-gray-300 dark:text-gray-600 group-hover:text-brand-400 ml-auto flex-shrink-0 mt-1" />
               </Link>

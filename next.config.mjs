@@ -10,6 +10,13 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // ── Tree-shaking for large icon/component libraries ────────────────────────
+  // Tells Next.js to only bundle the specific icons/components imported,
+  // not the entire lucide-react package. Saves ~40-70KB on every page.
+  experimental: {
+    optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
+  },
+
   // ── Output tracing ─────────────────────────────────────────────────────────
   // Tells Next.js the project root is THIS directory, not a parent that contains
   // multiple lockfiles (C:\AIGenXLab\package-lock.json).
@@ -48,6 +55,13 @@ const nextConfig = {
   async headers() {
     return [
       {
+        // Long cache for all Next.js static chunks (immutable — hashed filenames)
+        source: '/_next/static/(.*)',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+      {
         source: '/(.*)',
         headers: [
           { key: 'X-Content-Type-Options', value: 'nosniff' },
@@ -55,11 +69,26 @@ const nextConfig = {
           { key: 'X-XSS-Protection', value: '1; mode=block' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
-          // Cloudflare enforces HSTS automatically; keeping it at the app level
-          // reinforces the policy and satisfies security scanners.
           {
             key: 'Strict-Transport-Security',
             value: 'max-age=63072000; includeSubDomains; preload',
+          },
+          // ── Content Security Policy ───────────────────────────────────────
+          // Allows: self, Google Analytics, AdSense, Unsplash images, wsrv.nl CDN
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://www.google-analytics.com https://googleads.g.doubleclick.net",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' https://fonts.gstatic.com",
+              "img-src 'self' data: blob: https://images.unsplash.com https://plus.unsplash.com https://wsrv.nl https://*.mattel.com https://www.google-analytics.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://*.amazon.com https://*.amazonaws.com",
+              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://pagead2.googlesyndication.com",
+              "frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com",
+              "worker-src 'self' blob:",
+              "object-src 'none'",
+              "base-uri 'self'",
+            ].join('; '),
           },
         ],
       },

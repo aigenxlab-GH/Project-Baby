@@ -32,13 +32,15 @@ export default function imageLoader({ src, width, quality }: ImageLoaderProps): 
   // wsrv.nl re-fetching them would add latency with no quality gain — skip
   if (src.includes('images.unsplash.com') || src.includes('plus.unsplash.com')) return src;
 
-  const q = quality ?? 80;
+  // Lower default quality saves significant bytes on mobile (was 80, now 72).
+  // Visual difference is imperceptible at typical mobile screen density.
+  const q = quality ?? 72;
 
   // wsrv.nl parameters:
   //   url     = fully-encoded source image URL
   //   w       = output width in pixels (Next.js passes the correct breakpoint)
   //   q       = quality 1–100
   //   output  = webp  (best compression, supported by all modern browsers)
-  //   maxage  = 7d    (CDN cache duration — images rarely change)
-  return `https://wsrv.nl/?url=${encodeURIComponent(src)}&w=${width}&q=${q}&output=webp&maxage=7d`;
+  //   maxage  = 30d   (increased from 7d — product images rarely change)
+  return `https://wsrv.nl/?url=${encodeURIComponent(src)}&w=${width}&q=${q}&output=webp&maxage=30d`;
 }

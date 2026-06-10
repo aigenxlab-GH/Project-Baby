@@ -68,7 +68,7 @@ export function Header() {
                   <div className="flex items-center">
                     <Link
                       href={item.href}
-                      className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-all duration-150 ${
+                      className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-150 ${
                         isActive(item.href)
                           ? 'text-brand-600 bg-brand-50 dark:bg-brand-950/40'
                           : 'text-gray-700 dark:text-gray-300 hover:text-brand-600 hover:bg-brand-50 dark:hover:bg-gray-800'
@@ -86,13 +86,13 @@ export function Header() {
                             setOpenDropdown(item.title);
                           }
                         }}
-                        className="px-1 py-2 text-gray-700 dark:text-gray-300 hover:text-brand-600 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-600 rounded"
+                        className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-gray-700 dark:text-gray-300 hover:text-brand-600 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-600 rounded"
                         aria-haspopup="menu"
                         aria-expanded={openDropdown === item.title}
                         aria-label={`Toggle ${item.title} submenu`}
                       >
                         <ChevronDown
-                          className={`h-3 w-3 transition-transform duration-200 ${
+                          className={`h-4 w-4 transition-transform duration-200 ${
                             openDropdown === item.title ? 'rotate-180' : ''
                           }`}
                           aria-hidden="true"
@@ -137,7 +137,7 @@ export function Header() {
               {/* Site search — desktop */}
               <Link
                 href="/search"
-                className="hidden md:flex items-center gap-1.5 px-3 py-2 text-sm text-gray-500 hover:text-brand-600 hover:bg-brand-50 rounded-lg transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-600"
+                className="hidden md:flex items-center justify-center w-11 h-11 text-sm text-gray-500 hover:text-brand-600 hover:bg-brand-50 rounded-lg transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-600"
                 aria-label="Search site"
                 title="Search PregnancySprout"
               >
@@ -147,7 +147,7 @@ export function Header() {
               {/* CTA button */}
               <Link
                 href="/tools/due-date-calculator"
-                className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 rounded-full transition-all shadow-sm hover:shadow-md"
+                className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 rounded-full transition-colors shadow-sm"
               >
                 <Calculator className="h-3.5 w-3.5" />
                 Due Date

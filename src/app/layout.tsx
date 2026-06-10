@@ -81,11 +81,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#db2777" />
+        {/* ── Preconnect to external image CDNs for faster LCP ── */}
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://wsrv.nl" />
+        <link rel="dns-prefetch" href="https://wsrv.nl" />
+        <link rel="preconnect" href="https://haakaa.co.nz" />
+        <link rel="preconnect" href="https://images.mattel.com" crossOrigin="anonymous" />
         {/* ── Google Analytics 4 ── */}
         {gaMeasurementId && gaMeasurementId !== 'G-XXXXXXXXXX' && (
           <>

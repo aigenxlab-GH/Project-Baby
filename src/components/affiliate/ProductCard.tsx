@@ -28,7 +28,7 @@ export function ProductCard({ product, variant = 'card' }: Props) {
   const productUrl = `/products/${product.category}/${product.slug}`;
 
   return (
-    <div className={`bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden hover:shadow-md transition-shadow ${variant === 'featured' ? 'lg:flex' : ''}`}>
+    <div className={`bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden ${variant === 'featured' ? 'lg:flex' : ''}`}>
       {/* Image — featured: fixed height on mobile, fixed width on desktop */}
       <div className={`relative bg-gray-50 dark:bg-gray-700 ${variant === 'featured' ? 'h-52 lg:h-auto lg:w-64 lg:flex-shrink-0' : 'aspect-video'}`}>
         <Link href={productUrl}>

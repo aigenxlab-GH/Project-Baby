@@ -35,7 +35,7 @@ export function Footer() {
             <div className="mb-4">
               <Logo size="md" variant="dark" />
             </div>
-            <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
+            <p className="text-sm text-gray-300 leading-relaxed max-w-xs">
               Practical pregnancy and baby guidance — week-by-week guides, 1,188+ baby names,
               honest product reviews, and free tools. All free.
             </p>
@@ -64,11 +64,11 @@ export function Footer() {
 
           {/* Topics */}
           <div>
-            <h4 className="text-white text-xs font-semibold uppercase tracking-widest mb-4">Topics</h4>
+            <h3 className="text-white text-xs font-semibold uppercase tracking-widest mb-4">Topics</h3>
             <ul className="space-y-2.5">
               {footerNav.topics.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm hover:text-white hover:translate-x-0.5 transition-all inline-block">
+                  <Link href={link.href} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block">
                     {link.title}
                   </Link>
                 </li>
@@ -78,11 +78,11 @@ export function Footer() {
 
           {/* Tools */}
           <div>
-            <h4 className="text-white text-xs font-semibold uppercase tracking-widest mb-4">Free Tools</h4>
+            <h3 className="text-white text-xs font-semibold uppercase tracking-widest mb-4">Free Tools</h3>
             <ul className="space-y-2.5">
               {footerNav.tools.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm hover:text-white hover:translate-x-0.5 transition-all inline-block">
+                  <Link href={link.href} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block">
                     {link.title}
                   </Link>
                 </li>
@@ -92,27 +92,27 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="text-white text-xs font-semibold uppercase tracking-widest mb-4">Company</h4>
+            <h3 className="text-white text-xs font-semibold uppercase tracking-widest mb-4">Company</h3>
             <ul className="space-y-2.5">
               {footerNav.company.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm hover:text-white hover:translate-x-0.5 transition-all inline-block">
+                  <Link href={link.href} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block">
                     {link.title}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link href="/editorial-standards" className="text-sm hover:text-white hover:translate-x-0.5 transition-all inline-block">
+                <Link href="/editorial-standards" className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block">
                   Editorial Standards
                 </Link>
               </li>
               <li>
-                <Link href="/corrections" className="text-sm hover:text-white hover:translate-x-0.5 transition-all inline-block">
+                <Link href="/corrections" className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block">
                   Corrections
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-sm hover:text-white hover:translate-x-0.5 transition-all inline-block">
+                <Link href="/terms" className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block">
                   Terms &amp; Conditions
                 </Link>
               </li>
@@ -122,20 +122,20 @@ export function Footer() {
 
         {/* ── Bottom bar ───────────────────────────────── */}
         <div className="mt-10 pt-6 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-600">
-          <p>© {year} {siteConfig.name}. All rights reserved.</p>
-          <p className="flex items-center gap-1">
+          <p className="text-gray-400">© {year} {siteConfig.name}. All rights reserved.</p>
+          <p className="flex items-center gap-1 text-gray-400">
             Made with <Heart className="h-3 w-3 text-brand-500 fill-brand-500" /> for expecting parents
           </p>
           <div className="flex items-center gap-3">
-            <Link href="/affiliate-disclosure" className="hover:text-gray-400 transition-colors">Affiliate Disclosure</Link>
-            <span className="text-gray-700">·</span>
-            <Link href="/privacy-policy" className="hover:text-gray-400 transition-colors">Privacy</Link>
-            <span className="text-gray-700">·</span>
-            <Link href="/cookie-policy" className="hover:text-gray-400 transition-colors">Cookies</Link>
-            <span className="text-gray-700">·</span>
-            <Link href="/terms" className="hover:text-gray-400 transition-colors">Terms</Link>
-            <span className="text-gray-700">·</span>
-            <Link href="/cookie-policy#ccpa" className="hover:text-gray-400 transition-colors text-gray-500">Do Not Sell My Info</Link>
+            <Link href="/affiliate-disclosure" className="text-gray-400 hover:text-white transition-colors">Affiliate Disclosure</Link>
+            <span className="text-gray-600">·</span>
+            <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">Privacy</Link>
+            <span className="text-gray-600">·</span>
+            <Link href="/cookie-policy" className="text-gray-400 hover:text-white transition-colors">Cookies</Link>
+            <span className="text-gray-600">·</span>
+            <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">Terms</Link>
+            <span className="text-gray-600">·</span>
+            <Link href="/cookie-policy#ccpa" className="text-gray-400 hover:text-white transition-colors">Do Not Sell My Info</Link>
           </div>
         </div>
       </div>
