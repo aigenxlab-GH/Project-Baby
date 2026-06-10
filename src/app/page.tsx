@@ -91,20 +91,6 @@ export default function HomePage() {
         <div className="absolute -bottom-10 -left-10 w-56 h-56 bg-purple-100 rounded-full opacity-40 blur-3xl pointer-events-none" />
 
         <div className="container mx-auto max-w-5xl relative">
-          {/* Mobile hero image — shows only on small screens */}
-          <div className="md:hidden relative h-44 rounded-2xl overflow-hidden mb-5">
-            <Image
-              src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=480&q=70&auto=format&fit=crop&crop=faces,center&fm=webp"
-              alt="Happy expectant mother with radiant pregnancy glow, representing the PregnancySprout community"
-              fill
-              className="object-cover"
-              priority
-              fetchPriority="high"
-              sizes="100vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-pink-900/30 to-transparent" />
-          </div>
-
           <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-8 items-center">
             {/* Text */}
             <div>
@@ -125,14 +111,14 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-3 mb-6">
                 <Link
                   href="/tools/due-date-calculator"
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white font-semibold rounded-full text-sm transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white font-semibold rounded-full text-sm transition-transform will-change-transform shadow-md hover:-translate-y-0.5"
                 >
                   <Calculator className="h-4 w-4" />
                   Calculate Due Date
                 </Link>
                 <Link
                   href="/pregnancy/week-by-week"
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 font-semibold rounded-full text-sm border border-gray-200 dark:border-gray-700 hover:border-brand-300 transition-all hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 font-semibold rounded-full text-sm border border-gray-200 dark:border-gray-700 hover:border-brand-300 transition-transform will-change-transform hover:-translate-y-0.5"
                 >
                   Week by Week Guide
                   <ChevronRight className="h-4 w-4" />
@@ -164,7 +150,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-pink-900/20 to-transparent" />
               </div>
               {/* Floating badge — Week by Week */}
-              <Link href="/pregnancy/week-by-week" className="absolute -bottom-3 -left-3 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-3 flex items-center gap-2.5 hover:shadow-xl hover:-translate-y-0.5 transition-all">
+              <Link href="/pregnancy/week-by-week" className="absolute -bottom-3 -left-3 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-3 flex items-center gap-2.5 hover:-translate-y-0.5 transition-transform will-change-transform">
                 <div className="w-9 h-9 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center text-lg" aria-hidden="true">🌱</div>
                 <div>
                   <p className="font-bold text-gray-900 dark:text-white text-xs">Week by Week</p>
@@ -172,7 +158,7 @@ export default function HomePage() {
                 </div>
               </Link>
               {/* Floating badge 2 — Baby Names */}
-              <Link href="/baby-names" className="absolute -top-3 -right-3 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-3 flex items-center gap-2.5 hover:shadow-xl hover:-translate-y-0.5 transition-all">
+              <Link href="/baby-names" className="absolute -top-3 -right-3 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-3 flex items-center gap-2.5 hover:-translate-y-0.5 transition-transform will-change-transform">
                 <div className="w-9 h-9 bg-pink-100 dark:bg-pink-900/30 rounded-lg flex items-center justify-center text-lg" aria-hidden="true">👶</div>
                 <div>
                   <p className="font-bold text-gray-900 dark:text-white text-xs">Baby Names</p>
@@ -266,7 +252,7 @@ export default function HomePage() {
               <Link
                 key={week.week}
                 href={`/pregnancy/week-by-week/${week.slug}`}
-                className="group bg-gradient-to-br from-brand-50 to-pink-50 dark:from-brand-950/40 dark:to-pink-950/40 rounded-2xl p-4 text-center border border-brand-100 dark:border-brand-900 hover:border-brand-300 dark:hover:border-brand-700 hover:shadow-md transition-all"
+                className="group bg-gradient-to-br from-brand-50 to-pink-50 dark:from-brand-950/40 dark:to-pink-950/40 rounded-2xl p-4 text-center border border-brand-100 dark:border-brand-900 hover:border-brand-300 dark:hover:border-brand-700 transition-colors"
               >
                 <div className="text-2xl mb-1.5" aria-hidden="true">
                   {week.week <= 13 ? '🌱' : week.week <= 27 ? '🥑' : '👶'}

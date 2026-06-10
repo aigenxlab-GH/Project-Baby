@@ -91,8 +91,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <link rel="preconnect" href="https://wsrv.nl" />
         <link rel="dns-prefetch" href="https://wsrv.nl" />
-        <link rel="preconnect" href="https://haakaa.co.nz" />
-        <link rel="preconnect" href="https://images.mattel.com" crossOrigin="anonymous" />
         {/* ── Google Analytics 4 ── */}
         {gaMeasurementId && gaMeasurementId !== 'G-XXXXXXXXXX' && (
           <>
