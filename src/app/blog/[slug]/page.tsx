@@ -12,6 +12,7 @@ import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
 import { TableOfContents } from '@/components/blog/TableOfContents';
 import { AuthorBox } from '@/components/blog/AuthorBox';
+import { ShareButtons } from '@/components/shared/ShareButtons';
 import { injectHeadingIds, extractToc } from '@/lib/toc';
 
 interface Props {
@@ -262,6 +263,16 @@ export default async function BlogArticlePage({ params }: Props) {
             publishedAt={article.publishedAt}
             updatedAt={article.updatedAt}
           />
+
+          {/* Share buttons */}
+          <div className="mt-6 pt-5 border-t border-gray-100 dark:border-gray-800">
+            <ShareButtons
+              url={`/blog/${slug}`}
+              title={article.title}
+              image={heroImage}
+              description={article.description}
+            />
+          </div>
 
           {/* Nav */}
           <div className="mt-10 pt-6 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">

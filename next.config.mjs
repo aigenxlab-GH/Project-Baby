@@ -51,6 +51,21 @@ const nextConfig = {
     },
   },
 
+  // ── Duplicate content redirects ────────────────────────────────────────────
+  // Consolidates near-duplicate blog posts to a single canonical URL.
+  // Google sees a 301 and passes all ranking signals to the target page.
+  async redirects() {
+    return [
+      { source: '/blog/baby-sleep-training-methods', destination: '/blog/baby-sleep-training-methods-complete-guide-for-new-parents', permanent: true },
+      { source: '/blog/morning-sickness-remedies', destination: '/blog/morning-sickness-remedies-that-actually-work', permanent: true },
+      { source: '/blog/hospital-bag-checklist', destination: '/blog/complete-hospital-bag-checklist-for-mom-and-baby', permanent: true },
+      { source: '/blog/baby-proofing-guide', destination: '/blog/baby-proofing-your-home-room-by-room-checklist', permanent: true },
+      { source: '/blog/newborn-care-tips', destination: '/blog/newborn-care-tips-every-new-parent-needs-to-know', permanent: true },
+      { source: '/blog/breastfeeding-vs-formula-feeding', destination: '/blog/breastfeeding-vs-formula-an-honest-comparison', permanent: true },
+      { source: '/blog/gestational-diabetes-pregnancy', destination: '/blog/gestational-diabetes-symptoms-diet-and-management-guide', permanent: true },
+    ];
+  },
+
   // ── Security headers ───────────────────────────────────────────────────────
   async headers() {
     return [

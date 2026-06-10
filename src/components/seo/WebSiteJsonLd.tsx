@@ -34,7 +34,11 @@ export function WebSiteJsonLd() {
         email: siteConfig.email,
         contactType: 'customer support',
       },
-      sameAs: [],
+      sameAs: [
+        'https://www.pinterest.com/pregnancysprout',
+        'https://twitter.com/pregnancysprout',
+        'https://www.facebook.com/pregnancysprout',
+      ],
     },
   ];
 

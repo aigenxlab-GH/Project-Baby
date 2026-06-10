@@ -1,3 +1,5 @@
+'use client';
+
 import { ShoppingCart, ExternalLink } from 'lucide-react';
 import { getRetailerName } from '@/lib/affiliate';
 
@@ -9,7 +11,7 @@ interface Props {
   size?: 'sm' | 'md' | 'lg';
 }
 
-export function BuyButton({ href, price, variant = 'primary', size = 'md' }: Props) {
+export function BuyButton({ href, price, productName, variant = 'primary', size = 'md' }: Props) {
   const retailer = getRetailerName(href) as string;
 
   const sizeClasses = {
@@ -23,11 +25,27 @@ export function BuyButton({ href, price, variant = 'primary', size = 'md' }: Pro
     secondary: 'bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 font-medium',
   };
 
+  function handleClick() {
+    if (typeof window !== 'undefined') {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const gtag = (window as any).gtag;
+      if (typeof gtag === 'function') {
+        gtag('event', 'affiliate_click', {
+          retailer,
+          product_name: productName ?? '',
+          price: price ?? '',
+          link_url: href,
+        });
+      }
+    }
+  }
+
   return (
     <a
       href={href}
       target="_blank"
       rel="nofollow sponsored noopener noreferrer"
+      onClick={handleClick}
       className={`inline-flex items-center gap-2 rounded-full transition-colors cursor-pointer ${sizeClasses[size]} ${variantClasses[variant]}`}
     >
       <ShoppingCart className="h-4 w-4" />

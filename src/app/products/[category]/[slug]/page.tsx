@@ -9,6 +9,7 @@ import { BuyButton } from '@/components/affiliate/BuyButton';
 import { InContentAd } from '@/components/ads/InContentAd';
 import { ProductJsonLd } from '@/components/seo/ProductJsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { ShareButtons } from '@/components/shared/ShareButtons';
 import type { ProductCategory } from '@/types/product';
 
 interface Props {
@@ -280,8 +281,18 @@ export default async function ProductReviewPage({ params }: Props) {
             </section>
           )}
 
+          {/* Share buttons */}
+          <div className="mt-8 pt-5 border-t border-gray-100">
+            <ShareButtons
+              url={`/products/${category}/${slug}`}
+              title={`${product.productName} Review — PregnancySprout`}
+              image={product.image}
+              description={product.bottomLine}
+            />
+          </div>
+
           {/* Back nav */}
-          <div className="mt-10 pt-6 border-t border-gray-100 flex items-center justify-between">
+          <div className="mt-6 pt-5 border-t border-gray-100 flex items-center justify-between">
             <Link href={`/products/${category}`} className="flex items-center gap-1.5 text-sm text-brand-600 hover:underline font-medium">
               <ChevronRight className="h-4 w-4 rotate-180" />
               Back to {catLabel}

@@ -110,16 +110,38 @@ export default function AboutPage() {
             {/* Team member 1 */}
             <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
               <div className="w-16 h-16 bg-gradient-to-br from-brand-400 to-brand-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-serif text-2xl font-bold">
-                PS
+                EC
               </div>
               <h3 className="font-serif text-lg font-bold text-gray-900 text-center mb-1">
-                PregnancySprout Editorial Team
+                Emma Clarke, MSc
               </h3>
-              <p className="text-sm text-brand-600 text-center font-medium mb-3">
-                Content Research & Review
+              <p className="text-sm text-brand-600 text-center font-medium mb-1">
+                Editor-in-Chief · Midwifery & Maternal Health
+              </p>
+              <p className="text-xs text-gray-400 text-center mb-3">
+                MSc Midwifery, King&apos;s College London · 9 years clinical experience
               </p>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Our editorial team researches and reviews all content against current NHS, WHO, NICE, AAP, and RCOG guidelines. Every article is fact-checked for accuracy and clarity before publication.
+                Emma leads all health and pregnancy content at PregnancySprout. A registered midwife with nine years of NHS experience, she reviews every article against current NHS, WHO, NICE, AAP, and RCOG guidelines before publication.
+              </p>
+            </div>
+
+            {/* Team member 2 */}
+            <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-serif text-2xl font-bold">
+                SR
+              </div>
+              <h3 className="font-serif text-lg font-bold text-gray-900 text-center mb-1">
+                Sarah Reynolds, RN
+              </h3>
+              <p className="text-sm text-brand-600 text-center font-medium mb-1">
+                Senior Content Reviewer · Neonatal & Infant Care
+              </p>
+              <p className="text-xs text-gray-400 text-center mb-3">
+                BSc Nursing, University of Manchester · 6 years NICU experience
+              </p>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Sarah specialises in newborn care and infant development content. With six years in neonatal intensive care, she reviews all baby and early parenting articles for clinical accuracy and practical relevance.
               </p>
             </div>
 

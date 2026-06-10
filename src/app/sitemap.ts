@@ -233,14 +233,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── Product category hub pages ────────────────────────────────────────────
   const productCategories = [
     'strollers', 'cribs', 'car-seats', 'monitors', 'breast-pumps',
-    'high-chairs', 'baby-carriers', 'bouncers', 'swings', 'white-noise-machines',
-    'nursery', 'feeding-gear', 'toys', 'safety', 'clothing',
+    'high-chairs', 'baby-carriers', 'baby-bouncers', 'baby-swings', 'white-noise',
+    'sleep-sacks', 'diaper-pails', 'diaper-bags', 'nursing-feeding', 'nursing-chairs',
+    'play-mats', 'baby-gates', 'baby-food-makers', 'baby-bathtubs',
+    'teething-toys', 'potty-training', 'bath-toys', 'baby-nail-care',
   ];
   const productCategoryPages: MetadataRoute.Sitemap = productCategories.map((cat) => ({
     url: url(`/products/${cat}`),
     lastModified: dirLatestMtime(`content/products/${cat}`, BUILD_DATE),
     changeFrequency: 'weekly' as const,
     priority: 0.8,
+  }));
+
+  // ── Roundup articles ─────────────────────────────────────────────────────
+  const roundupSlugs = [
+    'best-strollers-2026',
+    'best-baby-monitors-2026',
+    'best-baby-carriers-2026',
+    'best-budget-baby-monitors-2026',
+    'best-convertible-car-seats-2026',
+    'best-baby-bouncers-2026',
+    'best-breast-pumps-2026',
+    'best-cribs-under-300-2026',
+    'best-sleep-sacks-swaddles-2026',
+    'best-baby-high-chairs-2026',
+    'best-baby-carriers-newborns-2026',
+    'best-white-noise-machines-2026',
+    'best-diaper-bags-2026',
+  ];
+  const roundupPages: MetadataRoute.Sitemap = roundupSlugs.map((slug) => ({
+    url: url(`/products/roundups/${slug}`),
+    lastModified: BUILD_DATE,
+    changeFrequency: 'monthly' as const,
+    priority: 0.9,
   }));
 
   // ── Baby name detail pages ────────────────────────────────────────────────
@@ -270,6 +295,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...parentingTopicPages,
     ...productPages,
     ...productCategoryPages,
+    ...roundupPages,
     ...namePages,
   ];
 }

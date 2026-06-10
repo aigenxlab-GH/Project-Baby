@@ -297,6 +297,42 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Newsletter CTA */}
+      <section className="py-12 px-4 bg-gradient-to-r from-brand-600 via-brand-500 to-purple-600">
+        <div className="container mx-auto max-w-2xl text-center">
+          <div className="text-3xl mb-3" aria-hidden="true">📧</div>
+          <h2 className="font-serif text-2xl md:text-3xl font-bold text-white mb-3">
+            Free Weekly Pregnancy Guide
+          </h2>
+          <p className="text-white/80 text-sm mb-6 max-w-lg mx-auto leading-relaxed">
+            Get your week-by-week pregnancy update straight to your inbox — plus a free
+            Birth Plan PDF template when you sign up.
+          </p>
+          <form
+            action="/api/newsletter"
+            method="POST"
+            className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto"
+          >
+            <label htmlFor="homepage-email" className="sr-only">Email address</label>
+            <input
+              id="homepage-email"
+              type="email"
+              name="email"
+              required
+              placeholder="your@email.com"
+              className="flex-1 px-4 py-3 rounded-full border-0 focus:outline-none focus:ring-2 focus:ring-white/40 text-sm text-gray-900"
+            />
+            <button
+              type="submit"
+              className="px-6 py-3 bg-white text-brand-700 font-bold rounded-full text-sm hover:bg-brand-50 transition-colors flex-shrink-0"
+            >
+              Get Free Guide
+            </button>
+          </form>
+          <p className="text-white/60 text-xs mt-3">No spam. Unsubscribe at any time.</p>
+        </div>
+      </section>
+
     </div>
   );
 }
