@@ -14,6 +14,7 @@ interface Props {
 }
 
 const categoryLabels: Record<string, string> = {
+  // ── Core categories ──────────────────────────────────────────────────────
   strollers: 'Best Strollers',
   'car-seats': 'Best Car Seats',
   cribs: 'Best Cribs & Bassinets',
@@ -21,15 +22,35 @@ const categoryLabels: Record<string, string> = {
   'breast-pumps': 'Best Breast Pumps',
   'high-chairs': 'Best High Chairs',
   'baby-carriers': 'Best Baby Carriers',
-  bouncers: 'Best Bouncers & Swings',
-  swings: 'Best Baby Swings',
-  'white-noise-machines': 'Best White Noise Machines',
+  'baby-bouncers': 'Best Baby Bouncers',
   'baby-swings': 'Best Baby Swings',
   'white-noise': 'Best White Noise Machines',
+  // ── Feeding & nursing ────────────────────────────────────────────────────
   'nursing-feeding': 'Best Nursing & Feeding Products',
+  'nursing-chairs': 'Best Nursing Chairs & Gliders',
+  // ── Sleep ────────────────────────────────────────────────────────────────
+  'sleep-sacks': 'Best Sleep Sacks & Swaddles',
+  // ── Travel & gear ────────────────────────────────────────────────────────
   'diaper-bags': 'Best Diaper Bags',
+  'diaper-pails': 'Best Diaper Pails',
+  // ── Safety & health ──────────────────────────────────────────────────────
+  'baby-gates': 'Best Baby Gates',
   'baby-bathtubs': 'Best Baby Bathtubs',
-  'baby-bouncers': 'Best Baby Bouncers',
+  'baby-thermometers': 'Best Baby Thermometers',
+  'baby-nail-care': 'Best Baby Nail Care Kits',
+  // ── Play & development ───────────────────────────────────────────────────
+  'activity-centers': 'Best Activity Centers & Jumpers',
+  'play-mats': 'Best Baby Play Mats & Gyms',
+  'teething-toys': 'Best Teething Toys',
+  'bath-toys': 'Best Bath Toys',
+  // ── Feeding & kitchen ────────────────────────────────────────────────────
+  'baby-food-makers': 'Best Baby Food Makers & Blenders',
+  'sippy-cups': 'Best Sippy Cups & Toddler Cups',
+  // ── Toddler ──────────────────────────────────────────────────────────────
+  'potty-training': 'Best Potty Training Seats & Chairs',
+  // ── Other ────────────────────────────────────────────────────────────────
+  'baby-loungers': 'Best Baby Loungers',
+  humidifiers: 'Best Humidifiers for Baby Rooms',
 };
 
 export async function generateStaticParams() {

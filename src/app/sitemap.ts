@@ -209,7 +209,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // ── Parenting articles — real mtime from MDX files ───────────────────────
-  const parentingTopics = ['newborn', 'sleep', 'feeding', 'development'];
+  // All 8 topic folders — matches generateStaticParams in parenting/[topic]/[slug]/page.tsx
+  const parentingTopics = ['newborn', 'sleep', 'feeding', 'development', 'toddler', 'postpartum', 'health', 'activities'];
   const parentingPages: MetadataRoute.Sitemap = parentingTopics.flatMap((topic) => {
     try {
       return getAllSlugs(`parenting/${topic}`).map((slug) => ({
@@ -231,12 +232,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // ── Product category hub pages ────────────────────────────────────────────
+  // All 28 content/products/* folders — matches categoryLabels in products/[category]/page.tsx
   const productCategories = [
+    // Core gear
     'strollers', 'cribs', 'car-seats', 'monitors', 'breast-pumps',
     'high-chairs', 'baby-carriers', 'baby-bouncers', 'baby-swings', 'white-noise',
-    'sleep-sacks', 'diaper-pails', 'diaper-bags', 'nursing-feeding', 'nursing-chairs',
-    'play-mats', 'baby-gates', 'baby-food-makers', 'baby-bathtubs',
-    'teething-toys', 'potty-training', 'bath-toys', 'baby-nail-care',
+    // Feeding & nursing
+    'nursing-feeding', 'nursing-chairs',
+    // Sleep
+    'sleep-sacks',
+    // Travel & gear
+    'diaper-bags', 'diaper-pails',
+    // Safety & health
+    'baby-gates', 'baby-bathtubs', 'baby-thermometers', 'baby-nail-care',
+    // Play & development
+    'activity-centers', 'play-mats', 'teething-toys', 'bath-toys',
+    // Feeding & kitchen
+    'baby-food-makers', 'sippy-cups',
+    // Toddler
+    'potty-training',
+    // Other
+    'baby-loungers', 'humidifiers',
   ];
   const productCategoryPages: MetadataRoute.Sitemap = productCategories.map((cat) => ({
     url: url(`/products/${cat}`),
@@ -279,7 +295,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  // ── Parenting topic hub pages (newborn, sleep, feeding, development) ──────
+  // ── Parenting topic hub pages (all 8 topics) ─────────────────────────────
   const parentingTopicPages: MetadataRoute.Sitemap = parentingTopics.map((topic) => ({
     url: url(`/parenting/${topic}`),
     lastModified: dirLatestMtime(`content/parenting/${topic}`, BUILD_DATE),

@@ -15,7 +15,7 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const topics = ['newborn', 'sleep', 'feeding', 'development'];
+  const topics = ['newborn', 'sleep', 'feeding', 'development', 'toddler', 'postpartum', 'health', 'activities'];
   const params: { topic: string; slug: string }[] = [];
   for (const topic of topics) {
     try {
