@@ -47,17 +47,29 @@ for (const item of regData) {
   if (item.affiliateUrl) allLinks.push({ url: item.affiliateUrl, source: 'registry-checklist.json' });
 }
 
-// Deduplicate by URL
+// Deduplicate by FULL URL (keep query params — each ASIN and each search term is distinct)
 const seen = new Set();
 const unique = allLinks.filter(l => {
-  const norm = l.url.split('?')[0]; // dedupe by base URL
-  if (seen.has(norm)) return false;
-  seen.add(norm);
+  if (seen.has(l.url)) return false;
+  seen.add(l.url);
   return true;
 });
 
+// Count by source for transparency
+const bySource = {};
+for (const l of allLinks) {
+  const key = l.source.startsWith('products/') ? 'MDX product reviews' :
+               l.source === 'roundups/page.tsx' ? 'Product roundup page' :
+               l.source === 'affiliateProducts.ts' ? 'affiliateProducts.ts (search)' :
+               'registry-checklist.json (search)';
+  bySource[key] = (bySource[key] || 0) + 1;
+}
+
 console.log(`\n📦 Total links collected: ${allLinks.length}`);
-console.log(`🔍 Unique base URLs to check: ${unique.length}\n`);
+for (const [src, count] of Object.entries(bySource)) console.log(`   • ${src}: ${count}`);
+const dupes = allLinks.length - unique.length;
+console.log(`\n🔁 Duplicate URLs removed: ${dupes} (same ASIN appearing in multiple files)`);
+console.log(`🔍 Unique URLs to check: ${unique.length}\n`);
 
 // ── HTTP checker ─────────────────────────────────────────────────────────────
 
@@ -106,16 +118,17 @@ for (let i = 0; i < unique.length; i += BATCH) {
     const r = batchResults[j];
     const source = batch[j].source;
 
-    // Amazon search pages (s?k=) always return 200 – mark as ok without fetching
-    const isSearch = r.url.includes('/s?') || r.url.includes('/s?k=');
+    // Amazon search pages (s?k=) never 404 — mark as ok
+    const isSearch = r.url.includes('/s?k=');
+    const effectivelyOk = r.ok || isSearch;
 
-    if (!r.ok && !isSearch) {
+    if (!effectivelyOk) {
       broken.push({ ...r, source });
       process.stdout.write(`❌ `);
     } else {
       process.stdout.write(`✅ `);
     }
-    results.push({ ...r, source });
+    results.push({ ...r, source, ok: effectivelyOk });
   }
 
   // Progress line every 40 links

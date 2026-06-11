@@ -1,20 +1,20 @@
 {
   "summary": {
-    "total": 201,
-    "ok": 201,
+    "total": 264,
+    "ok": 264,
     "broken": 0
   },
   "broken": [],
   "all": [
     {
       "url": "https://www.amazon.com/dp/B07P7XGQRT?tag=pregnancysp0a-20",
-      "status": 200,
+      "status": 405,
       "ok": true,
       "source": "products/baby-einstein-neighborhood-friends-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07N8NCDZD?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/evenflo-exersaucer-triple-fun-review"
     },
@@ -26,13 +26,13 @@
     },
     {
       "url": "https://www.amazon.com/dp/B00JHPB4FK?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/fisher-price-rainforest-jumperoo-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07VQNYNKB?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/graco-doorway-bumper-jumper-review"
     },
@@ -50,7 +50,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B00CQXSFB6?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/vtech-sit-to-stand-walker-review"
     },
@@ -62,7 +62,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B01N42JV9H?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/blooming-bath-lotus-review"
     },
@@ -74,7 +74,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B094WXVX8T?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/frida-baby-4-in-1-grow-with-me-tub-review"
     },
@@ -92,7 +92,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B01N14DMLQ?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/summer-infant-newborn-to-toddler-bath-review"
     },
@@ -104,43 +104,43 @@
     },
     {
       "url": "https://www.amazon.com/dp/B016DAWD2S?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/babybjorn-bouncer-balance-soft-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07XF8VP6M?tag=pregnancysp0a-20",
-      "status": 200,
+      "status": 405,
       "ok": true,
       "source": "products/babybjorn-bouncer-bliss-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07Q97N24X?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/bright-starts-comfort-harmony-bouncer-review"
     },
     {
       "url": "https://www.amazon.com/dp/B0BF31VXSX?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/ergobaby-evolve-bouncer-review"
     },
     {
       "url": "https://www.amazon.com/dp/B08T16G4VZ?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/fisher-price-sweet-snugapuppy-bouncer-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07D7ZJH9P?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/nuna-leaf-grow-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07QXRH6WW?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/babybjorn-one-air-review"
     },
@@ -164,7 +164,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B09S1C5ZHL?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/lillebaby-complete-airflow-review"
     },
@@ -176,7 +176,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B09QXS5KRN?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/solly-baby-wrap-review"
     },
@@ -194,13 +194,13 @@
     },
     {
       "url": "https://www.amazon.com/dp/B078MG8P2S?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/cuisinart-baby-food-maker-review"
     },
     {
       "url": "https://www.amazon.com/dp/B00DQSV25E?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/infantino-squeeze-station-review"
     },
@@ -212,7 +212,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B072N8GGWR?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/munchkin-fresh-food-blender-review"
     },
@@ -224,13 +224,13 @@
     },
     {
       "url": "https://www.amazon.com/dp/B07ZTXT3CS?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/babydan-premier-pressure-gate-review"
     },
     {
       "url": "https://www.amazon.com/dp/B002CXDMJ6?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/cardinal-gates-stairway-special-review"
     },
@@ -242,43 +242,43 @@
     },
     {
       "url": "https://www.amazon.com/dp/B00SVTPGW2?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/munchkin-easy-close-gate-review"
     },
     {
       "url": "https://www.amazon.com/dp/B075VH4S9M?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/north-states-easy-swing-gate-review"
     },
     {
       "url": "https://www.amazon.com/dp/B0000CEWFU?tag=pregnancysp0a-20",
-      "status": 200,
+      "status": 405,
       "ok": true,
       "source": "products/regalo-easy-step-walk-thru-gate-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07WQ64VJ4?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/safety-1st-easy-install-gate-review"
     },
     {
       "url": "https://www.amazon.com/dp/B003FVOO9U?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/summer-infant-multi-use-gate-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07MPN78SM?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/baby-delight-snuggle-nest-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07P87SXC3?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/boppy-lounger-review"
     },
@@ -290,7 +290,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B07CZP9MJP?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/fisher-price-sit-me-up-floor-seat-review"
     },
@@ -302,13 +302,13 @@
     },
     {
       "url": "https://www.amazon.com/dp/B075RJ9LYW?tag=pregnancysp0a-20",
-      "status": 200,
+      "status": 405,
       "ok": true,
       "source": "products/snuggle-me-organic-lounger-review"
     },
     {
       "url": "https://www.amazon.com/dp/B00X0SH0HE?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/summer-infant-pop-n-sit-review"
     },
@@ -332,13 +332,13 @@
     },
     {
       "url": "https://www.amazon.com/dp/B07GJN1JGM?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/piyo-piyo-nail-care-set-review"
     },
     {
       "url": "https://www.amazon.com/dp/B00M0E1AVE?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/safety-1st-nail-care-kit-review"
     },
@@ -350,7 +350,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B0B3F93NYT?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/4moms-mamaroo-4-review"
     },
@@ -374,13 +374,13 @@
     },
     {
       "url": "https://www.amazon.com/dp/B07TBV8CGH?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/graco-duoglider-swing-review"
     },
     {
       "url": "https://www.amazon.com/dp/B09MWHHV11?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/graco-soothing-system-glider-review"
     },
@@ -398,13 +398,13 @@
     },
     {
       "url": "https://www.amazon.com/dp/B000BI2SJU?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/exergen-temporal-artery-thermometer-review"
     },
     {
       "url": "https://www.amazon.com/dp/B09C7BPXKS?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/frida-baby-3-in-1-thermometer-review"
     },
@@ -422,7 +422,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B06XWXB8TK?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/kinsa-quickcare-thermometer-review"
     },
@@ -434,7 +434,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B001TBCFUG?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/vicks-comfortflex-thermometer-review"
     },
@@ -446,13 +446,13 @@
     },
     {
       "url": "https://www.amazon.com/dp/B0013FRSGG?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/green-toys-tug-boat-review"
     },
     {
       "url": "https://www.amazon.com/dp/B000JNA8HU?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/munchkin-bath-crayons-review"
     },
@@ -476,19 +476,19 @@
     },
     {
       "url": "https://www.amazon.com/dp/B09Z37X2MP?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/elvie-stride-review"
     },
     {
       "url": "https://www.amazon.com/dp/B078MDFPJZ?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/haakaa-silicone-breast-pump-review"
     },
     {
       "url": "https://www.amazon.com/dp/B00TGDLDM8?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/lansinoh-signature-pro-pump-review"
     },
@@ -500,7 +500,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B00DBKFFJM?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/spectra-s1-plus-review"
     },
@@ -512,7 +512,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B09NK9GLYB?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/willow-3-wearable-breast-pump-review"
     },
@@ -530,25 +530,25 @@
     },
     {
       "url": "https://www.amazon.com/dp/B07CL24B3J?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/evenflo-everystage-dlx-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07D2QQ3RF?tag=pregnancysp0a-20",
-      "status": 200,
+      "status": 405,
       "ok": true,
       "source": "products/graco-4ever-dlx-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07VGTNSZN?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/maxi-cosi-pria-all-in-one-review"
     },
     {
       "url": "https://www.amazon.com/dp/B0BC6RHWWK?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/nuna-rava-convertible-review"
     },
@@ -560,19 +560,19 @@
     },
     {
       "url": "https://www.amazon.com/dp/B007CRJHUI?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/babyletto-hudson-crib-review"
     },
     {
       "url": "https://www.amazon.com/dp/B000FT7NSI?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/davinci-kalani-4-in-1-crib-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07Z4TZBR4?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/delta-children-emery-crib-review"
     },
@@ -584,19 +584,19 @@
     },
     {
       "url": "https://www.amazon.com/dp/B0716KN18Z?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/snoo-smart-sleeper-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07BZ5TNMW?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/storkcraft-tuscany-4-in-1-crib-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07RWYMLJQ?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/carter-s-city-mesh-backpack-review"
     },
@@ -608,7 +608,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B0CJXSJ4MN?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/freshly-picked-classic-diaper-bag-review"
     },
@@ -620,7 +620,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B00TEXBJ3Q?tag=pregnancysp0a-20",
-      "status": 200,
+      "status": 405,
       "ok": true,
       "source": "products/jujube-bff-diaper-bag-review"
     },
@@ -644,13 +644,13 @@
     },
     {
       "url": "https://www.amazon.com/dp/B00NNI1AOO?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/diaper-genie-complete-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07MGPXFM6?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/munchkin-arm-hammer-diaper-pail-review"
     },
@@ -668,37 +668,37 @@
     },
     {
       "url": "https://www.amazon.com/dp/B07BYNNYWK?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/tommee-tippee-twist-click-review"
     },
     {
       "url": "https://www.amazon.com/dp/B00939VWB2?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/ubbi-steel-diaper-pail-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07BGXTZ4K?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/4moms-connect-high-chair-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07Z34SVNS?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/baby-trend-sit-right-high-chair-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07J5CWCBQ?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/chicco-polly-progress-5-in-1-review"
     },
     {
       "url": "https://www.amazon.com/dp/B00PTL13LA?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/graco-slim-snacker-review"
     },
@@ -710,13 +710,13 @@
     },
     {
       "url": "https://www.amazon.com/dp/B078STMRN6?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/joovy-nook-high-chair-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07KQQHX6H?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/stokke-tripp-trapp-review"
     },
@@ -728,7 +728,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B07WMCM5LT?tag=pregnancysp0a-20",
-      "status": 200,
+      "status": 405,
       "ok": true,
       "source": "products/fridababy-3-in-1-humidifier-review"
     },
@@ -752,7 +752,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B07BVGTXWD?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/safety-1st-360-degree-humidifier-review"
     },
@@ -764,13 +764,13 @@
     },
     {
       "url": "https://www.amazon.com/dp/B072XZH4SB?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/arlo-baby-monitor-review"
     },
     {
       "url": "https://www.amazon.com/dp/B08G8MBWZ8?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/eufy-spaceview-pro-review"
     },
@@ -788,7 +788,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B0FTSL4FXJ?tag=pregnancysp0a-20",
-      "status": 200,
+      "status": 405,
       "ok": true,
       "source": "products/nanit-pro-review"
     },
@@ -800,7 +800,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B00HNNAFM0?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/vtch-dm221-audio-monitor-review"
     },
@@ -824,19 +824,19 @@
     },
     {
       "url": "https://www.amazon.com/dp/B07BYFQN26?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/davinci-olive-swivel-glider-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07Z3BRGMQ?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/delta-children-blair-glider-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07KPQNJBJ?tag=pregnancysp0a-20",
-      "status": 200,
+      "status": 405,
       "ok": true,
       "source": "products/dutailier-glider-review"
     },
@@ -854,13 +854,13 @@
     },
     {
       "url": "https://www.amazon.com/dp/B07VZSN584?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/boppy-original-nursing-pillow-review"
     },
     {
       "url": "https://www.amazon.com/dp/B004C053BA?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/comotomo-baby-bottle-review"
     },
@@ -872,7 +872,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B07CWK4S5W?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/haakaa-silicone-breast-pump-review"
     },
@@ -890,19 +890,19 @@
     },
     {
       "url": "https://www.amazon.com/dp/B07FX5F7NR?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/bright-starts-tummy-time-prop-play-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07KFMTPMN?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/infantino-twist-fold-gym-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07Q38BVCK?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/lovevery-play-gym-review"
     },
@@ -914,13 +914,13 @@
     },
     {
       "url": "https://www.amazon.com/dp/B07TFKC2RB?tag=pregnancysp0a-20",
-      "status": 200,
+      "status": 405,
       "ok": true,
       "source": "products/tiny-love-meadow-days-gym-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07Y3BXC9P?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/babybjorn-potty-chair-review"
     },
@@ -950,13 +950,13 @@
     },
     {
       "url": "https://www.amazon.com/dp/B00BIZOYBQ?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/summer-infant-my-size-potty-review"
     },
     {
       "url": "https://www.amazon.com/dp/B073C28BFX?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/contigo-stainless-sippy-cup-review"
     },
@@ -968,7 +968,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B07BGLXFHQ?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/nuby-silicone-sippy-cup-review"
     },
@@ -980,31 +980,31 @@
     },
     {
       "url": "https://www.amazon.com/dp/B07RJMQC73?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/pura-kiki-stainless-sippy-cup-review"
     },
     {
       "url": "https://www.amazon.com/dp/B01BG7WMHQ?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/re-play-no-spill-sippy-cup-review"
     },
     {
       "url": "https://www.amazon.com/dp/B003WMPGDC?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/thermos-foogo-sippy-cup-review"
     },
     {
       "url": "https://www.amazon.com/dp/B09BRDP8SR?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/tommee-tippee-first-sips-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07GJVXP4N?tag=pregnancysp0a-20",
-      "status": 200,
+      "status": 405,
       "ok": true,
       "source": "products/aden-anais-sleeping-bag-review"
     },
@@ -1016,19 +1016,19 @@
     },
     {
       "url": "https://www.amazon.com/dp/B07KH87WHK?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/burts-bees-beekeeper-wearable-blanket-review"
     },
     {
       "url": "https://www.amazon.com/dp/B08C3YQNFQ?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/dreamland-baby-weighted-sleep-sack-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07FPJCPXX?tag=pregnancysp0a-20",
-      "status": 200,
+      "status": 405,
       "ok": true,
       "source": "products/ergobaby-swaddler-review"
     },
@@ -1040,37 +1040,37 @@
     },
     {
       "url": "https://www.amazon.com/dp/B07PYJ24VG?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/love-to-dream-swaddle-up-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07Z7YBPCH?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/nested-bean-zen-sack-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07RLVQ8XT?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/swaddleme-original-swaddle-review"
     },
     {
       "url": "https://www.amazon.com/dp/B01MUZJJLF?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/woolino-4-season-sleep-bag-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07YG2BPH5?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/woolino-merino-sleep-bag-toddler-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07PMSS86F?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/baby-jogger-city-mini-gt2-review"
     },
@@ -1082,13 +1082,13 @@
     },
     {
       "url": "https://www.amazon.com/dp/B0BX4R4B8C?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/bugaboo-fox-5-review"
     },
     {
       "url": "https://www.amazon.com/dp/B01CSECET0?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/chicco-bravo-trio-travel-system-review"
     },
@@ -1100,19 +1100,19 @@
     },
     {
       "url": "https://www.amazon.com/dp/B07Y5VQYFW?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/graco-modes-pramette-travel-system-review"
     },
     {
       "url": "https://www.amazon.com/dp/B003H4QFRS?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/joovy-caboose-ultralight-review"
     },
     {
       "url": "https://www.amazon.com/dp/B07Z6Y5VCB?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/uppababy-vista-v2-review"
     },
@@ -1130,7 +1130,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B00M5AI71C?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/comotomo-teether-review"
     },
@@ -1142,13 +1142,13 @@
     },
     {
       "url": "https://www.amazon.com/dp/B075NDKRRR?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/munchkin-latch-teether-review"
     },
     {
       "url": "https://www.amazon.com/dp/B00AH6OIDE?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/nuby-icybite-teething-keys-review"
     },
@@ -1160,25 +1160,25 @@
     },
     {
       "url": "https://www.amazon.com/dp/B000IXKWEG?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/sophie-la-girafe-teether-review"
     },
     {
       "url": "https://www.amazon.com/dp/B00HD0ELFK?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/big-red-rooster-6-sound-machine-review"
     },
     {
       "url": "https://www.amazon.com/dp/B086BKFHP6?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/dreamegg-d1-pro-white-noise-review"
     },
     {
       "url": "https://www.amazon.com/dp/B08YS6S66Z?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/hatch-rest-2nd-gen-review"
     },
@@ -1196,7 +1196,7 @@
     },
     {
       "url": "https://www.amazon.com/dp/B01H6WXUX6?tag=pregnancysp0a-20",
-      "status": 405,
+      "status": 200,
       "ok": true,
       "source": "products/marpac-rohm-portable-review"
     },
@@ -1207,8 +1207,386 @@
       "source": "affiliateProducts.ts"
     },
     {
+      "url": "https://amazon.com/s?k=convertible+car+seat&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=baby+carrier&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=stroller+newborn&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=travel+system+stroller+car+seat&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=toddler+stroller&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=baby+crib&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=convertible+crib&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=baby+furniture+set&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=toddler+bed&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=breast+pump&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=nursing+pillow&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=high+chair&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=bottle+sterilizer&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=baby+monitor&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=baby+swing&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=baby+bouncer&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=white+noise+machine&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=video+baby+monitor&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=baby+thermometer&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=baby+gate&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=baby+bath+tub&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=baby+bathing+system&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=diaper+pail&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=humidifier+baby&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=nursery+furniture+set&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=baby+bedding+set&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=changing+table&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=wifi+baby+monitor&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=projector+night+light&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=personalized+nursery+wall+decor&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=baby+quilt&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=wooden+baby+toys&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=affordable+stroller&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
+      "url": "https://amazon.com/s?k=affordable+car+seat&tag=pregnancysp0a-20",
+      "status": 301,
+      "ok": true,
+      "source": "affiliateProducts.ts"
+    },
+    {
       "url": "https://www.amazon.com/s?k=convertible+crib&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=crib+mattress&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=fitted+crib+sheets+waterproof&tag=pregnancysp0a-20",
       "status": 405,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=video+baby+monitor&tag=pregnancysp0a-20",
+      "status": 405,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=white+noise+machine+baby&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=baby+dresser+changing+table&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=changing+pad+waterproof&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=nursery+glider+rocking+chair&tag=pregnancysp0a-20",
+      "status": 405,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=infant+car+seat&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=baby+stroller+travel+system&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=baby+carrier+wrap&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=diaper+bag+backpack&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=breast+pump+double+electric&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=nursing+bras+pack&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=nursing+pillow+boppy&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=newborn+baby+bottles&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=bottle+brush+drying+rack&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=breast+milk+storage+bags&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=infant+bathtub+newborn&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=baby+wash+shampoo+tear+free&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=baby+hooded+towels&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=newborn+diapers+size+1&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=baby+wipes+sensitive+skin&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=baby+nail+file+electric&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=baby+thermometer+temporal&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=frida+nosefrida+baby&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=baby+swing+bouncer&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=baby+activity+gym+play+mat&tag=pregnancysp0a-20",
+      "status": 405,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=newborn+onesies+pack&tag=pregnancysp0a-20",
+      "status": 503,
+      "ok": true,
+      "source": "registry-checklist.json"
+    },
+    {
+      "url": "https://www.amazon.com/s?k=baby+sleep+sack+wearable+blanket&tag=pregnancysp0a-20",
+      "status": 503,
       "ok": true,
       "source": "registry-checklist.json"
     }
