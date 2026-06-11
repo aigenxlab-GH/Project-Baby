@@ -56,16 +56,9 @@ const nextConfig = {
   // Google sees a 301 and passes all ranking signals to the target page.
   async redirects() {
     return [
-      // ── HTTP → HTTPS (Medium Priority fix — SEOptimizer "Implement a Redirect to HTTPS") ──
-      // Cloudflare sets x-forwarded-proto: http when the original request was plain HTTP.
-      // This 301 forces all traffic to HTTPS before it reaches Next.js.
-      // Has no effect in local development (localhost never receives this header).
-      {
-        source: '/:path*',
-        has: [{ type: 'header', key: 'x-forwarded-proto', value: 'http' }],
-        destination: 'https://pregnancysprout.com/:path*',
-        permanent: true,
-      },
+      // HTTP→HTTPS redirect removed — Cloudflare handles this at the edge automatically.
+      // Adding it here causes ERR_TOO_MANY_REDIRECTS because Cloudflare sends
+      // x-forwarded-proto: http internally even on HTTPS requests.
       { source: '/blog/baby-sleep-training-methods', destination: '/blog/baby-sleep-training-methods-complete-guide-for-new-parents', permanent: true },
       { source: '/blog/morning-sickness-remedies', destination: '/blog/morning-sickness-remedies-that-actually-work', permanent: true },
       { source: '/blog/hospital-bag-checklist', destination: '/blog/complete-hospital-bag-checklist-for-mom-and-baby', permanent: true },
