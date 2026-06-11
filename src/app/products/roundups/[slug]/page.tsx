@@ -281,7 +281,7 @@ const roundups: Record<string, RoundupData> = {
   'best-baby-carriers-2026': {
     title: 'Best Baby Carriers of 2026 — Structured, Ring Sling & Wrap',
     description: 'We tested structured carriers, ring slings, and stretchy wraps to find the best baby carriers of 2026 for newborns through toddlers.',
-    metaDescription: 'Best baby carriers 2026: top-rated structured carriers, wraps, and ring slings tested for ergonomics, comfort, and ease of use from newborn to toddler.',
+    metaDescription: 'Best baby carriers 2026: top-rated structured carriers, wraps, and ring slings tested for ergonomics and ease of use from newborn to toddler.',
     slug: 'best-baby-carriers-2026',
     updatedAt: '2026-06-05',
     intro: 'The right baby carrier makes hands-free parenting genuinely practical. The wrong one leaves your back aching and your baby fussing. After testing seven carriers over three months — from newborn through toddler stage — these are our top picks for 2026.',
@@ -499,7 +499,7 @@ const roundups: Record<string, RoundupData> = {
   'best-convertible-car-seats-2026': {
     title: 'Best Convertible Car Seats of 2026 — Tested for Safety & Ease of Install',
     description: 'The best convertible car seats of 2026, tested by CPSTs for LATCH ease, vehicle fit, and long-term value. Top picks from $179 to $499.',
-    metaDescription: 'Best convertible car seats 2026: top picks tested for safety ratings, ease of installation, and vehicle fit. Includes best budget and best premium options.',
+    metaDescription: 'Best convertible car seats 2026: top picks tested for safety ratings, ease of installation, and vehicle fit. Budget and premium options included.',
     slug: 'best-convertible-car-seats-2026',
     updatedAt: '2026-06-05',
     intro: 'A convertible car seat is one of the best investments you can make for a young family. It rear-faces from newborn, forward-faces for toddlers, and often converts to a booster — eliminating two or three seat purchases. After testing five seats in real vehicles with trained CPST installers, these are the best convertible car seats of 2026.',
@@ -739,7 +739,7 @@ const roundups: Record<string, RoundupData> = {
   'best-breast-pumps-2026': {
     title: 'Best Breast Pumps of 2026 — Hospital-Grade to Wearable, Tested',
     description: 'The best breast pumps of 2026, evaluated for suction strength, comfort, noise level, and portability. From the Spectra S2 to hands-free wearable pumps.',
-    metaDescription: 'Best breast pumps 2026: top picks tested for milk output, comfort, and portability. Includes best hospital-grade, best wearable, and best manual breast pumps.',
+    metaDescription: 'Best breast pumps 2026: top picks tested for milk output, comfort, and portability. Includes hospital-grade, wearable, and manual breast pumps.',
     slug: 'best-breast-pumps-2026',
     updatedAt: '2026-06-05',
     intro: 'The right breast pump can transform your feeding experience; the wrong one makes every session a chore. We evaluated five pumps — from a $29 silicone manual to a $329 hands-free wearable — across output, comfort, noise, and portability. These are the best breast pumps of 2026.',
@@ -1108,7 +1108,7 @@ const roundups: Record<string, RoundupData> = {
   'best-baby-high-chairs-2026': {
     title: 'Best Baby High Chairs of 2026 — Tested for Safety, Easy Clean & Longevity',
     description: 'The best high chairs of 2026, tested for stability, how easy they are to wipe clean, and whether they genuinely grow with your child. From $25 to $329.',
-    metaDescription: 'Best baby high chairs 2026: top picks from $25 to $329 tested for safety, easy cleaning, and long-term value. Includes the best budget and best grow-with-me options.',
+    metaDescription: 'Best baby high chairs 2026: top picks tested for safety, easy cleaning, and long-term value. Budget and grow-with-me options included.',
     slug: 'best-baby-high-chairs-2026',
     updatedAt: '2026-06-05',
     intro: 'The ideal high chair is safe, easy to clean, and still usable when your toddler becomes a school-aged child. After testing three high chairs over six months — tracking stability, mess containment, and long-term adjustability — these are our top picks for 2026.',
@@ -1304,7 +1304,7 @@ const roundups: Record<string, RoundupData> = {
   'best-white-noise-machines-2026': {
     title: 'Best White Noise Machines for Babies 2026 — Sleep Longer, Wake Less',
     description: 'The best white noise machines for babies in 2026, tested for sound quality, volume safety, and smart features through eight weeks of overnight use.',
-    metaDescription: 'Best white noise machines for babies 2026: top picks tested for sound quality, safe volume levels, and ease of use at 3am. Includes smart and simple options.',
+    metaDescription: 'Best white noise machines for babies 2026: top picks tested for sound quality, safe volume levels, and ease of use at 3am.',
     slug: 'best-white-noise-machines-2026',
     updatedAt: '2026-06-05',
     intro: 'White noise masks household sounds and mimics the womb environment — two reasons it\'s one of the most effective tools for baby sleep. After testing three white noise machines through eight weeks of real overnight use, these are the best of 2026.',

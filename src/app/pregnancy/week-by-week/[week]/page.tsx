@@ -37,7 +37,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!data) return {};
 
   const title = `${weekNum} Weeks Pregnant — Baby Development & Symptoms`;
-  const description = `What happens at ${weekNum} weeks pregnant? Baby is the size of ${data.babySize.comparison}. Learn about baby development, symptoms, and tips for week ${weekNum}.`;
+  const rawDesc = `What happens at ${weekNum} weeks pregnant? Baby is the size of ${data.babySize.comparison}. Learn about baby development, symptoms, and tips for week ${weekNum}.`;
+  const description = rawDesc.length > 153
+    ? rawDesc.substring(0, rawDesc.lastIndexOf(' ', 150)) + '…'
+    : rawDesc;
 
   return {
     title,

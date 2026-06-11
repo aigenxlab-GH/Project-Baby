@@ -6,7 +6,7 @@ import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
 export const metadata: Metadata = {
   title: 'Due Date Calculator — Find Your Baby\'s Due Date',
-  description: 'Calculate your pregnancy due date instantly. Enter your last menstrual period or conception date to find your estimated due date, current week, and key milestones.',
+  description: 'Calculate your pregnancy due date instantly. Enter your LMP or conception date to find your estimated due date, current week, and key milestones.',
   alternates: { canonical: `${siteConfig.url}/tools/due-date-calculator` },
 };
 

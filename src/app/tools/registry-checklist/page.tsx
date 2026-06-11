@@ -6,7 +6,7 @@ import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
 export const metadata: Metadata = {
   title: 'Baby Registry Checklist — Everything You Need for Your Newborn',
-  description: 'Complete baby registry checklist with 30+ essential items. Categorized by nursery, feeding, travel, clothing, and health. With affiliate links to the best products.',
+  description: 'Complete baby registry checklist with 30+ essential items. Categorized by nursery, feeding, travel, clothing, and health. Includes top product picks.',
   alternates: { canonical: `${siteConfig.url}/tools/registry-checklist` },
 };
 

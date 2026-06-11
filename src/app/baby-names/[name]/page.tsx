@@ -27,7 +27,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!nameData) return {};
 
   const title = `${nameData.name} Baby Name Meaning, Origin & Popularity`;
-  const description = `The name ${nameData.name} means "${nameData.meaning}" and has ${nameData.origin.join(', ')} origins. Learn about the name's popularity, nicknames, and more.`;
+  const rawDesc = `The name ${nameData.name} means "${nameData.meaning}" and has ${nameData.origin.join(', ')} origins. Learn about the name's popularity, nicknames, and more.`;
+  // Cap at 153 chars at the last word boundary to avoid SERP truncation warnings.
+  const description = rawDesc.length > 153
+    ? rawDesc.substring(0, rawDesc.lastIndexOf(' ', 150)) + '…'
+    : rawDesc;
 
   return {
     title,
