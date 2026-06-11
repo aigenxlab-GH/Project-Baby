@@ -1,3 +1,4 @@
+// v2 — deployment test 2026-06-11
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
