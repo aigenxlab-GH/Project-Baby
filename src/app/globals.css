@@ -125,14 +125,52 @@
 .dark .bg-gray-100 { background-color: #1f1f3a !important; }
 .dark .border-gray-100 { border-color: #2a2a4a !important; }
 .dark .border-gray-200 { border-color: #333358 !important; }
-.dark .text-gray-900 { color: #f1f5f9 !important; }
-.dark .text-gray-800 { color: #e2e8f0 !important; }
-.dark .text-gray-700 { color: #cbd5e1 !important; }
-.dark .text-gray-600 { color: #94a3b8 !important; }
-.dark .text-gray-500 { color: #64748b !important; }
-.dark .text-gray-400 { color: #475569 !important; }
+
+/* Text grays — scale stays readable on #0f0f13 background.
+   Previously gray-500 (#64748b) and gray-400 (#475569) were near-invisible. */
+.dark .text-gray-900 { color: #f1f5f9 !important; }   /* near-white   */
+.dark .text-gray-800 { color: #e2e8f0 !important; }   /* very light   */
+.dark .text-gray-700 { color: #cbd5e1 !important; }   /* light        */
+.dark .text-gray-600 { color: #94a3b8 !important; }   /* medium-light */
+.dark .text-gray-500 { color: #9ca3af !important; }   /* muted — was #64748b (too dark) */
+.dark .text-gray-400 { color: #6b7280 !important; }   /* subtle  — was #475569 (too dark) */
+
 .dark .shadow-sm { box-shadow: 0 1px 3px rgba(0,0,0,0.4) !important; }
 .dark .shadow-md { box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important; }
+
+/* ── Dark mode: prose / article body ──────────────────────────────────────── */
+/* Tailwind Typography uses CSS custom properties for colours; without
+   prose-invert those default to dark text — illegible on dark backgrounds.
+   These rules apply to every prose variant site-wide (prose-gray, prose-pink,
+   prose-baby, etc.) and override via the .dark ancestor selector.              */
+.dark .prose h1,
+.dark .prose h2,
+.dark .prose h3,
+.dark .prose h4,
+.dark .prose h5,
+.dark .prose h6          { color: #f1f5f9; }
+.dark .prose p,
+.dark .prose li,
+.dark .prose td,
+.dark .prose dt,
+.dark .prose dd          { color: #e2e8f0; }
+.dark .prose strong      { color: #f8fafc; }
+.dark .prose em          { color: #e2e8f0; }
+.dark .prose a           { color: #f472b6; }   /* brand-400 */
+.dark .prose a:hover     { color: #f9a8d4; }   /* brand-300 */
+.dark .prose code {
+  color: #f472b6;
+  background-color: rgba(219, 39, 119, 0.12);
+  border-radius: 4px;
+  padding: 1px 4px;
+}
+.dark .prose pre              { background-color: #1e1e2e; }
+.dark .prose pre code         { color: #e2e8f0; background: none; padding: 0; }
+.dark .prose blockquote       { color: #cbd5e1; border-left-color: #db2777; background-color: rgba(219,39,119,0.06); }
+.dark .prose hr               { border-color: #374151; }
+.dark .prose thead th         { color: #f1f5f9; background-color: #1f1f3a; }
+.dark .prose tbody tr         { border-color: #2a2a4a; }
+.dark .prose tbody tr:nth-child(even) { background-color: #16213e; }
 
 /* ── Custom scrollbar for desktop ─────────────────────────────────────────── */
 @media (min-width: 1024px) {

@@ -63,7 +63,7 @@ export default function CookiePolicyPage() {
         </div>
       </div>
 
-      <div className="prose prose-gray max-w-none">
+      <div className="prose prose-gray max-w-none dark:text-gray-200">
         <p>
           This Cookie Policy explains what cookies are, which cookies{' '}
           <strong>{siteConfig.name}</strong> uses, and how you can manage them. It supplements our{' '}
@@ -82,11 +82,11 @@ export default function CookiePolicyPage() {
         <h2>Cookies We Use</h2>
 
         {cookieTypes.map((type) => (
-          <div key={type.name} className="not-prose mb-6 rounded-xl border border-gray-200 overflow-hidden">
-            <div className="bg-gray-50 px-5 py-3 flex items-center justify-between gap-3 flex-wrap">
-              <h3 className="font-semibold text-gray-900 text-base">{type.name}</h3>
+          <div key={type.name} className="not-prose mb-6 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+            <div className="bg-gray-50 dark:bg-gray-800/60 px-5 py-3 flex items-center justify-between gap-3 flex-wrap">
+              <h3 className="font-semibold text-gray-900 dark:text-white text-base">{type.name}</h3>
               <div className="flex items-center gap-3 text-sm">
-                <span className="text-gray-500">Retention: <strong className="text-gray-700">{type.retention}</strong></span>
+                <span className="text-gray-500 dark:text-gray-400">Retention: <strong className="text-gray-700 dark:text-gray-200">{type.retention}</strong></span>
                 <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
                   type.thirdParty ? 'bg-amber-100 text-amber-700' : 'bg-green-100 text-green-700'
                 }`}>
@@ -94,12 +94,12 @@ export default function CookiePolicyPage() {
                 </span>
               </div>
             </div>
-            <div className="px-5 py-4">
-              <p className="text-sm text-gray-700 mb-3">{type.description}</p>
-              <ul className="text-xs text-gray-500 space-y-1">
+            <div className="px-5 py-4 dark:bg-gray-900/40">
+              <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">{type.description}</p>
+              <ul className="text-xs text-gray-500 dark:text-gray-400 space-y-1">
                 {type.examples.map((ex) => (
                   <li key={ex} className="flex items-start gap-2">
-                    <span className="mt-0.5 text-gray-300">•</span>
+                    <span className="mt-0.5 text-gray-300 dark:text-gray-600">•</span>
                     <span>{ex}</span>
                   </li>
                 ))}
@@ -184,7 +184,7 @@ export default function CookiePolicyPage() {
           <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
         </p>
 
-        <div className="not-prose mt-8 p-4 bg-gray-50 rounded-xl text-sm text-gray-600">
+        <div className="not-prose mt-8 p-4 bg-gray-50 dark:bg-gray-800/60 rounded-xl text-sm text-gray-600 dark:text-gray-300">
           See also:{' '}
           <Link href="/privacy-policy" className="text-brand-700 hover:underline">Privacy Policy</Link>{' '}
           ·{' '}

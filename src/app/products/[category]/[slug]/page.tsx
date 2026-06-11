@@ -172,11 +172,11 @@ export default async function ProductReviewPage({ params }: Props) {
 
         <article>
           {/* Reviewer credentials box */}
-          <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6 flex items-start gap-3">
-            <AlertCircle className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+          <div className="bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 rounded-xl p-4 mb-6 flex items-start gap-3">
+            <AlertCircle className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
             <div className="text-sm">
-              <p className="font-semibold text-blue-900">Thoroughly Reviewed</p>
-              <p className="text-blue-800 text-xs mt-0.5">
+              <p className="font-semibold text-blue-900 dark:text-blue-200">Thoroughly Reviewed</p>
+              <p className="text-blue-800 dark:text-blue-300 text-xs mt-0.5">
                 This product was evaluated based on verified specifications, safety standards, and independent research. Last tested: June 2026.
               </p>
             </div>
@@ -229,8 +229,8 @@ export default async function ProductReviewPage({ params }: Props) {
 
           {/* Buy buttons */}
           {product.affiliateLinks && product.affiliateLinks.length > 0 && (
-            <div className="bg-gray-50 rounded-2xl p-5 mb-8 border border-gray-100">
-              <h2 className="font-semibold text-gray-900 mb-3 text-sm">Where to Buy</h2>
+            <div className="bg-gray-50 dark:bg-gray-900/60 rounded-2xl p-5 mb-8 border border-gray-100 dark:border-gray-800">
+              <h2 className="font-semibold text-gray-900 dark:text-white mb-3 text-sm">Where to Buy</h2>
               <div className="flex flex-wrap gap-3">
                 {product.affiliateLinks.map((link, i) => (
                   <BuyButton key={i} href={link.url} price={link.price} />
@@ -241,26 +241,26 @@ export default async function ProductReviewPage({ params }: Props) {
 
           {/* Pros and Cons */}
           <div className="grid md:grid-cols-2 gap-5 mb-8">
-            <div className="bg-green-50 rounded-2xl p-5 border border-green-100">
-              <h2 className="font-semibold text-green-800 mb-3 flex items-center gap-1.5">
+            <div className="bg-green-50 dark:bg-green-950/30 rounded-2xl p-5 border border-green-100 dark:border-green-900">
+              <h2 className="font-semibold text-green-800 dark:text-green-300 mb-3 flex items-center gap-1.5">
                 <CheckCircle className="h-4 w-4" /> Pros
               </h2>
               <ul className="space-y-2">
                 {product.pros.map((pro, i) => (
-                  <li key={i} className="text-sm text-green-700 flex items-start gap-2">
-                    <span className="text-green-500 mt-0.5 flex-shrink-0">✓</span>{pro}
+                  <li key={i} className="text-sm text-green-700 dark:text-green-200 flex items-start gap-2">
+                    <span className="text-green-500 dark:text-green-400 mt-0.5 flex-shrink-0">✓</span>{pro}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="bg-red-50 rounded-2xl p-5 border border-red-100">
-              <h2 className="font-semibold text-red-800 mb-3 flex items-center gap-1.5">
+            <div className="bg-red-50 dark:bg-red-950/30 rounded-2xl p-5 border border-red-100 dark:border-red-900">
+              <h2 className="font-semibold text-red-800 dark:text-red-300 mb-3 flex items-center gap-1.5">
                 <XCircle className="h-4 w-4" /> Cons
               </h2>
               <ul className="space-y-2">
                 {product.cons.map((con, i) => (
-                  <li key={i} className="text-sm text-red-700 flex items-start gap-2">
-                    <span className="text-red-400 mt-0.5 flex-shrink-0">✗</span>{con}
+                  <li key={i} className="text-sm text-red-700 dark:text-red-200 flex items-start gap-2">
+                    <span className="text-red-400 dark:text-red-400 mt-0.5 flex-shrink-0">✗</span>{con}
                   </li>
                 ))}
               </ul>
@@ -268,9 +268,9 @@ export default async function ProductReviewPage({ params }: Props) {
           </div>
 
           {/* Bottom line */}
-          <div className="bg-brand-50 border border-brand-100 rounded-2xl p-5 mb-8">
-            <h2 className="font-semibold text-brand-800 mb-2 text-sm">Our Bottom Line</h2>
-            <p className="text-brand-700 leading-relaxed">{product.bottomLine}</p>
+          <div className="bg-brand-50 dark:bg-brand-950/40 border border-brand-100 dark:border-brand-900 rounded-2xl p-5 mb-8">
+            <h2 className="font-semibold text-brand-800 dark:text-brand-300 mb-2 text-sm">Our Bottom Line</h2>
+            <p className="text-brand-700 dark:text-brand-200 leading-relaxed">{product.bottomLine}</p>
           </div>
 
           {/* In-depth review body — MDX narrative content */}
@@ -287,36 +287,37 @@ export default async function ProductReviewPage({ params }: Props) {
               </div>
               <div
                 className="prose prose-sm max-w-none
-                  prose-headings:font-serif prose-headings:text-gray-900
+                  prose-headings:font-serif
+                  prose-headings:text-gray-900 dark:prose-headings:text-white
                   prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-3 prose-h2:font-bold
                   prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-2 prose-h3:font-semibold
-                  prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4
-                  prose-li:text-gray-700 prose-li:leading-relaxed
+                  prose-p:text-gray-700 dark:prose-p:text-gray-200 prose-p:leading-relaxed prose-p:mb-4
+                  prose-li:text-gray-700 dark:prose-li:text-gray-200 prose-li:leading-relaxed
                   prose-ul:my-3 prose-ol:my-3
-                  prose-strong:text-gray-900
-                  prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline
-                  prose-blockquote:border-l-4 prose-blockquote:border-brand-400 prose-blockquote:bg-brand-50 prose-blockquote:rounded-r-xl prose-blockquote:py-1 prose-blockquote:px-4
-                  prose-hr:border-gray-200 prose-hr:my-6"
+                  prose-strong:text-gray-900 dark:prose-strong:text-white
+                  prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:no-underline hover:prose-a:underline
+                  prose-blockquote:border-l-4 prose-blockquote:border-brand-400 prose-blockquote:bg-brand-50 dark:prose-blockquote:bg-brand-950/40 prose-blockquote:rounded-r-xl prose-blockquote:py-1 prose-blockquote:px-4
+                  prose-hr:border-gray-200 dark:prose-hr:border-gray-700 prose-hr:my-6"
                 dangerouslySetInnerHTML={{ __html: markdownToHtml(product.content) }}
               />
             </section>
           )}
 
           {/* How we evaluate */}
-          <div className="bg-gray-50 border border-gray-100 rounded-2xl p-5 mb-8">
-            <h2 className="font-semibold text-gray-800 mb-3 text-sm">How We Evaluate {catLabel}</h2>
-            <p className="text-sm text-gray-600 leading-relaxed mb-2">
+          <div className="bg-gray-50 dark:bg-gray-900/60 border border-gray-100 dark:border-gray-800 rounded-2xl p-5 mb-8">
+            <h2 className="font-semibold text-gray-800 dark:text-gray-100 mb-3 text-sm">How We Evaluate {catLabel}</h2>
+            <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-2">
               Every product on PregnancySprout is evaluated against a consistent framework: verified manufacturer specifications, independent safety certifications (JPMA, ASTM, CPSC compliance), verified user feedback patterns from multiple retail platforms, and comparison against direct competitors in the same price tier.
             </p>
             <p className="text-sm text-gray-600 leading-relaxed">
-              Our scoring reflects real-world usability for parents — not just spec-sheet comparisons. We weight safety (40%), value for money (25%), ease of use (20%), and longevity/durability (15%). Products scoring above 8.5 represent exceptional value in their category.
+              <span className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">Our scoring reflects real-world usability for parents — not just spec-sheet comparisons. We weight safety (40%), value for money (25%), ease of use (20%), and longevity/durability (15%). Products scoring above 8.5 represent exceptional value in their category.</span>
             </p>
           </div>
 
           {/* Affiliate & Trust info */}
-          <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-8">
-            <p className="text-xs text-gray-600 leading-relaxed">
-              <strong className="text-gray-700">Affiliate disclosure:</strong> PregnancySprout may earn a commission from purchases made through links on this page. This does not affect our recommendation — we only suggest products we genuinely believe offer good value. <Link href="/affiliate-disclosure" className="text-brand-600 hover:underline">Learn more about how we test products.</Link>
+          <div className="bg-gray-50 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-700 rounded-xl p-4 mb-8">
+            <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+              <strong className="text-gray-700 dark:text-gray-200">Affiliate disclosure:</strong> PregnancySprout may earn a commission from purchases made through links on this page. This does not affect our recommendation — we only suggest products we genuinely believe offer good value. <Link href="/affiliate-disclosure" className="text-brand-600 hover:underline">Learn more about how we test products.</Link>
             </p>
           </div>
 
@@ -330,15 +331,15 @@ export default async function ProductReviewPage({ params }: Props) {
               {/* Mobile: stacked key-value cards */}
               <dl className="sm:hidden space-y-2">
                 {Object.entries(product.specsTable).map(([key, value]) => (
-                  <div key={key} className="flex justify-between items-start gap-4 bg-gray-50 rounded-xl px-4 py-3">
-                    <dt className="text-sm font-medium text-gray-700 flex-shrink-0">{key}</dt>
-                    <dd className="text-sm text-gray-600 text-right">{value}</dd>
+                  <div key={key} className="flex justify-between items-start gap-4 bg-gray-50 dark:bg-gray-900/60 rounded-xl px-4 py-3">
+                    <dt className="text-sm font-medium text-gray-700 dark:text-gray-200 flex-shrink-0">{key}</dt>
+                    <dd className="text-sm text-gray-600 dark:text-gray-300 text-right">{value}</dd>
                   </div>
                 ))}
               </dl>
 
               {/* Desktop: proper table */}
-              <div className="hidden sm:block rounded-2xl border border-gray-100 overflow-hidden">
+              <div className="hidden sm:block rounded-2xl border border-gray-100 dark:border-gray-800 overflow-hidden">
                 <table className="w-full text-sm">
                   <caption className="sr-only">
                     Product specifications for {product.title}
@@ -351,9 +352,9 @@ export default async function ProductReviewPage({ params }: Props) {
                   </thead>
                   <tbody>
                     {Object.entries(product.specsTable).map(([key, value], i) => (
-                      <tr key={key} className={i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
-                        <td className="px-4 py-3 font-medium text-gray-700 w-2/5">{key}</td>
-                        <td className="px-4 py-3 text-gray-600">{value}</td>
+                      <tr key={key} className={i % 2 === 0 ? 'bg-gray-50 dark:bg-gray-900/60' : 'bg-white dark:bg-gray-900/30'}>
+                        <td className="px-4 py-3 font-medium text-gray-700 dark:text-gray-200 w-2/5">{key}</td>
+                        <td className="px-4 py-3 text-gray-600 dark:text-gray-300">{value}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -364,15 +365,15 @@ export default async function ProductReviewPage({ params }: Props) {
 
           {/* FAQs */}
           {product.faqs && product.faqs.length > 0 && (
-            <section className="mt-8 bg-gray-50 rounded-2xl p-6 border border-gray-100">
-              <h2 className="font-serif text-xl font-bold text-gray-900 mb-5">
+            <section className="mt-8 bg-gray-50 dark:bg-gray-900/60 rounded-2xl p-6 border border-gray-100 dark:border-gray-800">
+              <h2 className="font-serif text-xl font-bold text-gray-900 dark:text-white mb-5">
                 Frequently Asked Questions
               </h2>
               <div className="space-y-4">
                 {product.faqs.map((faq, i) => (
-                  <div key={i} className="bg-white rounded-xl p-4 border border-gray-100">
-                    <h3 className="font-semibold text-gray-900 text-sm mb-2">{faq.q}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
+                  <div key={i} className="bg-white dark:bg-gray-800/60 rounded-xl p-4 border border-gray-100 dark:border-gray-700">
+                    <h3 className="font-semibold text-gray-900 dark:text-white text-sm mb-2">{faq.q}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{faq.a}</p>
                   </div>
                 ))}
               </div>

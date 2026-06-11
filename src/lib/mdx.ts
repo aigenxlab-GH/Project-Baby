@@ -104,6 +104,45 @@ export function getAllArticles(subDir: string): Article[] {
     .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
 }
 
+/**
+ * Returns every article whose section key starts with `${prefix}/`
+ * (e.g. prefix="parenting" → parenting/sleep, parenting/feeding, …) plus any
+ * articles filed directly under `prefix`.  Each result is annotated with the
+ * full `section` it came from so callers can build the correct URL, e.g.
+ *   `/${article.section}/${article.slug}` → /parenting/sleep/my-slug
+ * Sorted newest-first.
+ */
+export function getAllArticlesUnder(prefix: string): Array<Article & { section: string }> {
+  const cache = getCompiledCache();
+  const out: Array<Article & { section: string }> = [];
+
+  if (cache) {
+    for (const section of Object.keys(cache)) {
+      if (section === prefix || section.startsWith(`${prefix}/`)) {
+        for (const article of Object.values(cache[section])) {
+          out.push({ ...(article as Article), section });
+        }
+      }
+    }
+  } else {
+    // Filesystem fallback (local dev): walk immediate sub-directories of content/{prefix}
+    const base = getContentDir(prefix);
+    if (fs.existsSync(base)) {
+      for (const a of getAllArticles(prefix)) out.push({ ...a, section: prefix });
+      for (const entry of fs.readdirSync(base, { withFileTypes: true })) {
+        if (entry.isDirectory()) {
+          const section = `${prefix}/${entry.name}`;
+          for (const a of getAllArticles(section)) out.push({ ...a, section });
+        }
+      }
+    }
+  }
+
+  return out.sort(
+    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+  );
+}
+
 export function getRelatedArticles(current: Article, all: Article[], limit = 3): Article[] {
   return all
     .filter((a) => a.slug !== current.slug)

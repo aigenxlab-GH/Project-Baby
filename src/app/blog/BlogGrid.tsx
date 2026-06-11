@@ -6,8 +6,12 @@ import Link from 'next/link';
 import { Clock, User, ChevronLeft, ChevronRight, Search } from 'lucide-react';
 import type { Article } from '@/types/article';
 
+// Articles may carry an explicit href (blog vs. parenting routes differ).
+// Falls back to /blog/{slug} when absent.
+type GridArticle = Article & { href?: string };
+
 interface Props {
-  articles: Article[];
+  articles: GridArticle[];
   fallbackImages: Record<string, string>;
 }
 
@@ -122,8 +126,8 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
 
             return (
               <Link
-                key={article.slug}
-                href={`/blog/${article.slug}`}
+                key={article.href ?? article.slug}
+                href={article.href ?? `/blog/${article.slug}`}
                 className={`group bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-xl transition-all duration-300 ${isFirst ? 'md:col-span-2' : ''}`}
               >
                 <div className={`relative overflow-hidden ${isFirst ? 'h-72' : 'h-48'}`}>
