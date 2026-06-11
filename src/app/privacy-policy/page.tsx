@@ -82,7 +82,6 @@ const sections = [
         <p className="mb-3">We use collected information to:</p>
         <ul className="list-disc list-inside space-y-1.5 text-sm text-gray-600">
           <li>Respond to your messages and enquiries</li>
-          <li>Send you updates or newsletters if you have subscribed (you may unsubscribe at any time)</li>
           <li>Understand how visitors use the Site and improve our content and tools</li>
           <li>Display relevant advertisements via Google AdSense</li>
           <li>Track affiliate link clicks for commission purposes</li>
@@ -104,7 +103,7 @@ const sections = [
         <p className="mb-3 text-sm text-gray-600">Under UK GDPR and EU GDPR, we process your data under the following bases:</p>
         <ul className="list-disc list-inside space-y-1.5 text-sm text-gray-600">
           <li><strong>Legitimate interests</strong> — analytics, site improvement, fraud prevention</li>
-          <li><strong>Consent</strong> — email newsletters and advertising cookies (you may withdraw consent at any time)</li>
+          <li><strong>Consent</strong> — advertising cookies (you may withdraw consent at any time)</li>
           <li><strong>Contract</strong> — processing enquiries you submit to us</li>
           <li><strong>Legal obligation</strong> — compliance with applicable law</li>
         </ul>
@@ -178,7 +177,6 @@ const sections = [
     content: (
       <ul className="list-disc list-inside space-y-1.5 text-sm text-gray-600">
         <li><strong>Contact form submissions</strong> — retained for up to 12 months, then deleted</li>
-        <li><strong>Email newsletter subscriptions</strong> — retained until you unsubscribe</li>
         <li><strong>Analytics data</strong> — retained by Google Analytics per their standard retention period (26 months by default)</li>
         <li><strong>Server logs</strong> — retained for up to 90 days for security purposes</li>
       </ul>

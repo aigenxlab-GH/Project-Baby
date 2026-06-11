@@ -147,51 +147,6 @@ export function RegistryChecklist() {
         </button>
       </div>
 
-      {/* Email capture CTA */}
-      <div className="mt-10 bg-gradient-to-br from-brand-50 to-purple-50 border border-brand-100 rounded-2xl p-6 text-center">
-        <div className="text-3xl mb-3">🎁</div>
-        <h2 className="font-serif text-xl font-bold text-gray-900 mb-2">
-          Get Your Free Birth Plan Template
-        </h2>
-        <p className="text-sm text-gray-600 mb-5 max-w-sm mx-auto leading-relaxed">
-          Sign up for our weekly pregnancy guide and we&apos;ll send you a free, customisable
-          birth plan PDF — used by 10,000+ parents.
-        </p>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            const form = e.currentTarget;
-            const email = (form.elements.namedItem('email') as HTMLInputElement)?.value;
-            if (email) {
-              fetch('/api/newsletter', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, source: 'registry-checklist' }),
-              });
-              form.reset();
-              alert("You're subscribed! Check your inbox for the birth plan template.");
-            }
-          }}
-          className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-        >
-          <label htmlFor="registry-email" className="sr-only">Email address</label>
-          <input
-            id="registry-email"
-            name="email"
-            type="email"
-            required
-            placeholder="your@email.com"
-            className="flex-1 px-4 py-2.5 rounded-full border border-brand-200 focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-100 text-sm"
-          />
-          <button
-            type="submit"
-            className="px-6 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-full text-sm transition-colors"
-          >
-            Get Free PDF
-          </button>
-        </form>
-        <p className="text-xs text-gray-400 mt-3">No spam. Unsubscribe anytime.</p>
-      </div>
     </div>
   );
 }
