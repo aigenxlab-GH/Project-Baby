@@ -1,42 +1,64 @@
-import namesData from '@/data/baby-names.json';
 import type { BabyName, NameFilters } from '@/types/baby-name';
 
-const names = namesData as BabyName[];
+// Lazy-initialized indexes — nothing is parsed or computed during Worker cold-start.
+// The 489 KB baby-names.json + Map construction was running on every request init,
+// consuming significant CPU time. Now it only runs on the first real call.
+// For force-static pages this is never called at runtime → zero initialization cost.
 
-// Pre-built lookup indexes — computed once at module load, O(1) access at runtime.
-const nameBySlugMap = new Map<string, BabyName>(
-  names.map((n) => [n.name.toLowerCase(), n])
-);
+interface NamesIndexes {
+  names: BabyName[];
+  nameBySlugMap: Map<string, BabyName>;
+  namesByGender: Map<string, BabyName[]>;
+  namesByOrigin: Map<string, BabyName[]>;
+  namesByTag:    Map<string, BabyName[]>;
+}
 
-// Index names by gender and by each origin tag for fast related-name lookup.
-const namesByGender = new Map<string, BabyName[]>();
-const namesByOrigin = new Map<string, BabyName[]>();
-const namesByTag    = new Map<string, BabyName[]>();
+let _indexes: NamesIndexes | null = null;
 
-for (const n of names) {
-  const gKey = n.gender;
-  if (!namesByGender.has(gKey)) namesByGender.set(gKey, []);
-  namesByGender.get(gKey)!.push(n);
+function getIndexes(): NamesIndexes {
+  if (_indexes) return _indexes;
 
-  for (const o of n.origin) {
-    const oKey = o.toLowerCase();
-    if (!namesByOrigin.has(oKey)) namesByOrigin.set(oKey, []);
-    namesByOrigin.get(oKey)!.push(n);
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const names = require('@/data/baby-names.json') as BabyName[];
+
+  // Pre-built lookup indexes — computed once on first call, O(1) access thereafter.
+  const nameBySlugMap = new Map<string, BabyName>(
+    names.map((n) => [n.name.toLowerCase(), n])
+  );
+
+  // Index names by gender and by each origin tag for fast related-name lookup.
+  const namesByGender = new Map<string, BabyName[]>();
+  const namesByOrigin = new Map<string, BabyName[]>();
+  const namesByTag    = new Map<string, BabyName[]>();
+
+  for (const n of names) {
+    const gKey = n.gender;
+    if (!namesByGender.has(gKey)) namesByGender.set(gKey, []);
+    namesByGender.get(gKey)!.push(n);
+
+    for (const o of n.origin) {
+      const oKey = o.toLowerCase();
+      if (!namesByOrigin.has(oKey)) namesByOrigin.set(oKey, []);
+      namesByOrigin.get(oKey)!.push(n);
+    }
+
+    for (const t of n.tags) {
+      const tKey = t.toLowerCase();
+      if (!namesByTag.has(tKey)) namesByTag.set(tKey, []);
+      namesByTag.get(tKey)!.push(n);
+    }
   }
 
-  for (const t of n.tags) {
-    const tKey = t.toLowerCase();
-    if (!namesByTag.has(tKey)) namesByTag.set(tKey, []);
-    namesByTag.get(tKey)!.push(n);
-  }
+  _indexes = { names, nameBySlugMap, namesByGender, namesByOrigin, namesByTag };
+  return _indexes;
 }
 
 export function getAllNames(): BabyName[] {
-  return names;
+  return getIndexes().names;
 }
 
 export function getNameBySlug(slug: string): BabyName | null {
-  return nameBySlugMap.get(slug.toLowerCase()) ?? null;
+  return getIndexes().nameBySlugMap.get(slug.toLowerCase()) ?? null;
 }
 
 export function searchNames(filters: NameFilters, page = 1, pageSize = 48): {
@@ -44,6 +66,7 @@ export function searchNames(filters: NameFilters, page = 1, pageSize = 48): {
   total: number;
   totalPages: number;
 } {
+  const { names } = getIndexes();
   let result = [...names];
 
   if (filters.query) {
@@ -84,7 +107,9 @@ export function searchNames(filters: NameFilters, page = 1, pageSize = 48): {
 }
 
 export function getRelatedNames(name: BabyName, limit = 6): BabyName[] {
-  // Use pre-built indexes instead of scanning all 1205 names.
+  const { namesByOrigin, namesByTag } = getIndexes();
+
+  // Use pre-built indexes instead of scanning all names.
   const seen = new Set<string>([name.id]);
   const related: BabyName[] = [];
 
@@ -114,6 +139,7 @@ export function getRelatedNames(name: BabyName, limit = 6): BabyName[] {
 }
 
 export function getAllOrigins(): string[] {
+  const { names } = getIndexes();
   const origins = new Set<string>();
   names.forEach((n) => n.origin.forEach((o) => origins.add(o)));
   return Array.from(origins).sort();

@@ -24,15 +24,22 @@ import type { Article, ArticleFrontmatter } from '@/types/article';
 // Import only the articles slice (pregnancy, blog, parenting) — excludes
 // products/ data, reducing bundle size from 1.8 MB → ~1.3 MB.
 // Products are handled separately by src/lib/products.ts.
-import contentCacheData from '@/data/content-cache-articles.json';
+//
+// Lazy-loaded — require() inside a function so V8 does NOT parse this 1.5 MB
+// JSON during Worker cold-start. For force-static pages this is never called
+// at runtime, giving ~0ms initialization cost on Cloudflare Workers free plan.
 
 type CompiledCache = Record<string, Record<string, Article>>;
 
+let _articlesCache: CompiledCache | null | undefined = undefined;
 function getCompiledCache(): CompiledCache | null {
-  const cache = contentCacheData as unknown as CompiledCache;
-  // If the file is the empty placeholder ({}) fall through to filesystem
-  if (Object.keys(cache).length === 0) return null;
-  return cache;
+  if (_articlesCache === undefined) {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const data = require('@/data/content-cache-articles.json') as unknown as CompiledCache;
+    // If the file is the empty placeholder ({}) fall through to filesystem
+    _articlesCache = Object.keys(data).length === 0 ? null : data;
+  }
+  return _articlesCache;
 }
 
 // ── Filesystem helpers (local dev fallback) ──────────────────────────────────
