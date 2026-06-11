@@ -5,6 +5,8 @@ import { BabyNamesBrowser } from './BabyNamesBrowser';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Baby Names — Browse 1,188+ Names with Meanings & Origins',
   description: 'Search over 1,100 baby names by gender, origin, meaning, and starting letter. Find the perfect name for your baby girl, boy, or gender-neutral names.',

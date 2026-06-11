@@ -14,6 +14,8 @@ import { BookmarkButton, SavedWeeksPanel } from '@/components/shared/BookmarkBut
 import { MedicalWebPageJsonLd } from '@/components/seo/MedicalWebPageJsonLd';
 import { SourceCitations, PREGNANCY_CITATIONS } from '@/components/shared/SourceCitations';
 
+export const dynamic = 'force-static';
+
 // Beautiful trimester-specific images
 const trimesterImages = {
   1: 'https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=900&q=85&auto=format&fit=crop',

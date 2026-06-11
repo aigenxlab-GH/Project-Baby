@@ -7,6 +7,8 @@ import { getAllArticles } from '@/lib/mdx';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
+export const dynamic = 'force-static';
+
 const topicMeta: Record<string, {
   title: string;
   description: string;

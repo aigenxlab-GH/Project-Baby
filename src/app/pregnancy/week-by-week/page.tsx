@@ -5,6 +5,8 @@ import { siteConfig } from '@/config/site';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Pregnancy Week by Week — Your Complete Guide',
   description: 'Follow your pregnancy journey with our detailed week-by-week guides covering baby development, symptoms, and tips for all 40 weeks.',

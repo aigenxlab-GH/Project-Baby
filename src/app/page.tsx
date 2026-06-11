@@ -11,6 +11,8 @@ import {
   ChevronRight, Heart, BookOpen
 } from 'lucide-react';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: `${siteConfig.name} — ${siteConfig.tagline}`,
   // Kept under 160 chars (~920px wide) to prevent SERP truncation (fixes #3/#5).

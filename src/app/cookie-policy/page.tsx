@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { Cookie } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Cookie Policy | PregnancySprout',
   description: 'PregnancySprout Cookie Policy — what cookies we use, why we use them, and how to manage or disable them.',

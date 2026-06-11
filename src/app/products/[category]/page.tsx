@@ -9,6 +9,8 @@ import { InContentAd } from '@/components/ads/InContentAd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import type { ProductCategory } from '@/types/product';
 
+export const dynamic = 'force-static';
+
 interface Props {
   params: Promise<{ category: string }>;
 }

@@ -5,6 +5,8 @@ import { CheckCircle, AlertCircle, BookOpen, Users } from 'lucide-react';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Editorial Standards — PregnancySprout',
   description: 'Learn about PregnancySprout\'s editorial standards, fact-checking process, and how we maintain accuracy and trustworthiness.',

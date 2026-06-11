@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import { Shield } from 'lucide-react';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Privacy Policy | PregnancySprout',
   description: 'PregnancySprout Privacy Policy — how we collect, use, store and protect your personal information when you use our website.',

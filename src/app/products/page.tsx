@@ -5,6 +5,8 @@ import { ChevronRight } from 'lucide-react';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Best Baby Products — Honest Reviews & Buying Guides',
   description: 'Expert reviews of the best baby products — strollers, car seats, cribs, monitors, breast pumps, and more. Find the right products for every budget.',

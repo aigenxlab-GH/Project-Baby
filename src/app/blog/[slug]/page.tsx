@@ -15,6 +15,8 @@ import { AuthorBox } from '@/components/blog/AuthorBox';
 import { ShareButtons } from '@/components/shared/ShareButtons';
 import { injectHeadingIds, extractToc } from '@/lib/toc';
 
+export const dynamic = 'force-static';
+
 interface Props {
   params: Promise<{ slug: string }>;
 }

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Affiliate Disclosure',
   description: 'Learn about our affiliate relationships and how we earn from qualifying purchases.',

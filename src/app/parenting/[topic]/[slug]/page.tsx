@@ -10,6 +10,8 @@ import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { SourceCitations, NEWBORN_CITATIONS, SLEEP_CITATIONS, FEEDING_CITATIONS, PREGNANCY_CITATIONS } from '@/components/shared/SourceCitations';
 import { AuthorBox } from '@/components/blog/AuthorBox';
 
+export const dynamic = 'force-static';
+
 interface Props {
   params: Promise<{ topic: string; slug: string }>;
 }

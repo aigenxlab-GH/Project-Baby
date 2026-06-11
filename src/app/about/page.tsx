@@ -6,6 +6,8 @@ import { Heart, Shield, Star, Baby, FileText, Users, CheckCircle, BookOpen, Glob
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'About PregnancySprout — Our Mission and Editorial Standards',
   description: 'Learn about PregnancySprout — our mission, editorial standards, and commitment to accurate, trustworthy pregnancy and parenting information.',

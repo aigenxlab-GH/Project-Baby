@@ -3,6 +3,8 @@ import { siteConfig } from '@/config/site';
 import { Mail, Clock, ChevronRight, AlertCircle, MessageSquare, FileEdit, Package, Shield } from 'lucide-react';
 import Link from 'next/link';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Contact Us | PregnancySprout',
   description: 'Get in touch with the PregnancySprout team. We welcome questions, content suggestions, feedback, corrections, and partnership enquiries.',

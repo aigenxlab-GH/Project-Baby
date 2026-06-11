@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import { FileText } from 'lucide-react';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Terms & Conditions | PregnancySprout',
   description: 'PregnancySprout Terms and Conditions — the rules and guidelines for using our website, content, and tools.',

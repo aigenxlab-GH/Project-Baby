@@ -5,6 +5,8 @@ import { AlertCircle, CheckCircle } from 'lucide-react';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Corrections & Updates — PregnancySprout',
   description: 'See corrections and updates made to PregnancySprout articles. We value accuracy and transparency.',

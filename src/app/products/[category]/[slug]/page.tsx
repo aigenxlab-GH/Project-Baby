@@ -32,6 +32,8 @@ import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { ShareButtons } from '@/components/shared/ShareButtons';
 import type { ProductCategory } from '@/types/product';
 
+export const dynamic = 'force-static';
+
 interface Props {
   params: Promise<{ category: string; slug: string }>;
 }

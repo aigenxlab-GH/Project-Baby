@@ -5,6 +5,8 @@ import { ChevronRight } from 'lucide-react';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Parenting Tips & Baby Development Guides',
   description: 'Expert parenting tips for newborns, infants, and toddlers. Covering sleep training, feeding, development milestones, and more.',

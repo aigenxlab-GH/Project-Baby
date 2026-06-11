@@ -6,6 +6,8 @@ import { siteConfig } from '@/config/site';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
+export const dynamic = 'force-static';
+
 interface RoundupProduct {
   rank: number;
   name: string;
