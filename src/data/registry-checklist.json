@@ -1,182 +1,183 @@
-[
+﻿[
   {
     "id": "rc1", "name": "Convertible Crib", "category": "nursery", "priority": "essential",
-    "description": "Converts from crib to toddler bed to full-size bed — a long-term investment.",
-    "affiliateUrl": "https://www.amazon.com/s?k=convertible+crib&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$200–$600", "quantity": 1
+    "description": "Converts from crib to toddler bed to full-size bed â€” a long-term investment.",
+    "affiliateUrl": "https://www.amazon.com/s?k=convertible+crib&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$200â€“$600", "quantity": 1
   },
   {
     "id": "rc2", "name": "Crib Mattress", "category": "nursery", "priority": "essential",
     "description": "Firm, breathable mattress that fits snugly in the crib with no gaps.",
-    "affiliateUrl": "https://www.amazon.com/s?k=crib+mattress&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$80–$250", "quantity": 1
+    "affiliateUrl": "https://www.amazon.com/s?k=crib+mattress&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$80â€“$250", "quantity": 1
   },
   {
     "id": "rc3", "name": "Fitted Crib Sheets (3-pack)", "category": "nursery", "priority": "essential",
-    "description": "Waterproof fitted sheets — you'll want at least 3 for laundry rotation.",
-    "affiliateUrl": "https://www.amazon.com/s?k=fitted+crib+sheets+waterproof&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$30–$60", "quantity": 3
+    "description": "Waterproof fitted sheets â€” you'll want at least 3 for laundry rotation.",
+    "affiliateUrl": "https://www.amazon.com/s?k=fitted+crib+sheets+waterproof&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$30â€“$60", "quantity": 3
   },
   {
     "id": "rc4", "name": "Baby Monitor (Video)", "category": "nursery", "priority": "essential",
     "description": "Video monitor with night vision so you can check on baby without entering the room.",
-    "affiliateUrl": "https://www.amazon.com/s?k=video+baby+monitor&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$60–$300", "quantity": 1
+    "affiliateUrl": "https://www.amazon.com/s?k=video+baby+monitor&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$60â€“$300", "quantity": 1
   },
   {
     "id": "rc5", "name": "White Noise Machine", "category": "nursery", "priority": "essential",
     "description": "Helps baby sleep by masking household sounds. Highly recommended by sleep experts.",
-    "affiliateUrl": "https://www.amazon.com/s?k=white+noise+machine+baby&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$20–$80", "quantity": 1
+    "affiliateUrl": "https://www.amazon.com/s?k=white+noise+machine+baby&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$20â€“$80", "quantity": 1
   },
   {
     "id": "rc6", "name": "Baby Dresser/Changing Table Combo", "category": "nursery", "priority": "essential",
-    "description": "Doubles as dresser and changing station — saves nursery space.",
-    "affiliateUrl": "https://www.amazon.com/s?k=baby+dresser+changing+table&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$150–$400", "quantity": 1
+    "description": "Doubles as dresser and changing station â€” saves nursery space.",
+    "affiliateUrl": "https://www.amazon.com/s?k=baby+dresser+changing+table&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$150â€“$400", "quantity": 1
   },
   {
     "id": "rc7", "name": "Changing Pad & Covers (2)", "category": "nursery", "priority": "essential",
     "description": "Waterproof changing pad with contoured sides and 2 washable covers.",
-    "affiliateUrl": "https://www.amazon.com/s?k=changing+pad+waterproof&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$30–$80", "quantity": 1
+    "affiliateUrl": "https://www.amazon.com/s?k=changing+pad+waterproof&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$30â€“$80", "quantity": 1
   },
   {
     "id": "rc8", "name": "Glider or Rocking Chair", "category": "nursery", "priority": "nice-to-have",
     "description": "Essential for midnight feedings and soothing. Look for washable cushion covers.",
-    "affiliateUrl": "https://www.amazon.com/s?k=nursery+glider+rocking+chair&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$200–$800", "quantity": 1
+    "affiliateUrl": "https://www.amazon.com/s?k=nursery+glider+rocking+chair&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$200â€“$800", "quantity": 1
   },
   {
     "id": "rc9", "name": "Infant Car Seat", "category": "travel", "priority": "essential",
     "description": "Required by law to leave the hospital. Convertible or infant-only both work.",
-    "affiliateUrl": "https://www.amazon.com/s?k=infant+car+seat&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$80–$350", "quantity": 1
+    "affiliateUrl": "https://www.amazon.com/s?k=infant+car+seat&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$80â€“$350", "quantity": 1
   },
   {
     "id": "rc10", "name": "Stroller", "category": "travel", "priority": "essential",
     "description": "Choose based on lifestyle: jogging, city, or travel system (pairs with infant car seat).",
-    "affiliateUrl": "https://www.amazon.com/s?k=baby+stroller+travel+system&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$100–$1200", "quantity": 1
+    "affiliateUrl": "https://www.amazon.com/s?k=baby+stroller+travel+system&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$100â€“$1200", "quantity": 1
   },
   {
     "id": "rc11", "name": "Baby Carrier / Wrap", "category": "travel", "priority": "nice-to-have",
     "description": "Keeps hands free while keeping baby close. Great for newborns and infants.",
-    "affiliateUrl": "https://www.amazon.com/s?k=baby+carrier+wrap&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$30–$180", "quantity": 1
+    "affiliateUrl": "https://www.amazon.com/s?k=baby+carrier+wrap&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$30â€“$180", "quantity": 1
   },
   {
     "id": "rc12", "name": "Diaper Bag Backpack", "category": "travel", "priority": "essential",
     "description": "Backpack style leaves hands free. Look for multiple compartments and insulated pockets.",
-    "affiliateUrl": "https://www.amazon.com/s?k=diaper+bag+backpack&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$30–$150", "quantity": 1
+    "affiliateUrl": "https://www.amazon.com/s?k=diaper+bag+backpack&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$30â€“$150", "quantity": 1
   },
   {
     "id": "rc13", "name": "Breast Pump", "category": "feeding", "priority": "essential",
     "description": "Often covered by insurance. Check with your insurer before buying. Double electric recommended.",
-    "affiliateUrl": "https://www.amazon.com/s?k=breast+pump+double+electric&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$0–$300 (insurance may cover)", "quantity": 1
+    "affiliateUrl": "https://www.amazon.com/s?k=breast+pump+double+electric&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$0â€“$300 (insurance may cover)", "quantity": 1
   },
   {
     "id": "rc14", "name": "Nursing Bras (3-pack)", "category": "feeding", "priority": "essential",
     "description": "Get measured for the right fit. You'll wear these constantly if breastfeeding.",
-    "affiliateUrl": "https://www.amazon.com/s?k=nursing+bras+pack&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$40–$100", "quantity": 3
+    "affiliateUrl": "https://www.amazon.com/s?k=nursing+bras+pack&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$40â€“$100", "quantity": 3
   },
   {
     "id": "rc15", "name": "Nursing Pillow (Boppy or My Brest Friend)", "category": "feeding", "priority": "essential",
     "description": "Supports baby during feeding and reduces arm/back strain.",
-    "affiliateUrl": "https://www.amazon.com/s?k=nursing+pillow+boppy&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$30–$60", "quantity": 1
+    "affiliateUrl": "https://www.amazon.com/s?k=nursing+pillow+boppy&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$30â€“$60", "quantity": 1
   },
   {
     "id": "rc16", "name": "Bottle Set (newborn nipples)", "category": "feeding", "priority": "essential",
     "description": "Even breastfed babies may need bottles. Dr. Brown's and Comotomo are popular picks.",
-    "affiliateUrl": "https://www.amazon.com/s?k=newborn+baby+bottles&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$20–$60", "quantity": 1
+    "affiliateUrl": "https://www.amazon.com/s?k=newborn+baby+bottles&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$20â€“$60", "quantity": 1
   },
   {
     "id": "rc17", "name": "Bottle Brush & Drying Rack", "category": "feeding", "priority": "essential",
     "description": "Dedicated bottle brush keeps things sanitary. A rack keeps bottles organized while drying.",
-    "affiliateUrl": "https://www.amazon.com/s?k=bottle+brush+drying+rack&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$15–$35", "quantity": 1
+    "affiliateUrl": "https://www.amazon.com/s?k=bottle+brush+drying+rack&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$15â€“$35", "quantity": 1
   },
   {
     "id": "rc18", "name": "Breast Milk Storage Bags", "category": "feeding", "priority": "nice-to-have",
     "description": "Pre-sterilized bags for freezing and storing breast milk. Lansinoh and Medela are top brands.",
-    "affiliateUrl": "https://www.amazon.com/s?k=breast+milk+storage+bags&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$15–$30 per 100", "quantity": 2
+    "affiliateUrl": "https://www.amazon.com/s?k=breast+milk+storage+bags&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$15â€“$30 per 100", "quantity": 2
   },
   {
     "id": "rc19", "name": "Infant Bathtub", "category": "bathing", "priority": "essential",
     "description": "Newborn-safe tub with sling insert. Look for one that transitions to toddler use.",
-    "affiliateUrl": "https://www.amazon.com/s?k=infant+bathtub+newborn&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$20–$60", "quantity": 1
+    "affiliateUrl": "https://www.amazon.com/s?k=infant+bathtub+newborn&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$20â€“$60", "quantity": 1
   },
   {
     "id": "rc20", "name": "Baby Wash & Shampoo (tear-free)", "category": "bathing", "priority": "essential",
     "description": "Gentle, tear-free formula safe for newborn skin. Mustela and Johnson's are popular.",
-    "affiliateUrl": "https://www.amazon.com/s?k=baby+wash+shampoo+tear+free&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$8–$20", "quantity": 2
+    "affiliateUrl": "https://www.amazon.com/s?k=baby+wash+shampoo+tear+free&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$8â€“$20", "quantity": 2
   },
   {
     "id": "rc21", "name": "Baby Towels with Hood (3-pack)", "category": "bathing", "priority": "essential",
     "description": "Hooded towels keep baby warm after baths. Super soft options are best for sensitive skin.",
-    "affiliateUrl": "https://www.amazon.com/s?k=baby+hooded+towels&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$20–$40", "quantity": 3
+    "affiliateUrl": "https://www.amazon.com/s?k=baby+hooded+towels&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$20â€“$40", "quantity": 3
   },
   {
-    "id": "rc22", "name": "Diapers — Newborn & Size 1", "category": "health-safety", "priority": "essential",
-    "description": "Stock up on both sizes. Newborn may only be needed 1–2 weeks depending on baby's size.",
-    "affiliateUrl": "https://www.amazon.com/s?k=newborn+diapers+size+1&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$25–$50/pack", "quantity": 4
+    "id": "rc22", "name": "Diapers â€” Newborn & Size 1", "category": "health-safety", "priority": "essential",
+    "description": "Stock up on both sizes. Newborn may only be needed 1â€“2 weeks depending on baby's size.",
+    "affiliateUrl": "https://www.amazon.com/s?k=newborn+diapers+size+1&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$25â€“$50/pack", "quantity": 4
   },
   {
     "id": "rc23", "name": "Baby Wipes (sensitive skin)", "category": "health-safety", "priority": "essential",
     "description": "Fragrance-free, sensitive skin wipes. Water Wipes or Pampers Sensitive are top picks.",
-    "affiliateUrl": "https://www.amazon.com/s?k=baby+wipes+sensitive+skin&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$20–$40 per 300-count", "quantity": 3
+    "affiliateUrl": "https://www.amazon.com/s?k=baby+wipes+sensitive+skin&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$20â€“$40 per 300-count", "quantity": 3
   },
   {
     "id": "rc24", "name": "Baby Nail Clippers or File", "category": "health-safety", "priority": "essential",
     "description": "Newborn nails grow fast and are sharp. Electric nail files are safest for beginners.",
-    "affiliateUrl": "https://www.amazon.com/s?k=baby+nail+file+electric&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$10–$25", "quantity": 1
+    "affiliateUrl": "https://www.amazon.com/s?k=baby+nail+file+electric&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$10â€“$25", "quantity": 1
   },
   {
     "id": "rc25", "name": "Baby Thermometer (rectal/temporal)", "category": "health-safety", "priority": "essential",
     "description": "Rectal is most accurate for newborns; temporal artery (forehead) is easiest to use.",
-    "affiliateUrl": "https://www.amazon.com/s?k=baby+thermometer+temporal&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$20–$50", "quantity": 1
+    "affiliateUrl": "https://www.amazon.com/s?k=baby+thermometer+temporal&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$20â€“$50", "quantity": 1
   },
   {
     "id": "rc26", "name": "Nasal Aspirator (Frida NoseFrida)", "category": "health-safety", "priority": "essential",
     "description": "Clears stuffy noses safely. The NoseFrida is beloved by parents worldwide.",
-    "affiliateUrl": "https://www.amazon.com/s?k=frida+nosefrida+baby&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$15–$25", "quantity": 1
+    "affiliateUrl": "https://www.amazon.com/s?k=frida+nosefrida+baby&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$15â€“$25", "quantity": 1
   },
   {
     "id": "rc27", "name": "Baby Swing or Bouncer", "category": "play-development", "priority": "nice-to-have",
     "description": "Soothing motion for fussy babies. Many parents call this a lifesaver.",
-    "affiliateUrl": "https://www.amazon.com/s?k=baby+swing+bouncer&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$50–$250", "quantity": 1
+    "affiliateUrl": "https://www.amazon.com/s?k=baby+swing+bouncer&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$50â€“$250", "quantity": 1
   },
   {
     "id": "rc28", "name": "Play Mat / Activity Gym", "category": "play-development", "priority": "nice-to-have",
     "description": "Encourages tummy time and sensory development. Includes hanging toys and mirror.",
-    "affiliateUrl": "https://www.amazon.com/s?k=baby+activity+gym+play+mat&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$30–$120", "quantity": 1
+    "affiliateUrl": "https://www.amazon.com/s?k=baby+activity+gym+play+mat&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$30â€“$120", "quantity": 1
   },
   {
-    "id": "rc29", "name": "Onesies (0–3M, 3-packs)", "category": "clothing", "priority": "essential",
-    "description": "Stock up on 0–3M and 3–6M sizes. Snap crotch onesies are easiest for diaper changes.",
-    "affiliateUrl": "https://www.amazon.com/s?k=newborn+onesies+pack&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$15–$35 per pack", "quantity": 4
+    "id": "rc29", "name": "Onesies (0â€“3M, 3-packs)", "category": "clothing", "priority": "essential",
+    "description": "Stock up on 0â€“3M and 3â€“6M sizes. Snap crotch onesies are easiest for diaper changes.",
+    "affiliateUrl": "https://www.amazon.com/s?k=newborn+onesies+pack&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$15â€“$35 per pack", "quantity": 4
   },
   {
     "id": "rc30", "name": "Sleep Sacks / Wearable Blankets", "category": "clothing", "priority": "essential",
     "description": "Safer than loose blankets in the crib. Get multiple for rotation. Nested Bean and HALO are top picks.",
-    "affiliateUrl": "https://www.amazon.com/s?k=baby+sleep+sack+wearable+blanket&tag=babybloom-20",
-    "retailer": "amazon", "estimatedPrice": "$20–$45 each", "quantity": 3
+    "affiliateUrl": "https://www.amazon.com/s?k=baby+sleep+sack+wearable+blanket&tag=pregnancysp0a-20",
+    "retailer": "amazon", "estimatedPrice": "$20â€“$45 each", "quantity": 3
   }
 ]
+
