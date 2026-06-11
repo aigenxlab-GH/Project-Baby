@@ -99,6 +99,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
       <head>
+        {/* ── Theme init (FOUC prevention) ─────────────────────────────────────
+            Plain string constant — esbuild never transforms string literals, so no
+            __name helper calls will appear here. Runs synchronously before <body>
+            paints to toggle the "dark" class without any flash. */}
+        <script
+          suppressHydrationWarning
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('pregnancysprout-theme')||'dark';document.documentElement.classList.toggle('dark',t==='dark')}catch(e){}})()`,
+          }}
+        />
         {/* viewport + themeColor are now in the `viewport` export above —
             Next.js generates a single <meta name="viewport"> from that.
             Manual <meta name="viewport"> removed to fix duplicate-tag audit warning. */}
@@ -110,14 +121,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://wsrv.nl" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        {/* ── LCP image preload: homepage hero (fix #6 — LCP image not preloaded) ──
-            Unsplash serves via CDN; this hint starts the fetch before React renders.
-            Cost on non-homepage pages: one extra preload request (cached after first hit). */}
-        <link
-          rel="preload"
-          as="image"
-          href="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=600&q=75&auto=format&fit=crop&fm=webp"
-        />
+        {/* LCP preload removed: next/image with priority={true} on the homepage hero
+            already injects the correct preload link for that specific image.
+            A global preload here fired on every page and triggered browser warnings
+            ("preloaded but not used within a few seconds"). */}
         {/* ── Google Analytics 4 ── */}
         {gaMeasurementId && gaMeasurementId !== 'G-XXXXXXXXXX' && (
           <>

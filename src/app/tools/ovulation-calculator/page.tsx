@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
 import { OvulationCalculator } from './OvulationCalculator';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Ovulation Calculator — Find Your Fertile Window',
   description: 'Calculate your ovulation date and most fertile days. Enter your last period and average cycle length to find the best days to conceive.',

@@ -15,6 +15,15 @@ export const siteConfig = {
   ogImage: `${siteUrl}/opengraph-image`,
   twitterHandle: '@pregnancysprout',
   email: 'hello@pregnancysprout.com',
+  // Social media profiles — used in Footer, JSON-LD sameAs, and meta tags
+  social: {
+    twitter:   'https://twitter.com/pregnancysprout',
+    facebook:  'https://facebook.com/pregnancysprout',
+    pinterest: 'https://pinterest.com/pregnancysprout',
+    instagram: 'https://instagram.com/pregnancysprout',
+    youtube:   'https://youtube.com/@pregnancysprout',
+    linkedin:  'https://linkedin.com/company/pregnancysprout',
+  },
   authors: [{ name: 'PregnancySprout Editorial Team', url: 'https://pregnancysprout.com/about' }],
   keywords: [
     'pregnancy',

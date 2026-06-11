@@ -4,6 +4,8 @@ import { DueDateCalculator } from './DueDateCalculator';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Due Date Calculator — Find Your Baby\'s Due Date',
   description: 'Calculate your pregnancy due date instantly. Enter your LMP or conception date to find your estimated due date, current week, and key milestones.',

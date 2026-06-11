@@ -4,6 +4,8 @@ import { RegistryChecklist } from './RegistryChecklist';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Baby Registry Checklist — Everything You Need for Your Newborn',
   description: 'Complete baby registry checklist with 30+ essential items. Categorized by nursery, feeding, travel, clothing, and health. Includes top product picks.',

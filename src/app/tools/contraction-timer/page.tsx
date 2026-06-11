@@ -3,6 +3,8 @@ import { siteConfig } from '@/config/site';
 import { ContractionTimer } from './ContractionTimer';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Contraction Timer — Track Labor Contractions',
   description: 'Free contraction timer for labor. Track frequency, duration, and intensity. Know when to go to the hospital with the 5-1-1 rule.',

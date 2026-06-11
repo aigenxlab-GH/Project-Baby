@@ -88,6 +88,22 @@ export default function HomePage() {
   return (
     <div>
       <WebSiteJsonLd />
+      {/* FAQPage JSON-LD — enables rich FAQ results in Google SERP */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              { '@type': 'Question', name: 'How accurate is the due date calculator?', acceptedAnswer: { '@type': 'Answer', text: 'Our due date calculator uses Naegele\'s Rule — the same method used by midwives and OBs worldwide. It adds 280 days to the first day of your last menstrual period (LMP). About 80% of babies arrive within two weeks either side of the estimated due date.' } },
+              { '@type': 'Question', name: 'When do pregnancy symptoms start?', acceptedAnswer: { '@type': 'Answer', text: 'Most people first notice pregnancy symptoms between 4 and 6 weeks after their last period. Early signs include fatigue, breast tenderness, and morning sickness. Every pregnancy is different — symptoms can range from mild to strong.' } },
+              { '@type': 'Question', name: 'What are the most important items for a baby registry?', acceptedAnswer: { '@type': 'Answer', text: 'The essentials are: a safe firm crib or Moses basket, an infant car seat, feeding supplies (bottles, breast pump), a pram or pushchair, and baby clothing. Everything else is helpful but not essential from day one.' } },
+              { '@type': 'Question', name: 'Is PregnancySprout content medically reviewed?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. All health content is written by qualified writers and reviewed by certified midwives and registered nurses. We follow NHS, WHO, and AAP clinical guidelines and update articles regularly.' } },
+            ],
+          }),
+        }}
+      />
       <HeaderAd />
 
       {/* Hero */}
@@ -398,6 +414,53 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ Section ─────────────────────────────────────────────────────────
+          Adds ~450 words of targeted keyword-rich content (fixes SEOptimizer
+          "Increase Page Text Content" — word count was 752, needs 1,000+).
+          Also satisfies Google's FAQPage schema opportunity for SERP rich results. ── */}
+      <section className="py-12 px-4 bg-white dark:bg-gray-950">
+        <div className="container mx-auto max-w-3xl">
+          <h2 className="font-serif text-2xl md:text-3xl font-bold text-center text-gray-900 dark:text-white mb-2">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-center text-gray-500 dark:text-gray-400 text-sm mb-8">
+            Answers to the questions new and expecting parents ask most often.
+          </p>
+          <div className="space-y-0 divide-y divide-gray-100 dark:divide-gray-800">
+            {[
+              {
+                q: 'How accurate is the due date calculator?',
+                a: 'Our due date calculator uses Naegele\'s Rule — the same method used by midwives and OBs worldwide. You enter the first day of your last menstrual period (LMP) and it adds 280 days (40 weeks). This gives you an estimated due date (EDD) accurate to within a week for most pregnancies. Only about 5% of babies are born exactly on their due date, but 80% arrive within two weeks either side. An early ultrasound (8–12 weeks) is the most accurate dating method available.',
+              },
+              {
+                q: 'When do pregnancy symptoms start?',
+                a: 'Most people first notice pregnancy symptoms between 4 and 6 weeks after their last period — shortly after a missed period. The earliest signs include fatigue, breast tenderness, light spotting (implantation bleeding), and heightened sense of smell. Morning sickness typically begins around week 6 and peaks around week 9–10. Every pregnancy is different: some people feel strong symptoms from week 4, while others have very mild symptoms throughout the first trimester.',
+              },
+              {
+                q: 'What are the most important items for a baby registry?',
+                a: 'The essentials fall into five categories: (1) Sleep — a firm flat crib or Moses basket that meets current safety standards, sleeping bags in the right tog for the season; (2) Feeding — bottles, breast pump if breastfeeding, steriliser; (3) Travel — infant car seat (legally required from birth), pram or pushchair; (4) Bath & hygiene — baby bath, gentle wash, soft towels, nail file; (5) Clothing — bodysuits, sleepsuits and a snowsuit if born in winter. Everything else — swings, bouncers, activity centres — is helpful but not essential from day one.',
+              },
+              {
+                q: 'How do I choose a safe baby name?',
+                a: 'A good baby name should be easy to spell, easy to pronounce, and work at every life stage — from nursery to a professional career. Consider how it sounds with your surname, any potential nicknames, and whether initials spell anything unfortunate. Classic names tend to age better than trend-driven ones, though both can work well. Our baby names database includes 1,188+ names with meanings, origins, and current popularity trends to help you make an informed choice.',
+              },
+              {
+                q: 'Is PregnancySprout content medically reviewed?',
+                a: 'Yes. All health and pregnancy content on PregnancySprout is written by qualified writers and reviewed by certified midwives and registered nurses before publication. We follow clinical guidelines from the NHS, WHO, and the American Academy of Pediatrics (AAP). We update articles regularly as guidance changes. PregnancySprout is an informational resource — it does not replace advice from your own healthcare provider, midwife, or GP.',
+              },
+            ].map(({ q, a }) => (
+              <details key={q} className="group py-5">
+                <summary className="flex items-center justify-between cursor-pointer list-none gap-4">
+                  <h3 className="font-semibold text-gray-900 dark:text-white text-base leading-snug">{q}</h3>
+                  <span className="flex-shrink-0 text-brand-500 font-bold text-xl group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <p className="mt-3 text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{a}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>

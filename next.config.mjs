@@ -56,6 +56,16 @@ const nextConfig = {
   // Google sees a 301 and passes all ranking signals to the target page.
   async redirects() {
     return [
+      // ── HTTP → HTTPS (Medium Priority fix — SEOptimizer "Implement a Redirect to HTTPS") ──
+      // Cloudflare sets x-forwarded-proto: http when the original request was plain HTTP.
+      // This 301 forces all traffic to HTTPS before it reaches Next.js.
+      // Has no effect in local development (localhost never receives this header).
+      {
+        source: '/:path*',
+        has: [{ type: 'header', key: 'x-forwarded-proto', value: 'http' }],
+        destination: 'https://pregnancysprout.com/:path*',
+        permanent: true,
+      },
       { source: '/blog/baby-sleep-training-methods', destination: '/blog/baby-sleep-training-methods-complete-guide-for-new-parents', permanent: true },
       { source: '/blog/morning-sickness-remedies', destination: '/blog/morning-sickness-remedies-that-actually-work', permanent: true },
       { source: '/blog/hospital-bag-checklist', destination: '/blog/complete-hospital-bag-checklist-for-mom-and-baby', permanent: true },
@@ -97,7 +107,8 @@ const nextConfig = {
               // GA4 loads from googletagmanager; AdSense from pagead2 + adsbygoogle subdomains.
               // googleads.g.doubleclick.net: AdSense ad serving.
               // adservice.google.com: AdSense impression & conversion pixels.
-              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://*.doubleclick.net https://adservice.google.com",
+              // static.cloudflareinsights.com: Cloudflare Web Analytics beacon (auto-injected by CF).
+              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://*.doubleclick.net https://adservice.google.com https://static.cloudflareinsights.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
               // stats.g.doubleclick.net: GA4 + AdSense image beacons (blocked without this → CSP error).
@@ -107,7 +118,8 @@ const nextConfig = {
               // region1.google-analytics.com + region1.analytics.google.com: GA4 regional fetch endpoints.
               // stats.g.doubleclick.net: GA/AdSense beacon XHR.
               // *.doubleclick.net + *.googlesyndication.com: AdSense RTB + ad serving XHR.
-              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://region1.analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.doubleclick.net https://adservice.google.com",
+              // cloudflareinsights.com: Cloudflare beacon data endpoint.
+              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://region1.analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.doubleclick.net https://adservice.google.com https://cloudflareinsights.com",
               // *.googlesyndication.com: AdSense ad iframes (all subdomains, not just tpc.).
               // *.doubleclick.net: AdSense DFP iframes.
               "frame-src https://googleads.g.doubleclick.net https://*.doubleclick.net https://tpc.googlesyndication.com https://*.googlesyndication.com",

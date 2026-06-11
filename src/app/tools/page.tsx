@@ -5,6 +5,8 @@ import { Calculator, Heart, Timer, Search, List, Activity, ChevronRight } from '
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Free Pregnancy & Baby Tools',
   description: 'Free online tools for expecting parents — due date calculator, ovulation calculator, contraction timer, baby name generator, and registry checklist.',

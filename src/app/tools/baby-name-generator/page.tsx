@@ -4,6 +4,8 @@ import { BabyNameGenerator } from './BabyNameGenerator';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Baby Name Generator — Find the Perfect Name',
   description: 'Generate beautiful baby name ideas instantly. Filter by gender, origin, starting letter, and number of syllables. Save your favorites.',

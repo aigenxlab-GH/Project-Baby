@@ -4,6 +4,8 @@ import { SymptomChecker } from './SymptomChecker';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Pregnancy Symptom Checker — Is This Normal?',
   description: 'Look up pregnancy symptoms to understand what\'s normal, what to monitor, and when to call your doctor immediately.',

@@ -5,6 +5,8 @@ import { SearchResults } from './SearchResults';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Search — PregnancySprout',
   description: 'Search pregnancy guides, baby names, product reviews, and parenting tips on PregnancySprout.',
