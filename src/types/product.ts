@@ -8,7 +8,28 @@ export type ProductCategory =
   | 'baby-carriers'
   | 'bouncers'
   | 'swings'
-  | 'white-noise-machines';
+  | 'white-noise-machines'
+  | 'activity-centers'
+  | 'baby-bathtubs'
+  | 'baby-bouncers'
+  | 'baby-food-makers'
+  | 'baby-gates'
+  | 'baby-loungers'
+  | 'baby-nail-care'
+  | 'baby-swings'
+  | 'baby-thermometers'
+  | 'bath-toys'
+  | 'diaper-bags'
+  | 'diaper-pails'
+  | 'humidifiers'
+  | 'nursing-chairs'
+  | 'nursing-feeding'
+  | 'play-mats'
+  | 'potty-training'
+  | 'sippy-cups'
+  | 'sleep-sacks'
+  | 'teething-toys'
+  | 'white-noise';
 
 export interface AffiliateLink {
   retailer: 'amazon' | 'walmart' | 'target' | 'buybuybaby';
@@ -41,4 +62,7 @@ export interface ProductReview {
   specsTable?: Record<string, string>;
   featured?: boolean;
   tags: string[];
+  content?: string;
+  wordCount?: number;
+  readingTime?: number;
 }

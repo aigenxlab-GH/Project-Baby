@@ -2,7 +2,27 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { ChevronRight, Star, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
+import { ChevronRight, Star, CheckCircle, XCircle, AlertCircle, Clock } from 'lucide-react';
+
+// Convert raw markdown body to HTML — same approach used in blog/[slug]/page.tsx
+// Plain regex transform: no MDX compilation, no heavy dependencies, Cloudflare-safe.
+function markdownToHtml(md: string): string {
+  return md
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+    .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" class="text-brand-600 hover:underline">$1</a>')
+    .replace(/^\s*[-*+] (.+)$/gm, '<li>$1</li>')
+    .replace(/^\s*\d+\. (.+)$/gm, '<li>$1</li>')
+    .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
+    .replace(/^---$/gm, '<hr />')
+    .replace(/^(?!<[a-z/]).+$/gm, (line) => line.trim() ? `<p>${line}</p>` : '')
+    .replace(/(<li>.*?<\/li>\n?)+/g, (match) => `<ul>${match}</ul>`)
+    .replace(/\n{3,}/g, '\n\n');
+}
 import { getProductBySlug, getAllProducts } from '@/lib/products';
 import { siteConfig } from '@/config/site';
 import { BuyButton } from '@/components/affiliate/BuyButton';
@@ -26,7 +46,28 @@ const categoryLabels: Record<string, string> = {
   'baby-carriers': 'Baby Carriers',
   bouncers: 'Bouncers & Swings',
   swings: 'Baby Swings',
+  'baby-swings': 'Baby Swings',
+  'baby-bouncers': 'Baby Bouncers',
   'white-noise-machines': 'White Noise Machines',
+  'white-noise': 'White Noise Machines',
+  'activity-centers': 'Activity Centers',
+  'baby-bathtubs': 'Baby Bathtubs',
+  'baby-food-makers': 'Baby Food Makers',
+  'baby-gates': 'Baby Gates',
+  'baby-loungers': 'Baby Loungers',
+  'baby-nail-care': 'Baby Nail Care',
+  'baby-thermometers': 'Baby Thermometers',
+  'bath-toys': 'Bath Toys',
+  'diaper-bags': 'Diaper Bags',
+  'diaper-pails': 'Diaper Pails',
+  humidifiers: 'Humidifiers',
+  'nursing-chairs': 'Nursing Chairs',
+  'nursing-feeding': 'Nursing & Feeding',
+  'play-mats': 'Play Mats',
+  'potty-training': 'Potty Training',
+  'sippy-cups': 'Sippy Cups',
+  'sleep-sacks': 'Sleep Sacks & Swaddles',
+  'teething-toys': 'Teething Toys',
   nursery: 'Nursery',
   'feeding-gear': 'Feeding Gear',
   toys: 'Baby Toys',
@@ -39,6 +80,21 @@ const fallbackImages: Record<string, string> = {
   cribs: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=1200&q=85&auto=format&fit=crop',
   'car-seats': 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1200&q=85&auto=format&fit=crop',
   monitors: 'https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=1200&q=85&auto=format&fit=crop',
+  'breast-pumps': 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=1200&q=85&auto=format&fit=crop',
+  'high-chairs': 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=1200&q=85&auto=format&fit=crop',
+  'baby-carriers': 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=1200&q=85&auto=format&fit=crop',
+  'sleep-sacks': 'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=1200&q=85&auto=format&fit=crop',
+  'baby-gates': 'https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=1200&q=85&auto=format&fit=crop',
+  'activity-centers': 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=1200&q=85&auto=format&fit=crop',
+  'play-mats': 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=1200&q=85&auto=format&fit=crop',
+  'teething-toys': 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=1200&q=85&auto=format&fit=crop',
+  'bath-toys': 'https://images.unsplash.com/photo-1591474200742-8e512e6f98f8?w=1200&q=85&auto=format&fit=crop',
+  'baby-bathtubs': 'https://images.unsplash.com/photo-1591474200742-8e512e6f98f8?w=1200&q=85&auto=format&fit=crop',
+  'diaper-bags': 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=1200&q=85&auto=format&fit=crop',
+  'diaper-pails': 'https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=1200&q=85&auto=format&fit=crop',
+  humidifiers: 'https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=1200&q=85&auto=format&fit=crop',
+  'white-noise': 'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=1200&q=85&auto=format&fit=crop',
+  'nursing-chairs': 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=1200&q=85&auto=format&fit=crop',
   default: 'https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=1200&q=85&auto=format&fit=crop',
 };
 
@@ -213,6 +269,46 @@ export default async function ProductReviewPage({ params }: Props) {
           <div className="bg-brand-50 border border-brand-100 rounded-2xl p-5 mb-8">
             <h2 className="font-semibold text-brand-800 mb-2 text-sm">Our Bottom Line</h2>
             <p className="text-brand-700 leading-relaxed">{product.bottomLine}</p>
+          </div>
+
+          {/* In-depth review body — MDX narrative content */}
+          {product.content && product.content.trim().length > 20 && (
+            <section className="mb-8">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="font-serif text-xl font-bold text-gray-900">In-Depth Review</h2>
+                {product.readingTime && (
+                  <span className="flex items-center gap-1.5 text-xs text-gray-400">
+                    <Clock className="h-3.5 w-3.5" />
+                    {product.readingTime} min read
+                  </span>
+                )}
+              </div>
+              <div
+                className="prose prose-sm max-w-none
+                  prose-headings:font-serif prose-headings:text-gray-900
+                  prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-3 prose-h2:font-bold
+                  prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-2 prose-h3:font-semibold
+                  prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4
+                  prose-li:text-gray-700 prose-li:leading-relaxed
+                  prose-ul:my-3 prose-ol:my-3
+                  prose-strong:text-gray-900
+                  prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline
+                  prose-blockquote:border-l-4 prose-blockquote:border-brand-400 prose-blockquote:bg-brand-50 prose-blockquote:rounded-r-xl prose-blockquote:py-1 prose-blockquote:px-4
+                  prose-hr:border-gray-200 prose-hr:my-6"
+                dangerouslySetInnerHTML={{ __html: markdownToHtml(product.content) }}
+              />
+            </section>
+          )}
+
+          {/* How we evaluate */}
+          <div className="bg-gray-50 border border-gray-100 rounded-2xl p-5 mb-8">
+            <h2 className="font-semibold text-gray-800 mb-3 text-sm">How We Evaluate {catLabel}</h2>
+            <p className="text-sm text-gray-600 leading-relaxed mb-2">
+              Every product on PregnancySprout is evaluated against a consistent framework: verified manufacturer specifications, independent safety certifications (JPMA, ASTM, CPSC compliance), verified user feedback patterns from multiple retail platforms, and comparison against direct competitors in the same price tier.
+            </p>
+            <p className="text-sm text-gray-600 leading-relaxed">
+              Our scoring reflects real-world usability for parents — not just spec-sheet comparisons. We weight safety (40%), value for money (25%), ease of use (20%), and longevity/durability (15%). Products scoring above 8.5 represent exceptional value in their category.
+            </p>
           </div>
 
           {/* Affiliate & Trust info */}
