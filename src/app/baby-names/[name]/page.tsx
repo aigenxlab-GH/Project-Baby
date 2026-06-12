@@ -49,8 +49,8 @@ export default async function NameDetailPage({ params }: Props) {
 
   const related = getRelatedNames(nameData, 8);
 
-  const genderColor = nameData.gender === 'girl' ? 'text-pink-600 bg-pink-50' :
-    nameData.gender === 'boy' ? 'text-blue-600 bg-blue-50' : 'text-purple-600 bg-purple-50';
+  const genderColor = nameData.gender === 'girl' ? 'text-pink-600 bg-pink-50 dark:text-pink-400 dark:bg-pink-950/40' :
+    nameData.gender === 'boy' ? 'text-blue-600 bg-blue-50 dark:text-blue-400 dark:bg-blue-950/40' : 'text-purple-600 bg-purple-50 dark:text-purple-400 dark:bg-purple-950/40';
 
   const trendIcon = nameData.popularityTrend === 'rising' ?
     <TrendingUp className="h-4 w-4 text-green-500" /> :
@@ -93,34 +93,34 @@ export default async function NameDetailPage({ params }: Props) {
 
       <div className="container mx-auto max-w-4xl px-4 py-12">
         {/* Header */}
-        <div className={`rounded-3xl p-8 mb-10 text-center ${nameData.gender === 'girl' ? 'bg-gradient-to-br from-pink-50 to-rose-50' : nameData.gender === 'boy' ? 'bg-gradient-to-br from-blue-50 to-sky-50' : 'bg-gradient-to-br from-purple-50 to-violet-50'}`}>
-          <h1 className="font-serif text-5xl md:text-6xl font-bold text-gray-900 mb-4">{nameData.name}</h1>
+        <div className={`rounded-3xl p-8 mb-10 text-center ${nameData.gender === 'girl' ? 'bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-950/40 dark:to-rose-950/40' : nameData.gender === 'boy' ? 'bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/40 dark:to-sky-950/40' : 'bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-950/40 dark:to-violet-950/40'}`}>
+          <h1 className="font-serif text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">{nameData.name}</h1>
           <div className="flex items-center justify-center gap-3 flex-wrap">
             <span className={`px-3 py-1.5 rounded-full text-sm font-medium capitalize ${genderColor}`}>
               {nameData.gender} name
             </span>
             {nameData.origin.map((o) => (
-              <span key={o} className="px-3 py-1.5 bg-white rounded-full text-sm font-medium text-gray-600 border border-gray-200">
+              <span key={o} className="px-3 py-1.5 bg-white dark:bg-gray-800 rounded-full text-sm font-medium text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700">
                 {o}
               </span>
             ))}
-            <div className="flex items-center gap-1.5 bg-white rounded-full px-3 py-1.5 border border-gray-200">
+            <div className="flex items-center gap-1.5 bg-white dark:bg-gray-800 rounded-full px-3 py-1.5 border border-gray-200 dark:border-gray-700">
               {trendIcon}
-              <span className="text-sm text-gray-600 capitalize">{nameData.popularityTrend}</span>
+              <span className="text-sm text-gray-600 dark:text-gray-300 capitalize">{nameData.popularityTrend}</span>
             </div>
           </div>
         </div>
 
         {/* Meaning */}
         <section className="mb-10">
-          <h2 className="font-serif text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+          <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
             <BookOpen className="h-6 w-6 text-brand-500" />
             Meaning of {nameData.name}
           </h2>
-          <div className="bg-brand-50 rounded-2xl p-6 border border-brand-100">
-            <p className="text-gray-800 text-lg leading-relaxed">
+          <div className="bg-brand-50 dark:bg-brand-950/40 rounded-2xl p-6 border border-brand-100 dark:border-brand-900">
+            <p className="text-gray-800 dark:text-gray-100 text-lg leading-relaxed">
               The name <strong>{nameData.name}</strong> means{' '}
-              <strong className="text-brand-700">&ldquo;{nameData.meaning}&rdquo;</strong>.
+              <strong className="text-brand-700 dark:text-brand-300">&ldquo;{nameData.meaning}&rdquo;</strong>.
               It has origins in {nameData.origin.join(' and ')} and is a{' '}
               {nameData.syllables}-syllable {nameData.gender} name.
             </p>
@@ -131,7 +131,7 @@ export default async function NameDetailPage({ params }: Props) {
 
         {/* Quick Facts */}
         <section className="mb-10">
-          <h2 className="font-serif text-2xl font-bold text-gray-900 mb-5">{nameData.name} — Quick Facts</h2>
+          <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-5">{nameData.name} — Quick Facts</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { label: 'Gender', value: nameData.gender },
@@ -139,9 +139,9 @@ export default async function NameDetailPage({ params }: Props) {
               { label: 'Syllables', value: nameData.syllables.toString() },
               { label: 'Popularity Rank', value: nameData.popularityRank ? `#${nameData.popularityRank}` : 'Unranked' },
             ].map((fact) => (
-              <div key={fact.label} className="bg-white rounded-xl border border-gray-100 p-4 text-center">
-                <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">{fact.label}</p>
-                <p className="font-bold text-gray-900 capitalize">{fact.value}</p>
+              <div key={fact.label} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 p-4 text-center">
+                <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">{fact.label}</p>
+                <p className="font-bold text-gray-900 dark:text-white capitalize">{fact.value}</p>
               </div>
             ))}
           </div>
@@ -150,10 +150,10 @@ export default async function NameDetailPage({ params }: Props) {
         {/* Nicknames */}
         {nameData.nicknames && nameData.nicknames.length > 0 && (
           <section className="mb-10">
-            <h2 className="font-serif text-2xl font-bold text-gray-900 mb-4">Nicknames for {nameData.name}</h2>
+            <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-4">Nicknames for {nameData.name}</h2>
             <div className="flex flex-wrap gap-2">
               {nameData.nicknames.map((n) => (
-                <span key={n} className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">{n}</span>
+                <span key={n} className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-full text-sm font-medium">{n}</span>
               ))}
             </div>
           </section>
@@ -162,10 +162,10 @@ export default async function NameDetailPage({ params }: Props) {
         {/* Tags */}
         {nameData.tags.length > 0 && (
           <section className="mb-10">
-            <h2 className="font-serif text-2xl font-bold text-gray-900 mb-4">Style & Vibe</h2>
+            <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-4">Style & Vibe</h2>
             <div className="flex flex-wrap gap-2">
               {nameData.tags.map((tag) => (
-                <span key={tag} className="bg-brand-50 text-brand-700 border border-brand-200 px-4 py-1.5 rounded-full text-sm capitalize">{tag}</span>
+                <span key={tag} className="bg-brand-50 dark:bg-brand-950/40 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800 px-4 py-1.5 rounded-full text-sm capitalize">{tag}</span>
               ))}
             </div>
           </section>
@@ -174,16 +174,16 @@ export default async function NameDetailPage({ params }: Props) {
         {/* Related Names */}
         {related.length > 0 && (
           <section className="mb-10">
-            <h2 className="font-serif text-2xl font-bold text-gray-900 mb-5">Names Similar to {nameData.name}</h2>
+            <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-5">Names Similar to {nameData.name}</h2>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {related.map((n) => (
                 <Link
                   key={n.id}
                   href={`/baby-names/${n.name.toLowerCase()}`}
-                  className="group bg-white rounded-xl border border-gray-100 p-4 text-center hover:border-brand-300 hover:shadow-sm transition-all"
+                  className="group bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 p-4 text-center hover:border-brand-300 dark:hover:border-brand-700 hover:shadow-sm transition-all"
                 >
-                  <p className="font-serif font-bold text-gray-900 group-hover:text-brand-600">{n.name}</p>
-                  <p className="text-xs text-gray-500 mt-1">{n.meaning.slice(0, 30)}…</p>
+                  <p className="font-serif font-bold text-gray-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400">{n.name}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{n.meaning.slice(0, 30)}…</p>
                 </Link>
               ))}
             </div>

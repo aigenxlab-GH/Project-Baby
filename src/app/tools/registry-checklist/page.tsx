@@ -26,7 +26,7 @@ export default function RegistryChecklistPage() {
           Everything you need for your new baby — organized by category with estimated
           prices and product recommendations.
         </p>
-        <div className="mt-4 inline-flex items-center gap-2 bg-amber-50 text-amber-800 rounded-full px-4 py-2 text-sm">
+        <div className="mt-4 inline-flex items-center gap-2 bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 rounded-full px-4 py-2 text-sm">
           <span>⚠️</span>
           <a href="/affiliate-disclosure" className="underline">Affiliate disclosure</a>
           <span>— we may earn commissions from purchases.</span>

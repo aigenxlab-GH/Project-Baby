@@ -170,7 +170,7 @@ export default async function ProductReviewPage({ params }: Props) {
         </nav>
 
         {/* Affiliate disclosure */}
-        <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-800 rounded-full px-4 py-1.5 text-xs mb-6">
+        <div className="inline-flex items-center gap-2 bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 rounded-full px-4 py-1.5 text-xs mb-6">
           <span>Affiliate disclosure: We may earn a commission from purchases. <Link href="/affiliate-disclosure" className="underline">Learn more</Link>.</span>
         </div>
 

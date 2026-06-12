@@ -28,7 +28,7 @@ export default function ContractionTimerPage() {
           Track your contractions during labor. Know when to call your doctor or head to the hospital.
         </p>
       </div>
-      <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-8 text-sm text-amber-900">
+      <div className="bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 rounded-2xl p-4 mb-8 text-sm text-amber-900 dark:text-amber-200">
         <strong>511 Rule:</strong> Call your provider when contractions are{' '}
         <strong>5 minutes apart</strong>, lasting <strong>1 minute each</strong>,
         for at least <strong>1 hour</strong>.
