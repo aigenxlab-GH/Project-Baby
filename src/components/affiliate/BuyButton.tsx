@@ -49,7 +49,7 @@ export function BuyButton({ href, price, productName, variant = 'primary', size 
       className={`inline-flex items-center gap-2 rounded-full transition-colors cursor-pointer ${sizeClasses[size]} ${variantClasses[variant]}`}
     >
       <ShoppingCart className="h-4 w-4" />
-      <span>{price ? `Buy for ${price}` : `Buy on ${retailer}`}</span>
+      <span>Check Price on {retailer}</span>
       <ExternalLink className="h-3 w-3 opacity-60" />
     </a>
   );

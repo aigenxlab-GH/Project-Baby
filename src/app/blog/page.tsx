@@ -8,7 +8,7 @@ export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   title: 'Blog — Pregnancy & Baby Articles',
-  description: 'Expert articles on pregnancy, baby care, parenting tips, and product recommendations. Browse 200+ guides for expecting and new parents.',
+  description: 'Expert articles on pregnancy, baby care, parenting tips, and product recommendations. Browse 214+ guides for expecting and new parents.',
   alternates: { canonical: `${siteConfig.url}/blog` },
 };
 
