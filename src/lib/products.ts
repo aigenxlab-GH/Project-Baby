@@ -1,11 +1,17 @@
 /**
- * Products library — uses the pre-compiled content cache (content-cache.json).
+ * Products library — uses the pre-compiled content cache for metadata,
+ * and the raw MDX files for article body content.
  *
- * On Cloudflare Workers, process.cwd() returns '/' and runtime filesystem reads fail.
- * This module imports the cache statically so esbuild bundles the data into handler.mjs,
- * eliminating all runtime fs calls — same approach as src/lib/mdx.ts.
+ * The products cache (content-cache-products.json) intentionally omits the MDX
+ * body to keep the Cloudflare Worker bundle small. The body is read from the
+ * filesystem at build time by getProductBySlug(), which only runs during `next build`
+ * (Node.js environment). Product detail pages are force-static — the Cloudflare Worker
+ * serves the pre-rendered HTML and never calls getProductBySlug() at runtime.
  */
 
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 import type { ProductReview, ProductCategory } from '@/types/product';
 
 type CacheEntry = Record<string, unknown>;
@@ -70,7 +76,22 @@ export function getProductBySlug(category: ProductCategory, slug: string): Produ
   if (!categoryData) return null;
   const entry = categoryData[slug];
   if (!entry) return null;
-  return cacheEntryToProduct(entry, category, slug);
+
+  // Read the MDX body directly from disk — only runs during `next build` (Node.js).
+  // The products cache omits the body to keep the Cloudflare Worker bundle small.
+  // On Cloudflare at runtime, product pages are served pre-rendered; this branch
+  // is never reached, so the try/catch is just a safety net.
+  let content = '';
+  try {
+    const filePath = path.join(process.cwd(), 'content', 'products', category, `${slug}.mdx`);
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    content = matter(raw).content;
+  } catch {
+    // Cloudflare Worker runtime — filesystem not available. No-op: the HTML for this
+    // page was already baked in at build time via force-static pre-rendering.
+  }
+
+  return cacheEntryToProduct({ ...entry, content }, category, slug);
 }
 
 export function getFeaturedProducts(limit = 6): ProductReview[] {

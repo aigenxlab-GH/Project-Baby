@@ -108,7 +108,17 @@ const articlesCache: typeof cache = {};
 
 for (const [key, value] of Object.entries(cache)) {
   if (key.startsWith('products/')) {
-    productsCache[key] = value;
+    // Strip the MDX body from every product entry.
+    // Product detail pages are force-static (pre-rendered HTML at build time).
+    // The worker never renders them at runtime, so it doesn't need the content.
+    // Removing this field shrinks content-cache-products.json from ~2 MB → ~200 KB,
+    // bringing the Cloudflare Worker handler back under the 3 MiB free-tier limit.
+    const slimEntries: Record<string, ContentEntry> = {};
+    for (const [slug, entry] of Object.entries(value)) {
+      const { content: _body, ...meta } = entry as ContentEntry & { content?: unknown };
+      slimEntries[slug] = meta;
+    }
+    productsCache[key] = slimEntries;
   } else {
     articlesCache[key] = value;
   }
