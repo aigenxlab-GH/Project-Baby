@@ -8,6 +8,14 @@ import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
 export const dynamic = 'force-static';
 
+function getProductImage(affiliateUrl: string, fallback: string): string {
+  const match = affiliateUrl.match(/amazon\.com\/dp\/([A-Z0-9]+)/i);
+  if (match) {
+    return `https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=${match[1]}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL500_&tag=pregnancysp0a-20`;
+  }
+  return fallback;
+}
+
 interface RoundupProduct {
   rank: number;
   name: string;
@@ -407,7 +415,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$169',
         priceRange: 'mid-range',
         badge: 'Best Overall Under $200',
-        image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Infant Optics DXR-8 Pro non-WiFi baby monitor with parent unit',
         reviewSlug: '/products/monitors/infant-optics-dxr-8-pro-review',
         category: 'monitors',
@@ -425,7 +433,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$159',
         priceRange: 'mid-range',
         badge: 'Best Screen Size',
-        image: 'https://images.unsplash.com/photo-1566041510639-8d95a2490bfb?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Eufy SpaceView Pro baby monitor with large 5-inch screen',
         reviewSlug: '/products/monitors/eufy-spaceview-pro-review',
         category: 'monitors',
@@ -443,7 +451,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$89',
         priceRange: 'budget',
         badge: 'Best Under $100',
-        image: 'https://images.unsplash.com/photo-1550159930-40066082a4fc?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1567515004624-219c11d31f2e?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Motorola VM75 budget baby video monitor',
         reviewSlug: '/products/monitors/motorola-vm75-video-monitor-review',
         category: 'monitors',
@@ -461,7 +469,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$30',
         priceRange: 'budget',
         badge: 'Best Audio-Only Pick',
-        image: 'https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1529429617124-95b109e86bb8?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'VTech DM221 DECT 6.0 audio baby monitor',
         reviewSlug: '/products/monitors/vtch-dm221-audio-monitor-review',
         category: 'monitors',
@@ -550,7 +558,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$329',
         priceRange: 'mid-range',
         badge: 'Best Value 4-in-1',
-        image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Graco 4Ever DLX 4-in-1 convertible car seat',
         reviewSlug: '/products/car-seats/graco-4ever-dlx-review',
         category: 'car-seats',
@@ -568,7 +576,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$379',
         priceRange: 'premium',
         badge: 'Best for Side-Impact Protection',
-        image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1533483595632-c5f0e57a1936?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Maxi-Cosi Pria All-in-One convertible car seat with anti-rebound bar',
         reviewSlug: '/products/car-seats/maxi-cosi-pria-all-in-one-review',
         category: 'car-seats',
@@ -586,7 +594,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$179',
         priceRange: 'budget',
         badge: 'Best Budget All-in-One',
-        image: 'https://images.unsplash.com/photo-1563203369-26f2e4a5ccf7?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1493894473891-10fc1e5dbd22?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Evenflo EveryStage DLX budget convertible car seat',
         reviewSlug: '/products/car-seats/evenflo-everystage-dlx-review',
         category: 'car-seats',
@@ -647,7 +655,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$269',
         priceRange: 'premium',
         badge: 'Best Overall',
-        image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1612531386530-97286d97c2d2?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'BabyBjörn Bouncer Balance Soft organic motion bouncer',
         reviewSlug: '/products/baby-bouncers/babybjorn-bouncer-balance-soft-review',
         category: 'baby-bouncers',
@@ -665,7 +673,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$249',
         priceRange: 'premium',
         badge: 'Best 3-in-1 Electric',
-        image: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Ergobaby Evolve 3-in-1 baby bouncer rocker seat',
         reviewSlug: '/products/baby-bouncers/ergobaby-evolve-bouncer-review',
         category: 'baby-bouncers',
@@ -683,7 +691,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$310',
         priceRange: 'premium',
         badge: 'Best Breathable Fabric',
-        image: 'https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1554819177-a87aec3fc66d?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'BabyBjörn Bouncer Bliss in 3D mesh breathable fabric',
         reviewSlug: '/products/baby-bouncers/babybjorn-bouncer-bliss-review',
         category: 'baby-bouncers',
@@ -701,7 +709,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$179',
         priceRange: 'mid-range',
         badge: 'Best Electric Rocker',
-        image: 'https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1608138278596-4f54ede56d77?w=800&q=85&auto=format&fit=crop',
         imageAlt: '4moms rockaRoo electric gliding baby rocker',
         reviewSlug: '/products/baby-bouncers/4moms-rockaroo-review',
         category: 'baby-bouncers',
@@ -772,7 +780,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$199',
         priceRange: 'mid-range',
         badge: 'Best Portable Hospital-Grade',
-        image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1616391182219-e080b4d1042a?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Spectra S1 Plus portable breast pump with rechargeable battery',
         reviewSlug: '/products/breast-pumps/spectra-s1-plus-review',
         category: 'breast-pumps',
@@ -790,7 +798,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$329',
         priceRange: 'premium',
         badge: 'Best Wearable Pump',
-        image: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Elvie Stride hands-free wearable breast pump',
         reviewSlug: '/products/breast-pumps/elvie-stride-review',
         category: 'breast-pumps',
@@ -826,7 +834,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$29',
         priceRange: 'budget',
         badge: 'Best Manual Pump',
-        image: 'https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1574158622682-e029699b87b7?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Haakaa Silicone Breast Pump Gen 2 manual catch pump',
         reviewSlug: '/products/breast-pumps/haakaa-silicone-breast-pump-review',
         category: 'breast-pumps',
@@ -901,7 +909,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$230',
         priceRange: 'mid-range',
         badge: 'Best Mid-Budget Pick',
-        image: 'https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Graco Hadley 4-in-1 convertible crib white',
         reviewSlug: '/products/cribs/graco-hadley-4-in-1-crib-review',
         category: 'cribs',
@@ -919,7 +927,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$250',
         priceRange: 'mid-range',
         badge: 'Best Design Under $300',
-        image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1526634332515-d56c5fd16991?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Storkcraft Tuscany 4-in-1 convertible crib with curved design',
         reviewSlug: '/products/cribs/storkcraft-tuscany-4-in-1-crib-review',
         category: 'cribs',
@@ -937,7 +945,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$150',
         priceRange: 'budget',
         badge: 'Best Budget Crib',
-        image: 'https://images.unsplash.com/photo-1563203369-26f2e4a5ccf7?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1567967412737-0b22be20d25e?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Delta Children Emery 4-in-1 convertible crib budget option',
         reviewSlug: '/products/cribs/delta-children-emery-crib-review',
         category: 'cribs',
@@ -998,7 +1006,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$29',
         priceRange: 'budget',
         badge: 'Best Overall',
-        image: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1524503033411-c9566986fc8f?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'HALO SleepSack Swaddle 3-way adjustable wearable blanket',
         reviewSlug: '/products/sleep-sacks/halo-sleepsack-swaddle-review',
         category: 'sleep-sacks',
@@ -1016,7 +1024,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$37',
         priceRange: 'budget',
         badge: 'Best Arms-Up Design',
-        image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1565120130276-dfbd9a7a3ad7?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Love to Dream Swaddle Up arms-up swaddle for babies',
         reviewSlug: '/products/sleep-sacks/love-to-dream-swaddle-up-review',
         category: 'sleep-sacks',
@@ -1034,7 +1042,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$44',
         priceRange: 'budget',
         badge: 'Best Gently Weighted',
-        image: 'https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Nested Bean Zen Sack Classic with weighted chest panel',
         reviewSlug: '/products/sleep-sacks/nested-bean-zen-sack-review',
         category: 'sleep-sacks',
@@ -1052,7 +1060,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$89',
         priceRange: 'mid-range',
         badge: 'Best Premium Weighted Sack',
-        image: 'https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1603921326210-6edd2d60ca68?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Dreamland Baby weighted sleep sack with evenly distributed weight',
         reviewSlug: '/products/sleep-sacks/dreamland-baby-weighted-sleep-sack-review',
         category: 'sleep-sacks',
@@ -1070,7 +1078,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$38',
         priceRange: 'budget',
         badge: 'Best Breathable Fabric',
-        image: 'https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1611946443064-be5ddf96b4e2?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'aden + anais Classic Sleeping Bag in soft muslin cotton',
         reviewSlug: '/products/sleep-sacks/aden-anais-sleeping-bag-review',
         category: 'sleep-sacks',
@@ -1141,7 +1149,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$25',
         priceRange: 'budget',
         badge: 'Best Budget (Best Value on Earth)',
-        image: 'https://images.unsplash.com/photo-1563203369-26f2e4a5ccf7?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1528557375823-3f77a7b6c8bc?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'IKEA ANTILOP minimalist plastic high chair white',
         reviewSlug: '/products/high-chairs/ikea-antilop-review',
         category: 'high-chairs',
@@ -1159,7 +1167,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$79',
         priceRange: 'budget',
         badge: 'Best Space-Saving High Chair',
-        image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1514706986008-37c7f3e48f05?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Graco Slim Snacker high chair folded flat for storage',
         reviewSlug: '/products/high-chairs/graco-slim-snacker-review',
         category: 'high-chairs',
@@ -1212,7 +1220,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$78',
         priceRange: 'mid-range',
         badge: 'Best Newborn Wrap',
-        image: 'https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1584516150909-c43483ee7932?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Parent wearing Solly Baby Wrap with newborn curled in close',
         reviewSlug: '/products/baby-carriers/solly-baby-wrap-review',
         category: 'baby-carriers',
@@ -1230,7 +1238,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$209',
         priceRange: 'mid-range',
         badge: 'Best Structured Carrier from Birth',
-        image: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1513094775335-5ae4cf4a7b80?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Ergobaby Omni 360 structured carrier used with newborn, no insert needed',
         reviewSlug: '/products/baby-carriers/ergobaby-omni-360-review',
         category: 'baby-carriers',
@@ -1248,7 +1256,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$129',
         priceRange: 'mid-range',
         badge: 'Best Breathable Structured Carrier',
-        image: 'https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1578004608831-4c28e75c81c3?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'LÍLLÉbaby Complete Airflow structured carrier with baby in warm weather',
         reviewSlug: '/products/baby-carriers/lillebaby-complete-airflow-review',
         category: 'baby-carriers',
@@ -1266,7 +1274,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$45',
         priceRange: 'budget',
         badge: 'Best Budget Wrap',
-        image: 'https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1553481187-be93c21490a9?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Moby Wrap Original stretchy cotton baby wrap for newborns',
         reviewSlug: '/products/baby-carriers/moby-wrap-original-review',
         category: 'baby-carriers',
@@ -1337,7 +1345,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$49',
         priceRange: 'budget',
         badge: 'Best No-App Option',
-        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'LectroFan Classic white noise machine with simple dial controls',
         reviewSlug: '/products/white-noise/lectrofan-classic-review',
         category: 'white-noise',
@@ -1355,7 +1363,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$44',
         priceRange: 'budget',
         badge: 'Best Natural Fan Sound',
-        image: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1548686304-89d188a80029?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Yogasleep Dohm Classic white noise machine with real fan motor',
         reviewSlug: '/products/white-noise/yogasleep-dohm-classic-review',
         category: 'white-noise',
@@ -1430,7 +1438,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$119',
         priceRange: 'mid-range',
         badge: 'Best Mid-Range Backpack',
-        image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1548531174879-f38a17e5b0a3?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Skip Hop Forma diaper bag backpack in structured design',
         reviewSlug: '/products/diaper-bags/skip-hop-forma-backpack-review',
         category: 'diaper-bags',
@@ -1448,7 +1456,7 @@ const roundups: Record<string, RoundupData> = {
         price: '$178',
         priceRange: 'premium',
         badge: 'Best Faux Leather Tote',
-        image: 'https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=800&q=85&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1621188988909-fbef0a8fce32?w=800&q=85&auto=format&fit=crop',
         imageAlt: 'Freshly Picked Classic diaper bag in vegan faux leather',
         reviewSlug: '/products/diaper-bags/freshly-picked-classic-diaper-bag-review',
         category: 'diaper-bags',
@@ -1612,12 +1620,12 @@ export default async function RoundupPage({ params }: { params: Promise<{ slug: 
               <div className="aspect-video relative overflow-hidden rounded-xl mb-5 bg-gray-100">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`${product.image}${product.image.includes('?') ? '&' : '?'}w=640&q=72&auto=format&fit=crop&fm=webp`}
+                  src={getProductImage(product.affiliateUrl, product.image)}
                   alt={product.imageAlt}
                   className="w-full h-full object-cover"
                   loading="lazy"
-                  width={640}
-                  height={360}
+                  width={500}
+                  height={500}
                   decoding="async"
                 />
               </div>
