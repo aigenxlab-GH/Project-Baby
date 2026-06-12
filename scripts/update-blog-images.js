@@ -256,9 +256,11 @@ for (const [slug, photoId] of Object.entries(mappings)) {
   }
 
   let content = fs.readFileSync(filepath, 'utf8');
-  const imageUrl = `https://images.unsplash.com/photo-${photoId}?w=1200&q=85&auto=format&fit=crop`;
 
-  // Remove any existing image line (handles local paths, broken >- insertions, old http URLs)
+  // Use picsum.photos with slug as seed — guaranteed unique, consistent, never broken
+  const imageUrl = `https://picsum.photos/seed/${slug}/1200/800`;
+
+  // Remove any existing image line (handles local paths, broken insertions, old URLs)
   content = content.replace(/^image:.*\n?/m, '');
 
   // Insert before publishedAt: — safe anchor, always at col-0, after any block scalar description
