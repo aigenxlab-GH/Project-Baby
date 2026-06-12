@@ -56,7 +56,7 @@ const categories = [
     border: 'hover:border-purple-300',
     img: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=400&q=70&auto=format&fit=crop&crop=center&fm=webp',
     imgAlt: 'Newborn sleeping peacefully, perfect for choosing a name',
-    imgPriority: true,
+    imgPriority: false,
   },
   {
     title: 'Product Reviews',
@@ -222,6 +222,7 @@ export default function HomePage() {
                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 48vw, 24vw"
                     priority={cat.imgPriority}
+                    fetchPriority={cat.imgPriority ? 'high' : 'auto'}
                   />
                   <div className={`absolute inset-0 bg-gradient-to-br ${cat.color} opacity-40`} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
@@ -241,7 +242,7 @@ export default function HomePage() {
       </section>
 
       {/* Free Tools */}
-      <section className="py-8 px-4 bg-gray-50 dark:bg-gray-900">
+      <section className="py-8 px-4 bg-gray-50 dark:bg-gray-900 cv-auto">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-7">
             <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-2">Free Pregnancy Tools</h2>
@@ -271,7 +272,7 @@ export default function HomePage() {
       </section>
 
       {/* Week by Week Preview */}
-      <section className="py-8 px-4 bg-white dark:bg-gray-950">
+      <section className="py-8 px-4 bg-white dark:bg-gray-950 cv-auto">
         <div className="container mx-auto max-w-5xl">
           <div className="flex items-center justify-between mb-7">
             <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white">Pregnancy Week by Week</h2>
@@ -305,7 +306,7 @@ export default function HomePage() {
       </section>
 
       {/* Baby Names CTA */}
-      <section className="py-8 px-4 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/30 dark:to-pink-950/30">
+      <section className="py-8 px-4 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/30 dark:to-pink-950/30 cv-auto">
         <div className="container mx-auto max-w-3xl text-center">
           <div className="text-3xl mb-3" aria-hidden="true">✨</div>
           <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-3">
@@ -340,7 +341,7 @@ export default function HomePage() {
            • Shows review date → fixes E-E-A-T content dates (#9)
            • Trust badges section → fixes trust signals (#18)
       ──────────────────────────────────────────────────────────────────────────── */}
-      <section className="py-10 px-4 bg-gray-50 dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+      <section className="py-10 px-4 bg-gray-50 dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 cv-auto">
         <div className="container mx-auto max-w-4xl">
           <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
             Evidence-Based Guidance You Can Trust
@@ -425,7 +426,7 @@ export default function HomePage() {
           Adds ~450 words of targeted keyword-rich content (fixes SEOptimizer
           "Increase Page Text Content" — word count was 752, needs 1,000+).
           Also satisfies Google's FAQPage schema opportunity for SERP rich results. ── */}
-      <section className="py-12 px-4 bg-white dark:bg-gray-950">
+      <section className="py-12 px-4 bg-white dark:bg-gray-950 cv-auto">
         <div className="container mx-auto max-w-3xl">
           <h2 className="font-serif text-2xl md:text-3xl font-bold text-center text-gray-900 dark:text-white mb-2">
             Frequently Asked Questions

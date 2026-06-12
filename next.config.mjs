@@ -10,9 +10,15 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Remove X-Powered-By header (security + minor response size)
+  poweredByHeader: false,
+
+  // Remove console.log in production builds (reduces JS payload slightly)
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error', 'warn'] } : false,
+  },
+
   // ── Tree-shaking for large icon/component libraries ────────────────────────
-  // Tells Next.js to only bundle the specific icons/components imported,
-  // not the entire lucide-react package. Saves ~40-70KB on every page.
   experimental: {
     optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
   },
