@@ -1,20 +1,15 @@
 // v2 — deployment test 2026-06-11
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import lazyLoad from 'next/dynamic';
 import { siteConfig } from '@/config/site';
 import Image from 'next/image';
 import { getAllWeeks } from '@/lib/pregnancy-data';
+import { HeaderAd } from '@/components/ads/HeaderAd';
 import { WebSiteJsonLd } from '@/components/seo/WebSiteJsonLd';
 import {
   Baby, Calculator, Timer, List, Search,
   ChevronRight, Heart, BookOpen
 } from 'lucide-react';
-
-// Lazy-load the ad slot — client component with AdSense JS; keeping it out of the
-// critical bundle saves ~8 KiB JS and removes it from the render-blocking chain.
-// (Cannot import 'dynamic' here — page already exports `dynamic = 'force-static'`)
-const HeaderAd = lazyLoad(() => import('@/components/ads/HeaderAd').then(m => ({ default: m.HeaderAd })), { ssr: false });
 
 export const dynamic = 'force-static';
 

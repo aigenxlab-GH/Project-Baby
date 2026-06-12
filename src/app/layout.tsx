@@ -1,18 +1,12 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
 import Script from 'next/script';
-import dynamic from 'next/dynamic';
 import './globals.css';
 import { siteConfig } from '@/config/site';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ThemeProvider } from '@/components/shared/ThemeProvider';
-// Dynamically import non-critical UI — reduces initial JS bundle
-// ReadingProgress: only active on scroll, not needed for first paint
-// BackToTop, CookieConsent: purely interactive, below-fold
-const ReadingProgress = dynamic(() => import('@/components/shared/ReadingProgress').then(m => ({ default: m.ReadingProgress })), { ssr: false });
-const BackToTop = dynamic(() => import('@/components/shared/BackToTop').then(m => ({ default: m.BackToTop })), { ssr: false });
-const CookieConsent = dynamic(() => import('@/components/shared/CookieConsent').then(m => ({ default: m.CookieConsent })), { ssr: false });
+import { ClientShell } from '@/components/layout/ClientShell';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -155,12 +149,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="min-h-screen flex flex-col bg-[#fdf8fa] dark:bg-[#0f0f13] antialiased">
         <ThemeProvider>
-          <ReadingProgress />
           <Header />
           <main id="main-content" className="flex-1">{children}</main>
           <Footer />
-          <BackToTop />
-          <CookieConsent />
+          <ClientShell />
         </ThemeProvider>
       </body>
     </html>
