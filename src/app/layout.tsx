@@ -7,9 +7,10 @@ import { siteConfig } from '@/config/site';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ThemeProvider } from '@/components/shared/ThemeProvider';
-import { ReadingProgress } from '@/components/shared/ReadingProgress';
-
-// Dynamically import non-critical UI — reduces initial JS bundle by ~15 KiB
+// Dynamically import non-critical UI — reduces initial JS bundle
+// ReadingProgress: only active on scroll, not needed for first paint
+// BackToTop, CookieConsent: purely interactive, below-fold
+const ReadingProgress = dynamic(() => import('@/components/shared/ReadingProgress').then(m => ({ default: m.ReadingProgress })), { ssr: false });
 const BackToTop = dynamic(() => import('@/components/shared/BackToTop').then(m => ({ default: m.BackToTop })), { ssr: false });
 const CookieConsent = dynamic(() => import('@/components/shared/CookieConsent').then(m => ({ default: m.CookieConsent })), { ssr: false });
 

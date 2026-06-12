@@ -1,15 +1,20 @@
 // v2 — deployment test 2026-06-11
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import lazyLoad from 'next/dynamic';
 import { siteConfig } from '@/config/site';
 import Image from 'next/image';
 import { getAllWeeks } from '@/lib/pregnancy-data';
-import { HeaderAd } from '@/components/ads/HeaderAd';
 import { WebSiteJsonLd } from '@/components/seo/WebSiteJsonLd';
 import {
   Baby, Calculator, Timer, List, Search,
   ChevronRight, Heart, BookOpen
 } from 'lucide-react';
+
+// Lazy-load the ad slot — client component with AdSense JS; keeping it out of the
+// critical bundle saves ~8 KiB JS and removes it from the render-blocking chain.
+// (Cannot import 'dynamic' here — page already exports `dynamic = 'force-static'`)
+const HeaderAd = lazyLoad(() => import('@/components/ads/HeaderAd').then(m => ({ default: m.HeaderAd })), { ssr: false });
 
 export const dynamic = 'force-static';
 
@@ -90,6 +95,19 @@ export default function HomePage() {
 
   return (
     <div>
+      {/*
+        Preload the first category card image — on mobile (hero image is hidden md:block)
+        this is the LCP element. next/image priority only generates a preload for the
+        <img> tag; an explicit <link> in the component is hoisted to <head> earlier,
+        giving the browser a head-start before it parses the body DOM.
+      */}
+      <link
+        rel="preload"
+        as="image"
+        imageSrcSet="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=375&q=65&auto=format&fit=crop&crop=faces,center&fm=webp 375w, https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=640&q=65&auto=format&fit=crop&crop=faces,center&fm=webp 640w, https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=828&q=65&auto=format&fit=crop&crop=faces,center&fm=webp 828w"
+        imageSizes="(max-width: 640px) 100vw, 24vw"
+        href="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=828&q=65&auto=format&fit=crop&crop=faces,center&fm=webp"
+      />
       <WebSiteJsonLd />
       {/* FAQPage JSON-LD — enables rich FAQ results in Google SERP */}
       <script
