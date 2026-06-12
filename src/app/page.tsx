@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import Image from 'next/image';
 import { getAllWeeks } from '@/lib/pregnancy-data';
-import { HeaderAd } from '@/components/ads/HeaderAd';
+import { InContentAd } from '@/components/ads/InContentAd';
 import { WebSiteJsonLd } from '@/components/seo/WebSiteJsonLd';
 import {
   Baby, Calculator, Timer, List, Search,
@@ -120,8 +120,6 @@ export default function HomePage() {
           }),
         }}
       />
-      <HeaderAd />
-
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-pink-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-purple-950/30 py-10 px-4">
         {/* Background decorative blobs */}
@@ -253,6 +251,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <InContentAd />
 
       {/* Free Tools */}
       <section className="py-8 px-4 bg-gray-50 dark:bg-gray-900 cv-auto">

@@ -8,6 +8,7 @@ import { siteConfig } from '@/config/site';
 import { ArticleJsonLd } from '@/components/seo/ArticleJsonLd';
 import { InContentAd } from '@/components/ads/InContentAd';
 import { SidebarAd } from '@/components/ads/SidebarAd';
+import { HeaderAd } from '@/components/ads/HeaderAd';
 import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { BookmarkButton, SavedWeeksPanel } from '@/components/shared/BookmarkButton';
@@ -104,6 +105,8 @@ export default async function WeekPage({ params }: Props) {
           </nav>
         </div>
       </div>
+
+      <HeaderAd />
 
       <div className="container mx-auto max-w-7xl px-4 py-10">
         <div className="lg:grid lg:grid-cols-[1fr_300px] lg:gap-10">
@@ -298,10 +301,10 @@ export default async function WeekPage({ params }: Props) {
 
           {/* Sidebar */}
           <aside className="hidden lg:block">
-            <SidebarAd />
-            <div className="mt-8">
-              <SavedWeeksPanel />
-            </div>
+            {/* SidebarAd is sticky — it must come AFTER the panels, otherwise the
+                stuck ad slides over them while scrolling. Placed last, it pins once
+                the user scrolls past the panels and stays in view down the article. */}
+            <SavedWeeksPanel />
             <div className="mt-8 bg-gray-50 dark:bg-gray-900 rounded-2xl p-5">
               <h3 className="font-semibold text-gray-900 dark:text-white mb-4">Jump to a Week</h3>
               <div className="grid grid-cols-4 gap-2">
@@ -319,6 +322,9 @@ export default async function WeekPage({ params }: Props) {
                   </Link>
                 ))}
               </div>
+            </div>
+            <div className="mt-8">
+              <SidebarAd />
             </div>
           </aside>
         </div>

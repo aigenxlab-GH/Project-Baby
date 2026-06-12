@@ -7,6 +7,9 @@ import { getArticleBySlug, getAllSlugs, getAllArticles, getRelatedArticles } fro
 import { siteConfig } from '@/config/site';
 import { formatDate } from '@/lib/utils';
 import { InContentAd } from '@/components/ads/InContentAd';
+import { HeaderAd } from '@/components/ads/HeaderAd';
+import { ArticleBottomAd } from '@/components/ads/ArticleBottomAd';
+import { SidebarAd } from '@/components/ads/SidebarAd';
 import { ArticleJsonLd } from '@/components/seo/ArticleJsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
@@ -113,6 +116,18 @@ function markdownToHtml(md: string): string {
   return linkAuthorities(html);
 }
 
+function splitHtmlAtNthParagraph(html: string, n: number): [string, string] {
+  let count = 0;
+  for (const match of html.matchAll(/<\/p>/g)) {
+    count++;
+    if (count === n) {
+      const idx = match.index! + match[0].length;
+      return [html.slice(0, idx), html.slice(idx)];
+    }
+  }
+  return [html, ''];
+}
+
 export default async function BlogArticlePage({ params }: Props) {
   const { slug } = await params;
   const article = getArticleBySlug('blog', slug);
@@ -128,6 +143,14 @@ export default async function BlogArticlePage({ params }: Props) {
   // Inject id= attributes into headings, then extract TOC
   const htmlWithIds = injectHeadingIds(markdownToHtml(article.content));
   const tocItems = extractToc(htmlWithIds);
+
+  // Split article body for two mid-content ad injection points.
+  // Part 1: paragraphs 1–3 (intro — user receives value before seeing first ad).
+  // Part 2: paragraphs 4 to midpoint. Part 3: rest.
+  const [part1, rest] = splitHtmlAtNthParagraph(htmlWithIds, 3);
+  const paraCount = (htmlWithIds.match(/<\/p>/g) || []).length;
+  const midOffset = Math.max(1, Math.floor(paraCount / 2) - 3);
+  const [part2, part3] = splitHtmlAtNthParagraph(rest, midOffset);
 
   return (
     <>
@@ -146,6 +169,8 @@ export default async function BlogArticlePage({ params }: Props) {
         { name: 'Blog', href: '/blog' },
         { name: article.title, href: `/blog/${slug}` },
       ]} />
+
+      <HeaderAd />
 
       <div className="container mx-auto max-w-6xl px-4 py-8 dark:text-gray-200">
         {/* Breadcrumb */}
@@ -212,7 +237,7 @@ export default async function BlogArticlePage({ params }: Props) {
             <TableOfContents items={tocItems} />
           )}
 
-          {/* Article body — properly rendered markdown */}
+          {/* Article body — split into 3 segments so ads can be injected mid-article */}
           <div
             className="prose prose-sm max-w-none dark:prose-invert
               prose-headings:font-serif prose-headings:text-gray-900 dark:prose-headings:text-white
@@ -225,10 +250,47 @@ export default async function BlogArticlePage({ params }: Props) {
               prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline
               prose-blockquote:border-l-4 prose-blockquote:border-brand-400 prose-blockquote:bg-brand-50 dark:prose-blockquote:bg-brand-950/30 prose-blockquote:rounded-r-xl prose-blockquote:py-1 prose-blockquote:px-4
               prose-hr:border-gray-200 dark:prose-hr:border-gray-700 prose-hr:my-8"
-            dangerouslySetInnerHTML={{ __html: htmlWithIds }}
+            dangerouslySetInnerHTML={{ __html: part1 }}
           />
 
           <InContentAd />
+
+          <div
+            className="prose prose-sm max-w-none dark:prose-invert
+              prose-headings:font-serif prose-headings:text-gray-900 dark:prose-headings:text-white
+              prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:font-bold
+              prose-h3:text-xl prose-h3:mt-7 prose-h3:mb-3 prose-h3:font-semibold
+              prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-4
+              prose-li:text-gray-700 dark:prose-li:text-gray-300 prose-li:leading-relaxed
+              prose-ul:my-4 prose-ol:my-4
+              prose-strong:text-gray-900 dark:prose-strong:text-white
+              prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline
+              prose-blockquote:border-l-4 prose-blockquote:border-brand-400 prose-blockquote:bg-brand-50 dark:prose-blockquote:bg-brand-950/30 prose-blockquote:rounded-r-xl prose-blockquote:py-1 prose-blockquote:px-4
+              prose-hr:border-gray-200 dark:prose-hr:border-gray-700 prose-hr:my-8"
+            dangerouslySetInnerHTML={{ __html: part2 }}
+          />
+
+          {part3 && (
+            <>
+              <InContentAd />
+              <div
+                className="prose prose-sm max-w-none dark:prose-invert
+                  prose-headings:font-serif prose-headings:text-gray-900 dark:prose-headings:text-white
+                  prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:font-bold
+                  prose-h3:text-xl prose-h3:mt-7 prose-h3:mb-3 prose-h3:font-semibold
+                  prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-4
+                  prose-li:text-gray-700 dark:prose-li:text-gray-300 prose-li:leading-relaxed
+                  prose-ul:my-4 prose-ol:my-4
+                  prose-strong:text-gray-900 dark:prose-strong:text-white
+                  prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline
+                  prose-blockquote:border-l-4 prose-blockquote:border-brand-400 prose-blockquote:bg-brand-50 dark:prose-blockquote:bg-brand-950/30 prose-blockquote:rounded-r-xl prose-blockquote:py-1 prose-blockquote:px-4
+                  prose-hr:border-gray-200 dark:prose-hr:border-gray-700 prose-hr:my-8"
+                dangerouslySetInnerHTML={{ __html: part3 }}
+              />
+            </>
+          )}
+
+          <ArticleBottomAd />
 
           {/* FAQs */}
           {article.faqs && article.faqs.length > 0 && (
@@ -285,12 +347,15 @@ export default async function BlogArticlePage({ params }: Props) {
           </div>
         </article>
 
-        {/* Desktop TOC sidebar */}
-        {tocItems.length >= 3 && (
-          <aside className="hidden xl:block">
-            <TableOfContents items={tocItems} />
-          </aside>
-        )}
+        {/* Desktop sidebar: TOC + ad. Sticky lives on the aside (the grid item) —
+            with items-start on the grid, the aside can travel the full row height.
+            TableOfContents renders null below 3 headings, so the ad still shows. */}
+        <aside className="hidden xl:block sticky top-24">
+          <TableOfContents items={tocItems} />
+          <div className="mt-6">
+            <SidebarAd />
+          </div>
+        </aside>
 
         </div>{/* end 2-column grid */}
 

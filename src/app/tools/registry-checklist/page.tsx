@@ -3,6 +3,7 @@ import { siteConfig } from '@/config/site';
 import { RegistryChecklist } from './RegistryChecklist';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const dynamic = 'force-static';
 
@@ -32,6 +33,7 @@ export default function RegistryChecklistPage() {
         </div>
       </div>
       <RegistryChecklist />
+      <InContentAd />
     </div>
   );
 }

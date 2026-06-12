@@ -6,6 +6,7 @@ import { siteConfig } from '@/config/site';
 import { ProductCard } from '@/components/affiliate/ProductCard';
 import { ProductComparison } from '@/components/affiliate/ProductComparison';
 import { InContentAd } from '@/components/ads/InContentAd';
+import { HeaderAd } from '@/components/ads/HeaderAd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import type { ProductCategory } from '@/types/product';
 
@@ -76,13 +77,16 @@ export default async function CategoryPage({ params }: Props) {
   const label = categoryLabels[category] || category;
 
   return (
-    <div className="container mx-auto max-w-7xl px-4 py-12">
+    <>
       <BreadcrumbJsonLd items={[
         { name: 'Home', href: '/' },
         { name: 'Products', href: '/products' },
         { name: label, href: `/products/${category}` },
       ]} />
 
+      <HeaderAd />
+
+      <div className="container mx-auto max-w-7xl px-4 py-12">
       <nav className="flex items-center gap-2 text-sm text-gray-500 mb-8" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-brand-600">Home</Link>
         <ChevronRight className="h-3 w-3" aria-hidden="true" />
@@ -131,12 +135,13 @@ export default async function CategoryPage({ params }: Props) {
             {products.map((product, i) => (
               <div key={product.slug}>
                 <ProductCard product={product} variant="featured" />
-                {(i + 1) % 3 === 0 && <InContentAd />}
+                {(i + 1) % 4 === 0 && <InContentAd />}
               </div>
             ))}
           </div>
         </>
       )}
     </div>
+    </>
   );
 }

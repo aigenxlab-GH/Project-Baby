@@ -7,6 +7,7 @@ import { siteConfig } from '@/config/site';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { InContentAd } from '@/components/ads/InContentAd';
+import { HeaderAd } from '@/components/ads/HeaderAd';
 
 interface Props {
   params: Promise<{ name: string }>;
@@ -87,6 +88,8 @@ export default async function NameDetailPage({ params }: Props) {
           </nav>
         </div>
       </div>
+
+      <HeaderAd />
 
       <div className="container mx-auto max-w-4xl px-4 py-12">
         {/* Header */}

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
 import { OvulationCalculator } from './OvulationCalculator';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const dynamic = 'force-static';
 
@@ -28,6 +29,7 @@ export default function OvulationCalculatorPage() {
         </p>
       </div>
       <OvulationCalculator />
+      <InContentAd />
     </div>
   );
 }

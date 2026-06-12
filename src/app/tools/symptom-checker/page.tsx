@@ -3,6 +3,7 @@ import { siteConfig } from '@/config/site';
 import { SymptomChecker } from './SymptomChecker';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const dynamic = 'force-static';
 
@@ -25,6 +26,7 @@ export default function SymptomCheckerPage() {
         </div>
       </div>
       <SymptomChecker />
+      <InContentAd />
     </div>
   );
 }

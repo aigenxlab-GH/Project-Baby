@@ -3,6 +3,7 @@ import { siteConfig } from '@/config/site';
 import { DueDateCalculator } from './DueDateCalculator';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const dynamic = 'force-static';
 
@@ -63,6 +64,8 @@ export default function DueDateCalculatorPage() {
           </p>
         </div>
         <DueDateCalculator />
+
+        <InContentAd />
 
         {/* FAQs */}
         <section className="mt-16">

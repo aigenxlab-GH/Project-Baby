@@ -6,7 +6,8 @@ import { siteConfig } from '@/config/site';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ThemeProvider } from '@/components/shared/ThemeProvider';
-import { ClientShell } from '@/components/layout/ClientShell';
+import { ClientShell } from '@/components/layout/ClientShell'
+import { FooterAd } from '@/components/ads/FooterAd';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -152,6 +153,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           <main id="main-content" className="flex-1">{children}</main>
           <Footer />
+          <FooterAd />
           <ClientShell />
         </ThemeProvider>
       </body>

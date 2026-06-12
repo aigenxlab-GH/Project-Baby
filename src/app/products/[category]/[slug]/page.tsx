@@ -27,6 +27,8 @@ import { getProductBySlug, getAllProducts } from '@/lib/products';
 import { siteConfig } from '@/config/site';
 import { BuyButton } from '@/components/affiliate/BuyButton';
 import { InContentAd } from '@/components/ads/InContentAd';
+import { HeaderAd } from '@/components/ads/HeaderAd';
+import { ArticleBottomAd } from '@/components/ads/ArticleBottomAd';
 import { ProductJsonLd } from '@/components/seo/ProductJsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { ShareButtons } from '@/components/shared/ShareButtons';
@@ -153,6 +155,8 @@ export default async function ProductReviewPage({ params }: Props) {
         { name: product.productName, href: `/products/${category}/${slug}` },
       ]} />
 
+      <HeaderAd />
+
       <div className="container mx-auto max-w-4xl px-4 py-8">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-1.5 text-xs text-gray-400 mb-6 flex-wrap">
@@ -273,6 +277,8 @@ export default async function ProductReviewPage({ params }: Props) {
             <p className="text-brand-700 dark:text-brand-200 leading-relaxed">{product.bottomLine}</p>
           </div>
 
+          <InContentAd />
+
           {/* In-depth review body — MDX narrative content */}
           {product.content && product.content.trim().length > 20 && (
             <section className="mb-8">
@@ -321,7 +327,7 @@ export default async function ProductReviewPage({ params }: Props) {
             </p>
           </div>
 
-          <InContentAd />
+          <ArticleBottomAd />
 
           {/* Specs table — card list on mobile, table on sm+ */}
           {product.specsTable && Object.keys(product.specsTable).length > 0 && (

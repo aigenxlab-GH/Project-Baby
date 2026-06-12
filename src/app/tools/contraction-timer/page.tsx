@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
 import { ContractionTimer } from './ContractionTimer';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const dynamic = 'force-static';
 
@@ -33,6 +34,7 @@ export default function ContractionTimerPage() {
         for at least <strong>1 hour</strong>.
       </div>
       <ContractionTimer />
+      <InContentAd />
     </div>
   );
 }

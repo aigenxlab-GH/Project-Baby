@@ -3,6 +3,7 @@ import { siteConfig } from '@/config/site';
 import { BabyNameGenerator } from './BabyNameGenerator';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const dynamic = 'force-static';
 
@@ -24,6 +25,7 @@ export default function BabyNameGeneratorPage() {
         </p>
       </div>
       <BabyNameGenerator />
+      <InContentAd />
     </div>
   );
 }
