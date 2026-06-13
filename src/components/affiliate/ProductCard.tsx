@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Star, CheckCircle, XCircle, Award } from 'lucide-react';
 import { BuyButton } from './BuyButton';
+import { resolveProductImage } from '@/lib/product-images';
 import type { ProductReview } from '@/types/product';
 
 interface Props {
@@ -33,7 +34,7 @@ export function ProductCard({ product, variant = 'card' }: Props) {
       <div className={`relative bg-gray-50 dark:bg-gray-700 ${variant === 'featured' ? 'h-52 lg:h-auto lg:w-64 lg:flex-shrink-0' : 'aspect-video'}`}>
         <Link href={productUrl}>
           <Image
-            src={product.image || '/images/product-placeholder.jpg'}
+            src={resolveProductImage(product.image, product.category)}
             alt={product.imageAlt || product.productName}
             fill
             className="object-contain p-4"

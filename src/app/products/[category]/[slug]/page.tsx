@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { ChevronRight, Star, CheckCircle, XCircle, AlertCircle, Clock } from 'lucide-react';
 
 import { getProductBySlug, getAllProducts } from '@/lib/products';
+import { resolveProductImage } from '@/lib/product-images';
 import { markdownToHtml } from '@/lib/markdown';
 import { siteConfig } from '@/config/site';
 import { BuyButton } from '@/components/affiliate/BuyButton';
@@ -120,9 +121,7 @@ export default async function ProductReviewPage({ params }: Props) {
   if (!product) notFound();
 
   const catLabel = categoryLabels[category] || category;
-  const heroImage = product.image?.startsWith('http')
-    ? product.image
-    : fallbackImages[category] || fallbackImages.default;
+  const heroImage = resolveProductImage(product.image, category);
 
   const priceRangeLabel = { budget: 'Budget', 'mid-range': 'Mid-Range', premium: 'Premium' }[product.priceRange];
   const priceRangeColor = { budget: 'bg-green-100 text-green-700', 'mid-range': 'bg-blue-100 text-blue-700', premium: 'bg-purple-100 text-purple-700' }[product.priceRange];
