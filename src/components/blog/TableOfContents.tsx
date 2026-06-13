@@ -8,9 +8,10 @@ export type { TocItem };
 
 interface Props {
   items: TocItem[];
+  mobileOnly?: boolean;
 }
 
-export function TableOfContents({ items }: Props) {
+export function TableOfContents({ items, mobileOnly = false }: Props) {
   const [activeId, setActiveId] = useState<string>('');
   const [mobileOpen, setMobileOpen] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -54,7 +55,7 @@ export function TableOfContents({ items }: Props) {
   return (
     <>
       {/* ── Desktop: sticky sidebar card ─────────────────── */}
-      <nav
+      {!mobileOnly && <nav
         aria-label="Table of contents"
         className="hidden xl:block sticky top-24 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-5 max-h-[70vh] overflow-y-auto"
       >
@@ -81,7 +82,7 @@ export function TableOfContents({ items }: Props) {
             </li>
           ))}
         </ol>
-      </nav>
+      </nav>}
 
       {/* ── Mobile: collapsible inline banner ────────────── */}
       <div className="xl:hidden mb-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden">

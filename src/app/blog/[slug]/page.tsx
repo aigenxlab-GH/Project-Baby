@@ -232,9 +232,9 @@ export default async function BlogArticlePage({ params }: Props) {
             </div>
           </header>
 
-          {/* Table of Contents — mobile inline, desktop in sidebar */}
+          {/* Table of Contents — mobile inline only; desktop version lives in <aside> */}
           {tocItems.length >= 3 && (
-            <TableOfContents items={tocItems} />
+            <TableOfContents items={tocItems} mobileOnly />
           )}
 
           {/* Article body — split into 3 segments so ads can be injected mid-article */}
