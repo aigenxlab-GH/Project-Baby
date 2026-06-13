@@ -180,6 +180,70 @@
 .dark .prose tbody tr         { border-color: #2a2a4a; }
 .dark .prose tbody tr:nth-child(even) { background-color: #16213e; }
 
+/* ── Markdown tables ───────────────────────────────────────────────────────── */
+.mdx-table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+}
+.dark .mdx-table-wrap {
+  border-color: #333358;
+}
+.mdx-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.mdx-table thead tr {
+  background-color: #fdf2f8;
+}
+.dark .mdx-table thead tr {
+  background-color: #1f1f3a;
+}
+.mdx-table thead th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #111827;
+  border-bottom: 2px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+.mdx-table thead th:last-child {
+  border-right: none;
+}
+.dark .mdx-table thead th {
+  color: #f1f5f9;
+  border-bottom-color: #333358;
+  border-right-color: #333358;
+}
+.mdx-table tbody td {
+  padding: 0.65rem 1rem;
+  color: #374151;
+  border-bottom: 1px solid #f3f4f6;
+  border-right: 1px solid #f3f4f6;
+  vertical-align: top;
+}
+.mdx-table tbody td:last-child {
+  border-right: none;
+}
+.dark .mdx-table tbody td {
+  color: #e2e8f0;
+  border-bottom-color: #2a2a4a;
+  border-right-color: #2a2a4a;
+}
+.mdx-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.mdx-table tbody tr.mdx-tr-alt {
+  background-color: #fdf8fa;
+}
+.dark .mdx-table tbody tr.mdx-tr-alt {
+  background-color: #16213e;
+}
+
 /* ── Custom scrollbar for desktop ─────────────────────────────────────────── */
 @media (min-width: 1024px) {
   ::-webkit-scrollbar { width: 6px; }

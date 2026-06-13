@@ -77,14 +77,14 @@ export default async function NameDetailPage({ params }: Props) {
       ]} />
 
       {/* Breadcrumb */}
-      <div className="bg-gray-50 border-b border-gray-100 py-3 px-4">
+      <div className="bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 py-3 px-4">
         <div className="container mx-auto max-w-4xl">
-          <nav className="flex items-center gap-2 text-sm text-gray-500">
-            <Link href="/" className="hover:text-brand-600">Home</Link>
+          <nav className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+            <Link href="/" className="min-h-[44px] flex items-center hover:text-brand-600 dark:hover:text-brand-400">Home</Link>
             <ChevronRight className="h-3 w-3" />
-            <Link href="/baby-names" className="hover:text-brand-600">Baby Names</Link>
+            <Link href="/baby-names" className="min-h-[44px] flex items-center hover:text-brand-600 dark:hover:text-brand-400">Baby Names</Link>
             <ChevronRight className="h-3 w-3" />
-            <span className="text-gray-900 font-medium">{nameData.name}</span>
+            <span className="text-gray-900 dark:text-gray-100 font-medium">{nameData.name}</span>
           </nav>
         </div>
       </div>

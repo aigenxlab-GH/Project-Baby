@@ -21,7 +21,7 @@ export function BreadcrumbNav({ items, current }: BreadcrumbNavProps) {
         <li>
           <Link
             href="/"
-            className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+            className="min-h-[44px] flex items-center hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
           >
             Home
           </Link>
@@ -37,7 +37,7 @@ export function BreadcrumbNav({ items, current }: BreadcrumbNavProps) {
             ) : (
               <Link
                 href={item.href}
-                className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                className="min-h-[44px] flex items-center hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
               >
                 {item.label}
               </Link>

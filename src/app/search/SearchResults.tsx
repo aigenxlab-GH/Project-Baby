@@ -153,7 +153,7 @@ export function SearchResults() {
               <button
                 key={term}
                 onClick={() => { setQuery(term); performSearch(term); router.push(`/search?q=${encodeURIComponent(term)}`); }}
-                className="text-xs bg-gray-100 hover:bg-brand-100 text-gray-600 hover:text-brand-700 px-3 py-1.5 rounded-full transition-colors"
+                className="text-xs bg-gray-100 hover:bg-brand-100 text-gray-600 hover:text-brand-700 px-3 py-2.5 rounded-full transition-colors"
               >
                 {term}
               </button>

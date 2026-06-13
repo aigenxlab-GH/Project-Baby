@@ -88,11 +88,11 @@ export default async function CategoryPage({ params }: Props) {
 
       <div className="container mx-auto max-w-7xl px-4 py-12">
       <nav className="flex items-center gap-2 text-sm text-gray-500 mb-8" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-brand-600">Home</Link>
+        <Link href="/" className="min-h-[44px] flex items-center hover:text-brand-600">Home</Link>
         <ChevronRight className="h-3 w-3" aria-hidden="true" />
-        <Link href="/products" className="hover:text-brand-600">Products</Link>
+        <Link href="/products" className="min-h-[44px] flex items-center hover:text-brand-600">Products</Link>
         <ChevronRight className="h-3 w-3" aria-hidden="true" />
-        <span className="text-gray-900 font-medium" aria-current="page">{label}</span>
+        <span className="text-gray-900 dark:text-gray-100 font-medium" aria-current="page">{label}</span>
       </nav>
 
       <h1 className="font-serif text-4xl font-bold text-gray-900 mb-3">{label} — 2026 Reviews</h1>

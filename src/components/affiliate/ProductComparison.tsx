@@ -76,7 +76,7 @@ export function ProductComparison({ products, categoryLabel }: Props) {
                     onClick={() => toggleSelect(p.slug)}
                     aria-pressed={isSelected}
                     disabled={!isSelected && selected.length >= 3}
-                    className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-all disabled:opacity-40 disabled:cursor-not-allowed ${
+                    className={`text-xs font-medium px-3 py-2.5 rounded-full border transition-all disabled:opacity-40 disabled:cursor-not-allowed ${
                       isSelected
                         ? 'bg-blue-600 text-white border-blue-600'
                         : 'bg-white text-blue-700 border-blue-200 hover:border-blue-400'

@@ -19,10 +19,10 @@ export default function BabyNamesPage() {
       <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Baby Names', href: '/baby-names' }]} />
       <Breadcrumb items={[{ name: 'Baby Names', href: '/baby-names' }]} />
       <div className="text-center mb-10">
-        <h1 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <h1 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
           Baby Names
         </h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
           Browse 1,188+ baby names with meanings, origins, and popularity trends.
           Filter by gender, starting letter, or origin to find the perfect name.
         </p>

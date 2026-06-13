@@ -74,7 +74,7 @@ export function BabyNamesBrowser() {
             <button
               onClick={() => updateFilter('startingLetter', undefined)}
               aria-pressed={!filters.startingLetter}
-              className={`px-2 py-1 rounded text-xs font-medium ${!filters.startingLetter ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+              className={`px-2.5 py-2 rounded text-xs font-medium ${!filters.startingLetter ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
             >
               All
             </button>
@@ -84,7 +84,7 @@ export function BabyNamesBrowser() {
                 onClick={() => updateFilter('startingLetter', filters.startingLetter === l ? undefined : l)}
                 aria-pressed={filters.startingLetter === l}
                 aria-label={`Names starting with ${l}`}
-                className={`px-2 py-1 rounded text-xs font-medium transition-colors ${filters.startingLetter === l ? 'bg-brand-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-brand-50 hover:text-brand-600'}`}
+                className={`px-2.5 py-2 rounded text-xs font-medium transition-colors ${filters.startingLetter === l ? 'bg-brand-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-brand-50 hover:text-brand-600'}`}
               >
                 {l}
               </button>

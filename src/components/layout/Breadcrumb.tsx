@@ -21,7 +21,7 @@ export function Breadcrumb({ items, className = '' }: Props) {
     <nav aria-label="Breadcrumb" className={`flex items-center flex-wrap gap-1 text-xs text-gray-400 mb-6 ${className}`}>
       <Link
         href="/"
-        className="flex items-center gap-1 hover:text-brand-600 transition-colors"
+        className="flex items-center gap-1 min-h-[44px] px-1 hover:text-brand-600 transition-colors"
       >
         <Home className="h-3 w-3" aria-hidden="true" />
         <span className="sr-only">Home</span>
@@ -33,7 +33,7 @@ export function Breadcrumb({ items, className = '' }: Props) {
             <ChevronRight className="h-3 w-3 flex-shrink-0" aria-hidden="true" />
             {isLast ? (
               <span
-                className="text-gray-600 font-medium truncate max-w-[200px]"
+                className="text-gray-600 dark:text-gray-400 font-medium truncate max-w-[200px]"
                 aria-current="page"
               >
                 {item.name}
@@ -41,7 +41,7 @@ export function Breadcrumb({ items, className = '' }: Props) {
             ) : (
               <Link
                 href={item.href}
-                className="hover:text-brand-600 transition-colors truncate max-w-[150px]"
+                className="min-h-[44px] flex items-center hover:text-brand-600 transition-colors truncate max-w-[150px]"
               >
                 {item.name}
               </Link>

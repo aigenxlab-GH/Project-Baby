@@ -17,6 +17,8 @@ import { TableOfContents } from '@/components/blog/TableOfContents';
 import { AuthorBox } from '@/components/blog/AuthorBox';
 import { ShareButtons } from '@/components/shared/ShareButtons';
 import { injectHeadingIds, extractToc } from '@/lib/toc';
+import { markdownToHtml } from '@/lib/markdown';
+import { getArticleImage } from '@/lib/article-images';
 
 export const dynamic = 'force-static';
 
@@ -49,72 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const fallbackImages: Record<string, string> = {
-  pregnancy: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=1200&q=85&auto=format&fit=crop',
-  products: 'https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=1200&q=85&auto=format&fit=crop',
-  parenting: 'https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=1200&q=85&auto=format&fit=crop',
-  default: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=1200&q=85&auto=format&fit=crop',
-};
 
-// Auto-link authoritative health organisations when mentioned in article body text.
-// This adds in-body citations without requiring manual linking in every MDX file.
-// Only links bare mentions (not ones already inside an <a> tag).
-const AUTHORITY_LINKS: [RegExp, string, string][] = [
-  [/\bNHS\b/g, 'https://www.nhs.uk', 'NHS (National Health Service)'],
-  [/\bWHO\b/g, 'https://www.who.int', 'World Health Organization'],
-  [/\bAAP\b/g, 'https://www.aap.org', 'American Academy of Pediatrics'],
-  [/\bNICE\b/g, 'https://www.nice.org.uk', 'NICE (National Institute for Health and Care Excellence)'],
-  [/\bRCOG\b/g, 'https://www.rcog.org.uk', 'Royal College of Obstetricians and Gynaecologists'],
-  [/\bCDC\b/g, 'https://www.cdc.gov', 'Centers for Disease Control and Prevention'],
-];
-
-function linkAuthorities(html: string): string {
-  // Only replace in text content — not inside existing <a> tags or HTML attributes
-  return html.replace(/(<a[^>]*>[\s\S]*?<\/a>)|([^<>]+)/g, (match, link, text) => {
-    if (link) return link; // already a link — don't touch
-    if (!text) return match;
-    let result = text;
-    for (const [regex, url, title] of AUTHORITY_LINKS) {
-      result = result.replace(
-        regex,
-        `<a href="${url}" target="_blank" rel="noopener noreferrer" title="${title}" class="authority-link">${regex.source.replace(/\\b/g, '').replace(/\\/g, '')}</a>`
-      );
-    }
-    return result;
-  });
-}
-
-// Convert raw markdown to HTML (simple but effective)
-function markdownToHtml(md: string): string {
-  const html = md
-    // headings
-    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
-    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
-    .replace(/^# (.+)$/gm, '<h1>$1</h1>')
-    // bold + italic
-    .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.+?)\*/g, '<em>$1</em>')
-    // links
-    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')
-    // unordered lists
-    .replace(/^\s*[-*+] (.+)$/gm, '<li>$1</li>')
-    // ordered lists
-    .replace(/^\s*\d+\. (.+)$/gm, '<li>$1</li>')
-    // blockquotes
-    .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
-    // horizontal rules
-    .replace(/^---$/gm, '<hr />')
-    // paragraphs: wrap non-tag lines
-    .replace(/^(?!<[a-z/]).+$/gm, (line) => line.trim() ? `<p>${line}</p>` : '')
-    // clean up empty li wrappers
-    .replace(/(<li>.*?<\/li>\n?)+/g, (match) => `<ul>${match}</ul>`)
-    // clean multiple blank lines
-    .replace(/\n{3,}/g, '\n\n');
-
-  // Auto-link authority mentions AFTER all HTML is generated
-  return linkAuthorities(html);
-}
 
 function splitHtmlAtNthParagraph(html: string, n: number): [string, string] {
   let count = 0;
@@ -136,12 +73,10 @@ export default async function BlogArticlePage({ params }: Props) {
   const all = getAllArticles('blog');
   const related = getRelatedArticles(article, all, 3);
 
-  const heroImage = article.image?.startsWith('http')
-    ? article.image
-    : fallbackImages[article.category as string] || fallbackImages.default;
+  const heroImage = getArticleImage(slug, article.category);
 
   // Inject id= attributes into headings, then extract TOC
-  const htmlWithIds = injectHeadingIds(markdownToHtml(article.content));
+  const htmlWithIds = injectHeadingIds(markdownToHtml(article.content, { linkAuthorities: true }));
   const tocItems = extractToc(htmlWithIds);
 
   // Split article body for two mid-content ad injection points.
@@ -175,11 +110,11 @@ export default async function BlogArticlePage({ params }: Props) {
       <div className="container mx-auto max-w-6xl px-4 py-8 dark:text-gray-200">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-1.5 text-xs text-gray-400 mb-6 flex-wrap">
-          <Link href="/" className="hover:text-brand-600">Home</Link>
+          <Link href="/" className="min-h-[44px] flex items-center hover:text-brand-600">Home</Link>
           <ChevronRight className="h-3 w-3" />
-          <Link href="/blog" className="hover:text-brand-600">Blog</Link>
+          <Link href="/blog" className="min-h-[44px] flex items-center hover:text-brand-600">Blog</Link>
           <ChevronRight className="h-3 w-3" />
-          <span className="text-gray-600 font-medium truncate max-w-[250px]">{article.title}</span>
+          <span className="text-gray-600 dark:text-gray-400 font-medium truncate max-w-[250px]">{article.title}</span>
         </nav>
 
         {/* 2-column layout: article + sticky TOC sidebar */}
@@ -350,7 +285,7 @@ export default async function BlogArticlePage({ params }: Props) {
         {/* Desktop sidebar: TOC + ad. Sticky lives on the aside (the grid item) —
             with items-start on the grid, the aside can travel the full row height.
             TableOfContents renders null below 3 headings, so the ad still shows. */}
-        <aside className="hidden xl:block sticky top-24">
+        <aside className="hidden xl:block self-start">
           <TableOfContents items={tocItems} />
           <div className="mt-6">
             <SidebarAd />
@@ -365,9 +300,7 @@ export default async function BlogArticlePage({ params }: Props) {
             <h2 className="font-serif text-xl font-bold text-gray-900 dark:text-white mb-6">Related Articles</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {related.map((rel) => {
-                const relImg = rel.image?.startsWith('http')
-                  ? rel.image
-                  : fallbackImages[rel.category as string] || fallbackImages.default;
+                const relImg = getArticleImage(rel.slug, rel.category);
                 return (
                   <Link key={rel.slug} href={`/blog/${rel.slug}`} className="group bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-md transition-all">
                     <div className="relative h-36 overflow-hidden">

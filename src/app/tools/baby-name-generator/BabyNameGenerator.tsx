@@ -42,7 +42,7 @@ export function BabyNameGenerator() {
               <button
                 key={g}
                 onClick={() => updateFilter('gender', g)}
-                className={`px-4 py-2 rounded-full text-sm font-medium capitalize transition-colors
+                className={`px-4 py-2.5 rounded-full text-sm font-medium capitalize transition-colors
                   ${filters.gender === g
                     ? g === 'girl' ? 'bg-pink-500 text-white' : g === 'boy' ? 'bg-blue-500 text-white' : g === 'neutral' ? 'bg-purple-500 text-white' : 'bg-gray-900 text-white'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'

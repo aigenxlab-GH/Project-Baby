@@ -77,7 +77,7 @@ export function Footer() {
           </div>
           <Link
             href="/tools/due-date-calculator"
-            className="inline-flex items-center gap-2 bg-white text-brand-700 font-semibold px-5 py-2.5 rounded-full text-sm hover:bg-brand-50 transition-colors shadow-md flex-shrink-0"
+            className="inline-flex items-center gap-2 bg-white text-brand-700 font-semibold px-5 py-3 rounded-full text-sm hover:bg-brand-50 transition-colors shadow-md flex-shrink-0"
           >
             Calculate Due Date <ArrowRight className="h-4 w-4" />
           </Link>
@@ -102,13 +102,13 @@ export function Footer() {
               <a
                 href={`mailto:${siteConfig.email}`}
                 aria-label={`Email PregnancySprout: ${siteConfig.email}`}
-                className="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-brand-400 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-brand-400 transition-colors py-2"
               >
                 <Mail className="h-3.5 w-3.5" aria-hidden="true" />
                 <span>Contact us</span>
               </a>
               {/* Business location signal for E-E-A-T (SEOptimizer: Add Business Address) */}
-              <span className="text-xs text-gray-600">📍 United States</span>
+              <span className="text-xs text-gray-500">📍 United States</span>
             </div>
             {/* Social media profile links (fix #24) */}
             <div className="mt-4 flex items-center gap-3">
@@ -119,13 +119,13 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                   aria-label={`Follow PregnancySprout on ${s.name}`}
-                  className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-brand-600 text-gray-400 hover:text-white transition-colors"
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-brand-600 text-gray-400 hover:text-white transition-colors"
                 >
                   {s.icon}
                 </a>
               ))}
             </div>
-            <p className="text-xs text-gray-600 mt-4 leading-relaxed">
+            <p className="text-xs text-gray-500 mt-4 leading-relaxed">
               <strong className="text-gray-500">Medical Disclaimer:</strong>{' '}
               Content is for informational purposes only. Always consult your healthcare provider.
             </p>
@@ -138,7 +138,7 @@ export function Footer() {
                 <time dateTime="2026-06">June 2026</time>
               </p>
               {/* Location signal for E-E-A-T (fix #25) */}
-              <p className="text-xs text-gray-600 mt-1">
+              <p className="text-xs text-gray-500 mt-1">
                 🌍 Serving readers in the United States, United Kingdom &amp; worldwide
               </p>
             </div>
@@ -150,7 +150,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {footerNav.topics.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block">
+                  <Link href={link.href} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
                     {link.title}
                   </Link>
                 </li>
@@ -164,7 +164,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {footerNav.tools.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block">
+                  <Link href={link.href} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
                     {link.title}
                   </Link>
                 </li>
@@ -178,23 +178,23 @@ export function Footer() {
             <ul className="space-y-2.5">
               {footerNav.company.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block">
+                  <Link href={link.href} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
                     {link.title}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link href="/editorial-standards" className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block">
+                <Link href="/editorial-standards" className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
                   Editorial Standards
                 </Link>
               </li>
               <li>
-                <Link href="/corrections" className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block">
+                <Link href="/corrections" className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
                   Corrections
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block">
+                <Link href="/terms" className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
                   Terms &amp; Conditions
                 </Link>
               </li>
@@ -203,21 +203,21 @@ export function Footer() {
         </div>
 
         {/* ── Bottom bar ───────────────────────────────── */}
-        <div className="mt-10 pt-6 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-600">
+        <div className="mt-10 pt-6 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
           <p className="text-gray-400">© {year} {siteConfig.name}. All rights reserved.</p>
           <p className="flex items-center gap-1 text-gray-400">
             Made with <Heart className="h-3 w-3 text-brand-500 fill-brand-500" aria-hidden="true" /> for expecting parents
           </p>
-          <div className="flex items-center gap-3">
-            <Link href="/affiliate-disclosure" className="text-gray-400 hover:text-white transition-colors">Affiliate Disclosure</Link>
-            <span className="text-gray-600">·</span>
-            <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">Privacy</Link>
-            <span className="text-gray-600">·</span>
-            <Link href="/cookie-policy" className="text-gray-400 hover:text-white transition-colors">Cookies</Link>
-            <span className="text-gray-600">·</span>
-            <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">Terms</Link>
-            <span className="text-gray-600">·</span>
-            <Link href="/cookie-policy#ccpa" className="text-gray-400 hover:text-white transition-colors">Do Not Sell My Info</Link>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <Link href="/affiliate-disclosure" className="text-gray-400 hover:text-white transition-colors py-2">Affiliate Disclosure</Link>
+            <span className="text-gray-500" aria-hidden="true">·</span>
+            <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors py-2">Privacy</Link>
+            <span className="text-gray-500" aria-hidden="true">·</span>
+            <Link href="/cookie-policy" className="text-gray-400 hover:text-white transition-colors py-2">Cookies</Link>
+            <span className="text-gray-500" aria-hidden="true">·</span>
+            <Link href="/terms" className="text-gray-400 hover:text-white transition-colors py-2">Terms</Link>
+            <span className="text-gray-500" aria-hidden="true">·</span>
+            <Link href="/cookie-policy#ccpa" className="text-gray-400 hover:text-white transition-colors py-2">Do Not Sell My Info</Link>
           </div>
         </div>
       </div>

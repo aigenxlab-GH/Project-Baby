@@ -45,23 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function markdownToHtml(md: string): string {
-  return md
-    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
-    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
-    .replace(/^# (.+)$/gm, '<h1>$1</h1>')
-    .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.+?)\*/g, '<em>$1</em>')
-    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')
-    .replace(/^\s*[-*+] (.+)$/gm, '<li>$1</li>')
-    .replace(/^\s*\d+\. (.+)$/gm, '<li>$1</li>')
-    .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
-    .replace(/^---$/gm, '<hr />')
-    .replace(/^(?!<[a-z/]).+$/gm, (line) => line.trim() ? `<p>${line}</p>` : '')
-    .replace(/(<li>.*?<\/li>\n?)+/g, (match) => `<ul>${match}</ul>`)
-    .replace(/\n{3,}/g, '\n\n');
-}
+import { markdownToHtml } from '@/lib/markdown';
 
 const topicLabels: Record<string, string> = {
   newborn: 'Newborn Care',
@@ -95,13 +79,13 @@ export default async function ParentingArticlePage({ params }: Props) {
       ]} />
       {/* Breadcrumb */}
       <nav className="flex items-center gap-1.5 text-xs text-gray-400 mb-6 flex-wrap">
-        <Link href="/" className="hover:text-brand-600">Home</Link>
+        <Link href="/" className="min-h-[44px] flex items-center hover:text-brand-600">Home</Link>
         <ChevronRight className="h-3 w-3" />
-        <Link href="/parenting" className="hover:text-brand-600">Parenting</Link>
+        <Link href="/parenting" className="min-h-[44px] flex items-center hover:text-brand-600">Parenting</Link>
         <ChevronRight className="h-3 w-3" />
-        <Link href={`/parenting/${topic}`} className="hover:text-brand-600">{topicLabel}</Link>
+        <Link href={`/parenting/${topic}`} className="min-h-[44px] flex items-center hover:text-brand-600">{topicLabel}</Link>
         <ChevronRight className="h-3 w-3" />
-        <span className="text-gray-600 font-medium truncate max-w-[200px]">{article.title}</span>
+        <span className="text-gray-600 dark:text-gray-400 font-medium truncate max-w-[200px]">{article.title}</span>
       </nav>
 
       <article>

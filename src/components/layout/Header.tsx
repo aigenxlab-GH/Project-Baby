@@ -68,7 +68,7 @@ export function Header() {
                   <div className="flex items-center">
                     <Link
                       href={item.href}
-                      className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-150 ${
+                      className={`flex items-center gap-1 px-3 py-2.5 text-sm font-medium rounded-lg transition-colors duration-150 ${
                         isActive(item.href)
                           ? 'text-brand-600 bg-brand-50 dark:bg-brand-950/40'
                           : 'text-gray-700 dark:text-gray-300 hover:text-brand-600 hover:bg-brand-50 dark:hover:bg-gray-800'
@@ -117,7 +117,7 @@ export function Header() {
                           href={sub.href}
                           role="menuitem"
                           onClick={() => setOpenDropdown(null)}
-                          className={`flex items-center px-4 py-2 text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-600 ${
+                          className={`flex items-center px-4 py-2.5 text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-600 ${
                             pathname === sub.href
                               ? 'text-brand-600 bg-brand-50 dark:bg-brand-950/40 font-medium'
                               : 'text-gray-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-brand-50 dark:hover:bg-gray-800'
@@ -147,7 +147,7 @@ export function Header() {
               {/* CTA button */}
               <Link
                 href="/tools/due-date-calculator"
-                className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 rounded-full transition-colors shadow-sm"
+                className="hidden md:inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 rounded-full transition-colors shadow-sm"
               >
                 <Calculator className="h-3.5 w-3.5" />
                 Due Date
@@ -159,7 +159,7 @@ export function Header() {
               {/* Mobile toggle */}
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden p-2 text-gray-600 hover:text-brand-600 hover:bg-brand-50 rounded-lg transition-colors"
+                className="lg:hidden p-3 text-gray-600 dark:text-gray-300 hover:text-brand-600 hover:bg-brand-50 dark:hover:bg-gray-800 rounded-lg transition-colors"
                 aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={mobileOpen}
               >
@@ -215,7 +215,7 @@ export function Header() {
                     {item.items && (
                       <button
                         onClick={() => setOpenDropdown(openDropdown === item.title ? null : item.title)}
-                        className="p-2.5 text-gray-400 hover:text-brand-600 transition-colors rounded-xl"
+                        className="p-3 min-h-[44px] min-w-[44px] flex items-center justify-center text-gray-400 dark:text-gray-500 hover:text-brand-600 transition-colors rounded-xl"
                         aria-label={`${openDropdown === item.title ? 'Collapse' : 'Expand'} ${item.title} submenu`}
                         aria-expanded={openDropdown === item.title}
                       >
@@ -244,7 +244,7 @@ export function Header() {
               <div className="pt-3 border-t border-gray-100 dark:border-gray-800 mt-2">
                 <Link
                   href="/tools/due-date-calculator"
-                  className="flex items-center justify-center gap-2 w-full py-3 text-sm font-semibold text-white bg-gradient-to-r from-brand-500 to-brand-600 rounded-xl"
+                  className="flex items-center justify-center gap-2 w-full py-3.5 text-sm font-semibold text-white bg-gradient-to-r from-brand-500 to-brand-600 rounded-xl"
                 >
                   <Calculator className="h-4 w-4" aria-hidden="true" />
                   Calculate Your Due Date

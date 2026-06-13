@@ -88,7 +88,7 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
                 key={cat}
                 onClick={() => setFilter(cat)}
                 aria-pressed={activeCategory === cat}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium capitalize transition-colors ${
+                className={`px-4 py-2.5 rounded-full text-sm font-medium capitalize transition-colors ${
                   activeCategory === cat
                     ? 'bg-brand-600 text-white'
                     : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-brand-950/40 hover:text-brand-600 dark:hover:text-brand-400'
@@ -119,9 +119,8 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
       ) : (
         <div className="grid md:grid-cols-2 gap-8 mb-10">
           {paginated.map((article, i) => {
-            const imgSrc = article.image?.startsWith('http')
-              ? article.image
-              : fallbackImages[article.category as string] ?? fallbackImages.default;
+            // article.image is pre-resolved by the page using getArticleImage()
+            const imgSrc = article.image || fallbackImages[article.category as string] || fallbackImages.default;
             const isFirst = page === 1 && i === 0;
 
             return (
@@ -173,7 +172,7 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={page === 1}
             aria-label="Previous page"
-            className="flex items-center gap-1 px-4 py-2 rounded-xl border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="flex items-center gap-1 px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             <ChevronLeft className="h-4 w-4" aria-hidden="true" /> Prev
           </button>
@@ -181,7 +180,7 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
           {/* Page numbers */}
           {pageNums[0] > 1 && (
             <>
-              <button onClick={() => setPage(1)} className="w-9 h-9 rounded-xl border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">1</button>
+              <button onClick={() => setPage(1)} className="w-11 h-11 rounded-xl border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">1</button>
               {pageNums[0] > 2 && <span className="text-gray-400 dark:text-gray-500 px-1">…</span>}
             </>
           )}
@@ -192,7 +191,7 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
               onClick={() => setPage(n)}
               aria-label={`Page ${n}`}
               aria-current={n === page ? 'page' : undefined}
-              className={`w-9 h-9 rounded-xl text-sm font-medium transition-colors ${
+              className={`w-11 h-11 rounded-xl text-sm font-medium transition-colors ${
                 n === page
                   ? 'bg-brand-600 text-white border border-brand-600'
                   : 'border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
@@ -205,7 +204,7 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
           {pageNums[pageNums.length - 1] < totalPages && (
             <>
               {pageNums[pageNums.length - 1] < totalPages - 1 && <span className="text-gray-400 dark:text-gray-500 px-1">…</span>}
-              <button onClick={() => setPage(totalPages)} className="w-9 h-9 rounded-xl border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">{totalPages}</button>
+              <button onClick={() => setPage(totalPages)} className="w-11 h-11 rounded-xl border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">{totalPages}</button>
             </>
           )}
 
@@ -214,7 +213,7 @@ export function BlogGrid({ articles, fallbackImages }: Props) {
             onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
             disabled={page === totalPages}
             aria-label="Next page"
-            className="flex items-center gap-1 px-4 py-2 rounded-xl border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="flex items-center gap-1 px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             Next <ChevronRight className="h-4 w-4" aria-hidden="true" />
           </button>

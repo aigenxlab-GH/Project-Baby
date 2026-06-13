@@ -67,7 +67,7 @@ export function RegistryChecklist() {
               key={f}
               onClick={() => setFilter(f)}
               aria-pressed={filter === f}
-              className={`px-4 py-2 rounded-full text-sm font-medium capitalize transition-colors ${filter === f ? 'bg-brand-600 text-white' : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'}`}
+              className={`px-4 py-2.5 rounded-full text-sm font-medium capitalize transition-colors ${filter === f ? 'bg-brand-600 text-white' : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'}`}
             >
               {f === 'all' ? 'All Items' : f === 'essential' ? '🔴 Essential Only' : '🟡 Nice to Have'}
             </button>
@@ -122,7 +122,7 @@ export function RegistryChecklist() {
                         target="_blank"
                         rel="nofollow sponsored noopener noreferrer"
                         aria-label={`Shop for ${item.name} (opens in new tab)`}
-                        className="flex-shrink-0 flex items-center gap-1 text-xs font-medium text-amber-700 bg-amber-50 hover:bg-amber-100 px-3 py-1.5 rounded-full transition-colors"
+                        className="flex-shrink-0 flex items-center gap-1 text-xs font-medium text-amber-700 bg-amber-50 hover:bg-amber-100 px-3 py-2.5 rounded-full transition-colors"
                       >
                         <ShoppingCart className="h-3.5 w-3.5" aria-hidden="true" />
                         Shop

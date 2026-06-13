@@ -147,26 +147,26 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-3 mb-6">
                 <Link
                   href="/tools/due-date-calculator"
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white font-semibold rounded-full text-sm transition-transform will-change-transform shadow-md hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-1.5 px-5 py-3.5 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white font-semibold rounded-full text-sm transition-transform will-change-transform shadow-md hover:-translate-y-0.5"
                 >
                   <Calculator className="h-4 w-4" />
                   Calculate Due Date
                 </Link>
                 <Link
                   href="/pregnancy/week-by-week"
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 font-semibold rounded-full text-sm border border-gray-200 dark:border-gray-700 hover:border-brand-300 transition-transform will-change-transform hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-1.5 px-5 py-3.5 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 font-semibold rounded-full text-sm border border-gray-200 dark:border-gray-700 hover:border-brand-300 transition-transform will-change-transform hover:-translate-y-0.5"
                 >
                   Week by Week Guide
                   <ChevronRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
               </div>
               {/* Trust badges */}
-              <div className="flex flex-wrap gap-4 text-xs text-gray-600 dark:text-gray-300">
-                <span className="flex items-center gap-1"><span aria-hidden="true">✅</span> Free forever</span>
-                <Link href="/blog" className="flex items-center gap-1 underline underline-offset-2 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+              <div className="flex flex-wrap gap-3 text-xs text-gray-600 dark:text-gray-300">
+                <span className="flex items-center gap-1 py-3"><span aria-hidden="true">✅</span> Free forever</span>
+                <Link href="/blog" className="flex items-center gap-1 py-3 underline underline-offset-2 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
                   <span aria-hidden="true">✅</span> 214+ expert articles
                 </Link>
-                <Link href="/baby-names" className="flex items-center gap-1 underline underline-offset-2 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                <Link href="/baby-names" className="flex items-center gap-1 py-3 underline underline-offset-2 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
                   <span aria-hidden="true">✅</span> 1,188+ baby names
                 </Link>
               </div>
@@ -289,7 +289,7 @@ export default function HomePage() {
         <div className="container mx-auto max-w-5xl">
           <div className="flex items-center justify-between mb-7">
             <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white">Pregnancy Week by Week</h2>
-            <Link href="/pregnancy/week-by-week" className="text-brand-600 dark:text-brand-400 hover:underline text-sm font-medium flex items-center gap-1">
+            <Link href="/pregnancy/week-by-week" className="text-brand-600 dark:text-brand-400 hover:underline text-sm font-medium flex items-center gap-1 min-h-[44px]">
               View all 40 weeks <ChevronRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
@@ -330,13 +330,13 @@ export default function HomePage() {
             Filter by gender, origin, starting letter, and more.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link href="/baby-names?gender=girl" className="px-5 py-2.5 bg-pink-500 hover:bg-pink-600 text-white text-sm font-semibold rounded-full transition-colors">
+            <Link href="/baby-names?gender=girl" className="px-5 py-3 bg-pink-500 hover:bg-pink-600 text-white text-sm font-semibold rounded-full transition-colors">
               Girl Names
             </Link>
-            <Link href="/baby-names?gender=boy" className="px-5 py-2.5 bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold rounded-full transition-colors">
+            <Link href="/baby-names?gender=boy" className="px-5 py-3 bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold rounded-full transition-colors">
               Boy Names
             </Link>
-            <Link href="/baby-names?gender=neutral" className="px-5 py-2.5 bg-purple-500 hover:bg-purple-600 text-white text-sm font-semibold rounded-full transition-colors">
+            <Link href="/baby-names?gender=neutral" className="px-5 py-3 bg-purple-500 hover:bg-purple-600 text-white text-sm font-semibold rounded-full transition-colors">
               Gender Neutral
             </Link>
           </div>

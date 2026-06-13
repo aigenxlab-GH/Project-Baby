@@ -3,6 +3,7 @@ import { siteConfig } from '@/config/site';
 import { getAllArticles, getAllArticlesUnder } from '@/lib/mdx';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { BlogGrid } from './BlogGrid';
+import { getArticleImage } from '@/lib/article-images';
 
 export const dynamic = 'force-static';
 
@@ -26,10 +27,12 @@ export default function BlogPage() {
   const blogArticles = getAllArticles('blog').map((a) => ({
     ...a,
     href: `/blog/${a.slug}`,
+    image: getArticleImage(a.slug, a.category),
   }));
   const parentingArticles = getAllArticlesUnder('parenting').map((a) => ({
     ...a,
-    href: `/${a.section}/${a.slug}`, // e.g. /parenting/sleep/my-slug
+    href: `/${a.section}/${a.slug}`,
+    image: getArticleImage(a.slug, a.category),
   }));
   const articles = [...blogArticles, ...parentingArticles].sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
