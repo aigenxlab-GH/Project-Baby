@@ -1,84 +1,86 @@
 // Curated, topic-appropriate Unsplash images for all article types.
-// Each photo ID is inferred from its existing use in articles where context confirms relevance.
-// Call getArticleImage(slug, category) instead of using article.image directly — this
-// ensures every page gets a relevant image regardless of what's in the MDX frontmatter.
+// Every photo ID below was selected via the Unsplash Search API and VERIFIED by its
+// alt_description text (shown in the trailing comment) — so the SUBJECT is confirmed,
+// not just that the URL loads. All subjects are pregnancy / baby / parenting / baby products.
+// Call getArticleImage(slug, category) instead of using article.image directly.
 
 const U = (id: string) =>
   `https://images.unsplash.com/${id}?w=1200&q=85&auto=format&fit=crop`;
 
-// Verified photo → topic mapping (confirmed from existing correct article usages)
+// Verified photo → topic mapping (alt_description confirmed via Unsplash API)
 const IMGS = {
   // ── Pregnancy / maternity ───────────────────────────────────────────────
-  pregnant_woman:    U('photo-1519823551278-64ac92734fb1'),  // pregnancy-complete-hub
-  pregnant_wellness: U('photo-1585771724684-38269d6639fd'),  // pregnancy-guide-hub
-  labor_hospital:    U('photo-1519340241574-2cec6aef0c01'),  // signs-of-labor
-  pregnancy_scan:    U('photo-1653063264246-0c0f3b266cfa'),  // pregnancy-symptoms-by-week
-  prenatal_care:     U('photo-1531983412531-1f49a365ffed'),  // pregnancy articles
-  pregnancy_yoga:    U('photo-1515488042361-ee00e0ddd4e4'),  // returning-work / safe-exercises
-  pregnancy_diet:    U('photo-1538678867871-8a43e7487746'),  // pregnancy-diet-guide
-  pregnancy_sleep:   U('photo-1586023492125-27b2c045efd7'),  // pregnancy-insomnia
+  pregnant_woman:    U('photo-1568043625493-2b0633c7c491'),  // "pregnant near door"
+  pregnant_wellness: U('photo-1518197533112-caf4010e9d42'),  // "pregnant woman holding her tummy during daytime"
+  labor_hospital:    U('photo-1604807787527-e7ad386cca6a'),  // "man in blue scrub suit holding baby" (hospital birth)
+  pregnancy_scan:    U('photo-1541525104203-650998d309cb'),  // "woman holding ultrasound results"
+  prenatal_care:     U('photo-1632053652571-a6a45052bbbd'),  // "a doctor talking to a pregnant woman in a waiting room"
+  pregnancy_yoga:    U('photo-1626444231642-6bd985bca16a'),  // "woman in black tank top doing yoga"
+  pregnancy_diet:    U('photo-1587061853304-13dbe42cfba4'),  // "woman slicing green vegetable" (healthy eating)
+  pregnancy_sleep:   U('photo-1543270216-7c25819fe5af'),     // "pregnant woman lying on the sofa"
+  pregnancy_vitamins:U('photo-1577563651033-ec73e8228a03'),  // "pregnant woman in blue dress holding blister pack"
 
   // ── Baby sleep ──────────────────────────────────────────────────────────
-  baby_sleeping:     U('photo-1510154221590-ff63e90a136f'),  // baby-sleep-training-methods-complete
-  baby_sleep2:       U('photo-1582486225644-aeacf6aa0b1b'),  // baby-sleep-training-methods
-  crib_bassinet:     U('photo-1548532928-b34e3be62fc6'),     // best-cribs-bassinets-safety
-  white_noise:       U('photo-1496174742515-d2146dcf8e80'),  // baby sleeping — nursery/white-noise
-  toddler_bed:       U('photo-1566041510639-8d95a2490bfb'),  // best-toddler-beds
+  baby_sleeping:     U('photo-1511948374796-056e8f289f34'),  // "baby covered with white blanket"
+  baby_sleep2:       U('photo-1546015720-b8b30df5aa27'),     // "baby's gray knit hat" (sleeping newborn)
+  crib_bassinet:     U('photo-1505679208891-9ab12ee61dc1'),  // "baby in bassinet"
+  white_noise:       U('photo-1542387960-f8197d82db42'),     // "baby sleeping on gray and white bed"
+  toddler_bed:       U('photo-1556265617-02021d9b0fa5'),     // "toddler's bed with mesh canopy"
 
   // ── Feeding / breastfeeding ─────────────────────────────────────────────
-  breast_pump:       U('photo-1563203369-26f2e4a5ccf7'),     // best-breast-pumps
-  bottle:            U('photo-1560328055-e938bb2ed50a'),     // feeding/nursing — sterilizers
-  nursing_pillow:    U('photo-1560328055-e938bb2ed50a'),     // best-nursing-pillows
-  feeding_chair:     U('photo-1553481187-be93c21490a9'),     // best-feeding-chairs
-  high_chair:        U('photo-1519457431-44ccd64a579b'),     // best-baby-high-chairs
-  solid_foods:       U('photo-1648634008591-4ede52875841'),  // when-and-how-to-start-solid-foods
+  breast_pump:       U('photo-1751890855898-0f6f53d5477d'),  // "A baby breastfeeds, clinging to its mother"
+  bottle:            U('photo-1529567054786-fc5235fdd39e'),  // "person feeding baby from feeding bottle"
+  nursing_pillow:    U('photo-1648375975494-30e0629799a4'),  // "a woman holding a baby under a blanket" (nursing)
+  feeding_chair:     U('photo-1557939663-0619f304af9c'),     // "a baby sitting in a high chair eating food"
+  high_chair:        U('photo-1597178380795-38c56a1a7053'),  // "baby in white onesie sitting on white high chair"
+  solid_foods:       U('photo-1544829832-c8047d6b9d89'),     // "person feeding baby"
 
   // ── Baby gear / products ────────────────────────────────────────────────
-  stroller:          U('photo-1565120130276-dfbd9a7a3ad7'),  // best-strollers
-  car_seat:          U('photo-1567515004624-219c11d31f2e'),  // best-car-seats-newborns
-  car_seat2:         U('photo-1548531174879-f38a17e5b0a3'),  // best-convertible-car-seats
-  baby_carrier:      U('photo-1567201719502-255e0b3c683a'),  // nursing/babywearing — parent with baby
-  baby_monitor:      U('photo-1591474200742-8e512e6f98f8'),  // best-baby-video-monitors
-  baby_monitor2:     U('photo-1522771739844-6a9f6d5f14af'),  // best-baby-monitors
-  baby_swing:        U('photo-1584515933487-779824d29309'),  // best-baby-swings
-  baby_bouncer:      U('photo-1519689680058-324335c77eba'),  // best-baby-bouncers
-  diaper_pail:       U('photo-1548686304-89d188a80029'),     // best-diaper-pails
-  baby_gate:         U('photo-1533483595632-c5f0e57a1936'),  // best-baby-gates
-  thermometer:       U('photo-1584516150909-c43483ee7932'),  // best-baby-thermometers
-  humidifier:        U('photo-1591474200742-8e512e6f98f8'),  // nursery tech — humidifiers/monitors
-  baby_bath:         U('photo-1591474200742-8e512e6f98f8'),  // best-baby-bathtubs (monitor image but safe)
-  nail_care:         U('photo-1512290923902-8a9f81dc236c'),  // best-baby-nail-clippers
-  baby_gear:         U('photo-1518020382113-a7e8fc38eac9'),  // best-baby-gear-2025
-  registry:          U('photo-1560707857-b897819e06fb'),     // baby-registry-essentials
-  diaper:            U('photo-1596462502278-27bfdc403348'),  // wipe-warmer
-  baby_proofing:     U('photo-1552819289-824d37ca69d2'),     // baby-proofing-your-home
+  stroller:          U('photo-1538077649323-d34ea3bab314'),  // "baby lying on stroller during daytime"
+  car_seat:          U('photo-1634414257452-e8843a9ae1a8'),  // "a baby sitting in a car with a pacifier in its mouth"
+  car_seat2:         U('photo-1634414257452-e8843a9ae1a8'),  // (same — only clean infant-in-car shot available)
+  baby_carrier:      U('photo-1528034191169-6f6033890cef'),  // "person carrying a baby"
+  baby_monitor:      U('photo-1713857297379-6fc26e70f581'),  // "a smart phone sitting next to a wireless security camera"
+  baby_monitor2:     U('photo-1715869618915-a7bf6608d4c3'),  // "a white camera sitting on top of a white table"
+  baby_swing:        U('photo-1608923240332-685142bbc388'),  // "baby in pink shirt sitting on blue swing"
+  baby_bouncer:      U('photo-1550824179-d698bda9996a'),     // "gray and black doorway jumper"
+  diaper_pail:       U('photo-1560251180-24d389314061'),     // "baby lying in white textile"
+  baby_gate:         U('photo-1597116587347-7ae2940f37a7'),  // "girl climbing on white wooden spiral staircase"
+  thermometer:       U('photo-1585207693488-a903901c1274'),  // "white thermometer on red surface"
+  humidifier:        U('photo-1774578342155-8d7e44a18bfd'),  // "A cozy nursery with a white crib and armchair"
+  baby_bath:         U('photo-1554380411-7ba696bc0f2f'),     // "baby bathing"
+  nail_care:         U('photo-1508009219918-7d528f269841'),  // "person holding baby's hand"
+  baby_gear:         U('photo-1616666428759-679a7d578307'),  // "printer paper beside brown bear plush toy" (baby items)
+  registry:          U('photo-1635874714425-c342060a4c58'),  // "a baby's gift hamper with its contents laid out"
+  diaper:            U('photo-1537673156864-5d2c72de7824'),  // "baby laying on bed while woman massaging his back"
+  baby_proofing:     U('photo-1554393180-7953ff534ac7'),     // "crawling baby"
 
   // ── Parenting / development ─────────────────────────────────────────────
-  parent_baby:       U('photo-1476703993599-0035a21b17a9'),  // general parenting
-  newborn_care:      U('photo-1604917621956-10dfa7cce2e7'),  // newborn baby
-  toddler_play:      U('photo-1566513857792-9a52cd97e06d'),  // toddler milestones
-  toddler_dev:       U('photo-1569913486515-b74bf7751574'),  // toddler parenting
-  parenting_family:  U('photo-1440288736878-766bd5839edb'),  // family/child outdoor
+  parent_baby:       U('photo-1535571393765-ea44927160be'),  // "woman holding baby"
+  newborn_care:      U('photo-1591161555818-7b9debeccc07'),  // "woman hugging baby"
+  toddler_play:      U('photo-1515488042361-ee00e0ddd4e4'),  // "boy sitting on white cloth surrounded by toys"
+  toddler_dev:       U('photo-1532330393533-443990a51d10'),  // "child playing with car plastic toys"
+  parenting_family:  U('photo-1685580388390-576100ae9ce3'),  // "a man and a woman are holding a baby"
 
   // ── Health / medical ────────────────────────────────────────────────────
-  baby_health:       U('photo-1576091160550-2173dba999ef'),  // sustainable-baby (safe neutral)
-  baby_cpr:          U('photo-1566004100631-35d015d6a491'),  // baby-cpr-first-aid
-  baby_eczema:       U('photo-1566004100631-35d015d6a491'),  // baby health
-  fever:             U('photo-1555252333-9f8e92e65df9'),     // baby-fever
+  baby_health:       U('photo-1632053002928-1919605ee6f7'),  // "a young child is being examined by a doctor"
+  baby_cpr:          U('photo-1632052998047-1faea5c31145'),  // "a doctor examines a baby's chest with a stethoscope"
+  baby_eczema:       U('photo-1566004100631-35d015d6a491'),  // "baby under purple blanket"
+  fever:             U('photo-1583947581879-41e4c88394c3'),  // "Ear thermometer for checking fever"
 
   // ── Postpartum / recovery ───────────────────────────────────────────────
-  postpartum:        U('photo-1505751172876-fa1923c5c528'),  // postpartum-recovery
-  postpartum2:       U('photo-1501886564641-e55a61b1f5da'),  // signs-of-labor / postpartum-depression
-  hair:              U('photo-1576091160550-2173dba999ef'),  // postpartum-hair-loss
+  postpartum:        U('photo-1560305850-d90e0af2ff18'),     // "woman kissing baby"
+  postpartum2:       U('photo-1527599296290-e847cebb1d00'),  // "woman and baby lying on bed"
+  hair:              U('photo-1574706472790-f24ebe0510ba'),  // "woman carrying baby"
 
   // ── Travel / general ────────────────────────────────────────────────────
-  travel:            U('photo-1505751172876-fa1923c5c528'),  // travel-with-baby
+  travel:            U('photo-1761839271800-f44070ff0eb9'),  // "fathers carrying children on shoulders on a mountain path"
 };
 
 // Keyword groups — first match wins (order matters: more specific first)
 const KEYWORD_MAP: Array<[string[], string]> = [
   // Products — specific gear
-  [['white-noise', 'white-noise-machine'],                IMGS.white_noise],
+  [['white-noise', 'white-noise-machine', 'sound-machine'], IMGS.white_noise],
   [['breast-pump', 'breast-pumps', 'pumping', 'exclusive-pumping'], IMGS.breast_pump],
   [['nursing-pillow', 'nursing-pillows'],                 IMGS.nursing_pillow],
   [['feeding-chair', 'feeding-chairs'],                   IMGS.feeding_chair],
@@ -92,10 +94,10 @@ const KEYWORD_MAP: Array<[string[], string]> = [
   [['baby-gate', 'baby-gates', 'safety-gate'],            IMGS.baby_gate],
   [['thermometer', 'thermometers'],                       IMGS.thermometer],
   [['humidifier', 'humidifiers'],                         IMGS.humidifier],
-  [['baby-bath', 'bath-tub', 'bathing-system'],           IMGS.baby_bath],
+  [['baby-bath', 'bath-tub', 'bathing-system', 'bathtub'],IMGS.baby_bath],
   [['nail-clipper', 'nail-clippers', 'nail-care'],        IMGS.nail_care],
   [['toddler-bed', 'crib-transition'],                    IMGS.toddler_bed],
-  [['crib', 'bassinet', 'cribs', 'bassinets'],            IMGS.crib_bassinet],
+  [['crib', 'bassinet', 'cribs', 'bassinets', 'furniture-set', 'furniture-sets'], IMGS.crib_bassinet],
   [['wipe-warmer', 'diaper', 'cloth-diaper', 'disposable-diaper', 'nappy'], IMGS.diaper],
   [['bottle-sterilizer', 'sterilizer', 'bottle'],         IMGS.bottle],
   [['registry', 'checklist', 'hospital-bag'],             IMGS.registry],
@@ -103,7 +105,6 @@ const KEYWORD_MAP: Array<[string[], string]> = [
 
   // Sleep
   [['sleep-training', 'sleep-solution', 'sleep-solutions', 'sleep-regression', 'sleep-guide', 'ultimate-baby-sleep', 'best-baby-sleep', 'baby-sleep'], IMGS.baby_sleeping],
-  [['white-noise', 'sound-machine'],                      IMGS.white_noise],
 
   // Feeding & nutrition
   [['solid-food', 'solid-foods', 'food-introduction', 'puree', 'weaning'], IMGS.solid_foods],
@@ -114,7 +115,7 @@ const KEYWORD_MAP: Array<[string[], string]> = [
   // Pregnancy-specific
   [['morning-sickness', 'nausea'],                        IMGS.pregnant_woman],
   [['heartburn', 'acid-reflux'],                          IMGS.pregnant_woman],
-  [['prenatal-vitamin', 'prenatal-vitamins'],              IMGS.pregnancy_diet],
+  [['prenatal-vitamin', 'prenatal-vitamins'],             IMGS.pregnancy_vitamins],
   [['pregnancy-diet', 'pregnancy-food', 'pregnancy-nutrition', 'complete-pregnancy-diet'], IMGS.pregnancy_diet],
   [['pregnancy-yoga', 'exercise-during-pregnancy', 'safe-exercises-during-pregnancy', 'pelvic-floor', 'prenatal-exercise'], IMGS.pregnancy_yoga],
   [['pregnancy-insomnia', 'sleep-during-pregnancy', 'pregnancy-sleep'], IMGS.pregnancy_sleep],
@@ -130,12 +131,12 @@ const KEYWORD_MAP: Array<[string[], string]> = [
   [['pregnancy', 'pregnant'],                             IMGS.pregnant_woman],
 
   // Birth & labor
-  [['labor', 'labour', 'contractions', 'signs-of-labor', 'when-to-go-to-hospital', 'how-to-track-contractions', 'birth-plan', 'labor-position', 'natural-vs-medicated', 'c-section', 'episiotomy', 'hospital-bag'], IMGS.labor_hospital],
+  [['labor', 'labour', 'contractions', 'signs-of-labor', 'when-to-go-to-hospital', 'how-to-track-contractions', 'birth-plan', 'labor-position', 'natural-vs-medicated', 'c-section', 'episiotomy'], IMGS.labor_hospital],
 
   // Postpartum
-  [['postpartum-depression', 'baby-blues'],                IMGS.postpartum2],
+  [['postpartum-depression', 'baby-blues'],               IMGS.postpartum],
   [['postpartum-hair', 'hair-loss'],                      IMGS.hair],
-  [['postpartum-fitness', 'exercise-after-childbirth', 'postpartum-recovery', 'lochia', 'postpartum-bleeding', 'returning-work', 'maternity-leave'], IMGS.postpartum],
+  [['postpartum-fitness', 'exercise-after-childbirth', 'postpartum-recovery', 'lochia', 'postpartum-bleeding', 'returning-work', 'maternity-leave'], IMGS.postpartum2],
   [['postpartum'],                                        IMGS.postpartum],
 
   // Newborn care
@@ -148,14 +149,14 @@ const KEYWORD_MAP: Array<[string[], string]> = [
   [['baby-constipation', 'baby-diarrhea'],                IMGS.parent_baby],
   [['baby-thrush'],                                       IMGS.baby_health],
   [['ear-infection', 'ear-infections'],                   IMGS.baby_health],
-  [['teething'],                                          IMGS.baby_proofing],
+  [['teething'],                                          IMGS.baby_eczema],
   [['vaccin', 'health', 'pediatrician'],                  IMGS.baby_health],
 
   // Products / buying guides (generic)
   [['buying-guide', 'buying-guides', 'product-review', 'product-comparison', 'best-baby-gear', 'baby-gear', 'best-baby-product', 'budget-friendly-baby', 'sustainable-baby', 'eco-friendly'],  IMGS.baby_gear],
 
   // Baby names
-  [['baby-name', 'baby-names', 'name-generator'],         U('photo-1519689680058-324335c77eba')],
+  [['baby-name', 'baby-names', 'name-generator'],         IMGS.newborn_care],
 
   // Toddler
   [['toddler-milestone', 'toddler-development', 'toddler-language', 'toddler-cognitive', 'toddler-fine-motor', 'toddler-gross-motor', 'toddler-emotional', 'toddler-memory'], IMGS.toddler_play],
