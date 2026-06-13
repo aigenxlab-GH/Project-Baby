@@ -22,12 +22,12 @@ const IMGS = {
   baby_sleeping:     U('photo-1510154221590-ff63e90a136f'),  // baby-sleep-training-methods-complete
   baby_sleep2:       U('photo-1582486225644-aeacf6aa0b1b'),  // baby-sleep-training-methods
   crib_bassinet:     U('photo-1548532928-b34e3be62fc6'),     // best-cribs-bassinets-safety
-  white_noise:       U('photo-1574158622682-e029699b87b7'),  // best-white-noise-machines
+  white_noise:       U('photo-1496174742515-d2146dcf8e80'),  // baby sleeping — nursery/white-noise
   toddler_bed:       U('photo-1566041510639-8d95a2490bfb'),  // best-toddler-beds
 
   // ── Feeding / breastfeeding ─────────────────────────────────────────────
   breast_pump:       U('photo-1563203369-26f2e4a5ccf7'),     // best-breast-pumps
-  bottle:            U('photo-1594736797933-d0401ba2fe65'),  // best-bottle-sterilizers
+  bottle:            U('photo-1560328055-e938bb2ed50a'),     // feeding/nursing — sterilizers
   nursing_pillow:    U('photo-1560328055-e938bb2ed50a'),     // best-nursing-pillows
   feeding_chair:     U('photo-1553481187-be93c21490a9'),     // best-feeding-chairs
   high_chair:        U('photo-1519457431-44ccd64a579b'),     // best-baby-high-chairs
@@ -37,7 +37,7 @@ const IMGS = {
   stroller:          U('photo-1565120130276-dfbd9a7a3ad7'),  // best-strollers
   car_seat:          U('photo-1567515004624-219c11d31f2e'),  // best-car-seats-newborns
   car_seat2:         U('photo-1548531174879-f38a17e5b0a3'),  // best-convertible-car-seats
-  baby_carrier:      U('photo-1590492239080-e50b66d15a3d'),  // best-baby-carriers
+  baby_carrier:      U('photo-1567201719502-255e0b3c683a'),  // nursing/babywearing — parent with baby
   baby_monitor:      U('photo-1591474200742-8e512e6f98f8'),  // best-baby-video-monitors
   baby_monitor2:     U('photo-1522771739844-6a9f6d5f14af'),  // best-baby-monitors
   baby_swing:        U('photo-1584515933487-779824d29309'),  // best-baby-swings
@@ -45,7 +45,7 @@ const IMGS = {
   diaper_pail:       U('photo-1548686304-89d188a80029'),     // best-diaper-pails
   baby_gate:         U('photo-1533483595632-c5f0e57a1936'),  // best-baby-gates
   thermometer:       U('photo-1584516150909-c43483ee7932'),  // best-baby-thermometers
-  humidifier:        U('photo-1554819177-a87aec3fc66d'),     // best-humidifiers
+  humidifier:        U('photo-1591474200742-8e512e6f98f8'),  // nursery tech — humidifiers/monitors
   baby_bath:         U('photo-1591474200742-8e512e6f98f8'),  // best-baby-bathtubs (monitor image but safe)
   nail_care:         U('photo-1512290923902-8a9f81dc236c'),  // best-baby-nail-clippers
   baby_gear:         U('photo-1518020382113-a7e8fc38eac9'),  // best-baby-gear-2025
@@ -55,15 +55,15 @@ const IMGS = {
 
   // ── Parenting / development ─────────────────────────────────────────────
   parent_baby:       U('photo-1476703993599-0035a21b17a9'),  // general parenting
-  newborn_care:      U('photo-1631563019676-dade0dbf9b20'),  // baby-milestones
+  newborn_care:      U('photo-1604917621956-10dfa7cce2e7'),  // newborn baby
   toddler_play:      U('photo-1566513857792-9a52cd97e06d'),  // toddler milestones
   toddler_dev:       U('photo-1569913486515-b74bf7751574'),  // toddler parenting
-  parenting_family:  U('photo-1513094775335-5ae4cf4a7b80'),  // parenting styles
+  parenting_family:  U('photo-1440288736878-766bd5839edb'),  // family/child outdoor
 
   // ── Health / medical ────────────────────────────────────────────────────
   baby_health:       U('photo-1576091160550-2173dba999ef'),  // sustainable-baby (safe neutral)
   baby_cpr:          U('photo-1566004100631-35d015d6a491'),  // baby-cpr-first-aid
-  baby_eczema:       U('photo-1590650046871-92965baa6be8'),  // baby-eczema
+  baby_eczema:       U('photo-1566004100631-35d015d6a491'),  // baby health
   fever:             U('photo-1555252333-9f8e92e65df9'),     // baby-fever
 
   // ── Postpartum / recovery ───────────────────────────────────────────────
