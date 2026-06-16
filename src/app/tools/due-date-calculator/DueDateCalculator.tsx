@@ -7,6 +7,7 @@ import {
   format, isAfter
 } from 'date-fns';
 import { Calculator, Calendar, Baby, ChevronRight } from 'lucide-react';
+import { SliderControl } from '@/components/shared/SliderControl';
 
 type Method = 'lmp' | 'conception' | 'ivf';
 
@@ -131,28 +132,18 @@ export function DueDateCalculator() {
         {/* Cycle length (LMP only) */}
         {method === 'lmp' && (
           <div className="mb-6">
-            <label htmlFor="cycle-length" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Average cycle length: <strong>{cycleLength} days</strong>
-            </label>
-            <input
+            <SliderControl
               id="cycle-length"
-              type="range"
+              label="Average cycle length"
+              value={cycleLength}
               min={21}
               max={45}
-              value={cycleLength}
-              onChange={(e) => setCycleLength(parseInt(e.target.value))}
-              aria-label={`Cycle length: ${cycleLength} days`}
-              aria-valuemin={21}
-              aria-valuemax={45}
-              aria-valuenow={cycleLength}
-              aria-valuetext={`${cycleLength} days`}
-              className="w-full accent-brand-600"
+              unit=" days"
+              onChange={setCycleLength}
+              minLabel="21 days"
+              midLabel="28 days (typical)"
+              maxLabel="45 days"
             />
-            <div className="flex justify-between text-xs text-gray-400 dark:text-gray-400 mt-1">
-              <span>21 days</span>
-              <span>28 days (typical)</span>
-              <span>45 days</span>
-            </div>
           </div>
         )}
 

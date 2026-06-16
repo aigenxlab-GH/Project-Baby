@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { addDays, format, startOfDay } from 'date-fns';
 import { Heart, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import { SliderControl } from '@/components/shared/SliderControl';
 
 interface Result {
   ovulationDate: Date;
@@ -52,21 +53,18 @@ export function OvulationCalculator() {
             />
           </div>
           <div>
-            <label htmlFor="ovulation-cycle" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Average cycle length: <strong>{cycleLength} days</strong>
-            </label>
-            <input
+            <SliderControl
               id="ovulation-cycle"
-              type="range" min={21} max={45} value={cycleLength}
-              onChange={(e) => setCycleLength(parseInt(e.target.value))}
-              aria-label={`Cycle length: ${cycleLength} days`}
-              aria-valuemin={21} aria-valuemax={45} aria-valuenow={cycleLength}
-              aria-valuetext={`${cycleLength} days`}
-              className="w-full accent-brand-600"
+              label="Average cycle length"
+              value={cycleLength}
+              min={21}
+              max={45}
+              unit=" days"
+              onChange={setCycleLength}
+              minLabel="21 days"
+              midLabel="28 typical"
+              maxLabel="45 days"
             />
-            <div className="flex justify-between text-xs text-gray-400 dark:text-gray-400 mt-1">
-              <span>21 days</span><span>28 typical</span><span>45 days</span>
-            </div>
           </div>
         </div>
         {error && <p className="text-red-500 text-sm mb-4" role="alert">{error}</p>}
