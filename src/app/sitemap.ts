@@ -172,18 +172,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
-    {
-      url: url('/privacy-policy'),
-      lastModified: fileMtime('src/app/privacy-policy/page.tsx', BUILD_DATE),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: url('/terms'),
-      lastModified: fileMtime('src/app/terms/page.tsx', BUILD_DATE),
-      changeFrequency: 'yearly',
-      priority: 0.2,
-    },
+    // Privacy policy and terms intentionally excluded from sitemap —
+    // legal boilerplate is not a ranking target and wastes crawl budget
+    // on a new domain. Pages remain crawlable via footer links.
     // NOT included (robots: { index: false }):
     //   /affiliate-disclosure  — marked noindex; disclose via footer link instead
     //   /search                — marked noindex; utility page not for indexing
