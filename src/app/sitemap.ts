@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import fs from 'fs';
 import path from 'path';
 import { siteConfig } from '@/config/site';
-import { getAllSlugs } from '@/lib/mdx';
+import { getAllSlugs, getAllArticles } from '@/lib/mdx';
 import { getAllProducts } from '@/lib/products';
 import { getAllNames } from '@/lib/baby-names';
 
@@ -191,13 +191,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // ── Blog articles — real mtime from MDX files ─────────────────────────────
-  const blogSlugs = getAllSlugs('blog');
-  const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
-    url: url(`/blog/${slug}`),
-    lastModified: fileMtime(`content/blog/${slug}.mdx`, BUILD_DATE),
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
-  }));
+  // Hub/navigation-only pages are marked noIndex: true in frontmatter and excluded.
+  const blogPages: MetadataRoute.Sitemap = getAllArticles('blog')
+    .filter((a) => !a.noIndex)
+    .map((a) => ({
+      url: url(`/blog/${a.slug}`),
+      lastModified: fileMtime(`content/blog/${a.slug}.mdx`, BUILD_DATE),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    }));
 
   // ── Parenting articles — real mtime from MDX files ───────────────────────
   // All 8 topic folders — matches generateStaticParams in parenting/[topic]/[slug]/page.tsx
