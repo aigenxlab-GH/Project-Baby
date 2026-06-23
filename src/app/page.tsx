@@ -164,7 +164,7 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-3 text-xs text-gray-600 dark:text-gray-300">
                 <span className="flex items-center gap-1 py-3"><span aria-hidden="true">✅</span> Free forever</span>
                 <Link href="/blog" className="flex items-center gap-1 py-3 underline underline-offset-2 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
-                  <span aria-hidden="true">✅</span> 173+ expert articles
+                  <span aria-hidden="true">✅</span> 180+ expert articles
                 </Link>
                 <Link href="/baby-names" className="flex items-center gap-1 py-3 underline underline-offset-2 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
                   <span aria-hidden="true">✅</span> 1,188+ baby names
