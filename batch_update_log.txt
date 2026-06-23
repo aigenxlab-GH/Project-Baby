@@ -1,0 +1,35 @@
+Starting batch MDX update at 2026-06-23T21:54:17.378602
+Log file: C:\AIGenXLab\Projects\Project-Baby\batch_update_log.txt
+--------------------------------------------------------------------------------
+🚀 Starting batch MDX update...
+📊 Found 180 blog files and 200 product files
+📅 Total: 380 files to update
+
+📝 Processing blog articles...
+  ✅ Processed 25/180 blog articles
+  ✅ Processed 50/180 blog articles
+  ✅ Processed 75/180 blog articles
+  ✅ Processed 100/180 blog articles
+  ✅ Processed 125/180 blog articles
+  ✅ Processed 150/180 blog articles
+  ✅ Processed 175/180 blog articles
+
+🛍️  Processing product reviews...
+  ⚠️  No frontmatter: C:\AIGenXLab\Projects\Project-Baby\content\products\baby-carriers\boba-wrap-stretchy-carrier-review.mdx
+  ⚠️  No frontmatter: C:\AIGenXLab\Projects\Project-Baby\content\products\baby-carriers\ergobaby-omni-360-review.mdx
+  ⚠️  No frontmatter: C:\AIGenXLab\Projects\Project-Baby\content\products\baby-carriers\infantino-flip-4-in-1-carrier-review.mdx
+  ⚠️  No frontmatter: C:\AIGenXLab\Projects\Project-Baby\content\products\baby-gates\regalo-easy-step-walk-thru-gate-review.mdx
+  ✅ Processed 50/200 product reviews
+  ✅ Processed 75/200 product reviews
+  ✅ Processed 100/200 product reviews
+  ✅ Processed 125/200 product reviews
+  ✅ Processed 150/200 product reviews
+  ✅ Processed 175/200 product reviews
+  ⚠️  No frontmatter: C:\AIGenXLab\Projects\Project-Baby\content\products\white-noise\yogasleep-dohm-classic-review.mdx
+
+✅ Batch update complete!
+  ✅ 375 files successfully updated
+  ❌ 5 files encountered errors
+  📊 Total: 380 files processed
+--------------------------------------------------------------------------------
+Batch update completed at 2026-06-23T21:54:22.466466
