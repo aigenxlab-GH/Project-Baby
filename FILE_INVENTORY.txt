@@ -1,0 +1,238 @@
+================================================================================
+PROJECT BABY - MDX FILE INVENTORY FOR DISCLAIMER PROCESSING
+================================================================================
+Generated: June 23, 2026
+Total Files to Process: 380+
+
+================================================================================
+PRODUCT REVIEW ARTICLES (~200+ files)
+================================================================================
+Location: /content/products/[category]/[product]-review.mdx
+Disclaimer Needed: PRODUCT DISCLAIMER + SOURCES FOOTER
+
+Categories:
+- activity-centers/ (8 files)
+- baby-bathtubs/ (7 files)
+- baby-bouncers/ (7 files)
+- baby-carriers/ (8 files)
+- baby-food-makers/ (7 files)
+- baby-gates/ (8 files)
+- baby-loungers/ (7 files)
+- baby-nail-care/ (6 files)
+- baby-swings/ (7 files)
+- baby-thermometers/ (8 files)
+- bath-toys/ (6 files)
+- breast-pumps/ (7 files)
+- car-seats/ (6 files)
+- cribs/ (7 files)
+- diaper-bags/ (8 files)
+- feeding-chairs/ (7 files)
+- gates/ (8 files)
+- gliders/ (6 files)
+- high-chairs/ (7 files)
+- humidifiers/ (6 files)
+- monitors/ (7 files)
+- nightlights/ (7 files)
+- nursing-feeding/ (8 files)
+- playards/ (7 files)
+- strollers/ (10+ files)
+- white-noise/ (8 files)
+
+Examples of files to process:
+  - products/activity-centers/baby-einstein-neighborhood-friends-review.mdx
+  - products/baby-bathtubs/angelcare-soft-touch-bath-support-review.mdx
+  - products/baby-bouncers/babybjorn-bouncer-bliss-review.mdx
+  - products/cribs/snoo-smart-sleeper-review.mdx
+  - products/breast-pumps/spectra-s2-plus-review.mdx
+
+================================================================================
+HEALTH/MEDICAL BLOG ARTICLES (~50-60 files)
+================================================================================
+Location: /content/blog/[name].mdx (with health keywords in filename)
+Disclaimer Needed: MEDICAL DISCLAIMER + SOURCES FOOTER
+
+Files with health keywords (examples):
+  - baby-fever-temperature-when-dangerous.mdx ✓ (ALREADY HAS DISCLAIMERS)
+  - baby-cpr-first-aid-essential-skills.mdx
+  - baby-eczema-treatment-prevention.mdx
+  - baby-constipation-diarrhea-signs.mdx
+  - baby-thrush-breastfeeding-treatment.mdx
+  - breastfeeding-vs-formula-an-honest-comparison.mdx
+  - postpartum-depression-vs-baby-blues.mdx
+  - gestational-diabetes-pregnancy.mdx
+  - preeclampsia-warning-signs.mdx
+  - group-b-strep-pregnancy.mdx
+  - listeria-pregnancy-food-safety.mdx
+  - morning-sickness-remedies.mdx
+  - heartburn-during-pregnancy-causes-relief.mdx
+  - pregnancy-back-pain-causes-relief.mdx
+  - pelvic-floor-exercises-during-pregnancy.mdx
+  - postpartum-recovery-timeline.mdx
+  - postpartum-hair-loss-causes-solutions.mdx
+  - pregnancy-stretch-marks-prevention.mdx
+  - ear-infections-babies-signs-treatment.mdx
+  - diaper-rash-treatment-prevention.mdx
+  - common-toddler-illnesses-colds-flu.mdx
+
+Keywords for identification:
+  fever, temperature, illness, disease, symptom, treatment, infection,
+  eczema, thrush, constipation, diarrhea, cpr, first aid, pregnancy,
+  postpartum, depression, bleeding, preeclampsia, diabetes, strep,
+  listeria, morning sickness, heartburn, pain relief, pelvic floor,
+  hair loss, stretch marks, insomnia, brain fog, feeding, breastfeeding,
+  formula, allergies, newborn
+
+================================================================================
+PARENTING GUIDE ARTICLES (~40+ files)
+================================================================================
+Location: /content/parenting/[subcategory]/[name].mdx
+Disclaimer Needed: SOURCES FOOTER ONLY (no medical/product disclaimer)
+
+Subcategories:
+- newborn/ (~8 files)
+  * umbilical-cord-care-keeping-it-clean-and-dry.mdx
+  * bathing-a-newborn-step-by-step.mdx
+  * how-to-soothe-a-crying-newborn-10-proven-techniques.mdx
+  * newborn-sleep-patterns-what-to-expect-in-the-first-month.mdx
+  * when-to-call-the-doctor-newborn-warning-signs.mdx
+  * tummy-time-guide-why-it-matters-and-how-to-start.mdx
+
+- sleep/ (~8 files)
+  * baby-sleep-schedule-by-age-0-to-12-months.mdx
+  * safe-sleep-guidelines-to-reduce-the-risk-of-sids.mdx
+  * creating-the-perfect-baby-bedtime-routine.mdx
+  * ferber-method-explained.mdx
+  * sleep-regressions-guide.mdx
+  * white-noise-for-babies-does-it-work.mdx
+
+- feeding/ (~5 files)
+  * breastfeeding-for-beginners-latch-positions-and-getting-started.mdx
+  * formula-feeding-guide-choosing-and-preparing-formula.mdx
+  * introducing-solid-foods-baby-led-weaning-vs-purees.mdx
+
+- development/ (~3 files)
+  * baby-milestones-by-month.mdx
+  * language-development-birth-to-18-months.mdx
+  * reading-to-baby.mdx
+
+- health/ (~2 files)
+  * baby-fever-when-to-call-doctor.mdx
+  * teething-symptoms-remedies.mdx
+
+- postpartum/ (~2 files)
+  * postpartum-depression-signs-support.mdx
+  * postpartum-recovery-first-6-weeks.mdx
+
+- toddler/ (~2 files)
+  * potty-training-complete-guide.mdx
+  * how-to-handle-toddler-tantrums.mdx
+
+- activities/ (~2 files)
+  * sensory-play-ideas-0-12-months.mdx
+  * tummy-time-benefits-activities.mdx
+
+================================================================================
+GENERAL BLOG ARTICLES (~40-50 files)
+================================================================================
+Location: /content/blog/[name].mdx (without health keywords in filename)
+Disclaimer Needed: SOURCES FOOTER ONLY
+
+Examples:
+  - baby-name-generator-guide.mdx
+  - baby-proofing-your-home-room-by-room-checklist.mdx
+  - baby-registry-guide-needs-vs-wants.mdx
+  - baby-sleep-training-methods.mdx
+  - best-baby-bath-tubs.mdx
+  - best-baby-bouncers-rockers.mdx
+  - best-baby-furniture-sets-convertible-cribs.mdx
+  - best-baby-gear-2025.mdx
+  - best-baby-video-monitors-features.mdx
+  - best-diaper-pails-odor-control.mdx
+  - best-feeding-chairs-babies-toddlers.mdx
+  - best-toddler-beds-crib-transition.mdx
+  - birth-plan-template.mdx
+  - budget-friendly-baby-products-saving.mdx
+  - buying-guides-hub.mdx
+  - childcare-options-daycare-nanny-family.mdx
+  - cloth-diapers-vs-disposable-comparison.mdx
+  - co-parenting-communication-strategies.mdx
+  - communication-toddlers-language.mdx
+  - complete-hospital-bag-checklist-for-mom-and-baby.mdx
+  - complete-nursery-setup-guide-furniture.mdx
+  - consistency-parenting-importance.mdx
+  - convertible-vs-modular-stroller-comparison.mdx
+  - dating-relationships-after-baby.mdx
+  - emotional-intelligence-children-building.mdx
+  - encouraging-toddler-independence-safely.mdx
+  - exclusive-pumping-guide.mdx
+  - parenting-styles-comparison-effects.mdx
+  - parenting-temperament-types-children.mdx
+  - positive-parenting-techniques-confidence.mdx
+  - potty-training-readiness-signs.mdx
+  - parent-self-care-burnout-prevention.mdx
+
+================================================================================
+PROCESSING SUMMARY
+================================================================================
+
+Target Distribution:
+  Product reviews: ~200 files (53% of total)
+  Health blog posts: ~53 files (14% of total)
+  Parenting guides: ~40 files (10% of total)
+  General blog posts: ~47 files (12% of total)
+  Hub/navigation pages: ~40 files (11% of total)
+  ────────────────────────────────
+  TOTAL: ~380 files
+
+Modification Summary:
+  Files needing product disclaimer: ~200
+  Files needing medical disclaimer: ~53
+  Files needing sources footer: ~380
+  Files already with disclaimers: ~1
+
+Success Criteria:
+  ✓ All product reviews have product disclaimer
+  ✓ All health blog posts have medical disclaimer
+  ✓ All parenting guides have sources footer
+  ✓ All general blog posts have sources footer
+  ✓ No duplicate disclaimers created
+  ✓ Disclaimers placed after first H2 heading
+  ✓ Sources footer placed before Related Articles section
+  ✓ All files still render correctly in build
+
+================================================================================
+SCRIPT EXECUTION INSTRUCTIONS
+================================================================================
+
+Location: C:\AIGenXLab\Projects\Project-Baby\add_disclaimers.py
+Content dir: C:\AIGenXLab\Projects\Project-Baby\content\
+
+Step 1 - Dry Run (Preview):
+  python add_disclaimers.py --dry-run
+
+Step 2 - Execute (Apply changes):
+  python add_disclaimers.py
+
+Step 3 - Review Log:
+  cat disclaimer_processing.log
+
+Step 4 - Spot Check Samples:
+  - One product review
+  - One health blog article
+  - One parenting guide
+  - One general blog article
+
+Step 5 - Commit to Git:
+  git add content/
+  git commit -m "Add medical, product, and sources disclaimers to 380+ articles"
+  git push origin main
+
+================================================================================
+Notes:
+- Script automatically categorizes files by directory + content
+- Script detects and skips files that already have disclaimers
+- Blockquote format (>) used for consistent styling
+- All timestamps set to "June 2026"
+- Processing time: ~2-5 minutes for 380 files
+- CSV log file generated for audit trail
+================================================================================
