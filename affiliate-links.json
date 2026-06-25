@@ -1,0 +1,267 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2026-06-25",
+    "totalLinks": 177,
+    "affiliateTag": "pregnancysp0a-20",
+    "instructions": "Edit this file to update affiliate links. Run sync-from-json.py to apply changes to MDX files."
+  },
+  "categories": {
+    "activity-centers": [
+      {
+        "slug": "baby-einstein-neighborhood-friends",
+        "name": "Baby Einstein Neighborhood Friends Activity Jumper",
+        "asin": "B07P7XGQRT",
+        "price": "$75",
+        "status": "active"
+      },
+      {
+        "slug": "evenflo-exersaucer-triple-fun",
+        "name": "Evenflo ExerSaucer Triple Fun Active Learning Center",
+        "asin": "B07N8NCDZD",
+        "price": "$85",
+        "status": "broken",
+        "note": "Need replacement"
+      },
+      {
+        "slug": "fisher-price-4-in-1-step-n-play",
+        "name": "Fisher-Price 4-in-1 Step 'n Play Piano",
+        "asin": "B07H5PX5YR",
+        "price": "$90",
+        "status": "active"
+      },
+      {
+        "slug": "fisher-price-rainforest-jumperoo",
+        "name": "Fisher-Price Rainforest Jumperoo",
+        "asin": "B00JHPB4FK",
+        "price": "$80",
+        "status": "active"
+      },
+      {
+        "slug": "graco-doorway-bumper-jumper",
+        "name": "Graco Doorway Bumper Jumper",
+        "asin": "B07VQNYNKB",
+        "price": "$35",
+        "status": "active"
+      },
+      {
+        "slug": "infantino-grow-with-me",
+        "name": "Infantino Grow-with-Me Activity Gym & Ball Pit",
+        "asin": "B07T2H8V9L",
+        "price": "$50",
+        "status": "active"
+      },
+      {
+        "slug": "skip-hop-baby-view",
+        "name": "Skip Hop Baby's View 3-Stage Activity Center",
+        "asin": "B07TPVKMNB",
+        "price": "$100",
+        "status": "active"
+      },
+      {
+        "slug": "vtech-sit-to-stand-walker",
+        "name": "VTech Sit-to-Stand Learning Walker",
+        "asin": "B00CQXSFB6",
+        "price": "$35",
+        "status": "active"
+      }
+    ],
+    "baby-bathtubs": [
+      {
+        "slug": "angelcare-soft-touch-bath",
+        "name": "Angelcare Soft Touch Baby Bath Support",
+        "asin": "B00BKJOM0U",
+        "price": "$35",
+        "status": "broken",
+        "note": "Need replacement"
+      },
+      {
+        "slug": "blooming-bath-lotus",
+        "name": "Blooming Bath Lotus",
+        "asin": "B01N42JV9H",
+        "price": "$39",
+        "status": "active"
+      },
+      {
+        "slug": "fisher-price-4-in-1-sling",
+        "name": "Fisher-Price 4-in-1 Sling 'n Seat Baby Tub",
+        "asin": "B082N6GH9Z",
+        "price": "$35",
+        "status": "active"
+      },
+      {
+        "slug": "fridababy-4-in-1-grow",
+        "name": "FridaBaby 4-in-1 Grow-with-Me Baby Bathtub",
+        "asin": "B094WXVX8T",
+        "price": "$50",
+        "status": "active"
+      },
+      {
+        "slug": "puj-flyte-compact",
+        "name": "Puj Flyte Compact Infant Bathtub",
+        "asin": "B008PZ9VXY",
+        "price": "$44",
+        "status": "active"
+      }
+    ],
+    "baby-bouncers": [
+      {
+        "slug": "4moms-rockaroo",
+        "name": "4moms rockaRoo Baby Swing",
+        "asin": "B0BTQQYNPG",
+        "price": "$179",
+        "status": "active"
+      },
+      {
+        "slug": "babybjorn-bouncer-bliss",
+        "name": "BabyBjörn Bouncer Bliss",
+        "asin": "B07XF8VP6M",
+        "price": "$310",
+        "status": "active"
+      },
+      {
+        "slug": "bright-starts-comfort-harmony",
+        "name": "Bright Starts Comfort and Harmony Cradling Bouncer",
+        "asin": "B07Q97N24X",
+        "price": "$35",
+        "status": "active"
+      },
+      {
+        "slug": "ergobaby-evolve-3-in-1",
+        "name": "Ergobaby Evolve 3-in-1 Bouncer",
+        "asin": "B0BF31VXSX",
+        "price": "$249",
+        "status": "active"
+      },
+      {
+        "slug": "fisher-price-sweet-snugapuppy-deluxe",
+        "name": "Fisher-Price Sweet Snugapuppy Deluxe Bouncer Seat",
+        "asin": "B08T16G4VZ",
+        "price": "$45",
+        "status": "active"
+      },
+      {
+        "slug": "nuna-leaf-grow",
+        "name": "Nuna LEAF Grow Baby Seat",
+        "asin": "B07D7ZJH9P",
+        "price": "$265",
+        "status": "broken",
+        "note": "Need replacement"
+      }
+    ],
+    "breast-pumps": [
+      {
+        "slug": "elvie-stride",
+        "name": "Elvie Stride Hands-Free Breast Pump",
+        "asin": "B09Z37X2MP",
+        "price": "$379",
+        "status": "active"
+      },
+      {
+        "slug": "haakaa-silicone-gen-2",
+        "name": "Haakaa Silicone Breast Pump Gen 2",
+        "asin": "B078MDFPJZ",
+        "price": "$15",
+        "status": "active",
+        "note": "Verified working"
+      },
+      {
+        "slug": "lansinoh-signature-pro",
+        "name": "Lansinoh Signature Pro Double Electric Breast Pump",
+        "asin": "B00TGDLDM8",
+        "price": "$55",
+        "status": "active"
+      },
+      {
+        "slug": "medela-pump-in-style",
+        "name": "Medela Pump In Style with MaxFlow",
+        "asin": "B004HWXCJS",
+        "price": "$199",
+        "status": "active"
+      },
+      {
+        "slug": "willow-3-0",
+        "name": "Willow 3.0 Wearable Breast Pump",
+        "asin": "B09NK9GLYB",
+        "price": "$499",
+        "status": "active"
+      }
+    ],
+    "cribs": [
+      {
+        "slug": "babyletto-hudson-3-in-1",
+        "name": "Babyletto Hudson 3-in-1 Convertible Crib",
+        "asin": "B007CRJHUI",
+        "price": "$479",
+        "status": "active"
+      },
+      {
+        "slug": "davinci-kalani-4-in-1",
+        "name": "DaVinci Kalani 4-in-1 Convertible Crib",
+        "asin": "B000FT7NSI",
+        "price": "$279",
+        "status": "active"
+      },
+      {
+        "slug": "ikea-sundvik",
+        "name": "IKEA SUNDVIK Crib",
+        "asin": "B089HG2QTT",
+        "price": "$149",
+        "status": "active"
+      },
+      {
+        "slug": "snoo-smart-sleeper",
+        "name": "SNOO Smart Sleeper Bassinet",
+        "asin": "B0716KN18Z",
+        "price": "$1695",
+        "status": "active"
+      },
+      {
+        "slug": "storkcraft-tuscany-4-in-1",
+        "name": "Storkcraft Tuscany 4-in-1 Convertible Crib",
+        "asin": "B07BZ5TNMW",
+        "price": "$250",
+        "status": "active"
+      }
+    ],
+    "strollers": [
+      {
+        "slug": "baby-jogger-city-mini-gt2",
+        "name": "Baby Jogger City Mini GT2",
+        "asin": "B07PMSS86F",
+        "price": "$529",
+        "status": "active",
+        "note": "Verified working"
+      },
+      {
+        "slug": "bugaboo-fox-5",
+        "name": "Bugaboo Fox 5",
+        "asin": "B0BX4R4B8C",
+        "price": "$1399",
+        "status": "active"
+      },
+      {
+        "slug": "chicco-bravo-trio",
+        "name": "Chicco Bravo Trio Travel System",
+        "asin": "B01CSECET0",
+        "price": "$349",
+        "status": "active"
+      },
+      {
+        "slug": "joovy-caboose-ultralight",
+        "name": "Joovy Caboose Ultralight Graphite",
+        "asin": "B003H4QFRS",
+        "price": "$279",
+        "status": "active"
+      },
+      {
+        "slug": "uppababy-vista-v2",
+        "name": "UPPAbaby VISTA V2",
+        "asin": "B07Z6Y5VCB",
+        "price": "$1099",
+        "status": "active",
+        "note": "Verified working"
+      }
+    ]
+  }
+}
