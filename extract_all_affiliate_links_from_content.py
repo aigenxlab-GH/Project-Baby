@@ -75,6 +75,7 @@ def main():
                         "slug": slug,
                         "name": affiliate['product_name'] or slug.replace('-', ' ').title(),
                         "asin": affiliate['asin'],
+                        "url": affiliate['url'],
                         "page": product_page,
                         "category": category_folder.replace('-', ' ').title(),
                         "status": "active",
