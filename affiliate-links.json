@@ -4,224 +4,1329 @@
     "lastUpdated": "2026-06-25",
     "totalLinks": 177,
     "affiliateTag": "pregnancysp0a-20",
-    "instructions": "Edit this file to update affiliate links. Run sync-from-json.py to apply changes to MDX files."
+    "instructions": "Edit this file to manage affiliate links. Run update_affiliate_links_from_json_to_application.py to sync changes to MDX files."
   },
   "categories": {
     "activity-centers": [
       {
-        "slug": "baby-einstein-neighborhood-friends",
+        "slug": "baby-einstein-neighborhood-friends-activity-jumper",
         "name": "Baby Einstein Neighborhood Friends Activity Jumper",
         "asin": "B07P7XGQRT",
         "price": "$75",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "evenflo-exersaucer-triple-fun",
+        "slug": "evenflo-exersaucer-triple-fun-active-learning-center",
         "name": "Evenflo ExerSaucer Triple Fun Active Learning Center",
         "asin": "B07N8NCDZD",
         "price": "$85",
-        "status": "broken",
-        "note": "Need replacement"
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "fisher-price-4-in-1-step-n-play",
+        "slug": "fisher-price-4-in-1-step-n-play-piano",
         "name": "Fisher-Price 4-in-1 Step 'n Play Piano",
         "asin": "B07H5PX5YR",
         "price": "$90",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
         "slug": "fisher-price-rainforest-jumperoo",
         "name": "Fisher-Price Rainforest Jumperoo",
         "asin": "B00JHPB4FK",
         "price": "$80",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
         "slug": "graco-doorway-bumper-jumper",
         "name": "Graco Doorway Bumper Jumper",
         "asin": "B07VQNYNKB",
         "price": "$35",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "infantino-grow-with-me",
+        "slug": "infantino-grow-with-me-activity-gym-and-ball-pit",
         "name": "Infantino Grow-with-Me Activity Gym & Ball Pit",
         "asin": "B07T2H8V9L",
         "price": "$50",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "skip-hop-baby-view",
+        "slug": "skip-hop-babys-view-3-stage-activity-center",
         "name": "Skip Hop Baby's View 3-Stage Activity Center",
         "asin": "B07TPVKMNB",
         "price": "$100",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "vtech-sit-to-stand-walker",
+        "slug": "vtech-sit-to-stand-learning-walker",
         "name": "VTech Sit-to-Stand Learning Walker",
         "asin": "B00CQXSFB6",
         "price": "$35",
-        "status": "active"
+        "status": "active",
+        "note": ""
       }
     ],
     "baby-bathtubs": [
       {
-        "slug": "angelcare-soft-touch-bath",
+        "slug": "angelcare-soft-touch-baby-bath-support",
         "name": "Angelcare Soft Touch Baby Bath Support",
         "asin": "B00BKJOM0U",
         "price": "$35",
-        "status": "broken",
-        "note": "Need replacement"
+        "status": "active",
+        "note": ""
       },
       {
         "slug": "blooming-bath-lotus",
         "name": "Blooming Bath Lotus",
         "asin": "B01N42JV9H",
         "price": "$39",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "fisher-price-4-in-1-sling",
+        "slug": "fisher-price-4-in-1-sling-n-seat-baby-tub",
         "name": "Fisher-Price 4-in-1 Sling 'n Seat Baby Tub",
         "asin": "B082N6GH9Z",
         "price": "$35",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "fridababy-4-in-1-grow",
+        "slug": "fridababy-4-in-1-grow-with-me-baby-bathtub",
         "name": "FridaBaby 4-in-1 Grow-with-Me Baby Bathtub",
         "asin": "B094WXVX8T",
         "price": "$50",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "puj-flyte-compact",
+        "slug": "puj-flyte-compact-infant-bathtub",
         "name": "Puj Flyte Compact Infant Bathtub",
         "asin": "B008PZ9VXY",
         "price": "$44",
-        "status": "active"
+        "status": "active",
+        "note": ""
       }
     ],
     "baby-bouncers": [
       {
-        "slug": "4moms-rockaroo",
+        "slug": "4moms-rockaroo-baby-swing",
         "name": "4moms rockaRoo Baby Swing",
         "asin": "B0BTQQYNPG",
         "price": "$179",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "babybjorn-bouncer-bliss",
+        "slug": "babybjrn-bouncer-bliss",
         "name": "BabyBjörn Bouncer Bliss",
         "asin": "B07XF8VP6M",
         "price": "$310",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "bright-starts-comfort-harmony",
+        "slug": "bright-starts-comfort-and-harmony-cradling-bouncer",
         "name": "Bright Starts Comfort and Harmony Cradling Bouncer",
         "asin": "B07Q97N24X",
         "price": "$35",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "ergobaby-evolve-3-in-1",
+        "slug": "ergobaby-evolve-3-in-1-bouncer",
         "name": "Ergobaby Evolve 3-in-1 Bouncer",
         "asin": "B0BF31VXSX",
         "price": "$249",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "fisher-price-sweet-snugapuppy-deluxe",
+        "slug": "fisher-price-sweet-snugapuppy-deluxe-bouncer-seat",
         "name": "Fisher-Price Sweet Snugapuppy Deluxe Bouncer Seat",
         "asin": "B08T16G4VZ",
         "price": "$45",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "nuna-leaf-grow",
+        "slug": "nuna-leaf-grow-baby-seat",
         "name": "Nuna LEAF Grow Baby Seat",
         "asin": "B07D7ZJH9P",
         "price": "$265",
-        "status": "broken",
-        "note": "Need replacement"
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "baby-carriers": [
+      {
+        "slug": "lllbaby-complete-airflow-carrier",
+        "name": "LÍLLÉbaby Complete Airflow Carrier",
+        "asin": "B09S1C5ZHL",
+        "price": "$129",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "moby-wrap-original-baby-carrier",
+        "name": "Moby Wrap Original Baby Carrier",
+        "asin": "B004ZJQ52Y",
+        "price": "$45",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "solly-baby-wrap-carrier",
+        "name": "Solly Baby Wrap Carrier",
+        "asin": "B09QXS5KRN",
+        "price": "$78",
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "baby-food-makers": [
+      {
+        "slug": "baby-brezza-one-step-baby-food-maker",
+        "name": "Baby Brezza One Step Baby Food Maker",
+        "asin": "B00NSXE6MM",
+        "price": "$70",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "cuisinart-baby-food-maker-and-bottle-warmer",
+        "name": "Cuisinart Baby Food Maker and Bottle Warmer",
+        "asin": "B078MG8P2S",
+        "price": "$75",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "infantino-squeeze-station",
+        "name": "Infantino Squeeze Station",
+        "asin": "B00DQSV25E",
+        "price": "$22",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "kiinde-kozii-bottle-warmer-and-breast-milk-warmer",
+        "name": "Kiinde Kozii Bottle Warmer and Breast Milk Warmer",
+        "asin": "B00Q74NCVS",
+        "price": "$50",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "munchkin-fresh-baby-food-blender",
+        "name": "Munchkin FRESH Baby Food Blender",
+        "asin": "B072N8GGWR",
+        "price": "$30",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "nutribullet-baby-complete-food-making-system",
+        "name": "NutriBullet Baby Complete Food-Making System",
+        "asin": "B07RNPG53G",
+        "price": "$80",
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "baby-gates": [
+      {
+        "slug": "babydan-premier-pressure-mount-baby-gate",
+        "name": "BabyDan Premier Pressure Mount Baby Gate",
+        "asin": "B07ZTXT3CS",
+        "price": "$85",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "cardinal-gates-stairway-special-safety-gate",
+        "name": "Cardinal Gates Stairway Special Safety Gate",
+        "asin": "B002CXDMJ6",
+        "price": "$65",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "evenflo-position-and-lock-tall-gate",
+        "name": "Evenflo Position and Lock Tall Gate",
+        "asin": "B07GQBRH9P",
+        "price": "$45",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "munchkin-easy-close-baby-gate",
+        "name": "Munchkin Easy Close Baby Gate",
+        "asin": "B00SVTPGW2",
+        "price": "$55",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "north-states-easy-swing-and-lock-baby-gate",
+        "name": "North States Easy Swing & Lock Baby Gate",
+        "asin": "B075VH4S9M",
+        "price": "$50",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "safety-1st-easy-install-walk-through-gate",
+        "name": "Safety 1st Easy Install Walk-Through Gate",
+        "asin": "B07WQ64VJ4",
+        "price": "$33",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "summer-infant-multi-use-deco-extra-tall-baby-gate",
+        "name": "Summer Infant Multi-Use Deco Extra Tall Baby Gate",
+        "asin": "B003FVOO9U",
+        "price": "$60",
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "baby-loungers": [
+      {
+        "slug": "baby-delight-snuggle-nest-harmony-infant-sleeper",
+        "name": "Baby Delight Snuggle Nest Harmony Infant Sleeper",
+        "asin": "B07MPN78SM",
+        "price": "$55",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "boppy-newborn-lounger",
+        "name": "Boppy Newborn Lounger",
+        "asin": "B07P87SXC3",
+        "price": "$45",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "dockatot-deluxe-dock",
+        "name": "DockATot Deluxe+ Dock",
+        "asin": "B07HQJTMNQ",
+        "price": "$200",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "fisher-price-sit-me-up-floor-seat",
+        "name": "Fisher-Price Sit-Me-Up Floor Seat",
+        "asin": "B07CZP9MJP",
+        "price": "$40",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "snuggle-me-organic-lounger",
+        "name": "Snuggle Me Organic Lounger",
+        "asin": "B075RJ9LYW",
+        "price": "$100",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "summer-infant-pop-n-sit-portable-booster-seat",
+        "name": "Summer Infant Pop 'n Sit Portable Booster Seat",
+        "asin": "B00X0SH0HE",
+        "price": "$35",
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "baby-nail-care": [
+      {
+        "slug": "fridababy-nailfrida-the-snipperclipper-set",
+        "name": "FridaBaby NailFrida The SnipperClipper Set",
+        "asin": "B01NAAZM4E",
+        "price": "$12",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "little-martins-drawer-baby-electric-nail-trimmer",
+        "name": "Little Martin's Drawer Baby Electric Nail Trimmer",
+        "asin": "B07D7TF7KS",
+        "price": "$20",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "nuby-baby-nail-care-kit",
+        "name": "Nuby Baby Nail Care Kit",
+        "asin": "B07CZ4K6FK",
+        "price": "$7",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "piyo-piyo-baby-nail-care-set",
+        "name": "Piyo Piyo Baby Nail Care Set",
+        "asin": "B07GJN1JGM",
+        "price": "$15",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "safety-1st-sleepy-baby-nail-care-kit",
+        "name": "Safety 1st Sleepy Baby Nail Care Kit",
+        "asin": "B00M0E1AVE",
+        "price": "$8",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "zoli-buzz-b-baby-nail-trimmer",
+        "name": "ZoLi BUZZ B Baby Nail Trimmer",
+        "asin": "B07DTRVGLB",
+        "price": "$30",
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "baby-swings": [
+      {
+        "slug": "4moms-mamaroo-4-multi-motion-baby-swing",
+        "name": "4moms mamaRoo 4 Multi-Motion Baby Swing",
+        "asin": "B0B3F93NYT",
+        "price": "$279",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "baby-trend-ez-ride-portable-baby-swing",
+        "name": "Baby Trend EZ-Ride Portable Baby Swing",
+        "asin": "B07PLBRFYF",
+        "price": "$60",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "fisher-price-deluxe-bouncer-calm-vibes",
+        "name": "Fisher-Price Deluxe Bouncer Calm Vibes",
+        "asin": "B08GYX8NWG",
+        "price": "$59",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "fisher-price-sweet-snugapuppy-dreams-cradle-n-swing",
+        "name": "Fisher-Price Sweet Snugapuppy Dreams Cradle 'n Swing",
+        "asin": "B07BQNQKN5",
+        "price": "$165",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "graco-duoglider-lx-swing",
+        "name": "Graco DuoGlider LX Swing",
+        "asin": "B07TBV8CGH",
+        "price": "$120",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "graco-soothing-system-glider",
+        "name": "Graco Soothing System Glider",
+        "asin": "B09MWHHV11",
+        "price": "$119",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "ingenuity-convertme-swing-2-seat",
+        "name": "Ingenuity ConvertMe Swing-2-Seat",
+        "asin": "B09QT8Z7LH",
+        "price": "$129",
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "baby-thermometers": [
+      {
+        "slug": "braun-thermoscan-7-ear-thermometer",
+        "name": "Braun ThermoScan 7 Ear Thermometer",
+        "asin": "B001O0GKGE",
+        "price": "$52",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "exergen-smart-glow-temporal-artery-thermometer",
+        "name": "Exergen Smart Glow Temporal Artery Thermometer",
+        "asin": "B000BI2SJU",
+        "price": "$44",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "fridababy-3-in-1-true-temp-thermometer",
+        "name": "FridaBaby 3-in-1 True Temp Thermometer",
+        "asin": "B09C7BPXKS",
+        "price": "$35",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "fridababy-quick-read-rectal-thermometer",
+        "name": "FridaBaby Quick-Read Rectal Thermometer",
+        "asin": "B07WMVQH12",
+        "price": "$15",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "kinsa-quickcare-smart-thermometer",
+        "name": "Kinsa QuickCare Smart Thermometer",
+        "asin": "B06XWXB8TK",
+        "price": "$30",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "safety-1st-gentle-read-rectal-thermometer",
+        "name": "Safety 1st Gentle Read Rectal Thermometer",
+        "asin": "B01LBXZM5K",
+        "price": "$8",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "vicks-comfortflex-digital-thermometer",
+        "name": "Vicks ComfortFlex Digital Thermometer",
+        "asin": "B001TBCFUG",
+        "price": "$10",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "iproven-dmt-489-ear-and-forehead-thermometer",
+        "name": "iProven DMT-489 Ear and Forehead Thermometer",
+        "asin": "B07GYGXTS6",
+        "price": "$30",
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "bath-toys": [
+      {
+        "slug": "boon-pipes-building-bath-toy-set",
+        "name": "Boon PIPES Building Bath Toy Set",
+        "asin": "B074WFMJMZ",
+        "price": "$12",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "green-toys-tug-boat",
+        "name": "Green Toys Tug Boat",
+        "asin": "B0013FRSGG",
+        "price": "$14",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "munchkin-colour-buddies-moisturizing-bath-crayons",
+        "name": "Munchkin Colour Buddies Moisturizing Bath Crayons",
+        "asin": "B000JNA8HU",
+        "price": "$7",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "munchkin-sea-squirts-squirting-bath-toy",
+        "name": "Munchkin Sea Squirts Squirting Bath Toy",
+        "asin": "B00BF7T5NM",
+        "price": "$8",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "nuby-octopus-hoopla-bathtime-fun-toy",
+        "name": "Nuby Octopus Hoopla Bathtime Fun Toy",
+        "asin": "B07BFBKLL6",
+        "price": "$6",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "skip-hop-moby-bath-spout-cover",
+        "name": "Skip Hop Moby Bath Spout Cover",
+        "asin": "B007N2HZ72",
+        "price": "$15",
+        "status": "active",
+        "note": ""
       }
     ],
     "breast-pumps": [
       {
-        "slug": "elvie-stride",
+        "slug": "elvie-stride-hands-free-breast-pump",
         "name": "Elvie Stride Hands-Free Breast Pump",
         "asin": "B09Z37X2MP",
         "price": "$379",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "haakaa-silicone-gen-2",
+        "slug": "haakaa-silicone-breast-pump-gen-2",
         "name": "Haakaa Silicone Breast Pump Gen 2",
         "asin": "B078MDFPJZ",
         "price": "$15",
         "status": "active",
-        "note": "Verified working"
+        "note": ""
       },
       {
-        "slug": "lansinoh-signature-pro",
+        "slug": "haakaa-silicone-breast-pump-gen-2",
+        "name": "Haakaa Silicone Breast Pump Gen 2",
+        "asin": "B078MDFPJZ",
+        "price": "$15",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "lansinoh-signature-pro-double-electric-breast-pump",
         "name": "Lansinoh Signature Pro Double Electric Breast Pump",
         "asin": "B00TGDLDM8",
         "price": "$55",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "medela-pump-in-style",
+        "slug": "lansinoh-signature-pro-double-electric-breast-pump",
+        "name": "Lansinoh Signature Pro Double Electric Breast Pump",
+        "asin": "B00TGDLDM8",
+        "price": "$55",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "medela-pump-in-style-with-maxflow",
         "name": "Medela Pump In Style with MaxFlow",
         "asin": "B004HWXCJS",
         "price": "$199",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "willow-3-0",
+        "slug": "medela-pump-in-style-with-maxflow",
+        "name": "Medela Pump In Style with MaxFlow",
+        "asin": "B004HWXCJS",
+        "price": "$199",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "willow-30-wearable-breast-pump",
         "name": "Willow 3.0 Wearable Breast Pump",
         "asin": "B09NK9GLYB",
         "price": "$499",
-        "status": "active"
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "car-seats": [
+      {
+        "slug": "britax-one4life-clicktight-all-in-one",
+        "name": "Britax One4Life ClickTight All-in-One",
+        "asin": "B07XTWYNYB",
+        "price": "$399",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "chicco-keyfit-35-infant-car-seat",
+        "name": "Chicco KeyFit 35 Infant Car Seat",
+        "asin": "B089HG2QTT",
+        "price": "$279",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "graco-4ever-dlx",
+        "name": "Graco 4Ever DLX",
+        "asin": "B07D2QQ3RF",
+        "price": "$329",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "maxi-cosi-pria-all-in-one",
+        "name": "Maxi-Cosi Pria All-in-One",
+        "asin": "B07VGTNSZN",
+        "price": "$379",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "nuna-rava-convertible-car-seat",
+        "name": "Nuna RAVA Convertible Car Seat",
+        "asin": "B0BC6RHWWK",
+        "price": "$499",
+        "status": "active",
+        "note": ""
       }
     ],
     "cribs": [
       {
-        "slug": "babyletto-hudson-3-in-1",
+        "slug": "babyletto-hudson-3-in-1-convertible-crib",
         "name": "Babyletto Hudson 3-in-1 Convertible Crib",
         "asin": "B007CRJHUI",
         "price": "$479",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "davinci-kalani-4-in-1",
+        "slug": "davinci-kalani-4-in-1-convertible-crib",
         "name": "DaVinci Kalani 4-in-1 Convertible Crib",
         "asin": "B000FT7NSI",
         "price": "$279",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "ikea-sundvik",
+        "slug": "ikea-sundvik-crib",
         "name": "IKEA SUNDVIK Crib",
         "asin": "B089HG2QTT",
         "price": "$149",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "snoo-smart-sleeper",
+        "slug": "snoo-smart-sleeper-bassinet",
         "name": "SNOO Smart Sleeper Bassinet",
         "asin": "B0716KN18Z",
-        "price": "$1695",
-        "status": "active"
+        "price": "$1,695",
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "storkcraft-tuscany-4-in-1",
+        "slug": "storkcraft-tuscany-4-in-1-convertible-crib",
         "name": "Storkcraft Tuscany 4-in-1 Convertible Crib",
         "asin": "B07BZ5TNMW",
         "price": "$250",
-        "status": "active"
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "diaper-bags": [
+      {
+        "slug": "carters-city-mesh-diaper-bag-backpack",
+        "name": "Carter's City Mesh Diaper Bag Backpack",
+        "asin": "B07RWYMLJQ",
+        "price": "$55",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "fawn-design-original-diaper-bag",
+        "name": "Fawn Design Original Diaper Bag",
+        "asin": "B08QJNHWF5",
+        "price": "$168",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "freshly-picked-classic-diaper-bag",
+        "name": "Freshly Picked Classic Diaper Bag",
+        "asin": "B0CJXSJ4MN",
+        "price": "$178",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "itzy-ritzy-boss-plus-diaper-bag-backpack",
+        "name": "Itzy Ritzy Boss Plus Diaper Bag Backpack",
+        "asin": "B07WRNPXDJ",
+        "price": "$100",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "jujube-bff-diaper-bag",
+        "name": "JuJuBe BFF Diaper Bag",
+        "asin": "B00TEXBJ3Q",
+        "price": "$199",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "petunia-pickle-bottom-boxy-backpack-diaper-bag",
+        "name": "Petunia Pickle Bottom Boxy Backpack Diaper Bag",
+        "asin": "B07CRWKX4Y",
+        "price": "$155",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "skip-hop-forma-diaper-backpack",
+        "name": "Skip Hop Forma Diaper Backpack",
+        "asin": "B0731TBBWF",
+        "price": "$119",
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "diaper-pails": [
+      {
+        "slug": "dekor-classic-hands-free-diaper-pail",
+        "name": "Dekor Classic Hands-Free Diaper Pail",
+        "asin": "B00IU3TJ3G",
+        "price": "$45",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "diaper-genie-complete-diaper-pail",
+        "name": "Diaper Genie Complete Diaper Pail",
+        "asin": "B00NNI1AOO",
+        "price": "$50",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "munchkin-step-diaper-pail",
+        "name": "Munchkin STEP Diaper Pail",
+        "asin": "B07HMP81Z3",
+        "price": "$35",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "safety-1st-easy-saver-diaper-pail",
+        "name": "Safety 1st Easy Saver Diaper Pail",
+        "asin": "B07BVPQ7JV",
+        "price": "$22",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "tommee-tippee-twist-and-click-advanced-diaper-pail",
+        "name": "Tommee Tippee Twist & Click Advanced Diaper Pail",
+        "asin": "B07BYNNYWK",
+        "price": "$50",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "ubbi-steel-diaper-pail",
+        "name": "Ubbi Steel Diaper Pail",
+        "asin": "B00939VWB2",
+        "price": "$80",
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "high-chairs": [
+      {
+        "slug": "4moms-connect-high-chair",
+        "name": "4moms Connect High Chair",
+        "asin": "B07BGXTZ4K",
+        "price": "$280",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "baby-trend-sit-right-high-chair",
+        "name": "Baby Trend Sit Right High Chair",
+        "asin": "B07Z34SVNS",
+        "price": "$60",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "chicco-polly-progress-5-in-1-multi-use-high-chair",
+        "name": "Chicco Polly Progress 5-in-1 Multi-Use High Chair",
+        "asin": "B07J5CWCBQ",
+        "price": "$250",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "graco-slim-snacker-high-chair",
+        "name": "Graco Slim Snacker High Chair",
+        "asin": "B00PTL13LA",
+        "price": "$79",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "ikea-antilop-high-chair",
+        "name": "IKEA Antilop High Chair",
+        "asin": "B096KSB52S",
+        "price": "$25",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "joovy-nook-high-chair",
+        "name": "Joovy Nook High Chair",
+        "asin": "B078STMRN6",
+        "price": "$140",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "stokke-tripp-trapp-chair",
+        "name": "Stokke Tripp Trapp Chair",
+        "asin": "B07KQQHX6H",
+        "price": "$329",
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "humidifiers": [
+      {
+        "slug": "crane-drop-cool-mist-humidifier",
+        "name": "Crane Drop Cool Mist Humidifier",
+        "asin": "B004BKXC4K",
+        "price": "$35",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "crane-drop-cool-mist-humidifier",
+        "name": "Crane Drop Cool Mist Humidifier",
+        "asin": "B004BKXC4K",
+        "price": "$35",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "fridababy-3-in-1-humidifier-diffuser-and-nightlight",
+        "name": "FridaBaby 3-in-1 Humidifier Diffuser and Nightlight",
+        "asin": "B07WMCM5LT",
+        "price": "$40",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "fridababy-3-in-1-humidifier-diffuser-and-nightlight",
+        "name": "FridaBaby 3-in-1 Humidifier, Diffuser and Nightlight",
+        "asin": "B07WMCM5LT",
+        "price": "$40",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "honeywell-hcm350w-germ-free-cool-mist-humidifier",
+        "name": "Honeywell HCM350W Germ Free Cool Mist Humidifier",
+        "asin": "B001FWXKTA",
+        "price": "$55",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "honeywell-hcm350w-germ-free-cool-mist-humidifier",
+        "name": "Honeywell HCM350W Germ Free Cool Mist Humidifier",
+        "asin": "B001FWXKTA",
+        "price": "$55",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "vicks-v745a-warm-mist-humidifier",
+        "name": "Vicks V745A Warm Mist Humidifier",
+        "asin": "B003DZ09BO",
+        "price": "$25",
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "monitors": [
+      {
+        "slug": "arlo-baby-monitor",
+        "name": "Arlo Baby Monitor",
+        "asin": "B072XZH4SB",
+        "price": "$100",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "eufy-spaceview-pro-baby-monitor",
+        "name": "Eufy SpaceView Pro Baby Monitor",
+        "asin": "B08G8MBWZ8",
+        "price": "$159",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "eufy-spaceview-pro-baby-monitor",
+        "name": "Eufy SpaceView Pro Baby Monitor",
+        "asin": "B08G8MBWZ8",
+        "price": "$159",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "nanit-pro-smart-baby-monitor",
+        "name": "Nanit Pro Smart Baby Monitor",
+        "asin": "B0FTSL4FXJ",
+        "price": "$299",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "owlet-dream-sock",
+        "name": "Owlet Dream Sock",
+        "asin": "B09QY3FKWM",
+        "price": "$299",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "vtech-dm221-safe-and-sound-dect-60-audio-baby-monitor",
+        "name": "VTech DM221 Safe & Sound DECT 6.0 Audio Baby Monitor",
+        "asin": "B00HNNAFM0",
+        "price": "$30",
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "nursing-chairs": [
+      {
+        "slug": "babyletto-tuba-swivel-glider",
+        "name": "Babyletto Tuba Swivel Glider",
+        "asin": "B07ZCFQX5N",
+        "price": "$490",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "best-choice-products-upholstered-rocking-chair-glider",
+        "name": "Best Choice Products Upholstered Rocking Chair Glider",
+        "asin": "B07SXYMKR6",
+        "price": "$120",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "davinci-olive-upholstered-swivel-glider",
+        "name": "DaVinci Olive Upholstered Swivel Glider",
+        "asin": "B07BYFQN26",
+        "price": "$310",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "delta-children-blair-nursery-glider",
+        "name": "Delta Children Blair Nursery Glider",
+        "asin": "B07Z3BRGMQ",
+        "price": "$220",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "dutailier-upholstered-swivel-glider",
+        "name": "Dutailier Upholstered Swivel Glider",
+        "asin": "B07KPQNJBJ",
+        "price": "$450",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "graco-parker-semi-upholstered-glider",
+        "name": "Graco Parker Semi-Upholstered Glider",
+        "asin": "B07BPFH3WJ",
+        "price": "$180",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "storkcraft-hoop-glider-and-ottoman",
+        "name": "Storkcraft Hoop Glider and Ottoman",
+        "asin": "B007CQPZCI",
+        "price": "$200",
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "nursing-feeding": [
+      {
+        "slug": "boppy-original-nursing-pillow",
+        "name": "Boppy Original Nursing Pillow",
+        "asin": "B07VZSN584",
+        "price": "$44",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "dr-browns-natural-flow-original-bottle",
+        "name": "Dr. Brown's Natural Flow Original Bottle",
+        "asin": "B00CPC2A36",
+        "price": "$22",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "dr-browns-natural-flow-original-bottle",
+        "name": "Dr. Brown's Natural Flow Original Bottle",
+        "asin": "B00CPC2A36",
+        "price": "$22",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "dr-browns-natural-flow-original-bottle",
+        "name": "Dr. Brown's Natural Flow Original Bottle",
+        "asin": "B00CPC2A36",
+        "price": "$22",
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "play-mats": [
+      {
+        "slug": "baby-einstein-4-in-1-kickin-tunes-music-and-language-play-gym",
+        "name": "Baby Einstein 4-in-1 Kickin' Tunes Music and Language Play Gym",
+        "asin": "B09G5VDGF2",
+        "price": "$65",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "baby-einstein-4-in-1-kickin-tunes-music-and-language-play-gym",
+        "name": "Baby Einstein 4-in-1 Kickin' Tunes Music and Language Play Gym",
+        "asin": "B09G5VDGF2",
+        "price": "$65",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "infantino-twist-and-fold-activity-gym-and-ball-pit",
+        "name": "Infantino Twist & Fold Activity Gym & Ball Pit",
+        "asin": "B07KFMTPMN",
+        "price": "$33",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "infantino-twist-and-fold-activity-gym-and-ball-pit",
+        "name": "Infantino Twist & Fold Activity Gym & Ball Pit",
+        "asin": "B07KFMTPMN",
+        "price": "$33",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "tiny-love-meadow-days-super-gym",
+        "name": "Tiny Love Meadow Days Super Gym",
+        "asin": "B07TFKC2RB",
+        "price": "$85",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "tiny-love-meadow-days-super-gym",
+        "name": "Tiny Love Meadow Days Super Gym",
+        "asin": "B07TFKC2RB",
+        "price": "$85",
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "potty-training": [
+      {
+        "slug": "babybjrn-potty-chair",
+        "name": "BabyBjörn Potty Chair",
+        "asin": "B07Y3BXC9P",
+        "price": "$33",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "fisher-price-laugh-and-learn-smart-stages-potty",
+        "name": "Fisher-Price Laugh & Learn Smart Stages Potty",
+        "asin": "B07Y5DVXZB",
+        "price": "$35",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "jool-baby-potty-training-seat-with-step-stool-ladder",
+        "name": "Jool Baby Potty Training Seat with Step Stool Ladder",
+        "asin": "B07WBFN7HQ",
+        "price": "$40",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "summer-infant-my-size-realistic-potty",
+        "name": "Summer Infant My Size Realistic Potty",
+        "asin": "B00BIZOYBQ",
+        "price": "$25",
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "sippy-cups": [
+      {
+        "slug": "contigo-kids-stainless-steel-sippy-cup",
+        "name": "Contigo Kids Stainless Steel Sippy Cup",
+        "asin": "B073C28BFX",
+        "price": "$17",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "contigo-kids-stainless-steel-sippy-cup",
+        "name": "Contigo Kids Stainless Steel Sippy Cup",
+        "asin": "B073C28BFX",
+        "price": "$17",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "munchkin-miracle-360-trainer-cup",
+        "name": "Munchkin Miracle 360 Trainer Cup",
+        "asin": "B00BSBM40K",
+        "price": "$7",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "oxo-tot-transitions-sippy-cup",
+        "name": "OXO Tot Transitions Sippy Cup",
+        "asin": "B002LHIWDE",
+        "price": "$13",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "oxo-tot-transitions-sippy-cup",
+        "name": "OXO Tot Transitions Sippy Cup",
+        "asin": "B002LHIWDE",
+        "price": "$13",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "re-play-no-spill-sippy-cup",
+        "name": "Re-Play No-Spill Sippy Cup",
+        "asin": "B01BG7WMHQ",
+        "price": "$6",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "thermos-foogo-leak-proof-stainless-steel-sippy-cup",
+        "name": "THERMOS FOOGO Leak-Proof Stainless Steel Sippy Cup",
+        "asin": "B003WMPGDC",
+        "price": "$22",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "thermos-foogo-leak-proof-stainless-steel-sippy-cup",
+        "name": "THERMOS FOOGO Leak-Proof Stainless Steel Sippy Cup",
+        "asin": "B003WMPGDC",
+        "price": "$22",
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "sleep-sacks": [
+      {
+        "slug": "baby-merlins-magic-sleepsuit",
+        "name": "Baby Merlin's Magic Sleepsuit",
+        "asin": "B009SCFZDC",
+        "price": "$42",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "burts-bees-baby-beekeeper-wearable-blanket",
+        "name": "Burt's Bees Baby Beekeeper Wearable Blanket",
+        "asin": "B07KH87WHK",
+        "price": "$22",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "dreamland-baby-dream-weighted-sleep-sack",
+        "name": "Dreamland Baby Dream Weighted Sleep Sack",
+        "asin": "B08C3YQNFQ",
+        "price": "$79",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "ergobaby-swaddler",
+        "name": "Ergobaby Swaddler",
+        "asin": "B07FPJCPXX",
+        "price": "$30",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "halo-sleepsack-swaddle",
+        "name": "HALO SleepSack Swaddle",
+        "asin": "B07KC16L6Y",
+        "price": "$26",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "kyte-baby-sleep-bag",
+        "name": "Kyte Baby Sleep Bag",
+        "asin": "B07YG2BPH5",
+        "price": "$46",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "love-to-dream-swaddle-up-original",
+        "name": "Love To Dream Swaddle UP Original",
+        "asin": "B07PYJ24VG",
+        "price": "$35",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "nested-bean-zen-sack-classic",
+        "name": "Nested Bean Zen Sack Classic",
+        "asin": "B07Z7YBPCH",
+        "price": "$44",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "swaddleme-original-swaddle",
+        "name": "SwaddleMe Original Swaddle",
+        "asin": "B07RLVQ8XT",
+        "price": "$19",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "woolino-4-season-baby-sleep-bag",
+        "name": "Woolino 4-Season Baby Sleep Bag",
+        "asin": "B01MUZJJLF",
+        "price": "$109",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "aden--anais-classic-sleeping-bag",
+        "name": "aden + anais Classic Sleeping Bag",
+        "asin": "B07GJVXP4N",
+        "price": "$38",
+        "status": "active",
+        "note": ""
       }
     ],
     "strollers": [
@@ -231,36 +1336,147 @@
         "asin": "B07PMSS86F",
         "price": "$529",
         "status": "active",
-        "note": "Verified working"
+        "note": ""
+      },
+      {
+        "slug": "baby-jogger-city-mini-gt2",
+        "name": "Baby Jogger City Mini GT2",
+        "asin": "B07PMSS86F",
+        "price": "$529",
+        "status": "active",
+        "note": ""
       },
       {
         "slug": "bugaboo-fox-5",
         "name": "Bugaboo Fox 5",
         "asin": "B0BX4R4B8C",
-        "price": "$1399",
-        "status": "active"
+        "price": "$1,399",
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "chicco-bravo-trio",
+        "slug": "chicco-bravo-trio-travel-system",
         "name": "Chicco Bravo Trio Travel System",
         "asin": "B01CSECET0",
         "price": "$349",
-        "status": "active"
+        "status": "active",
+        "note": ""
       },
       {
-        "slug": "joovy-caboose-ultralight",
+        "slug": "chicco-bravo-trio-travel-system",
+        "name": "Chicco Bravo Trio Travel System",
+        "asin": "B01CSECET0",
+        "price": "$349",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "joovy-caboose-ultralight-graphite",
         "name": "Joovy Caboose Ultralight Graphite",
         "asin": "B003H4QFRS",
         "price": "$279",
-        "status": "active"
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "joovy-caboose-ultralight-graphite",
+        "name": "Joovy Caboose Ultralight Graphite",
+        "asin": "B003H4QFRS",
+        "price": "$279",
+        "status": "active",
+        "note": ""
       },
       {
         "slug": "uppababy-vista-v2",
         "name": "UPPAbaby VISTA V2",
         "asin": "B07Z6Y5VCB",
-        "price": "$1099",
+        "price": "$1,099",
         "status": "active",
-        "note": "Verified working"
+        "note": ""
+      }
+    ],
+    "teething-toys": [
+      {
+        "slug": "manhattan-toy-winkel-rattle-and-sensory-teether",
+        "name": "Manhattan Toy Winkel Rattle & Sensory Teether",
+        "asin": "B00005C3PW",
+        "price": "$12",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "munchkin-latch-flexible-stage-teether",
+        "name": "Munchkin Latch Flexible Stage Teether",
+        "asin": "B075NDKRRR",
+        "price": "$7",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "nuby-icybite-hardsoft-teething-keys",
+        "name": "Nuby Icybite Hard/Soft Teething Keys",
+        "asin": "B00AH6OIDE",
+        "price": "$5",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "razbaby-raz-berry-silicone-teether",
+        "name": "RaZbaby RaZ-Berry Silicone Teether",
+        "asin": "B00AXBCQRO",
+        "price": "$8",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "sophie-la-girafe-teether",
+        "name": "Sophie la Girafe Teether",
+        "asin": "B000IXKWEG",
+        "price": "$25",
+        "status": "active",
+        "note": ""
+      }
+    ],
+    "white-noise": [
+      {
+        "slug": "big-red-rooster-6-sound-white-noise-machine",
+        "name": "Big Red Rooster 6 Sound White Noise Machine",
+        "asin": "B00HD0ELFK",
+        "price": "$20",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "dreamegg-d1-pro-sound-machine",
+        "name": "Dreamegg D1 Pro Sound Machine",
+        "asin": "B086BKFHP6",
+        "price": "$30",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "hatch-rest-2nd-gen",
+        "name": "Hatch Rest 2nd Gen",
+        "asin": "B08YS6S66Z",
+        "price": "$69",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "lectrofan-micro2-sleep-sound-machine",
+        "name": "LectroFan Micro2 Sleep Sound Machine",
+        "asin": "B07RFKFKWK",
+        "price": "$35",
+        "status": "active",
+        "note": ""
+      },
+      {
+        "slug": "marpac-rohm-portable-white-noise-machine",
+        "name": "Marpac Rohm Portable White Noise Machine",
+        "asin": "B01H6WXUX6",
+        "price": "$35",
+        "status": "active",
+        "note": ""
       }
     ]
   }
