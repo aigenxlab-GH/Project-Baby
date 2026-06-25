@@ -1,0 +1,217 @@
+================================================================================
+AFFILIATE LINKS VERIFICATION REPORT
+================================================================================
+
+Total links tested:    196
+Links working:         159
+Links broken:          35
+Percentage working:    81.1%
+
+WORKING LINKS BY CATEGORY:
+--------------------------------------------------------------------------------
+  Activity Centers                 8/  8 working (100.0%)
+  Baby Bathtubs                    5/  6 working ( 83.3%)
+  Baby Bouncers                    6/  7 working ( 85.7%)
+  Baby Carriers                    3/  4 working ( 75.0%)
+  Baby Food Makers                 6/  7 working ( 85.7%)
+  Baby Gates                       7/  7 working (100.0%)
+  Baby Loungers                    6/  7 working ( 85.7%)
+  Baby Nail Care                   6/  6 working (100.0%)
+  Baby Swings                      7/  7 working (100.0%)
+  Baby Thermometers                8/  8 working (100.0%)
+  Bath Toys                        6/  6 working (100.0%)
+  Breast Pumps                     5/  7 working ( 71.4%)
+  Car Seats                        5/  6 working ( 83.3%)
+  Cribs                            5/  7 working ( 71.4%)
+  Diaper Bags                      7/  7 working (100.0%)
+  Diaper Pails                     6/  7 working ( 85.7%)
+  High Chairs                      7/  7 working (100.0%)
+  Humidifiers                      4/  7 working ( 57.1%)
+  Monitors                         5/  7 working ( 71.4%)
+  Nursing Chairs                   7/  8 working ( 87.5%)
+  Nursing Feeding                  2/  5 working ( 40.0%)
+  Play Mats                        3/  7 working ( 42.9%)
+  Potty Training                   4/  6 working ( 66.7%)
+  Sippy Cups                       5/  8 working ( 62.5%)
+  Sleep Sacks                     11/ 11 working (100.0%)
+  Strollers                        5/  8 working ( 62.5%)
+  Teething Toys                    5/  7 working ( 71.4%)
+  White Noise                      5/  6 working ( 83.3%)
+
+BROKEN PRODUCTS:
+--------------------------------------------------------------------------------
+
+[Baby Bathtubs]
+  Product: Summer Infant Newborn-to-Toddler Bath Center and Shower
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B01N14DMLQ?tag=pregnancysp0a-20
+
+[Baby Bouncers]
+  Product: BabyBjörn Bouncer Balance Soft
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B016DAWD2S?tag=pregnancysp0a-20
+
+[Baby Carriers]
+  Product: BabyBjörn Baby Carrier ONE Air
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B07QXRH6WW?tag=pregnancysp0a-20
+
+[Baby Food Makers]
+  Product: BEABA Babycook Solo Baby Food Maker
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B07QYMG68L?tag=pregnancysp0a-20
+
+[Baby Loungers]
+  Product: Leachco Podster Sling-Style Plush Infant Seat
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B001RZDEH6?tag=pregnancysp0a-20
+
+[Breast Pumps]
+  Product: Spectra S1 Plus Electric Breast Pump
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B00DBKFFJM?tag=pregnancysp0a-20
+
+[Breast Pumps]
+  Product: Spectra S2 Plus
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B00BLBLR1I?tag=pregnancysp0a-20
+
+[Car Seats]
+  Product: Evenflo EveryStage DLX
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B07CL24B3J?tag=pregnancysp0a-20
+
+[Cribs]
+  Product: Delta Children Emery 4-in-1 Convertible Baby Crib
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B07Z4TZBR4?tag=pregnancysp0a-20
+
+[Cribs]
+  Product: Graco Hadley 4-in-1 Convertible Crib
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B07ZFBWN3S?tag=pregnancysp0a-20
+
+[Diaper Pails]
+  Product: Munchkin Arm & Hammer Diaper Pail
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B07MGPXFM6?tag=pregnancysp0a-20
+
+[Humidifiers]
+  Product: Levoit LV600HH Hybrid Ultrasonic Humidifier
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B07V1P3YQC?tag=pregnancysp0a-20
+
+[Humidifiers]
+  Product: Pure Enrichment MistAire Ultrasonic Cool Mist Humidifier
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B013IJPTFK?tag=pregnancysp0a-20
+
+[Humidifiers]
+  Product: Safety 1st 360 Degree Ultrasonic Humidifier
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B07BVGTXWD?tag=pregnancysp0a-20
+
+[Monitors]
+  Product: Infant Optics DXR-8 Pro Baby Monitor
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B08FF4GV5C?tag=pregnancysp0a-20
+
+[Monitors]
+  Product: Motorola VM75 5-inch Video Baby Monitor
+  Reason: HTTP 405
+  URL: https://www.amazon.com/s?k=Motorola+VM75+baby+monitor&tag=pregnancysp0a-20
+
+[Nursing Chairs]
+  Product: Angel Line Windsor Glider and Ottoman
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B00BGBXKTQ?tag=pregnancysp0a-20
+
+[Nursing Feeding]
+  Product: Comotomo Baby Bottle
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B004C053BA?tag=pregnancysp0a-20
+
+[Nursing Feeding]
+  Product: Haakaa Silicone Breast Pump Gen 2
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B07CWK4S5W?tag=pregnancysp0a-20
+
+[Nursing Feeding]
+  Product: Philips Avent Anti-Colic Bottle
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B0961QRR5K?tag=pregnancysp0a-20
+
+[Play Mats]
+  Product: Bright Starts Tummy Time Prop & Play
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B07FX5F7NR?tag=pregnancysp0a-20
+
+[Play Mats]
+  Product: Fisher-Price Deluxe Kick 'n Play Piano Gym
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B07BQNQKN5?tag=pregnancysp0a-20
+
+[Play Mats]
+  Product: Lovevery Play Gym
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B07Q38BVCK?tag=pregnancysp0a-20
+
+[Play Mats]
+  Product: Skip Hop Explore & More Baby Play Mat
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B07H1P5JN4?tag=pregnancysp0a-20
+
+[Potty Training]
+  Product: Munchkin Sturdy Potty Seat
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B00AWEJC1Q?tag=pregnancysp0a-20
+
+[Potty Training]
+  Product: OXO Tot 2-in-1 Go Potty
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B00VGXX7DI?tag=pregnancysp0a-20
+
+[Sippy Cups]
+  Product: Nuby Silicone Spout Sippy Cup
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B07BGLXFHQ?tag=pregnancysp0a-20
+
+[Sippy Cups]
+  Product: Pura Kiki Stainless Steel Sippy Cup
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B07RJMQC73?tag=pregnancysp0a-20
+
+[Sippy Cups]
+  Product: Tommee Tippee First Sips Trainer Cup
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B09BRDP8SR?tag=pregnancysp0a-20
+
+[Strollers]
+  Product: Babyzen YOYO2 Stroller
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B0856NX5D7?tag=pregnancysp0a-20
+
+[Strollers]
+  Product: Doona Infant Car Seat & Stroller
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B07HML1BT5?tag=pregnancysp0a-20
+
+[Strollers]
+  Product: Graco Modes Pramette Travel System
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B07Y5VQYFW?tag=pregnancysp0a-20
+
+[Teething Toys]
+  Product: Baby Banana Infant Training Toothbrush Teether
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B00GXXLKFQ?tag=pregnancysp0a-20
+
+[Teething Toys]
+  Product: Comotomo Baby Teether
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B00M5AI71C?tag=pregnancysp0a-20
+
+[White Noise]
+  Product: LectroFan Classic White Noise Machine
+  Reason: HTTP 405
+  URL: https://www.amazon.com/dp/B00E6D6LQY?tag=pregnancysp0a-20

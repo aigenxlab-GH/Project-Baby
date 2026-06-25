@@ -1,0 +1,120 @@
+
+================================================================================
+AUTO-FINDING CORRECT ASINs FOR 35 BROKEN LINKS
+================================================================================
+
+[ 1/35] Searching: Comotomo Baby Bottle...   Error searching for 'Comotomo Baby Bottle': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Comotomo+Baby+Bottle
+NOT FOUND (needs manual verification)
+
+[ 2/35] Searching: Haakaa Silicone Breast Pump Gen 2...   Error searching for 'Haakaa Silicone Breast Pump Gen 2': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Haakaa+Silicone+Breast+Pump+Gen+2
+NOT FOUND (needs manual verification)
+
+[ 3/35] Searching: Philips Avent Anti-Colic Bottle...   Error searching for 'Philips Avent Anti-Colic Bottle': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Philips+Avent+Anti-Colic+Bottle
+NOT FOUND (needs manual verification)
+
+[ 4/35] Searching: Bright Starts Tummy Time Prop & Play...   Error searching for 'Bright Starts Tummy Time Prop & Play': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Bright+Starts+Tummy+Time+Prop+&+Play
+NOT FOUND (needs manual verification)
+
+[ 5/35] Searching: Fisher-Price Deluxe Kick 'n Play Piano Gym...   Error searching for 'Fisher-Price Deluxe Kick 'n Play Piano Gym': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Fisher-Price+Deluxe+Kick+'n+Play+Piano+Gym
+NOT FOUND (needs manual verification)
+
+[ 6/35] Searching: Lovevery Play Gym...   Error searching for 'Lovevery Play Gym': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Lovevery+Play+Gym
+NOT FOUND (needs manual verification)
+
+[ 7/35] Searching: Skip Hop Explore & More Baby Play Mat...   Error searching for 'Skip Hop Explore & More Baby Play Mat': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Skip+Hop+Explore+&+More+Baby+Play+Mat
+NOT FOUND (needs manual verification)
+
+[ 8/35] Searching: Levoit LV600HH Hybrid Ultrasonic Humidifier...   Error searching for 'Levoit LV600HH Hybrid Ultrasonic Humidifier': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Levoit+LV600HH+Hybrid+Ultrasonic+Humidifier
+NOT FOUND (needs manual verification)
+
+[ 9/35] Searching: Pure Enrichment MistAire Ultrasonic Cool Mist Humidifier...   Error searching for 'Pure Enrichment MistAire Ultrasonic Cool Mist Humidifier': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Pure+Enrichment+MistAire+Ultrasonic+Cool+Mist+Humidifier
+NOT FOUND (needs manual verification)
+
+[10/35] Searching: Safety 1st 360 Degree Ultrasonic Humidifier...   Error searching for 'Safety 1st 360 Degree Ultrasonic Humidifier': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Safety+1st+360+Degree+Ultrasonic+Humidifier
+NOT FOUND (needs manual verification)
+
+[11/35] Searching: Nuby Silicone Spout Sippy Cup...   Error searching for 'Nuby Silicone Spout Sippy Cup': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Nuby+Silicone+Spout+Sippy+Cup
+NOT FOUND (needs manual verification)
+
+[12/35] Searching: Pura Kiki Stainless Steel Sippy Cup...   Error searching for 'Pura Kiki Stainless Steel Sippy Cup': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Pura+Kiki+Stainless+Steel+Sippy+Cup
+NOT FOUND (needs manual verification)
+
+[13/35] Searching: Tommee Tippee First Sips Trainer Cup...   Error searching for 'Tommee Tippee First Sips Trainer Cup': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Tommee+Tippee+First+Sips+Trainer+Cup
+NOT FOUND (needs manual verification)
+
+[14/35] Searching: Babyzen YOYO2 Stroller...   Error searching for 'Babyzen YOYO2 Stroller': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Babyzen+YOYO2+Stroller
+NOT FOUND (needs manual verification)
+
+[15/35] Searching: Doona Infant Car Seat & Stroller...   Error searching for 'Doona Infant Car Seat & Stroller': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Doona+Infant+Car+Seat+&+Stroller
+NOT FOUND (needs manual verification)
+
+[16/35] Searching: Graco Modes Pramette Travel System...   Error searching for 'Graco Modes Pramette Travel System': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Graco+Modes+Pramette+Travel+System
+NOT FOUND (needs manual verification)
+
+[17/35] Searching: Spectra S1 Plus Electric Breast Pump...   Error searching for 'Spectra S1 Plus Electric Breast Pump': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Spectra+S1+Plus+Electric+Breast+Pump
+NOT FOUND (needs manual verification)
+
+[18/35] Searching: Spectra S2 Plus...   Error searching for 'Spectra S2 Plus': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Spectra+S2+Plus
+NOT FOUND (needs manual verification)
+
+[19/35] Searching: Angelcare Soft Touch Bath Support...   Error searching for 'Angelcare Soft Touch Bath Support': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Angelcare+Soft+Touch+Bath+Support
+NOT FOUND (needs manual verification)
+
+[20/35] Searching: BabyBjörn Bouncer Bliss...   Error searching for 'BabyBjörn Bouncer Bliss': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=BabyBj%C3%B6rn+Bouncer+Bliss
+NOT FOUND (needs manual verification)
+
+[21/35] Searching: Solly Baby Wrap Carrier...   Error searching for 'Solly Baby Wrap Carrier': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Solly+Baby+Wrap+Carrier
+NOT FOUND (needs manual verification)
+
+[22/35] Searching: Kiinde Kozii Bottle Warmer...   Error searching for 'Kiinde Kozii Bottle Warmer': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Kiinde+Kozii+Bottle+Warmer
+NOT FOUND (needs manual verification)
+
+[23/35] Searching: Snuggle Me Organic Lounger...   Error searching for 'Snuggle Me Organic Lounger': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Snuggle+Me+Organic+Lounger
+NOT FOUND (needs manual verification)
+
+[24/35] Searching: SNOO Smart Sleeper Bassinet...   Error searching for 'SNOO Smart Sleeper Bassinet': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=SNOO+Smart+Sleeper+Bassinet
+NOT FOUND (needs manual verification)
+
+[25/35] Searching: Storkcraft Tuscany 4-in-1 Convertible Crib...   Error searching for 'Storkcraft Tuscany 4-in-1 Convertible Crib': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Storkcraft+Tuscany+4-in-1+Convertible+Crib
+NOT FOUND (needs manual verification)
+
+[26/35] Searching: Arlo Baby Monitor...   Error searching for 'Arlo Baby Monitor': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Arlo+Baby+Monitor
+NOT FOUND (needs manual verification)
+
+[27/35] Searching: Infant Optics DXR-8 Pro...   Error searching for 'Infant Optics DXR-8 Pro': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Infant+Optics+DXR-8+Pro
+NOT FOUND (needs manual verification)
+
+[28/35] Searching: Nanit Pro Smart Baby Monitor...   Error searching for 'Nanit Pro Smart Baby Monitor': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Nanit+Pro+Smart+Baby+Monitor
+NOT FOUND (needs manual verification)
+
+[29/35] Searching: Owlet Dream Sock...   Error searching for 'Owlet Dream Sock': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Owlet+Dream+Sock
+NOT FOUND (needs manual verification)
+
+[30/35] Searching: Babyletto Tuba Swivel Glider...   Error searching for 'Babyletto Tuba Swivel Glider': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Babyletto+Tuba+Swivel+Glider
+NOT FOUND (needs manual verification)
+
+[31/35] Searching: DaVinci Olive Upholstered Swivel Glider...   Error searching for 'DaVinci Olive Upholstered Swivel Glider': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=DaVinci+Olive+Upholstered+Swivel+Glider
+NOT FOUND (needs manual verification)
+
+[32/35] Searching: Fisher-Price Laugh & Learn Smart Stages Potty...   Error searching for 'Fisher-Price Laugh & Learn Smart Stages Potty': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Fisher-Price+Laugh+&+Learn+Smart+Stages+Potty
+NOT FOUND (needs manual verification)
+
+[33/35] Searching: Jool Baby Potty Training Seat...   Error searching for 'Jool Baby Potty Training Seat': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Jool+Baby+Potty+Training+Seat
+NOT FOUND (needs manual verification)
+
+[34/35] Searching: Sophie la Girafe Teether...   Error searching for 'Sophie la Girafe Teether': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=Sophie+la+Girafe+Teether
+NOT FOUND (needs manual verification)
+
+[35/35] Searching: DaVinci Kalani 4-in-1 Convertible Crib...   Error searching for 'DaVinci Kalani 4-in-1 Convertible Crib': 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=DaVinci+Kalani+4-in-1+Convertible+Crib
+NOT FOUND (needs manual verification)
+
+
+================================================================================
+RESULTS
+================================================================================
+Found: 0/35
+Needs manual lookup: 35/35
+
+Saved to: affiliate_corrections_auto.csv
+================================================================================
+
