@@ -36,7 +36,7 @@ When you find a broken link, update the JSON and run the sync script. Done!
 ### 2. Run Sync Script
 
 ```bash
-python sync-from-json.py
+python update_affiliate_links_from_json_to_application.py
 ```
 
 Output:
@@ -96,7 +96,7 @@ Open `affiliate-links.json` and search for product name or ASIN.
 "status": "active",
 "note": ""
 ```
-4. Run: `python sync-from-json.py`
+4. Run: `python update_affiliate_links_from_json_to_application.py`
 
 ### Add New Product
 1. Create MDX file: `content/products/[category]/[slug].mdx`
@@ -153,7 +153,7 @@ Search JSON for `"status": "broken"` — lists all broken links with notes.
 
 4. **Run sync:**
    ```bash
-   python sync-from-json.py
+   python update_affiliate_links_from_json_to_application.py
    ```
 
 5. **Commit & push:**
@@ -200,7 +200,7 @@ Before committing, check:
 
 **Script won't run?**
 ```bash
-python sync-from-json.py
+python update_affiliate_links_from_json_to_application.py
 ```
 Check:
 - Is `affiliate-links.json` in the right folder?
