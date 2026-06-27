@@ -73,6 +73,8 @@ const nextConfig = {
       { source: '/blog/newborn-care-tips', destination: '/blog/newborn-care-tips-every-new-parent-needs-to-know', permanent: true },
       { source: '/blog/breastfeeding-vs-formula-feeding', destination: '/blog/breastfeeding-vs-formula-an-honest-comparison', permanent: true },
       { source: '/blog/gestational-diabetes-pregnancy', destination: '/blog/gestational-diabetes-symptoms-diet-and-management-guide', permanent: true },
+      { source: '/studio', destination: 'https://pregnancysprout.sanity.studio', permanent: false },
+      { source: '/studio/:path*', destination: 'https://pregnancysprout.sanity.studio/:path*', permanent: false },
     ];
   },
 
