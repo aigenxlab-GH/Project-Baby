@@ -24,9 +24,11 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Deploy Sanity Studio
-        run: npx sanity deploy --yes
+        run: npx sanity deploy --yes --studio-host pregnancysprout
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+          NEXT_PUBLIC_SANITY_PROJECT_ID: mnwolxvz
+          NEXT_PUBLIC_SANITY_DATASET: production
 
       - name: Build & Deploy to Cloudflare Workers
         run: npm run deploy
