@@ -42,6 +42,7 @@ const TRUSTED_HOSTS = new Set([
   'target.scene7.com',
   'images.mattel.com',
   'a.storyblok.com',
+  'cdn.sanity.io',
 ]);
 
 function isTrustedUrl(url: string): boolean {
