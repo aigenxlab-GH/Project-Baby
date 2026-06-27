@@ -1,0 +1,35 @@
+diff --git a/node_modules/next/dist/compiled/react/cjs/react.development.js b/node_modules/next/dist/compiled/react/cjs/react.development.js
+index 5f7b622..ef84d29 100644
+--- a/node_modules/next/dist/compiled/react/cjs/react.development.js
++++ b/node_modules/next/dist/compiled/react/cjs/react.development.js
+@@ -1186,6 +1186,14 @@
+     exports.useDeferredValue = function (value, initialValue) {
+       return resolveDispatcher().useDeferredValue(value, initialValue);
+     };
++    exports.useEffectEvent = function useEffectEvent(callback) {
++      var dispatcher = resolveDispatcher();
++      var ref = dispatcher.useRef(callback);
++      ref.current = callback;
++      return dispatcher.useCallback(function () {
++        return ref.current.apply(this, arguments);
++      }, []);
++    };
+     exports.useEffect = function (create, deps) {
+       null == create &&
+         console.warn(
+diff --git a/node_modules/next/dist/compiled/react/cjs/react.production.js b/node_modules/next/dist/compiled/react/cjs/react.production.js
+index 6479d22..ffad066 100644
+--- a/node_modules/next/dist/compiled/react/cjs/react.production.js
++++ b/node_modules/next/dist/compiled/react/cjs/react.production.js
+@@ -497,6 +497,11 @@ exports.useDebugValue = function () {};
+ exports.useDeferredValue = function (value, initialValue) {
+   return ReactSharedInternals.H.useDeferredValue(value, initialValue);
+ };
++exports.useEffectEvent = function useEffectEvent(callback) {
++  var ref = { current: callback };
++  ref.current = callback;
++  return function () { return ref.current.apply(this, arguments); };
++};
+ exports.useEffect = function (create, deps) {
+   return ReactSharedInternals.H.useEffect(create, deps);
+ };
