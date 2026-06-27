@@ -25,10 +25,12 @@ jobs:
 
       - name: Deploy Sanity Studio
         run: node_modules/.bin/sanity deploy --yes --studio-host pregnancysprout
-        timeout-minutes: 8
+        timeout-minutes: 20
         continue-on-error: true
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+          SANITY_STUDIO_PROJECT_ID: mnwolxvz
+          SANITY_STUDIO_DATASET: production
           NEXT_PUBLIC_SANITY_PROJECT_ID: mnwolxvz
           NEXT_PUBLIC_SANITY_DATASET: production
 
