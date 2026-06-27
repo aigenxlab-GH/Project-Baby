@@ -17,16 +17,19 @@ import type { ProductReview, ProductCategory } from '@/types/product';
 type CacheEntry = Record<string, unknown>;
 type ContentCache = Record<string, Record<string, CacheEntry>>;
 
-// Lazy-loaded cache — only parsed the first time getProductsCache() is called.
-// Using require() inside a function instead of a top-level import means V8 does NOT
-// parse this 1.4 MB JSON during Worker cold-start initialization, which was causing
-// Error 1102 (exceeded 10ms CPU limit) on Cloudflare Workers free plan.
-// For force-static pages, this function is never called at runtime → zero parse cost.
+// Lazy-loaded cache — read from disk at build time via fs, NOT bundled into Worker.
+// Using fs.readFileSync instead of require() prevents esbuild from inlining the
+// 0.5 MB JSON into handler.mjs. Product detail pages are force-static — the
+// Cloudflare Worker serves pre-rendered HTML and never calls this at runtime.
 let _productsCache: ContentCache | null = null;
 function getProductsCache(): ContentCache {
   if (!_productsCache) {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    _productsCache = require('@/data/content-cache-products.json') as unknown as ContentCache;
+    try {
+      const cachePath = path.join(process.cwd(), 'src/data/content-cache-products.json');
+      _productsCache = JSON.parse(fs.readFileSync(cachePath, 'utf-8')) as ContentCache;
+    } catch {
+      _productsCache = {} as ContentCache;
+    }
   }
   return _productsCache;
 }
