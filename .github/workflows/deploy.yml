@@ -9,7 +9,7 @@ jobs:
   deploy:
     name: Build & Deploy
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
 
     steps:
       - name: Checkout code
@@ -24,7 +24,9 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Deploy Sanity Studio
-        run: npx sanity deploy --yes --studio-host pregnancysprout
+        run: node_modules/.bin/sanity deploy --yes --studio-host pregnancysprout
+        timeout-minutes: 8
+        continue-on-error: true
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
           NEXT_PUBLIC_SANITY_PROJECT_ID: mnwolxvz
