@@ -23,6 +23,7 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
   },
 
+
   // ── Output tracing ─────────────────────────────────────────────────────────
   // Tells Next.js the project root is THIS directory, not a parent that contains
   // multiple lockfiles (C:\AIGenXLab\package-lock.json).
@@ -86,7 +87,18 @@ const nextConfig = {
         ],
       },
       {
-        source: '/(.*)',
+        // Sanity Studio needs unsafe-eval for its editor runtime
+        source: '/studio/:path*',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://cdn.sanity.io; connect-src 'self' https://api.sanity.io https://*.api.sanity.io https://cdn.sanity.io wss://*.api.sanity.io; font-src 'self' data:; worker-src 'self' blob:; frame-src 'self';",
+          },
+        ],
+      },
+      {
+        // All non-studio routes get the strict CSP
+        source: '/((?!studio).*)',
         headers: [
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'X-Frame-Options', value: 'SAMEORIGIN' },

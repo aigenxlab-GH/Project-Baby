@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
 import Script from 'next/script';
+import { headers } from 'next/headers';
 import './globals.css';
 import { siteConfig } from '@/config/site';
 import { Header } from '@/components/layout/Header';
@@ -94,9 +95,12 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const publisherId = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID;
   const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const headersList = await headers();
+  const pathname = headersList.get('x-pathname') ?? '';
+  const isStudio = pathname.startsWith('/studio');
 
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
@@ -149,13 +153,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         )}
       </head>
       <body className="min-h-screen flex flex-col bg-[#fdf8fa] dark:bg-[#0f0f13] antialiased">
-        <ThemeProvider>
-          <Header />
-          <main id="main-content" className="flex-1">{children}</main>
-          <Footer />
-          <FooterAd />
-          <ClientShell />
-        </ThemeProvider>
+        {isStudio ? children : (
+          <ThemeProvider>
+            <Header />
+            <main id="main-content" className="flex-1">{children}</main>
+            <Footer />
+            <FooterAd />
+            <ClientShell />
+          </ThemeProvider>
+        )}
       </body>
     </html>
   );
