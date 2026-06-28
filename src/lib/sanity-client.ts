@@ -193,10 +193,13 @@ const PUBLISHED_PRODUCTS_QUERY = `*[_type == "productReview"] {
 export async function getSanityProducts(): Promise<ProductReview[]> {
   try {
     const results = await sanityClient.fetch<SanityProduct[]>(PUBLISHED_PRODUCTS_QUERY);
+    console.log(`[sanity-client] Fetched ${results?.length || 0} products from Sanity`);
+    if (results?.length) {
+      console.log('[sanity-client] Product slugs:', results.map(p => p.slug).join(', '));
+    }
     return (results || []).map(sanityProductToReview);
   } catch (err) {
-    // Sanity unavailable at build time — fall back to MDX cache only
-    console.warn('[sanity-client] Failed to fetch products from Sanity:', err);
+    console.error('[sanity-client] Failed to fetch products from Sanity:', err);
     return [];
   }
 }
