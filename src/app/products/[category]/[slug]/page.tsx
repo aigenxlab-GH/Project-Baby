@@ -86,13 +86,13 @@ const fallbackImages: Record<string, string> = {
 };
 
 export async function generateStaticParams() {
-  const products = getAllProducts();
+  const products = await getAllProducts();
   return products.map((p) => ({ category: p.category, slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category, slug } = await params;
-  const product = getProductBySlug(category as ProductCategory, slug);
+  const product = await getProductBySlug(category as ProductCategory, slug);
   if (!product) return { title: 'Product Not Found' };
   return {
     title: `${product.title}`,
@@ -117,7 +117,7 @@ function renderStars(rating: number) {
 
 export default async function ProductReviewPage({ params }: Props) {
   const { category, slug } = await params;
-  const product = getProductBySlug(category as ProductCategory, slug);
+  const product = await getProductBySlug(category as ProductCategory, slug);
   if (!product) notFound();
 
   const catLabel = categoryLabels[category] || category;

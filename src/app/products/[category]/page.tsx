@@ -73,7 +73,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CategoryPage({ params }: Props) {
   const { category } = await params;
-  const products = getProductsByCategory(category as ProductCategory);
+  const products = await getProductsByCategory(category as ProductCategory);
   const label = categoryLabels[category] || category;
 
   return (

@@ -55,7 +55,7 @@ function dirLatestMtime(dirPath: string, fallback: string): string {
  * - Trailing slashes: NONE (matches trailingSlash: false in next.config.mjs)
  * - All URLs must exactly match the canonical href in each page's metadata.
  */
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Stable fallback for pages without a content file (static app pages)
   const BUILD_DATE = '2026-06-05T00:00:00.000Z';
@@ -216,7 +216,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   // ── Product detail pages — real mtime ────────────────────────────────────
-  const products = getAllProducts();
+  const products = await getAllProducts();
   const productPages: MetadataRoute.Sitemap = products.map((p) => ({
     url: url(`/products/${p.category}/${p.slug}`),
     lastModified: fileMtime(`content/products/${p.category}/${p.slug}.mdx`, BUILD_DATE),

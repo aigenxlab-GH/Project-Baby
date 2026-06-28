@@ -1,104 +1,111 @@
 /**
- * Products library — uses the pre-compiled content cache for metadata,
- * and the raw MDX files for article body content.
+ * Products library — merges two sources at build time (next build / SSG):
+ *   1. MDX content cache (src/data/content-cache-products.json) — 193 existing products
+ *   2. Sanity CMS — products added/edited via pregnancysprout.sanity.studio
  *
- * The products cache (content-cache-products.json) intentionally omits the MDX
- * body to keep the Cloudflare Worker bundle small. The body is read from the
- * filesystem at build time by getProductBySlug(), which only runs during `next build`
- * (Node.js environment). Product detail pages are force-static — the Cloudflare Worker
- * serves the pre-rendered HTML and never calls getProductBySlug() at runtime.
+ * Sanity products override MDX products when both share the same category+slug.
+ * All functions are async because fetching from Sanity requires a network call.
+ * All pages are force-static — the Cloudflare Worker serves pre-rendered HTML
+ * and never calls these functions at runtime.
  */
 
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import type { ProductReview, ProductCategory } from '@/types/product';
+import { getSanityProducts } from './sanity-client';
 
 type CacheEntry = Record<string, unknown>;
 type ContentCache = Record<string, Record<string, CacheEntry>>;
 
-// Lazy-loaded cache — read from disk at build time via fs, NOT bundled into Worker.
-// Using fs.readFileSync instead of require() prevents esbuild from inlining the
-// 0.5 MB JSON into handler.mjs. Product detail pages are force-static — the
-// Cloudflare Worker serves pre-rendered HTML and never calls this at runtime.
-let _productsCache: ContentCache | null = null;
-function getProductsCache(): ContentCache {
-  if (!_productsCache) {
+// ── MDX JSON cache (read at build time, not bundled into Worker) ───────────────
+let _mdxCache: ContentCache | null = null;
+function getMdxCache(): ContentCache {
+  if (!_mdxCache) {
     try {
-      const cachePath = path.join(process.cwd(), 'src/data/content-cache-products.json');
-      _productsCache = JSON.parse(fs.readFileSync(cachePath, 'utf-8')) as ContentCache;
+      const p = path.join(process.cwd(), 'src/data/content-cache-products.json');
+      _mdxCache = JSON.parse(fs.readFileSync(p, 'utf-8')) as ContentCache;
     } catch {
-      _productsCache = {} as ContentCache;
+      _mdxCache = {};
     }
   }
-  return _productsCache;
+  return _mdxCache;
 }
 
-function cacheEntryToProduct(
-  entry: CacheEntry,
-  category: ProductCategory,
-  slug: string,
-): ProductReview {
-  return {
-    ...(entry as Omit<ProductReview, 'slug' | 'category'>),
-    slug,
-    category,
-  } as ProductReview;
+function cacheEntryToProduct(entry: CacheEntry, category: ProductCategory, slug: string): ProductReview {
+  return { ...(entry as Omit<ProductReview, 'slug' | 'category'>), slug, category } as ProductReview;
 }
 
-export function getAllProducts(): ProductReview[] {
-  const cache = getProductsCache();
-  const all: ProductReview[] = [];
+// ── Merged product map: category/slug → ProductReview ─────────────────────────
+// Built once per build process. Sanity products override MDX products.
+let _merged: Map<string, ProductReview> | null = null;
 
-  for (const [key, entries] of Object.entries(cache)) {
+async function getMerged(): Promise<Map<string, ProductReview>> {
+  if (_merged) return _merged;
+
+  _merged = new Map();
+
+  // 1. MDX cache first (base layer)
+  const mdx = getMdxCache();
+  for (const [key, entries] of Object.entries(mdx)) {
     if (!key.startsWith('products/')) continue;
     const category = key.replace('products/', '') as ProductCategory;
     for (const [slug, entry] of Object.entries(entries)) {
-      all.push(cacheEntryToProduct(entry, category, slug));
+      _merged.set(`${category}/${slug}`, cacheEntryToProduct(entry, category, slug));
     }
   }
 
-  return all.sort(
+  // 2. Sanity products (override MDX where keys match)
+  const sanity = await getSanityProducts();
+  for (const p of sanity) {
+    if (p.category && p.slug) {
+      _merged.set(`${p.category}/${p.slug}`, p);
+    }
+  }
+
+  return _merged;
+}
+
+// ── Public API (all async) ─────────────────────────────────────────────────────
+
+export async function getAllProducts(): Promise<ProductReview[]> {
+  const merged = await getMerged();
+  return Array.from(merged.values()).sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
   );
 }
 
-export function getProductsByCategory(category: ProductCategory): ProductReview[] {
-  const cache = getProductsCache();
-  const categoryData = cache[`products/${category}`];
-  if (!categoryData) return [];
-
-  return Object.entries(categoryData)
-    .map(([slug, entry]) => cacheEntryToProduct(entry, category, slug))
+export async function getProductsByCategory(category: ProductCategory): Promise<ProductReview[]> {
+  const merged = await getMerged();
+  return Array.from(merged.values())
+    .filter((p) => p.category === category)
     .sort((a, b) => b.ourScore - a.ourScore);
 }
 
-export function getProductBySlug(category: ProductCategory, slug: string): ProductReview | null {
-  const cache = getProductsCache();
-  const categoryData = cache[`products/${category}`];
-  if (!categoryData) return null;
-  const entry = categoryData[slug];
-  if (!entry) return null;
+export async function getProductBySlug(
+  category: ProductCategory,
+  slug: string,
+): Promise<ProductReview | null> {
+  const merged = await getMerged();
+  const product = merged.get(`${category}/${slug}`);
+  if (!product) return null;
 
-  // Read the MDX body directly from disk — only runs during `next build` (Node.js).
-  // The products cache omits the body to keep the Cloudflare Worker bundle small.
-  // On Cloudflare at runtime, product pages are served pre-rendered; this branch
-  // is never reached, so the try/catch is just a safety net.
+  // Sanity products already have content serialized from portable text
+  if (product.content && product.content.trim().length > 0) return product;
+
+  // MDX products — read body from filesystem (only at next build time in Node.js)
   let content = '';
   try {
     const filePath = path.join(process.cwd(), 'content', 'products', category, `${slug}.mdx`);
-    const raw = fs.readFileSync(filePath, 'utf-8');
-    content = matter(raw).content;
+    content = matter(fs.readFileSync(filePath, 'utf-8')).content;
   } catch {
-    // Cloudflare Worker runtime — filesystem not available. No-op: the HTML for this
-    // page was already baked in at build time via force-static pre-rendering.
+    // No MDX file (Sanity-only product without body, or Worker runtime — no-op)
   }
 
-  return cacheEntryToProduct({ ...entry, content }, category, slug);
+  return { ...product, content };
 }
 
-export function getFeaturedProducts(limit = 6): ProductReview[] {
-  return getAllProducts()
-    .filter((p) => p.featured)
-    .slice(0, limit);
+export async function getFeaturedProducts(limit = 6): Promise<ProductReview[]> {
+  const products = await getAllProducts();
+  return products.filter((p) => p.featured).slice(0, limit);
 }
