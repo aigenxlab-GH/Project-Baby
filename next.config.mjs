@@ -121,7 +121,7 @@ const nextConfig = {
               // googleads.g.doubleclick.net: AdSense ad serving.
               // adservice.google.com: AdSense impression & conversion pixels.
               // static.cloudflareinsights.com: Cloudflare Web Analytics beacon (auto-injected by CF).
-              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://*.doubleclick.net https://adservice.google.com https://static.cloudflareinsights.com",
+              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://*.doubleclick.net https://adservice.google.com https://ep2.adtrafficquality.google https://static.cloudflareinsights.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
               // stats.g.doubleclick.net: GA4 + AdSense image beacons (blocked without this → CSP error).
