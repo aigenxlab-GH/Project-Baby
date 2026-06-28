@@ -156,7 +156,7 @@ export function sanityProductToReview(p: SanityProduct): ProductReview {
 }
 
 // ── GROQ query ─────────────────────────────────────────────────────────────────
-const PUBLISHED_PRODUCTS_QUERY = `*[_type == "productReview" && published == true] {
+const PUBLISHED_PRODUCTS_QUERY = `*[_type == "productReview"] {
   _id,
   productName,
   "slug": slug.current,
