@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Star, CheckCircle, XCircle, Award } from 'lucide-react';
-import { BuyButton } from './BuyButton';
+import { AffiliateLinkButton } from './AffiliateLinkButton';
 import { resolveProductImage } from '@/lib/product-images';
 import type { ProductReview } from '@/types/product';
 
@@ -25,7 +25,6 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export function ProductCard({ product, variant = 'card' }: Props) {
-  const primaryLink = product.affiliateLinks?.[0];
   const productUrl = `/products/${product.category}/${product.slug}`;
 
   return (
@@ -83,10 +82,9 @@ export function ProductCard({ product, variant = 'card' }: Props) {
 
         {/* CTA */}
         <div className="flex items-center gap-3 mt-auto pt-2">
-          {primaryLink && (
-            <BuyButton
-              href={primaryLink.url}
-              price={primaryLink.price}
+          {product.affiliateLinks && product.affiliateLinks.length > 0 && (
+            <AffiliateLinkButton
+              links={product.affiliateLinks}
               productName={product.productName}
             />
           )}

@@ -8,7 +8,7 @@ import { getProductBySlug, getAllProducts } from '@/lib/products';
 import { resolveProductImage } from '@/lib/product-images';
 import { markdownToHtml } from '@/lib/markdown';
 import { siteConfig } from '@/config/site';
-import { BuyButton } from '@/components/affiliate/BuyButton';
+import { WhereToBuySection } from '@/components/affiliate/WhereToBySection';
 import { InContentAd } from '@/components/ads/InContentAd';
 import { HeaderAd } from '@/components/ads/HeaderAd';
 import { ArticleBottomAd } from '@/components/ads/ArticleBottomAd';
@@ -214,14 +214,7 @@ export default async function ProductReviewPage({ params }: Props) {
 
           {/* Buy buttons */}
           {product.affiliateLinks && product.affiliateLinks.length > 0 && (
-            <div className="bg-gray-50 dark:bg-gray-900/60 rounded-2xl p-5 mb-8 border border-gray-100 dark:border-gray-800">
-              <h2 className="font-semibold text-gray-900 dark:text-white mb-3 text-sm">Where to Buy</h2>
-              <div className="flex flex-wrap gap-3">
-                {product.affiliateLinks.map((link, i) => (
-                  <BuyButton key={i} href={link.url} price={link.price} />
-                ))}
-              </div>
-            </div>
+            <WhereToBuySection links={product.affiliateLinks} />
           )}
 
           {/* Pros and Cons */}
