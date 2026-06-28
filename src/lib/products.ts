@@ -45,17 +45,7 @@ async function getMerged(): Promise<Map<string, ProductReview>> {
 
   _merged = new Map();
 
-  // 1. MDX cache first (base layer)
-  const mdx = getMdxCache();
-  for (const [key, entries] of Object.entries(mdx)) {
-    if (!key.startsWith('products/')) continue;
-    const category = key.replace('products/', '') as ProductCategory;
-    for (const [slug, entry] of Object.entries(entries)) {
-      _merged.set(`${category}/${slug}`, cacheEntryToProduct(entry, category, slug));
-    }
-  }
-
-  // 2. Sanity products (override MDX where keys match)
+  // Only fetch from Sanity (MDX cache disabled — content files preserved for later reuse)
   const sanity = await getSanityProducts();
   for (const p of sanity) {
     if (p.category && p.slug) {
