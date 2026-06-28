@@ -127,7 +127,7 @@ const nextConfig = {
               // stats.g.doubleclick.net: GA4 + AdSense image beacons (blocked without this → CSP error).
               // region1.google-analytics.com: GA4 regional data collection endpoint.
               // *.googlesyndication.com: AdSense creative images.
-              "img-src 'self' data: blob: https://images.unsplash.com https://plus.unsplash.com https://picsum.photos https://fastly.picsum.photos https://wsrv.nl https://*.mattel.com https://www.google-analytics.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.doubleclick.net https://stats.g.doubleclick.net https://adservice.google.com https://*.amazon.com https://*.amazonaws.com https://ws-na.amazon-adsystem.com https://ir-na.amazon-adsystem.com https://m.media-amazon.com https://cdn.sanity.io",
+              "img-src 'self' data: blob: https://images.unsplash.com https://plus.unsplash.com https://picsum.photos https://fastly.picsum.photos https://wsrv.nl https://*.mattel.com https://www.google-analytics.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.doubleclick.net https://stats.g.doubleclick.net https://adservice.google.com https://ep1.adtrafficquality.google https://*.amazon.com https://*.amazonaws.com https://ws-na.amazon-adsystem.com https://ir-na.amazon-adsystem.com https://m.media-amazon.com https://cdn.sanity.io",
               // region1.google-analytics.com + region1.analytics.google.com: GA4 regional fetch endpoints.
               // stats.g.doubleclick.net: GA/AdSense beacon XHR.
               // *.doubleclick.net + *.googlesyndication.com: AdSense RTB + ad serving XHR.
