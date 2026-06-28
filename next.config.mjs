@@ -132,7 +132,7 @@ const nextConfig = {
               // stats.g.doubleclick.net: GA/AdSense beacon XHR.
               // *.doubleclick.net + *.googlesyndication.com: AdSense RTB + ad serving XHR.
               // cloudflareinsights.com: Cloudflare beacon data endpoint.
-              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://region1.analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.doubleclick.net https://adservice.google.com https://cloudflareinsights.com",
+              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://region1.analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.doubleclick.net https://adservice.google.com https://ep1.adtrafficquality.google https://cloudflareinsights.com",
               // *.googlesyndication.com: AdSense ad iframes (all subdomains, not just tpc.).
               // *.doubleclick.net: AdSense DFP iframes.
               "frame-src https://googleads.g.doubleclick.net https://*.doubleclick.net https://tpc.googlesyndication.com https://*.googlesyndication.com",
