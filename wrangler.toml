@@ -33,6 +33,14 @@ enabled = true
 # Public env vars for the Worker.
 # Production secrets must be set via the dashboard or `wrangler secret put`.
 
+# AdSense configuration
+NEXT_PUBLIC_ADSENSE_PUBLISHER_ID = "ca-pub-9203095207294518"
+NEXT_PUBLIC_ADSENSE_SLOT_HEADER = "1378297902"
+NEXT_PUBLIC_ADSENSE_SLOT_CONTENT = "8027761881"
+NEXT_PUBLIC_ADSENSE_SLOT_FOOTER = "7889036797"
+NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR = "5125971221"
+NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE = "1186726216"
+
 # ── IMPORTANT: Upgrade to Workers Paid plan to fix Error 1102 ─────────────────
 # Free plan: 10ms CPU time per request → too low for a Next.js Worker cold start.
 # Paid plan ($5/month): 50ms CPU time → sufficient for this site.
