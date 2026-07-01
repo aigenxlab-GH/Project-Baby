@@ -245,6 +245,14 @@ export default async function ProductReviewPage({ params }: Props) {
             </div>
           </div>
 
+          {/* Best For */}
+          {product.bestFor && (
+            <div className="bg-purple-50 dark:bg-purple-950/40 border border-purple-100 dark:border-purple-900 rounded-2xl p-5 mb-8">
+              <h2 className="font-semibold text-purple-800 dark:text-purple-300 mb-2 text-sm">Best For</h2>
+              <p className="text-purple-700 dark:text-purple-200 leading-relaxed">{product.bestFor}</p>
+            </div>
+          )}
+
           {/* Bottom line */}
           <div className="bg-brand-50 dark:bg-brand-950/40 border border-brand-100 dark:border-brand-900 rounded-2xl p-5 mb-8">
             <h2 className="font-semibold text-brand-800 dark:text-brand-300 mb-2 text-sm">Our Bottom Line</h2>

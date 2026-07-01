@@ -166,6 +166,14 @@ export const productReview = defineType({
       description: 'One-sentence summary shown on product cards',
     }),
     defineField({
+      name: 'bestFor',
+      title: 'Best For (Target Audience)',
+      type: 'text',
+      group: 'review',
+      rows: 2,
+      description: 'Who is this product best suited for? E.g., "Parents who travel frequently" or "Budget-conscious families"',
+    }),
+    defineField({
       name: 'pros',
       title: 'Pros',
       type: 'array',

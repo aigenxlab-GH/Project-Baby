@@ -55,6 +55,7 @@ export interface ProductReview {
   pros: string[];
   cons: string[];
   bottomLine: string;
+  bestFor?: string;
   affiliateLinks: AffiliateLink[];
   image: string;
   imageAlt: string;
