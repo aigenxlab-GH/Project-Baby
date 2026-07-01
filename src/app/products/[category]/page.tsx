@@ -17,6 +17,9 @@ interface Props {
 }
 
 const categoryLabels: Record<string, string> = {
+  // ── Essentials ───────────────────────────────────────────────────────────
+  'mom-essentials': 'Mom Essentials',
+  'baby-essentials': 'Baby Essentials',
   // ── Core categories ──────────────────────────────────────────────────────
   strollers: 'Best Strollers',
   'car-seats': 'Best Car Seats',
