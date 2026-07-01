@@ -1,4 +1,6 @@
 export type ProductCategory =
+  | 'mom-essentials'
+  | 'baby-essentials'
   | 'strollers'
   | 'cribs'
   | 'car-seats'
