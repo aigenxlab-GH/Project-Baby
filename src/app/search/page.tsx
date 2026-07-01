@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function SearchPage() {
   return (
-    <div className="container mx-auto max-w-4xl px-4 py-10">
+    <div className="container mx-auto max-w-4xl px-4 pt-6 pb-10">
       <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Search', href: '/search' }]} />
       <Breadcrumb items={[{ name: 'Search', href: '/search' }]} />
       <h1 className="font-serif text-3xl font-bold text-gray-900 mb-2">Search</h1>

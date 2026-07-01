@@ -108,7 +108,7 @@ export default async function WeekPage({ params }: Props) {
 
       <HeaderAd />
 
-      <div className="container mx-auto max-w-7xl px-4 py-10">
+      <div className="container mx-auto max-w-7xl px-4 pt-6 pb-10">
         <div className="lg:grid lg:grid-cols-[1fr_300px] lg:gap-10">
           {/* Main Content */}
           <article>

@@ -65,7 +65,7 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <div className="container mx-auto max-w-3xl px-4 py-10">
+      <div className="container mx-auto max-w-3xl px-4 pt-6 pb-10">
 
         {/* Medical emergency notice */}
         <div className="bg-red-50 border border-red-200 rounded-2xl p-4 flex gap-3 mb-8">

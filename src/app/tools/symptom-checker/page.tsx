@@ -90,7 +90,7 @@ export default function SymptomCheckerPage() {
     <div>
       <JsonLd data={faqSchema} />
       <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Tools', href: '/tools' }, { name: 'Symptom Checker', href: '/tools/symptom-checker' }]} />
-      <div className="container mx-auto max-w-3xl px-4 py-12">
+      <div className="container mx-auto max-w-3xl px-4 pt-6 pb-12">
         <Breadcrumb items={[{ name: 'Tools', href: '/tools' }, { name: 'Symptom Checker', href: '/tools/symptom-checker' }]} />
         <div className="text-center mb-10">
           <h1 className="font-serif text-4xl font-bold text-gray-900 dark:text-white mb-3">Pregnancy Symptom Checker</h1>

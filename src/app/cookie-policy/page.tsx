@@ -52,7 +52,7 @@ const cookieTypes = [
 
 export default function CookiePolicyPage() {
   return (
-    <div className="container mx-auto max-w-3xl px-4 py-12">
+    <div className="container mx-auto max-w-3xl px-4 pt-6 pb-12">
       <div className="mb-8 flex items-center gap-3">
         <div className="p-2.5 bg-brand-50 rounded-xl">
           <Cookie className="h-6 w-6 text-brand-600" />

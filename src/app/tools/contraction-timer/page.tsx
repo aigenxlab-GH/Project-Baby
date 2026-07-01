@@ -93,7 +93,7 @@ export default function ContractionTimerPage() {
         { name: 'Tools', href: '/tools' },
         { name: 'Contraction Timer', href: '/tools/contraction-timer' },
       ]} />
-      <div className="container mx-auto max-w-3xl px-4 py-12">
+      <div className="container mx-auto max-w-3xl px-4 pt-6 pb-12">
         <div className="text-center mb-10">
           <h1 className="font-serif text-4xl font-bold text-gray-900 dark:text-white mb-3">
             Contraction Timer

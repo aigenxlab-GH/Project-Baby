@@ -39,7 +39,7 @@ export default function CorrectionsPage() {
       </div>
       {/* Hero */}
       <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border-b border-blue-100">
-        <div className="container mx-auto max-w-4xl px-4 py-12 md:py-16">
+        <div className="container mx-auto max-w-4xl px-4 pt-6 pb-12 md:py-16">
           <div className="text-center">
             <h1 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Corrections & Updates
@@ -51,7 +51,7 @@ export default function CorrectionsPage() {
         </div>
       </div>
 
-      <div className="container mx-auto max-w-4xl px-4 py-12">
+      <div className="container mx-auto max-w-4xl px-4 pt-6 pb-12">
 
         {/* How to report */}
         <div className="bg-blue-50 border border-blue-200 rounded-2xl p-8 mb-12">

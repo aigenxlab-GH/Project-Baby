@@ -22,7 +22,7 @@ export default function EditorialStandardsPage() {
       </div>
       {/* Hero */}
       <div className="bg-gradient-to-br from-brand-50 to-purple-50 border-b border-brand-100">
-        <div className="container mx-auto max-w-4xl px-4 py-12 md:py-16">
+        <div className="container mx-auto max-w-4xl px-4 pt-6 pb-12 md:py-16">
           <div className="text-center">
             <h1 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Our Editorial Standards
@@ -34,7 +34,7 @@ export default function EditorialStandardsPage() {
         </div>
       </div>
 
-      <div className="container mx-auto max-w-4xl px-4 py-12">
+      <div className="container mx-auto max-w-4xl px-4 pt-6 pb-12">
 
         {/* Content sourcing */}
         <section className="mb-12">

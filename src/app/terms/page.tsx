@@ -261,7 +261,7 @@ export default function TermsPage() {
         </div>
       </div>
 
-      <div className="container mx-auto max-w-3xl px-4 py-10">
+      <div className="container mx-auto max-w-3xl px-4 pt-6 pb-10">
 
         {/* Summary */}
         <div className="bg-brand-50 border border-brand-100 rounded-2xl p-5 mb-8">

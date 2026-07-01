@@ -1540,7 +1540,7 @@ export default async function RoundupPage({ params }: { params: Promise<{ slug: 
   const updatedFormatted = new Date(roundup.updatedAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 
   return (
-    <div className="container mx-auto max-w-4xl px-4 py-10">
+    <div className="container mx-auto max-w-4xl px-4 pt-6 pb-10">
       <BreadcrumbJsonLd items={[
         { name: 'Home', href: '/' },
         { name: 'Products', href: '/products' },

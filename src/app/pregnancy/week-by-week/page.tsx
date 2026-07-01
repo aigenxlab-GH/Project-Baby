@@ -24,7 +24,7 @@ export default function WeekByWeekPage() {
   const byTrimester = [1, 2, 3].map((t) => weeks.filter((w) => w.trimester === t));
 
   return (
-    <div className="container mx-auto max-w-7xl px-4 py-12">
+    <div className="container mx-auto max-w-7xl px-4 pt-6 pb-12">
       <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Pregnancy', href: '/pregnancy' }, { name: 'Week by Week', href: '/pregnancy/week-by-week' }]} />
       <Breadcrumb items={[{ name: 'Pregnancy', href: '/pregnancy' }, { name: 'Week by Week', href: '/pregnancy/week-by-week' }]} />
       <div className="text-center mb-12">

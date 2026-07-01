@@ -138,9 +138,9 @@ export default async function ProductReviewPage({ params }: Props) {
 
       <HeaderAd />
 
-      <div className="container mx-auto max-w-4xl px-4 py-8">
+      <div className="container mx-auto max-w-4xl px-4 pt-4 pb-8">
         {/* Breadcrumb */}
-        <nav className="flex items-center gap-1.5 text-xs text-gray-400 mb-6 flex-wrap">
+        <nav className="flex items-center gap-1.5 text-xs text-gray-400 mb-4 flex-wrap">
           <Link href="/" className="min-h-[44px] flex items-center hover:text-brand-600">Home</Link>
           <ChevronRight className="h-3 w-3" />
           <Link href="/products" className="min-h-[44px] flex items-center hover:text-brand-600">Products</Link>

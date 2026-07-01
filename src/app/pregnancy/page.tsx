@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function PregnancyHubPage() {
   return (
-    <div className="container mx-auto max-w-7xl px-4 py-12">
+    <div className="container mx-auto max-w-7xl px-4 pt-6 pb-12">
       <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Pregnancy', href: '/pregnancy' }]} />
       <Breadcrumb items={[{ name: 'Pregnancy', href: '/pregnancy' }]} />
       <div className="text-center mb-12">

@@ -111,7 +111,7 @@ export default function Top100BabyNamesPage() {
         { name: 'Baby Names', href: '/baby-names' },
         { name: 'Top 100', href: '/baby-names/top-100' }
       ]} />
-      <div className="container mx-auto max-w-4xl px-4 py-12">
+      <div className="container mx-auto max-w-4xl px-4 pt-6 pb-12">
         <Breadcrumb items={[
           { name: 'Baby Names', href: '/baby-names' },
           { name: 'Top 100', href: '/baby-names/top-100' }

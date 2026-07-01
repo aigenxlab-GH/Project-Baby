@@ -91,7 +91,7 @@ export default async function NameDetailPage({ params }: Props) {
 
       <HeaderAd />
 
-      <div className="container mx-auto max-w-4xl px-4 py-12">
+      <div className="container mx-auto max-w-4xl px-4 pt-6 pb-12">
         {/* Header */}
         <div className={`rounded-3xl p-8 mb-10 text-center ${nameData.gender === 'girl' ? 'bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-950/40 dark:to-rose-950/40' : nameData.gender === 'boy' ? 'bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/40 dark:to-sky-950/40' : 'bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-950/40 dark:to-violet-950/40'}`}>
           <h1 className="font-serif text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">{nameData.name}</h1>

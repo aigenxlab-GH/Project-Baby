@@ -70,7 +70,7 @@ export default async function ParentingArticlePage({ params }: Props) {
   const topicLabel = topicLabels[topic] || topic;
 
   return (
-    <div className="container mx-auto max-w-4xl px-4 py-10">
+    <div className="container mx-auto max-w-4xl px-4 pt-6 pb-10">
       <BreadcrumbJsonLd items={[
         { name: 'Home', href: '/' },
         { name: 'Parenting', href: '/parenting' },

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function BabyNamesPage() {
   return (
-    <div className="container mx-auto max-w-7xl px-4 py-12">
+    <div className="container mx-auto max-w-7xl px-4 pt-6 pb-12">
       <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Baby Names', href: '/baby-names' }]} />
       <Breadcrumb items={[{ name: 'Baby Names', href: '/baby-names' }]} />
       <div className="text-center mb-10">

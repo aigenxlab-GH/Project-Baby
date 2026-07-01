@@ -89,7 +89,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="container mx-auto max-w-4xl px-4 py-12">
+      <div className="container mx-auto max-w-4xl px-4 pt-6 pb-12">
 
         {/* Mission statement */}
         <div className="text-center mb-14 bg-white rounded-3xl p-8 md:p-12 border border-gray-100 shadow-sm">
