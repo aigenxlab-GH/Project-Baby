@@ -1,6 +1,8 @@
 import { defineType, defineField, defineArrayMember } from 'sanity';
 
 const CATEGORIES = [
+  { title: 'Mom Essentials', value: 'mom-essentials' },
+  { title: 'Baby Essentials', value: 'baby-essentials' },
   { title: 'Strollers', value: 'strollers' },
   { title: 'Car Seats', value: 'car-seats' },
   { title: 'Cribs & Bassinets', value: 'cribs' },
