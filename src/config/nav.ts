@@ -22,10 +22,12 @@ export const mainNav = [
   {
     title: 'Products',
     href: '/products',
-    // Trimmed from 13 → 10 items to keep homepage link count under 100 (fix #21).
+    // Trimmed from 13 → 12 items to keep homepage link count under 100 (fix #21).
     // Baby Swings, Nursing & Feeding, Baby Bathtubs still exist as pages — just
     // not featured in the top nav. They remain accessible via /products hub.
     items: [
+      { title: 'Mom Essentials', href: '/products/mom-essentials' },
+      { title: 'Baby Essentials', href: '/products/baby-essentials' },
       { title: 'Strollers', href: '/products/strollers' },
       { title: 'Car Seats', href: '/products/car-seats' },
       { title: 'Baby Monitors', href: '/products/monitors' },
