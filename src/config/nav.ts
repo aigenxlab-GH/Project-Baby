@@ -38,6 +38,7 @@ export const mainNav = [
       { title: 'White Noise', href: '/products/white-noise' },
       { title: 'Diaper Bags', href: '/products/diaper-bags' },
       { title: 'Baby Bouncers', href: '/products/baby-bouncers' },
+      { title: 'View All 30 Categories →', href: '/products', isViewAll: true },
     ],
   },
   {

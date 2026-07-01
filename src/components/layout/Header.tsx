@@ -111,21 +111,28 @@ export function Header() {
                           : 'opacity-0 scale-95 pointer-events-none'
                       }`}
                     >
-                      {item.items.map((sub) => (
-                        <Link
-                          key={sub.href}
-                          href={sub.href}
-                          role="menuitem"
-                          onClick={() => setOpenDropdown(null)}
-                          className={`flex items-center px-4 py-2.5 text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-600 ${
-                            pathname === sub.href
-                              ? 'text-brand-600 bg-brand-50 dark:bg-brand-950/40 font-medium'
-                              : 'text-gray-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-brand-50 dark:hover:bg-gray-800'
-                          }`}
-                        >
-                          {sub.title}
-                        </Link>
-                      ))}
+                      {item.items.map((sub) => {
+                        const isViewAll = 'isViewAll' in sub && sub.isViewAll;
+                        return (
+                          <div key={sub.href}>
+                            {isViewAll && <div className="border-t border-gray-200 dark:border-gray-700 my-1" />}
+                            <Link
+                              href={sub.href}
+                              role="menuitem"
+                              onClick={() => setOpenDropdown(null)}
+                              className={`flex items-center px-4 py-2.5 text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-600 ${
+                                isViewAll
+                                  ? 'text-brand-600 dark:text-brand-400 font-semibold hover:bg-brand-50 dark:hover:bg-brand-950/30'
+                                  : pathname === sub.href
+                                  ? 'text-brand-600 bg-brand-50 dark:bg-brand-950/40 font-medium'
+                                  : 'text-gray-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-brand-50 dark:hover:bg-gray-800'
+                              }`}
+                            >
+                              {sub.title}
+                            </Link>
+                          </div>
+                        );
+                      })}
                     </div>
                   )}
                 </div>
