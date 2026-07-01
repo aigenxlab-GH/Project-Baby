@@ -78,6 +78,8 @@ export default async function CategoryPage({ params }: Props) {
   const { category } = await params;
   const products = await getProductsByCategory(category as ProductCategory);
   const label = categoryLabels[category] || category;
+  // Strip a leading "Best " so prose like "the best {x}" doesn't read "the best best strollers".
+  const cleanLabel = label.replace(/^Best\s+/i, '').toLowerCase();
 
   return (
     <>
@@ -89,37 +91,35 @@ export default async function CategoryPage({ params }: Props) {
 
       <HeaderAd />
 
-      <div className="container mx-auto max-w-7xl px-4 pt-6 pb-12">
-      <nav className="flex items-center gap-2 text-sm text-gray-500 mb-4" aria-label="Breadcrumb">
-        <Link href="/" className="min-h-[44px] flex items-center hover:text-brand-600">Home</Link>
+      <div className="container mx-auto max-w-7xl px-4 pt-4 pb-10">
+      <nav className="flex items-center gap-1.5 text-xs text-gray-500 mb-3" aria-label="Breadcrumb">
+        <Link href="/" className="py-1 hover:text-brand-600">Home</Link>
         <ChevronRight className="h-3 w-3" aria-hidden="true" />
-        <Link href="/products" className="min-h-[44px] flex items-center hover:text-brand-600">Products</Link>
+        <Link href="/products" className="py-1 hover:text-brand-600">Products</Link>
         <ChevronRight className="h-3 w-3" aria-hidden="true" />
         <span className="text-gray-900 dark:text-gray-100 font-medium" aria-current="page">{label}</span>
       </nav>
 
-      <h1 className="font-serif text-4xl font-bold text-gray-900 mb-3">{label} — 2026 Reviews</h1>
-      <p className="text-gray-600 mb-3 max-w-2xl">
-        Our editorial team has researched and ranked the best {label.toLowerCase()} for 2026.
-        Updated regularly with honest pros, cons, and recommendations for every budget.
+      <h1 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">{label} — 2026 Reviews</h1>
+      <p className="text-gray-600 dark:text-gray-300 mb-4 max-w-3xl">
+        Our editorial team researched and ranked the best {cleanLabel} for 2026 — honest pros, cons, and picks for every budget.
       </p>
 
-      {/* Trust bar */}
-      <div className="flex flex-wrap gap-4 mb-3 text-sm text-gray-500">
+      {/* Trust + disclosure — single compact row */}
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6 text-xs text-gray-500 dark:text-gray-400">
         <span className="flex items-center gap-1.5">
-          <Star className="h-4 w-4 text-amber-400 fill-amber-400" aria-hidden="true" /> Scored out of 10
+          <Star className="h-3.5 w-3.5 text-amber-400 fill-amber-400" aria-hidden="true" /> Scored out of 10
         </span>
         <span className="flex items-center gap-1.5">
-          <ShieldCheck className="h-4 w-4 text-green-500" aria-hidden="true" /> Safety-checked
+          <ShieldCheck className="h-3.5 w-3.5 text-green-500" aria-hidden="true" /> Safety-checked
         </span>
         <span className="flex items-center gap-1.5">
-          <RefreshCw className="h-4 w-4 text-blue-500" aria-hidden="true" /> Updated June 2026
+          <RefreshCw className="h-3.5 w-3.5 text-blue-500" aria-hidden="true" /> Updated June 2026
         </span>
-      </div>
-
-      <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-800 rounded-full px-4 py-2 text-sm mb-6">
-        <span aria-hidden="true">⚠️</span>
-        <span>Affiliate disclosure: We may earn a commission from purchases. <Link href="/affiliate-disclosure" className="underline">Learn more</Link>.</span>
+        <span className="hidden sm:inline text-gray-300 dark:text-gray-600" aria-hidden="true">|</span>
+        <span className="text-gray-400 dark:text-gray-500">
+          Affiliate disclosure: we may earn a commission. <Link href="/affiliate-disclosure" className="underline hover:text-brand-600">Learn more</Link>
+        </span>
       </div>
 
       {products.length === 0 ? (
