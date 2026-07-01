@@ -95,11 +95,11 @@ export default async function WeekPage({ params }: Props) {
       <div className="bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 py-3 px-4">
         <div className="container mx-auto max-w-7xl">
           <nav className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-            <Link href="/" className="min-h-[44px] flex items-center hover:text-brand-600 dark:hover:text-brand-400">Home</Link>
+            <Link href="/" className="py-1 hover:text-brand-600 dark:hover:text-brand-400">Home</Link>
             <ChevronRight className="h-3 w-3" />
-            <Link href="/pregnancy" className="min-h-[44px] flex items-center hover:text-brand-600 dark:hover:text-brand-400">Pregnancy</Link>
+            <Link href="/pregnancy" className="py-1 hover:text-brand-600 dark:hover:text-brand-400">Pregnancy</Link>
             <ChevronRight className="h-3 w-3" />
-            <Link href="/pregnancy/week-by-week" className="min-h-[44px] flex items-center hover:text-brand-600 dark:hover:text-brand-400">Week by Week</Link>
+            <Link href="/pregnancy/week-by-week" className="py-1 hover:text-brand-600 dark:hover:text-brand-400">Week by Week</Link>
             <ChevronRight className="h-3 w-3" />
             <span className="text-gray-900 dark:text-white font-medium">Week {weekNum}</span>
           </nav>

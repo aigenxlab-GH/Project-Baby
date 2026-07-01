@@ -85,18 +85,17 @@ export default function ProductsPage() {
     <div className="container mx-auto max-w-7xl px-4 pt-6 pb-12">
       <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Products', href: '/products' }]} />
       <Breadcrumb items={[{ name: 'Product Reviews', href: '/products' }]} />
-      <div className="text-center mb-12">
-        <h1 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+      <div className="text-center mb-8">
+        <h1 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3">
           Baby Product Reviews
         </h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
           Honest, in-depth reviews of the best baby products — tested and rated by parents,
           for every budget. All 30 categories organized by type.
         </p>
-        <div className="mt-4 inline-flex items-center gap-2 bg-amber-50 text-amber-800 rounded-full px-4 py-2 text-sm">
-          <span>⚠️</span>
-          <span>Some links on this page are affiliate links. <Link href="/affiliate-disclosure" className="underline">Learn more</Link>.</span>
-        </div>
+        <p className="mt-3 text-xs text-gray-400 dark:text-gray-500">
+          Some links on this page are affiliate links. <Link href="/affiliate-disclosure" className="underline hover:text-brand-600">Learn more</Link>.
+        </p>
       </div>
 
       {/* Grouped categories */}

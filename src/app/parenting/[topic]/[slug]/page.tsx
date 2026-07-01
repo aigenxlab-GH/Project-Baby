@@ -79,11 +79,11 @@ export default async function ParentingArticlePage({ params }: Props) {
       ]} />
       {/* Breadcrumb */}
       <nav className="flex items-center gap-1.5 text-xs text-gray-400 mb-6 flex-wrap">
-        <Link href="/" className="min-h-[44px] flex items-center hover:text-brand-600">Home</Link>
+        <Link href="/" className="py-1 hover:text-brand-600">Home</Link>
         <ChevronRight className="h-3 w-3" />
-        <Link href="/parenting" className="min-h-[44px] flex items-center hover:text-brand-600">Parenting</Link>
+        <Link href="/parenting" className="py-1 hover:text-brand-600">Parenting</Link>
         <ChevronRight className="h-3 w-3" />
-        <Link href={`/parenting/${topic}`} className="min-h-[44px] flex items-center hover:text-brand-600">{topicLabel}</Link>
+        <Link href={`/parenting/${topic}`} className="py-1 hover:text-brand-600">{topicLabel}</Link>
         <ChevronRight className="h-3 w-3" />
         <span className="text-gray-600 dark:text-gray-400 font-medium truncate max-w-[200px]">{article.title}</span>
       </nav>
