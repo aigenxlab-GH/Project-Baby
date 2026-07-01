@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import HeaderAd from '@/components/ads/HeaderAd';
-import InContentAd from '@/components/ads/InContentAd';
-import ArticleBottomAd from '@/components/ads/ArticleBottomAd';
-import Footer from '@/components/Footer';
+import { HeaderAd } from '@/components/ads/HeaderAd';
+import { InContentAd } from '@/components/ads/InContentAd';
+import { ArticleBottomAd } from '@/components/ads/ArticleBottomAd';
+import { Footer } from '@/components/layout/Footer';
 
 const bouncers = Array.from({ length: 5 }, (_, i) => ({
   id: `product-${i + 1}`,

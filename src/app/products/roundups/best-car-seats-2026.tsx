@@ -4,10 +4,10 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Star } from 'lucide-react';
-import HeaderAd from '@/components/ads/HeaderAd';
-import InContentAd from '@/components/ads/InContentAd';
-import ArticleBottomAd from '@/components/ads/ArticleBottomAd';
-import Footer from '@/components/Footer';
+import { HeaderAd } from '@/components/ads/HeaderAd';
+import { InContentAd } from '@/components/ads/InContentAd';
+import { ArticleBottomAd } from '@/components/ads/ArticleBottomAd';
+import { Footer } from '@/components/layout/Footer';
 
 interface CarSeat {
   id: string;

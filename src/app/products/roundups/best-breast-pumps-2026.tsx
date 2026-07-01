@@ -3,10 +3,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Star } from 'lucide-react';
-import HeaderAd from '@/components/ads/HeaderAd';
-import InContentAd from '@/components/ads/InContentAd';
-import ArticleBottomAd from '@/components/ads/ArticleBottomAd';
-import Footer from '@/components/Footer';
+import { HeaderAd } from '@/components/ads/HeaderAd';
+import { InContentAd } from '@/components/ads/InContentAd';
+import { ArticleBottomAd } from '@/components/ads/ArticleBottomAd';
+import { Footer } from '@/components/layout/Footer';
 
 interface BreastPump {
   id: string;
