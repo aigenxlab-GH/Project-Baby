@@ -415,7 +415,7 @@ export default function BestStrollers2026() {
         <section className="mb-12">
           <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-6">Frequently Asked Questions</h2>
           <div className="space-y-4">
-            {faqSchema.mainEntity.map((item: any) => (
+            {faqSchema.mainEntity.map((item: { name: string; acceptedAnswer: { text: string } }) => (
               <details key={item.name} className="group border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors">
                 <summary className="cursor-pointer font-semibold text-gray-900 dark:text-white flex items-center justify-between">
                   {item.name}
