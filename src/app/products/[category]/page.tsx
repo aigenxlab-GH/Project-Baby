@@ -89,8 +89,8 @@ export default async function CategoryPage({ params }: Props) {
 
       <HeaderAd />
 
-      <div className="container mx-auto max-w-7xl px-4 py-12">
-      <nav className="flex items-center gap-2 text-sm text-gray-500 mb-8" aria-label="Breadcrumb">
+      <div className="container mx-auto max-w-7xl px-4 pt-6 pb-12">
+      <nav className="flex items-center gap-2 text-sm text-gray-500 mb-4" aria-label="Breadcrumb">
         <Link href="/" className="min-h-[44px] flex items-center hover:text-brand-600">Home</Link>
         <ChevronRight className="h-3 w-3" aria-hidden="true" />
         <Link href="/products" className="min-h-[44px] flex items-center hover:text-brand-600">Products</Link>
@@ -99,13 +99,13 @@ export default async function CategoryPage({ params }: Props) {
       </nav>
 
       <h1 className="font-serif text-4xl font-bold text-gray-900 mb-3">{label} — 2026 Reviews</h1>
-      <p className="text-gray-600 mb-4 max-w-2xl">
+      <p className="text-gray-600 mb-3 max-w-2xl">
         Our editorial team has researched and ranked the best {label.toLowerCase()} for 2026.
         Updated regularly with honest pros, cons, and recommendations for every budget.
       </p>
 
       {/* Trust bar */}
-      <div className="flex flex-wrap gap-4 mb-6 text-sm text-gray-500">
+      <div className="flex flex-wrap gap-4 mb-3 text-sm text-gray-500">
         <span className="flex items-center gap-1.5">
           <Star className="h-4 w-4 text-amber-400 fill-amber-400" aria-hidden="true" /> Scored out of 10
         </span>
@@ -117,7 +117,7 @@ export default async function CategoryPage({ params }: Props) {
         </span>
       </div>
 
-      <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-800 rounded-full px-4 py-2 text-sm mb-10">
+      <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-800 rounded-full px-4 py-2 text-sm mb-6">
         <span aria-hidden="true">⚠️</span>
         <span>Affiliate disclosure: We may earn a commission from purchases. <Link href="/affiliate-disclosure" className="underline">Learn more</Link>.</span>
       </div>
