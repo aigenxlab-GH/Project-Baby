@@ -1,5 +1,38 @@
 import { defineType, defineField, defineArrayMember } from 'sanity';
 
+export const CATEGORY_GROUPS = {
+  'essentials': {
+    title: 'Essentials',
+    emoji: '⭐',
+    categories: ['mom-essentials', 'baby-essentials'],
+  },
+  'feeding': {
+    title: 'Feeding & Nursing',
+    emoji: '🍼',
+    categories: ['breast-pumps', 'nursing-chairs', 'nursing-feeding', 'sippy-cups', 'baby-food-makers'],
+  },
+  'sleep': {
+    title: 'Sleep & Comfort',
+    emoji: '😴',
+    categories: ['cribs', 'sleep-sacks', 'white-noise', 'baby-bouncers', 'baby-swings', 'humidifiers'],
+  },
+  'travel': {
+    title: 'Travel & Gear',
+    emoji: '🚗',
+    categories: ['strollers', 'car-seats', 'baby-carriers', 'diaper-bags', 'diaper-pails'],
+  },
+  'health': {
+    title: 'Health & Safety',
+    emoji: '🛡️',
+    categories: ['baby-thermometers', 'baby-gates', 'baby-nail-care', 'baby-bathtubs'],
+  },
+  'play': {
+    title: 'Play & Development',
+    emoji: '🎨',
+    categories: ['activity-centers', 'play-mats', 'bath-toys', 'teething-toys', 'baby-loungers', 'potty-training'],
+  },
+};
+
 const CATEGORIES = [
   { title: 'Mom Essentials', value: 'mom-essentials' },
   { title: 'Baby Essentials', value: 'baby-essentials' },
@@ -31,6 +64,8 @@ const CATEGORIES = [
   { title: 'Sleep Sacks & Swaddles', value: 'sleep-sacks' },
   { title: 'Teething Toys', value: 'teething-toys' },
   { title: 'Potty Training', value: 'potty-training' },
+  { title: 'Baby Monitors', value: 'monitors' },
+  { title: 'High Chairs', value: 'high-chairs' },
 ];
 
 const REGIONS = [

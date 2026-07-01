@@ -13,19 +13,71 @@ export const metadata: Metadata = {
   alternates: { canonical: `${siteConfig.url}/products` },
 };
 
-const categories = [
-  { slug: 'mom-essentials', label: 'Mom Essentials', emoji: '👩', desc: 'Products for postpartum recovery, nursing, wellness, and self-care' },
-  { slug: 'baby-essentials', label: 'Baby Essentials', emoji: '👶', desc: 'Must-have items every baby needs from day one' },
-  { slug: 'strollers', label: 'Strollers', emoji: '🛒', desc: 'Travel systems, joggers, lightweight & umbrella strollers' },
-  { slug: 'car-seats', label: 'Car Seats', emoji: '🚗', desc: 'Infant, convertible, and all-in-one car seats' },
-  { slug: 'cribs', label: 'Cribs & Bassinets', emoji: '🛏️', desc: 'Convertible cribs, mini cribs, bassinets, and bedside sleepers' },
-  { slug: 'monitors', label: 'Baby Monitors', emoji: '📷', desc: 'Video, audio, and wearable baby monitors' },
-  { slug: 'breast-pumps', label: 'Breast Pumps', emoji: '🍼', desc: 'Electric, manual, and wearable breast pumps' },
-  { slug: 'high-chairs', label: 'High Chairs', emoji: '🪑', desc: 'Traditional, hook-on, and booster high chairs' },
-  { slug: 'baby-carriers', label: 'Baby Carriers', emoji: '👶', desc: 'Wraps, ring slings, structured carriers, and backpacks' },
-  { slug: 'bouncers', label: 'Bouncers & Swings', emoji: '🎠', desc: 'Infant bouncers, swings, and rockers' },
-  { slug: 'swings', label: 'Baby Swings', emoji: '🌙', desc: 'Full-size and portable baby swings' },
-  { slug: 'white-noise-machines', label: 'White Noise Machines', emoji: '🔊', desc: 'Sound machines for better baby sleep' },
+const categoryGroups = [
+  {
+    group: 'Essentials',
+    emoji: '⭐',
+    categories: [
+      { slug: 'mom-essentials', label: 'Mom Essentials', desc: 'Postpartum recovery & self-care' },
+      { slug: 'baby-essentials', label: 'Baby Essentials', desc: 'Must-haves for day one' },
+    ],
+  },
+  {
+    group: 'Feeding & Nursing',
+    emoji: '🍼',
+    categories: [
+      { slug: 'breast-pumps', label: 'Breast Pumps', desc: 'Electric, manual & wearable' },
+      { slug: 'nursing-chairs', label: 'Nursing Chairs', desc: 'Gliders & recliners' },
+      { slug: 'nursing-feeding', label: 'Nursing & Feeding', desc: 'Accessories & supplies' },
+      { slug: 'sippy-cups', label: 'Sippy Cups', desc: 'Toddler drinking cups' },
+      { slug: 'baby-food-makers', label: 'Food Makers', desc: 'Blenders & steamers' },
+    ],
+  },
+  {
+    group: 'Sleep & Comfort',
+    emoji: '😴',
+    categories: [
+      { slug: 'cribs', label: 'Cribs & Bassinets', desc: 'Convertible & portable cribs' },
+      { slug: 'sleep-sacks', label: 'Sleep Sacks', desc: 'Swaddles & sleep wearables' },
+      { slug: 'white-noise', label: 'White Noise', desc: 'Sound machines' },
+      { slug: 'baby-bouncers', label: 'Bouncers', desc: 'Infant bouncers & rockers' },
+      { slug: 'baby-swings', label: 'Baby Swings', desc: 'Full-size & portable swings' },
+      { slug: 'humidifiers', label: 'Humidifiers', desc: 'Baby room humidifiers' },
+    ],
+  },
+  {
+    group: 'Travel & Gear',
+    emoji: '🚗',
+    categories: [
+      { slug: 'strollers', label: 'Strollers', desc: 'Travel systems & joggers' },
+      { slug: 'car-seats', label: 'Car Seats', desc: 'Infant & convertible seats' },
+      { slug: 'baby-carriers', label: 'Baby Carriers', desc: 'Wraps & structured carriers' },
+      { slug: 'diaper-bags', label: 'Diaper Bags', desc: 'Stylish & functional bags' },
+      { slug: 'diaper-pails', label: 'Diaper Pails', desc: 'Odor-control containers' },
+    ],
+  },
+  {
+    group: 'Health & Safety',
+    emoji: '🛡️',
+    categories: [
+      { slug: 'baby-thermometers', label: 'Thermometers', desc: 'Digital & infrared' },
+      { slug: 'baby-gates', label: 'Baby Gates', desc: 'Safety gates & barriers' },
+      { slug: 'baby-nail-care', label: 'Nail Care', desc: 'Nail clippers & tools' },
+      { slug: 'baby-bathtubs', label: 'Baby Tubs', desc: 'Bath tubs & seats' },
+    ],
+  },
+  {
+    group: 'Play & Development',
+    emoji: '🎨',
+    categories: [
+      { slug: 'activity-centers', label: 'Activity Centers', desc: 'Jumpers & play gyms' },
+      { slug: 'play-mats', label: 'Play Mats', desc: 'Mats & floor gyms' },
+      { slug: 'bath-toys', label: 'Bath Toys', desc: 'Water play toys' },
+      { slug: 'teething-toys', label: 'Teething Toys', desc: 'Chew toys & rings' },
+      { slug: 'baby-loungers', label: 'Baby Loungers', desc: 'Loungers & nests' },
+      { slug: 'potty-training', label: 'Potty Training', desc: 'Seats & training aids' },
+    ],
+  },
 ];
 
 export default function ProductsPage() {
@@ -39,7 +91,7 @@ export default function ProductsPage() {
         </h1>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
           Honest, in-depth reviews of the best baby products — tested and rated by parents,
-          for every budget.
+          for every budget. All 30 categories organized by type.
         </p>
         <div className="mt-4 inline-flex items-center gap-2 bg-amber-50 text-amber-800 rounded-full px-4 py-2 text-sm">
           <span>⚠️</span>
@@ -47,22 +99,32 @@ export default function ProductsPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-        {categories.map((cat) => (
-          <Link
-            key={cat.slug}
-            href={`/products/${cat.slug}`}
-            className="group bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-lg hover:border-brand-200 transition-all duration-200"
-          >
-            <div className="text-4xl mb-3">{cat.emoji}</div>
-            <h2 className="font-serif text-xl font-bold text-gray-900 group-hover:text-brand-600 mb-2">
-              {cat.label}
-            </h2>
-            <p className="text-sm text-gray-500 leading-relaxed mb-4">{cat.desc}</p>
-            <div className="flex items-center gap-1 text-brand-600 text-sm font-medium">
-              View Reviews <ChevronRight className="h-4 w-4" />
+      {/* Grouped categories */}
+      <div className="space-y-12">
+        {categoryGroups.map((group) => (
+          <div key={group.group}>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-3xl">{group.emoji}</span>
+              <h2 className="font-serif text-2xl font-bold text-gray-900">{group.group}</h2>
             </div>
-          </Link>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {group.categories.map((cat) => (
+                <Link
+                  key={cat.slug}
+                  href={`/products/${cat.slug}`}
+                  className="group bg-white rounded-xl border border-gray-100 p-5 hover:shadow-md hover:border-brand-200 transition-all duration-200"
+                >
+                  <h3 className="font-serif text-lg font-bold text-gray-900 group-hover:text-brand-600 mb-1">
+                    {cat.label}
+                  </h3>
+                  <p className="text-sm text-gray-500 mb-3">{cat.desc}</p>
+                  <div className="flex items-center gap-1 text-brand-600 text-sm font-medium">
+                    View Reviews <ChevronRight className="h-3 w-3" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </div>
