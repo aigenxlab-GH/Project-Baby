@@ -14,6 +14,8 @@ export const metadata: Metadata = {
 };
 
 const categories = [
+  { slug: 'mom-essentials', label: 'Mom Essentials', emoji: '👩', desc: 'Products for postpartum recovery, nursing, wellness, and self-care' },
+  { slug: 'baby-essentials', label: 'Baby Essentials', emoji: '👶', desc: 'Must-have items every baby needs from day one' },
   { slug: 'strollers', label: 'Strollers', emoji: '🛒', desc: 'Travel systems, joggers, lightweight & umbrella strollers' },
   { slug: 'car-seats', label: 'Car Seats', emoji: '🚗', desc: 'Infant, convertible, and all-in-one car seats' },
   { slug: 'cribs', label: 'Cribs & Bassinets', emoji: '🛏️', desc: 'Convertible cribs, mini cribs, bassinets, and bedside sleepers' },
