@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Star, CheckCircle, XCircle, Award } from 'lucide-react';
+import { CheckCircle, XCircle, Award } from 'lucide-react';
 import { AffiliateLinkButton } from './AffiliateLinkButton';
 import { resolveProductImage } from '@/lib/product-images';
 import type { ProductReview } from '@/types/product';
@@ -10,19 +10,6 @@ interface Props {
   variant?: 'card' | 'featured';
 }
 
-function StarRating({ rating }: { rating: number }) {
-  return (
-    <div className="flex items-center gap-0.5">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <Star
-          key={i}
-          className={`h-4 w-4 ${i < Math.floor(rating) ? 'fill-amber-400 text-amber-400' : 'text-gray-200 dark:text-gray-600'}`}
-        />
-      ))}
-      <span className="ml-1.5 text-sm text-gray-500 dark:text-gray-400">{rating.toFixed(1)}</span>
-    </div>
-  );
-}
 
 export function ProductCard({ product, variant = 'card' }: Props) {
   const productUrl = `/products/${product.category}/${product.slug}`;
@@ -54,9 +41,6 @@ export function ProductCard({ product, variant = 'card' }: Props) {
           <Link href={productUrl} className="font-serif text-lg font-bold text-gray-900 dark:text-white hover:text-brand-600 dark:hover:text-brand-400 leading-snug">
             {product.productName}
           </Link>
-          <div className="mt-1.5">
-            <StarRating rating={product.starRating} />
-          </div>
         </div>
 
         {/* Pros & Cons */}

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { X, BarChart2, Star, CheckCircle, XCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import { X, BarChart2, CheckCircle, XCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import type { ProductReview } from '@/types/product';
 
 interface Props {
@@ -160,21 +160,6 @@ export function ProductComparison({ products, categoryLabel }: Props) {
                         <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-brand-600 text-white font-bold text-lg mx-auto">
                           {p.ourScore.toFixed(1)}
                         </div>
-                      </td>
-                    ))}
-                  </tr>
-
-                  {/* Star rating */}
-                  <tr className="border-b border-gray-100">
-                    <td className="px-6 py-3 font-medium text-gray-600">Rating</td>
-                    {selectedProducts.map((p) => (
-                      <td key={p.slug} className="px-6 py-3 text-center">
-                        <div className="flex items-center justify-center gap-0.5">
-                          {Array.from({ length: 5 }).map((_, i) => (
-                            <Star key={i} className={`h-4 w-4 ${i < Math.floor(p.starRating) ? 'fill-amber-400 text-amber-400' : 'text-gray-200'}`} />
-                          ))}
-                        </div>
-                        <span className="text-xs text-gray-500">{p.starRating}/5</span>
                       </td>
                     ))}
                   </tr>
