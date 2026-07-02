@@ -1,4 +1,6 @@
 import { createClient } from 'next-sanity';
+import fs from 'fs';
+import path from 'path';
 import type { ProductReview, ProductCategory, AffiliateLink } from '@/types/product';
 
 export const sanityClient = createClient({
@@ -190,10 +192,32 @@ const PUBLISHED_PRODUCTS_QUERY = `*[_type == "productReview"] {
   }
 }`;
 
+// ── Build-time JSON cache (written by scripts/build-sanity-cache.ts) ──────────
+// Avoids HTTP calls during @opennextjs/cloudflare SSG — reads from disk instead.
+function readBuildCache(): SanityProduct[] | null {
+  try {
+    const p = path.join(process.cwd(), 'src/data/sanity-products-cache.json');
+    const raw = fs.readFileSync(p, 'utf-8');
+    const data = JSON.parse(raw) as SanityProduct[];
+    if (Array.isArray(data) && data.length > 0) return data;
+  } catch {
+    // Not available (Worker runtime or cache not built yet) — fall through to API
+  }
+  return null;
+}
+
 export async function getSanityProducts(): Promise<ProductReview[]> {
+  // Prefer the pre-built cache (build-time, Node.js env only)
+  const cached = readBuildCache();
+  if (cached) {
+    console.log(`[sanity-client] Loaded ${cached.length} products from build cache`);
+    return cached.map(sanityProductToReview);
+  }
+
+  // Fall back to live API fetch
   try {
     const results = await sanityClient.fetch<SanityProduct[]>(PUBLISHED_PRODUCTS_QUERY);
-    console.log(`[sanity-client] Fetched ${results?.length || 0} products from Sanity`);
+    console.log(`[sanity-client] Fetched ${results?.length || 0} products from Sanity API`);
     if (results?.length) {
       console.log('[sanity-client] Product slugs:', results.map(p => p.slug).join(', '));
     }
