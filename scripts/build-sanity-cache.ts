@@ -35,6 +35,7 @@ const GROQ_QUERY = `*[_type == "productReview"] {
   publishedAt,
   updatedAt,
   author,
+  "imageUrl": image.asset->url,
   imageAlt,
   affiliateLinks,
   specsTable[] { _key, key, value },
