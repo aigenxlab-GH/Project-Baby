@@ -78,7 +78,7 @@ function sanityDocToProduct(doc: any): ProductReview {
 
 export async function getSanityProducts(): Promise<ProductReview[]> {
   const docs = await sanityClient.fetch(
-    `*[(_type == "productReview" || _type == "product") && published == true] | order(category asc, productName asc) {
+    `*[_type == "productReview" && published == true] | order(category asc, productName asc) {
       _id, title, description, publishedAt, updatedAt, author,
       productName, brand, category, modelYear, priceRange, featured, published,
       ourScore, starRating, pros, cons, bottomLine, tags,
@@ -97,7 +97,7 @@ export async function getSanityProductBySlug(
   slug: string,
 ): Promise<ProductReview | null> {
   const doc = await sanityClient.fetch(
-    `*[(_type == "productReview" || _type == "product") && published == true && category == $category && slug.current == $slug][0] {
+    `*[_type == "productReview" && published == true && category == $category && slug.current == $slug][0] {
       _id, title, description, publishedAt, updatedAt, author,
       productName, brand, category, modelYear, priceRange, featured, published,
       ourScore, starRating, pros, cons, bottomLine, tags,
@@ -113,7 +113,7 @@ export async function getSanityProductBySlug(
 
 export async function getSanityProductsByCategory(category: string): Promise<ProductReview[]> {
   const docs = await sanityClient.fetch(
-    `*[(_type == "productReview" || _type == "product") && published == true && category == $category] | order(ourScore desc) {
+    `*[_type == "productReview" && published == true && category == $category] | order(ourScore desc) {
       _id, title, description, publishedAt, updatedAt, author,
       productName, brand, category, modelYear, priceRange, featured, published,
       ourScore, starRating, pros, cons, bottomLine, tags,
