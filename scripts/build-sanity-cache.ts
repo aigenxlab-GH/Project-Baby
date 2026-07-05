@@ -15,7 +15,7 @@ const PROJECT_ID = 'mnwolxvz';
 const DATASET = 'production';
 const HOST = `${PROJECT_ID}.api.sanity.io`;
 
-const GROQ_QUERY = `*[_type == "productReview"] {
+const GROQ_QUERY = `*[_type == "productReview" || _type == "product"] {
   _id,
   productName,
   "slug": slug.current,
