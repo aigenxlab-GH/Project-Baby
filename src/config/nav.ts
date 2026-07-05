@@ -82,10 +82,24 @@ export const footerNav = {
     { title: 'Tools', href: '/tools' },
     { title: 'Blog', href: '/blog' },
   ],
-  // Trimmed to 3 items (removed Registry Checklist) to stay under 100 links (fix #21).
   tools: [
     { title: 'Due Date Calculator', href: '/tools/due-date-calculator' },
     { title: 'Ovulation Calculator', href: '/tools/ovulation-calculator' },
     { title: 'Contraction Timer', href: '/tools/contraction-timer' },
+    { title: 'Registry Checklist', href: '/tools/registry-checklist' },
+    { title: 'Symptom Checker', href: '/tools/symptom-checker' },
+    { title: 'Baby Name Generator', href: '/tools/baby-name-generator' },
+  ],
+  products: [
+    { title: 'Strollers', href: '/products/strollers' },
+    { title: 'Car Seats', href: '/products/car-seats' },
+    { title: 'Baby Carriers', href: '/products/baby-carriers' },
+    { title: 'Cribs & Bassinets', href: '/products/cribs' },
+    { title: 'Sleep Sacks', href: '/products/sleep-sacks' },
+    { title: 'Baby Gates', href: '/products/baby-gates' },
+    { title: 'Breast Pumps', href: '/products/breast-pumps' },
+    { title: 'Diaper Bags', href: '/products/diaper-bags' },
+    { title: 'Baby Bouncers', href: '/products/baby-bouncers' },
+    { title: 'View All →', href: '/products' },
   ],
 };

@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import Image from 'next/image';
 import { getAllWeeks } from '@/lib/pregnancy-data';
+import { getAllArticles } from '@/lib/mdx';
+import { getArticleImage } from '@/lib/article-images';
 import { InContentAd } from '@/components/ads/InContentAd';
 import { WebSiteJsonLd } from '@/components/seo/WebSiteJsonLd';
 import {
@@ -87,6 +89,10 @@ const categories = [
 export default function HomePage() {
   const weeks = getAllWeeks();
   const highlighted = weeks.filter((w) => featuredWeeks.includes(w.week));
+  const latestArticles = getAllArticles('blog')
+    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+    .slice(0, 6)
+    .map((a) => ({ ...a, image: getArticleImage(a.slug, a.category) }));
 
   return (
     <div>
@@ -339,6 +345,43 @@ export default function HomePage() {
             <Link href="/baby-names?gender=neutral" className="px-5 py-3 bg-purple-500 hover:bg-purple-600 text-white text-sm font-semibold rounded-full transition-colors">
               Gender Neutral
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Latest Articles */}
+      <section className="py-8 px-4 bg-white dark:bg-gray-950 cv-auto">
+        <div className="container mx-auto max-w-5xl">
+          <div className="flex items-center justify-between mb-7">
+            <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white">Latest Articles</h2>
+            <Link href="/blog" className="text-brand-600 dark:text-brand-400 hover:underline text-sm font-medium flex items-center gap-1 min-h-[44px]">
+              View all <ChevronRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {latestArticles.map((article) => (
+              <Link
+                key={article.slug}
+                href={`/blog/${article.slug}`}
+                className="group bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-md transition-all"
+              >
+                <div className="relative h-36 overflow-hidden">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 48vw, 32vw"
+                  />
+                </div>
+                <div className="p-4">
+                  <p className="font-semibold text-gray-900 dark:text-white text-sm leading-snug group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors line-clamp-2">
+                    {article.title}
+                  </p>
+                  <p className="text-xs text-gray-400 dark:text-gray-500 mt-1.5">{article.readingTime} min read</p>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

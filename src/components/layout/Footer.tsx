@@ -86,7 +86,7 @@ export function Footer() {
 
       {/* ── Main footer body ──────────────────────────── */}
       <div className="container mx-auto max-w-7xl px-4 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
 
           {/* Brand col — wider */}
           <div className="col-span-2 lg:col-span-2">
@@ -163,6 +163,20 @@ export function Footer() {
             <h3 className="text-white text-xs font-semibold uppercase tracking-widest mb-4">Free Tools</h3>
             <ul className="space-y-2.5">
               {footerNav.tools.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Products */}
+          <div>
+            <h3 className="text-white text-xs font-semibold uppercase tracking-widest mb-4">Products</h3>
+            <ul className="space-y-2.5">
+              {footerNav.products.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
                     {link.title}

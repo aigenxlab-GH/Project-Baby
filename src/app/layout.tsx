@@ -124,9 +124,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel="preconnect" href="https://wsrv.nl" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://wsrv.nl" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
         {/* LCP preload removed: next/image with priority={true} on the homepage hero
             already injects the correct preload link for that specific image.
             A global preload here fired on every page and triggered browser warnings
