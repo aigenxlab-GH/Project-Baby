@@ -151,3 +151,72 @@ export const FEEDING_CITATIONS: Citation[] = [
     year: 2022,
   },
 ];
+
+export const POSTPARTUM_CITATIONS: Citation[] = [
+  {
+    organisation: 'NHS',
+    title: 'Your body after birth',
+    url: 'https://www.nhs.uk/conditions/baby/support-and-services/your-body-after-birth/',
+    year: 2023,
+  },
+  {
+    organisation: 'NICE',
+    title: 'Postnatal care (NG194)',
+    url: 'https://www.nice.org.uk/guidance/ng194',
+    year: 2021,
+  },
+  {
+    organisation: 'WHO',
+    title: 'Postnatal care for mothers and newborns',
+    url: 'https://www.who.int/publications/i/item/9789241506649',
+    year: 2022,
+  },
+  {
+    organisation: 'RCOG',
+    title: 'Postnatal mental health',
+    url: 'https://www.rcog.org.uk/for-the-public/mental-health-in-pregnancy/',
+    year: 2023,
+  },
+];
+
+export const TODDLER_CITATIONS: Citation[] = [
+  {
+    organisation: 'AAP',
+    title: 'Toddler development and milestones',
+    url: 'https://www.healthychildren.org/English/ages-stages/toddler/Pages/default.aspx',
+    year: 2024,
+  },
+  {
+    organisation: 'NHS',
+    title: 'Your child\'s development: 1–2 years',
+    url: 'https://www.nhs.uk/conditions/baby/babys-development/development/your-childs-development-1-to-2-years/',
+    year: 2023,
+  },
+  {
+    organisation: 'CDC',
+    title: 'Developmental milestones',
+    url: 'https://www.cdc.gov/ncbddd/actearly/milestones/index.html',
+    year: 2024,
+  },
+];
+
+export const PRODUCT_CITATIONS: Citation[] = [
+  {
+    organisation: 'AAP',
+    title: 'Product safety guidelines for infants and children',
+    url: 'https://www.healthychildren.org/English/safety-prevention/Pages/default.aspx',
+    year: 2024,
+  },
+  {
+    organisation: 'CPSC',
+    title: 'Baby product safety recalls and standards',
+    url: 'https://www.cpsc.gov/Recalls',
+    year: 2024,
+  },
+  {
+    organisation: 'NHS',
+    title: 'Keeping your baby safe',
+    url: 'https://www.nhs.uk/conditions/baby/babys-development/play-and-learning/keeping-baby-safe/',
+    year: 2023,
+  },
+];

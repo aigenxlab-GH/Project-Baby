@@ -13,6 +13,7 @@ import { SidebarAd } from '@/components/ads/SidebarAd';
 import { ArticleJsonLd } from '@/components/seo/ArticleJsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
+import { SourceCitations, PREGNANCY_CITATIONS, NEWBORN_CITATIONS, SLEEP_CITATIONS, FEEDING_CITATIONS, POSTPARTUM_CITATIONS, TODDLER_CITATIONS, PRODUCT_CITATIONS } from '@/components/shared/SourceCitations';
 import { TableOfContents } from '@/components/blog/TableOfContents';
 import { AuthorBox } from '@/components/blog/AuthorBox';
 import { ShareButtons } from '@/components/shared/ShareButtons';
@@ -79,6 +80,19 @@ export default async function BlogArticlePage({ params }: Props) {
   // Inject id= attributes into headings, then extract TOC
   const htmlWithIds = injectHeadingIds(markdownToHtml(article.content, { linkAuthorities: true }));
   const tocItems = extractToc(htmlWithIds);
+
+  // Map article category to authoritative citation set
+  const categoryToCitations: Record<string, typeof PREGNANCY_CITATIONS> = {
+    pregnancy:  PREGNANCY_CITATIONS,
+    newborn:    NEWBORN_CITATIONS,
+    sleep:      SLEEP_CITATIONS,
+    feeding:    FEEDING_CITATIONS,
+    postpartum: POSTPARTUM_CITATIONS,
+    toddler:    TODDLER_CITATIONS,
+    products:   PRODUCT_CITATIONS,
+    gear:       PRODUCT_CITATIONS,
+  };
+  const citations = categoryToCitations[article.category ?? ''] ?? PREGNANCY_CITATIONS;
 
   // Split article body for two mid-content ad injection points.
   // Part 1: paragraphs 1–3 (intro — user receives value before seeing first ad).
@@ -227,6 +241,9 @@ export default async function BlogArticlePage({ params }: Props) {
           )}
 
           <ArticleBottomAd />
+
+          {/* Source citations — authoritative references per category */}
+          <SourceCitations citations={citations} />
 
           {/* FAQs */}
           {article.faqs && article.faqs.length > 0 && (

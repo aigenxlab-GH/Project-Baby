@@ -98,6 +98,7 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const publisherId = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID;
   const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const oneSignalAppId = process.env.NEXT_PUBLIC_ONESIGNAL_APP_ID;
   const headersList = await headers();
   const pathname = headersList.get('x-pathname') ?? '';
   const isStudio = pathname.startsWith('/studio');
@@ -124,6 +125,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel="preconnect" href="https://wsrv.nl" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://cdn.onesignal.com" />
+        <link rel="dns-prefetch" href="https://cdn.onesignal.com" />
         <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
@@ -143,6 +146,39 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             />
             {/* Minified GA init — fixes "unminified inline script" audit warning (fix #8) */}
             <Script id="ga-init" strategy="afterInteractive">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaMeasurementId}',{page_path:window.location.pathname});`}</Script>
+          </>
+        )}
+        {/* ── OneSignal Web Push Notifications ── */}
+        {oneSignalAppId && (
+          <>
+            <Script
+              src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
+              defer
+              strategy="lazyOnload"
+            />
+            <Script id="onesignal-init" strategy="lazyOnload">{`
+              window.OneSignalDeferred = window.OneSignalDeferred || [];
+              OneSignalDeferred.push(async function(OneSignal) {
+                await OneSignal.init({
+                  appId: "${oneSignalAppId}",
+                  notifyButton: { enable: false },
+                  promptOptions: {
+                    slidedown: {
+                      prompts: [{
+                        type: "push",
+                        autoPrompt: true,
+                        text: {
+                          actionMessage: "Get notified when we publish new pregnancy & parenting guides.",
+                          acceptButton: "Allow",
+                          cancelButton: "No thanks"
+                        },
+                        delay: { pageViews: 2, timeDelay: 20 }
+                      }]
+                    }
+                  }
+                });
+              });
+            `}</Script>
           </>
         )}
         {/* ── Google AdSense ── */}
