@@ -227,6 +227,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // ── Product category hub pages ────────────────────────────────────────────
   // All 28 content/products/* folders — matches categoryLabels in products/[category]/page.tsx
   const productCategories = [
+    // Essentials hub pages
+    'mom-essentials', 'baby-essentials',
     // Core gear
     'strollers', 'cribs', 'car-seats', 'breast-pumps',
     'baby-carriers', 'baby-bouncers', 'baby-swings', 'white-noise',
