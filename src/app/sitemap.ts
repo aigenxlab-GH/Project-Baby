@@ -228,8 +228,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // All 28 content/products/* folders — matches categoryLabels in products/[category]/page.tsx
   const productCategories = [
     // Core gear
-    'strollers', 'cribs', 'car-seats', 'monitors', 'breast-pumps',
-    'high-chairs', 'baby-carriers', 'baby-bouncers', 'baby-swings', 'white-noise',
+    'strollers', 'cribs', 'car-seats', 'breast-pumps',
+    'baby-carriers', 'baby-bouncers', 'baby-swings', 'white-noise',
     // Feeding & nursing
     'nursing-feeding', 'nursing-chairs',
     // Sleep

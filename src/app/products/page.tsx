@@ -91,7 +91,7 @@ export default function ProductsPage() {
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
           Honest, in-depth reviews of the best baby products — tested and rated by parents,
-          for every budget. All 30 categories organized by type.
+          for every budget. All 28 categories organized by type.
         </p>
         <p className="mt-3 text-xs text-gray-400 dark:text-gray-500">
           Some links on this page are affiliate links. <Link href="/affiliate-disclosure" className="underline hover:text-brand-600">Learn more</Link>.
