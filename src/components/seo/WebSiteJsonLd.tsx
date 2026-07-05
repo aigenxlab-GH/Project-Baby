@@ -20,7 +20,7 @@ export function WebSiteJsonLd() {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: `${siteConfig.url}/baby-names?q={search_term_string}`,
+          urlTemplate: `${siteConfig.url}/search?q={search_term_string}`,
         },
         'query-input': 'required name=search_term_string',
       },
