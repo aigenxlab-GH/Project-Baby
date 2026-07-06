@@ -39,9 +39,11 @@ export const viewport: Viewport = {
   themeColor: '#db2777',
 };
 
-// Pinterest domain verification — dormant until env var is set in Cloudflare.
-// Get the code from Pinterest: Settings → Claimed accounts → Claim website.
-const pinterestVerify = process.env.NEXT_PUBLIC_PINTEREST_DOMAIN_VERIFY;
+// Pinterest domain verification (Settings → Link to Pinterest → Websites → Claim).
+// The code is public by design (it ships in the HTML), so it lives in code;
+// the env var can override it if the Pinterest account ever changes.
+const pinterestVerify =
+  process.env.NEXT_PUBLIC_PINTEREST_DOMAIN_VERIFY ?? 'ae2a8c5c035459a1e200d367ff54b96e';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
