@@ -16,6 +16,14 @@ compatibility_date = "2025-04-01"
 # Required by OpenNext server runtime and lib/mdx.ts, sitemap.ts, etc.
 compatibility_flags = ["nodejs_compat_v2"]
 
+# ──────────────────────────────────────────────────────────────────────────
+# FIX NEEDED for Pinterest: Cloudflare's bot-management is blocking Pinterest's
+# crawler. To fix, go to Cloudflare Dashboard:
+# 1. Security → Bot Management → Super Bot Fight Mode
+# 2. Toggle OFF "Super Bot Fight Mode" OR
+# 3. Create a firewall rule: If (Bot Management → Likely Automated) → Then (Allow)
+# This lets crawlers like Pinterest fetch images without challenges.
+
 # Static assets (prerendered HTML, _next/static, images) served from the
 # edge. The Worker handles SSR + API routes; assets are served directly.
 [assets]
