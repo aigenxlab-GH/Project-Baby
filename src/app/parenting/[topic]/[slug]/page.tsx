@@ -35,6 +35,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: article.title,
     description: article.description,
+    // Old thin duplicates are marked noIndex: true in frontmatter to prevent
+    // content cannibalization with their expanded replacements.
+    ...(article.noIndex ? { robots: { index: false, follow: false } } : {}),
     alternates: { canonical: `${siteConfig.url}/parenting/${topic}/${slug}` },
     openGraph: {
       title: article.title,

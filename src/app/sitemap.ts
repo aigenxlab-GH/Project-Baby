@@ -204,14 +204,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // ── Parenting articles — real mtime from MDX files ───────────────────────
   // All 8 topic folders — matches generateStaticParams in parenting/[topic]/[slug]/page.tsx
   const parentingTopics = ['newborn', 'sleep', 'feeding', 'development', 'toddler', 'postpartum', 'health', 'activities'];
+  // Old thin duplicates are marked noIndex: true in frontmatter and excluded.
   const parentingPages: MetadataRoute.Sitemap = parentingTopics.flatMap((topic) => {
     try {
-      return getAllSlugs(`parenting/${topic}`).map((slug) => ({
-        url: url(`/parenting/${topic}/${slug}`),
-        lastModified: fileMtime(`content/parenting/${topic}/${slug}.mdx`, BUILD_DATE),
-        changeFrequency: 'monthly' as const,
-        priority: 0.7,
-      }));
+      return getAllArticles(`parenting/${topic}`)
+        .filter((a) => !a.noIndex)
+        .map((a) => ({
+          url: url(`/parenting/${topic}/${a.slug}`),
+          lastModified: fileMtime(`content/parenting/${topic}/${a.slug}.mdx`, BUILD_DATE),
+          changeFrequency: 'monthly' as const,
+          priority: 0.7,
+        }));
     } catch { return []; }
   });
 
