@@ -218,17 +218,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     } catch { return []; }
   });
 
-  // ── Product detail pages — real mtime ────────────────────────────────────
+  // ── Product detail pages — real freshness from Sanity, not the filesystem ──
+  // Products are Sanity-sourced (src/lib/products.ts disabled the MDX cache),
+  // so publishedAt/updatedAt on the fetched document is the true freshness
+  // signal — no dependency on the dormant content/products/*.mdx files.
   const products = await getAllProducts();
   const productPages: MetadataRoute.Sitemap = products.map((p) => ({
     url: url(`/products/${p.category}/${p.slug}`),
-    lastModified: fileMtime(`content/products/${p.category}/${p.slug}.mdx`, BUILD_DATE),
+    lastModified: p.updatedAt || p.publishedAt || BUILD_DATE,
     changeFrequency: 'weekly' as const,
     priority: 0.9,
   }));
 
   // ── Product category hub pages ────────────────────────────────────────────
-  // All 28 content/products/* folders — matches categoryLabels in products/[category]/page.tsx
+  // Freshness = the most recently updated product within that category
+  // (Sanity-sourced, same reasoning as productPages above).
   const productCategories = [
     // Essentials hub pages
     'mom-essentials', 'baby-essentials',
@@ -252,9 +256,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Other
     'baby-loungers', 'humidifiers',
   ];
+  const productCategoryLatest = (cat: string): string => {
+    const inCat = products.filter((p) => p.category === cat);
+    if (!inCat.length) return BUILD_DATE;
+    return inCat.reduce((latest, p) => {
+      const d = p.updatedAt || p.publishedAt || BUILD_DATE;
+      return new Date(d).getTime() > new Date(latest).getTime() ? d : latest;
+    }, BUILD_DATE);
+  };
   const productCategoryPages: MetadataRoute.Sitemap = productCategories.map((cat) => ({
     url: url(`/products/${cat}`),
-    lastModified: dirLatestMtime(`content/products/${cat}`, BUILD_DATE),
+    lastModified: productCategoryLatest(cat),
     changeFrequency: 'weekly' as const,
     priority: 0.8,
   }));
