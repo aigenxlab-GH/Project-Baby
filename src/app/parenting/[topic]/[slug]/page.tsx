@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ChevronRight, Clock, User, Calendar } from 'lucide-react';
-import { getArticleBySlug, getAllSlugs } from '@/lib/mdx';
+import { getArticleBySlug, getAllSlugs, getAllArticlesUnder, getRelatedArticles } from '@/lib/mdx';
+import { getArticleImage } from '@/lib/article-images';
 import { siteConfig } from '@/config/site';
 import { formatDate } from '@/lib/utils';
 import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
@@ -72,6 +74,12 @@ export default async function ParentingArticlePage({ params }: Props) {
   if (!article) notFound();
 
   const topicLabel = topicLabels[topic] || topic;
+
+  // Related articles — scored by shared tags, pulled across ALL 8 parenting
+  // topic subfolders (not just the current one) so e.g. a sleep article can
+  // surface a related feeding article.
+  const allParenting = getAllArticlesUnder('parenting');
+  const related = getRelatedArticles(article, allParenting, 3) as Array<typeof article & { section: string }>;
 
   return (
     <div className="container mx-auto max-w-4xl px-4 pt-6 pb-10">
@@ -168,6 +176,30 @@ export default async function ParentingArticlePage({ params }: Props) {
           publishedAt={article.publishedAt}
           updatedAt={article.updatedAt}
         />
+
+        {/* Related articles — cross-topic, tag-scored (mirrors blog article page) */}
+        {related.length > 0 && (
+          <section className="mt-14 pt-8 border-t border-gray-100 dark:border-gray-800">
+            <h2 className="font-serif text-xl font-bold text-gray-900 dark:text-white mb-6">Related Articles</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {related.map((rel) => {
+                const relTopic = rel.section.split('/')[1] ?? topic;
+                const relImg = getArticleImage(rel.slug, rel.category);
+                return (
+                  <Link key={rel.slug} href={`/parenting/${relTopic}/${rel.slug}`} className="group bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-md transition-all">
+                    <div className="relative h-36 overflow-hidden">
+                      <Image src={relImg} alt={rel.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" sizes="300px" />
+                    </div>
+                    <div className="p-4">
+                      <p className="font-semibold text-gray-900 dark:text-white text-sm leading-snug group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors line-clamp-2">{rel.title}</p>
+                      <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">{rel.readingTime} min read</p>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        )}
 
         {/* Back navigation */}
         <div className="mt-10 pt-6 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">

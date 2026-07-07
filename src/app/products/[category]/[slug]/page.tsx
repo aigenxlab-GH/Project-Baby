@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { ChevronRight, Star, CheckCircle, XCircle, AlertCircle, Clock } from 'lucide-react';
 
-import { getProductBySlug, getAllProducts } from '@/lib/products';
+import { getProductBySlug, getAllProducts, getProductsByCategory } from '@/lib/products';
 import { resolveProductImage } from '@/lib/product-images';
 import { markdownToHtml } from '@/lib/markdown';
 import { siteConfig } from '@/config/site';
@@ -118,6 +118,14 @@ export default async function ProductReviewPage({ params }: Props) {
 
   const catLabel = categoryLabels[category] || category;
   const heroImage = resolveProductImage(product.image, category);
+
+  // Related products — same category, exclude self, top-rated first, cap at 3.
+  // Gives every product page outbound links to sibling reviews (previously zero).
+  const categoryProducts = await getProductsByCategory(category as ProductCategory);
+  const relatedProducts = categoryProducts
+    .filter((p) => p.slug !== slug)
+    .sort((a, b) => b.ourScore - a.ourScore)
+    .slice(0, 3);
 
   const priceRangeLabel = { budget: 'Budget', 'mid-range': 'Mid-Range', premium: 'Premium' }[product.priceRange];
   const priceRangeColor = { budget: 'bg-green-100 text-green-700', 'mid-range': 'bg-blue-100 text-blue-700', premium: 'bg-purple-100 text-purple-700' }[product.priceRange];
@@ -360,6 +368,31 @@ export default async function ProductReviewPage({ params }: Props) {
                     <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{faq.a}</p>
                   </div>
                 ))}
+              </div>
+            </section>
+          )}
+
+          {/* Related products — same category, top-rated */}
+          {relatedProducts.length > 0 && (
+            <section className="mt-10 pt-8 border-t border-gray-100 dark:border-gray-800">
+              <h2 className="font-serif text-xl font-bold text-gray-900 dark:text-white mb-5">
+                More {catLabel} Reviews
+              </h2>
+              <div className="grid md:grid-cols-3 gap-6">
+                {relatedProducts.map((p) => {
+                  const pImg = resolveProductImage(p.image, category);
+                  return (
+                    <Link key={p.slug} href={`/products/${category}/${p.slug}`} className="group bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-md transition-all">
+                      <div className="relative h-36 overflow-hidden">
+                        <Image src={pImg} alt={p.productName} fill className="object-cover group-hover:scale-105 transition-transform duration-300" sizes="300px" />
+                      </div>
+                      <div className="p-4">
+                        <p className="font-semibold text-gray-900 dark:text-white text-sm leading-snug group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors line-clamp-2">{p.productName}</p>
+                        <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">{p.starRating}★ · Our Score {p.ourScore}/10</p>
+                      </div>
+                    </Link>
+                  );
+                })}
               </div>
             </section>
           )}
