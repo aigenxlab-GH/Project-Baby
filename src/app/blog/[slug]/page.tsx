@@ -20,7 +20,7 @@ import { ShareButtons } from '@/components/shared/ShareButtons';
 import { injectHeadingIds, extractToc } from '@/lib/toc';
 import { markdownToHtml } from '@/lib/markdown';
 import { getArticleImage } from '@/lib/article-images';
-import { getRelatedShoppingLink } from '@/lib/related-shopping';
+import { getRelatedShoppingLink, injectSectionShoppingLinks } from '@/lib/related-shopping';
 
 export const dynamic = 'force-static';
 
@@ -79,8 +79,13 @@ export default async function BlogArticlePage({ params }: Props) {
 
   const heroImage = getArticleImage(slug, article.category);
 
-  // Inject id= attributes into headings, then extract TOC
-  const htmlWithIds = injectHeadingIds(markdownToHtml(article.content, { linkAuthorities: true }));
+  // Inject id= attributes into headings, then extract TOC.
+  // injectSectionShoppingLinks first adds a "Shop [Category]" link at the
+  // end of each ### subsection that names a specific product type (only
+  // affects multi-topic roundup articles — a no-op everywhere else).
+  const htmlWithIds = injectHeadingIds(
+    markdownToHtml(injectSectionShoppingLinks(article.content), { linkAuthorities: true }),
+  );
   const tocItems = extractToc(htmlWithIds);
 
   // Map article category to authoritative citation set

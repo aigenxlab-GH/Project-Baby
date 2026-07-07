@@ -135,3 +135,43 @@ export function matchTopicalHub(title: string, category?: string): ShoppingMatch
 export function getRelatedShoppingLink(title: string, category?: string): ShoppingMatch | null {
   return matchProductCategory(title) || matchTopicalHub(title, category);
 }
+
+/**
+ * For "roundup of everything" articles that cover multiple product types in
+ * one piece (e.g. Best Baby Gear 2025 has ### Car Seat, ### Baby Carrier,
+ * ### Breast Pump as separate subsections) — injects a "Shop [Category]"
+ * markdown link at the end of each matching ### section, right before the
+ * next heading. The single article-level link from getRelatedShoppingLink
+ * only covers one topic; this covers each one individually.
+ *
+ * Only touches level-3 (###) headings — level-2 (##) headings in these
+ * articles tend to be generic groupings ("Items Worth Spending More On"),
+ * not product types, so matching against them produces false positives.
+ */
+export function injectSectionShoppingLinks(markdown: string): string {
+  const lines = markdown.split('\n');
+  const out: string[] = [];
+  const seenCategories = new Set<string>();
+
+  for (let i = 0; i < lines.length; i++) {
+    out.push(lines[i]);
+    const h3 = lines[i].match(/^### (.+)$/);
+    if (!h3) continue;
+
+    const match = matchProductCategory(h3[1]);
+    if (!match || seenCategories.has(match.href)) continue;
+
+    // Find where this section ends: the next heading of level 1-3, or EOF.
+    let end = lines.length;
+    for (let j = i + 1; j < lines.length; j++) {
+      if (/^#{1,3} /.test(lines[j])) { end = j; break; }
+    }
+    // Copy the section body, then append the link just before the next heading.
+    for (let j = i + 1; j < end; j++) out.push(lines[j]);
+    out.push('', `**[Shop ${match.label}](${match.href})**`, '');
+    seenCategories.add(match.href);
+    i = end - 1; // resume the outer loop at the next heading
+  }
+
+  return out.join('\n');
+}
