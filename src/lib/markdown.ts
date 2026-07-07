@@ -86,11 +86,55 @@ function parseMarkdownTables(md: string): string {
   return out.join('\n');
 }
 
+// Merges consecutive markdown blockquote lines (including CommonMark's lone
+// "&gt;" line used to separate paragraphs *within* the same blockquote) into
+// a single <blockquote> containing one <p> per paragraph. Runs before the
+// generic line-by-line transforms below, which would otherwise treat each
+// "> line" as its own standalone blockquote and render a lone ">" as literal
+// text wrapped in a stray <p>&gt;</p>.
+function parseBlockquotes(md: string): string {
+  const lines = md.split('\n');
+  const out: string[] = [];
+  let group: string[] = [];
+
+  const flush = () => {
+    if (!group.length) return;
+    const paragraphs: string[] = [];
+    let para: string[] = [];
+    for (const l of group) {
+      if (l.trim() === '') {
+        if (para.length) paragraphs.push(para.join(' '));
+        para = [];
+      } else {
+        para.push(l);
+      }
+    }
+    if (para.length) paragraphs.push(para.join(' '));
+    out.push(`<blockquote>${paragraphs.map((p) => `<p>${p}</p>`).join('')}</blockquote>`);
+    group = [];
+  };
+
+  for (const line of lines) {
+    if (/^>\s?(.*)$/.test(line)) {
+      group.push(line.replace(/^>\s?/, ''));
+    } else {
+      flush();
+      out.push(line);
+    }
+  }
+  flush();
+
+  return out.join('\n');
+}
+
 export function markdownToHtml(md: string, options: { linkAuthorities?: boolean } = {}): string {
   // Step 1: convert pipe tables before paragraph wrapping consumes them
   let result = parseMarkdownTables(md);
 
-  // Step 2: standard inline/block transforms
+  // Step 2: merge multi-paragraph blockquotes before line-by-line transforms
+  result = parseBlockquotes(result);
+
+  // Step 3: standard inline/block transforms
   result = result
     .replace(/^[ \t]*### (.+)$/gm, '<h3>$1</h3>')
     .replace(/^[ \t]*## (.+)$/gm, '<h2>$1</h2>')
@@ -101,9 +145,17 @@ export function markdownToHtml(md: string, options: { linkAuthorities?: boolean 
     .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" class="text-brand-600 hover:underline">$1</a>')
     .replace(/^\s*[-*+] (.+)$/gm, '<li>$1</li>')
     .replace(/^\s*\d+\. (.+)$/gm, '<li>$1</li>')
-    .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
     .replace(/^---$/gm, '<hr />')
-    .replace(/^(?!<[a-z/]).+$/gm, (line) => line.trim() ? `<p>${line}</p>` : '')
+    // Wrap remaining lines in <p>, but skip lines that are ALREADY a
+    // block-level element from a prior step (h1-h3, li, blockquote, hr,
+    // the table wrapper div). The previous check `(?!<[a-z/])` excluded
+    // ANY line starting with a lowercase-letter tag — which also caught
+    // lines starting with inline <strong>/<em>/<a> produced by the bold/
+    // italic/link passes above (e.g. "**1. Olivia** — ..." becomes
+    // "<strong>1. Olivia</strong> — ..."). Those lines silently lost their
+    // <p> wrapper and ran together with neighboring paragraphs — a bug
+    // affecting any paragraph that opens with bold/italic/link text.
+    .replace(/^(?!<(?:h1|h2|h3|li|blockquote|hr|div)\b).+$/gm, (line) => line.trim() ? `<p>${line}</p>` : '')
     .replace(/(<li>.*?<\/li>\n?)+/g, (match) => `<ul>${match}</ul>`)
     .replace(/\n{3,}/g, '\n\n');
 
