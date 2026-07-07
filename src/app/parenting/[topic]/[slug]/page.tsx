@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ChevronRight, Clock, User, Calendar } from 'lucide-react';
+import { ChevronRight, Clock, User, Calendar, ArrowRight } from 'lucide-react';
 import { getArticleBySlug, getAllSlugs, getAllArticlesUnder, getRelatedArticles } from '@/lib/mdx';
 import { getArticleImage } from '@/lib/article-images';
 import { siteConfig } from '@/config/site';
@@ -11,6 +11,7 @@ import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { SourceCitations, NEWBORN_CITATIONS, SLEEP_CITATIONS, FEEDING_CITATIONS, PREGNANCY_CITATIONS } from '@/components/shared/SourceCitations';
 import { AuthorBox } from '@/components/blog/AuthorBox';
+import { getRelatedShoppingLink } from '@/lib/related-shopping';
 
 export const dynamic = 'force-static';
 
@@ -81,6 +82,13 @@ export default async function ParentingArticlePage({ params }: Props) {
   // duplicates) so we never pass link equity to a page Google won't index.
   const allParenting = getAllArticlesUnder('parenting').filter((a) => !a.noIndex);
   const related = getRelatedArticles(article, allParenting, 3) as Array<typeof article & { section: string }>;
+  // Most parenting articles have category: "parenting" (a generic value) in
+  // frontmatter — the topic folder (sleep/feeding/newborn/etc.) is a more
+  // specific signal for hub matching, so prefer it over a generic category.
+  const shoppingLink = getRelatedShoppingLink(
+    article.title,
+    !article.category || article.category === 'parenting' ? topic : article.category,
+  );
 
   return (
     <div className="container mx-auto max-w-4xl px-4 pt-6 pb-10">
@@ -168,6 +176,17 @@ export default async function ParentingArticlePage({ params }: Props) {
               ))}
             </div>
           </section>
+        )}
+
+        {/* "What to do next" — matched product category or topical hub. */}
+        {shoppingLink && (
+          <Link
+            href={shoppingLink.href}
+            className="mt-8 flex items-center justify-between gap-4 rounded-2xl border border-brand-200 dark:border-brand-800 bg-brand-50 dark:bg-brand-950/30 px-5 py-4 hover:bg-brand-100 dark:hover:bg-brand-950/50 transition-colors group"
+          >
+            <span className="font-semibold text-brand-700 dark:text-brand-300 text-sm">{shoppingLink.label}</span>
+            <ArrowRight className="h-4 w-4 text-brand-600 dark:text-brand-400 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+          </Link>
         )}
 
         {/* Author attribution box */}

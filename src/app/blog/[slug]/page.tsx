@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { ChevronRight, Clock, User, Calendar } from 'lucide-react';
+import { ChevronRight, Clock, User, Calendar, ArrowRight } from 'lucide-react';
 import { getArticleBySlug, getAllSlugs, getAllArticles, getRelatedArticles } from '@/lib/mdx';
 import { siteConfig } from '@/config/site';
 import { formatDate } from '@/lib/utils';
@@ -20,6 +20,7 @@ import { ShareButtons } from '@/components/shared/ShareButtons';
 import { injectHeadingIds, extractToc } from '@/lib/toc';
 import { markdownToHtml } from '@/lib/markdown';
 import { getArticleImage } from '@/lib/article-images';
+import { getRelatedShoppingLink } from '@/lib/related-shopping';
 
 export const dynamic = 'force-static';
 
@@ -74,6 +75,7 @@ export default async function BlogArticlePage({ params }: Props) {
 
   const all = getAllArticles('blog');
   const related = getRelatedArticles(article, all, 3);
+  const shoppingLink = getRelatedShoppingLink(article.title, article.category);
 
   const heroImage = getArticleImage(slug, article.category);
 
@@ -271,6 +273,19 @@ export default async function BlogArticlePage({ params }: Props) {
                 </span>
               ))}
             </div>
+          )}
+
+          {/* "What to do next" — matched product category or topical hub.
+              Every article gets one; category pages show "coming soon"
+              gracefully when nothing's live yet, so this never 404s. */}
+          {shoppingLink && (
+            <Link
+              href={shoppingLink.href}
+              className="mt-8 flex items-center justify-between gap-4 rounded-2xl border border-brand-200 dark:border-brand-800 bg-brand-50 dark:bg-brand-950/30 px-5 py-4 hover:bg-brand-100 dark:hover:bg-brand-950/50 transition-colors group"
+            >
+              <span className="font-semibold text-brand-700 dark:text-brand-300 text-sm">{shoppingLink.label}</span>
+              <ArrowRight className="h-4 w-4 text-brand-600 dark:text-brand-400 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+            </Link>
           )}
 
           {/* Author attribution box */}
