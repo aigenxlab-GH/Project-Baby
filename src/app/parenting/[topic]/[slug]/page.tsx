@@ -77,8 +77,9 @@ export default async function ParentingArticlePage({ params }: Props) {
 
   // Related articles — scored by shared tags, pulled across ALL 8 parenting
   // topic subfolders (not just the current one) so e.g. a sleep article can
-  // surface a related feeding article.
-  const allParenting = getAllArticlesUnder('parenting');
+  // surface a related feeding article. Excludes noIndex articles (old thin
+  // duplicates) so we never pass link equity to a page Google won't index.
+  const allParenting = getAllArticlesUnder('parenting').filter((a) => !a.noIndex);
   const related = getRelatedArticles(article, allParenting, 3) as Array<typeof article & { section: string }>;
 
   return (
