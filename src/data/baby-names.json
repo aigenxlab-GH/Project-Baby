@@ -27585,28 +27585,6 @@
     "nicknames": []
   },
   {
-    "id": "1107",
-    "name": "Salomé",
-    "gender": "girl",
-    "origin": [
-      "Hebrew"
-    ],
-    "meaning": "peace",
-    "popularityRank": 108,
-    "popularityTrend": "rising",
-    "syllables": 3,
-    "startingLetter": "S",
-    "tags": [
-      "hebrew",
-      "biblical"
-    ],
-    "relatedNames": [
-      "Salome",
-      "Shalom"
-    ],
-    "nicknames": []
-  },
-  {
     "id": "1108",
     "name": "Samara",
     "gender": "girl",
@@ -27794,31 +27772,6 @@
       "Kia"
     ],
     "nicknames": []
-  },
-  {
-    "id": "1116",
-    "name": "Séraphine",
-    "gender": "girl",
-    "origin": [
-      "French",
-      "Hebrew"
-    ],
-    "meaning": "burning one, angel",
-    "popularityRank": 105,
-    "popularityTrend": "rising",
-    "syllables": 3,
-    "startingLetter": "S",
-    "tags": [
-      "french",
-      "religious"
-    ],
-    "relatedNames": [
-      "Seraphina",
-      "Sera"
-    ],
-    "nicknames": [
-      "Sera"
-    ]
   },
   {
     "id": "1117",
@@ -29425,29 +29378,6 @@
     "relatedNames": [
       "Zena",
       "Nobia"
-    ],
-    "nicknames": []
-  },
-  {
-    "id": "1187",
-    "name": "Zephyrine",
-    "gender": "girl",
-    "origin": [
-      "Greek"
-    ],
-    "meaning": "west wind",
-    "popularityRank": 155,
-    "popularityTrend": "rare",
-    "syllables": 3,
-    "startingLetter": "Z",
-    "tags": [
-      "greek",
-      "nature",
-      "rare"
-    ],
-    "relatedNames": [
-      "Zephyr",
-      "Seraphine"
     ],
     "nicknames": []
   },
