@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ChevronRight, Star, ShieldCheck, RefreshCw } from 'lucide-react';
+import { ChevronRight, Star, ShieldCheck, RefreshCw, Trophy, ArrowRight } from 'lucide-react';
 import { getProductsByCategory } from '@/lib/products';
 import { siteConfig } from '@/config/site';
 import { ProductCard } from '@/components/affiliate/ProductCard';
@@ -9,6 +9,33 @@ import { InContentAd } from '@/components/ads/InContentAd';
 import { HeaderAd } from '@/components/ads/HeaderAd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import type { ProductCategory } from '@/types/product';
+
+// Links each category to its matching "Best X of 2026" roundup page(s), so
+// visitors comparing products can find the roundup and vice versa — these
+// roundup pages were previously reachable only via sitemap.xml, with zero
+// internal links pointing to them from anywhere on the site. Includes
+// `monitors`/`high-chairs` even though those categories have no live
+// products yet — better to point an empty category page somewhere useful
+// than a dead end.
+const CATEGORY_ROUNDUPS: Record<string, { slug: string; label: string }[]> = {
+  strollers: [{ slug: 'best-strollers-2026', label: 'Best Strollers of 2026' }],
+  'baby-carriers': [
+    { slug: 'best-baby-carriers-2026', label: 'Best Baby Carriers of 2026' },
+    { slug: 'best-baby-carriers-newborns-2026', label: 'Best Baby Carriers for Newborns 2026' },
+  ],
+  'breast-pumps': [{ slug: 'best-breast-pumps-2026', label: 'Best Breast Pumps of 2026' }],
+  'car-seats': [{ slug: 'best-convertible-car-seats-2026', label: 'Best Convertible Car Seats of 2026' }],
+  cribs: [{ slug: 'best-cribs-under-300-2026', label: 'Best Cribs Under $300 in 2026' }],
+  'diaper-bags': [{ slug: 'best-diaper-bags-2026', label: 'Best Diaper Bags of 2026' }],
+  'sleep-sacks': [{ slug: 'best-sleep-sacks-swaddles-2026', label: 'Best Sleep Sacks & Swaddles of 2026' }],
+  'white-noise': [{ slug: 'best-white-noise-machines-2026', label: 'Best White Noise Machines for Babies 2026' }],
+  'baby-bouncers': [{ slug: 'best-baby-bouncers-2026', label: 'Best Baby Bouncers & Rockers of 2026' }],
+  monitors: [
+    { slug: 'best-baby-monitors-2026', label: 'Best Baby Monitors of 2026' },
+    { slug: 'best-budget-baby-monitors-2026', label: 'Best Budget Baby Monitors 2026' },
+  ],
+  'high-chairs': [{ slug: 'best-baby-high-chairs-2026', label: 'Best Baby High Chairs of 2026' }],
+};
 
 export const dynamic = 'force-static';
 
@@ -78,6 +105,7 @@ export default async function CategoryPage({ params }: Props) {
   const label = categoryLabels[category] || category;
   // Strip a leading "Best " so prose like "the best {x}" doesn't read "the best best strollers".
   const cleanLabel = label.replace(/^Best\s+/i, '').toLowerCase();
+  const roundups = CATEGORY_ROUNDUPS[category] ?? [];
 
   return (
     <>
@@ -119,6 +147,28 @@ export default async function CategoryPage({ params }: Props) {
           Affiliate disclosure: we may earn a commission. <Link href="/affiliate-disclosure" className="underline hover:text-brand-600">Learn more</Link>
         </span>
       </div>
+
+      {/* Link to the matching "Best X of 2026" roundup(s) — these comparison
+          pages were previously reachable only via sitemap.xml. */}
+      {roundups.length > 0 && (
+        <div className="flex flex-col sm:flex-row gap-3 mb-6">
+          {roundups.map((r) => (
+            <Link
+              key={r.slug}
+              href={`/products/roundups/${r.slug}`}
+              className="flex-1 flex items-center justify-between gap-3 rounded-2xl border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 px-5 py-4 hover:bg-amber-100 dark:hover:bg-amber-950/50 transition-colors group"
+            >
+              <span className="flex items-center gap-2.5">
+                <Trophy className="h-5 w-5 text-amber-500 flex-shrink-0" aria-hidden="true" />
+                <span className="font-semibold text-amber-800 dark:text-amber-300 text-sm">
+                  See our {r.label} picks
+                </span>
+              </span>
+              <ArrowRight className="h-4 w-4 text-amber-600 dark:text-amber-400 group-hover:translate-x-1 transition-transform flex-shrink-0" aria-hidden="true" />
+            </Link>
+          ))}
+        </div>
+      )}
 
       {products.length === 0 ? (
         <div className="text-center py-20 text-gray-500">
