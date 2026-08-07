@@ -57,3 +57,17 @@ jobs:
           NEXT_PUBLIC_ADSENSE_SLOT_FOOTER: "7889036797"
           NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR: "5125971221"
           NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE: "1186726216"
+
+      # Pages are served with long-lived edge cache headers (s-maxage=1yr), so a
+      # deploy that fixes/publishes content doesn't reach visitors or Googlebot
+      # until Cloudflare's cache naturally expires (up to a year) unless purged.
+      # Requires a CLOUDFLARE_ZONE_ID secret and a CLOUDFLARE_API_TOKEN with
+      # "Zone > Cache Purge > Purge" permission for the zone.
+      - name: Purge Cloudflare cache
+        if: ${{ secrets.CLOUDFLARE_ZONE_ID != '' }}
+        run: |
+          curl -s -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data '{"purge_everything":true}' \
+            --fail-with-body
