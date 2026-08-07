@@ -69,8 +69,12 @@ jobs:
           CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
-          curl -s -X POST "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/purge_cache" \
-            -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+          # Trim whitespace/newlines that copy-pasting a secret value can silently introduce.
+          ZONE_ID=$(echo -n "$CLOUDFLARE_ZONE_ID" | tr -d '[:space:]')
+          TOKEN=$(echo -n "$CLOUDFLARE_API_TOKEN" | tr -d '[:space:]')
+          echo "Zone ID length: ${#ZONE_ID} (expect 32)"
+          curl -s -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/purge_cache" \
+            -H "Authorization: Bearer ${TOKEN}" \
             -H "Content-Type: application/json" \
             --data '{"purge_everything":true}' \
             --fail-with-body
