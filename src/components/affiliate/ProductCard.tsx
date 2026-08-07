@@ -8,10 +8,14 @@ import type { ProductReview } from '@/types/product';
 interface Props {
   product: ProductReview;
   variant?: 'card' | 'featured';
+  // Computed automatically from live scores/prices on the category page
+  // (see src/app/products/[category]/page.tsx) — e.g. "Best Overall",
+  // "Best Budget". Never hand-authored per product.
+  badge?: string;
 }
 
 
-export function ProductCard({ product, variant = 'card' }: Props) {
+export function ProductCard({ product, variant = 'card', badge }: Props) {
   const productUrl = `/products/${product.category}/${product.slug}`;
 
   return (
@@ -27,6 +31,12 @@ export function ProductCard({ product, variant = 'card' }: Props) {
             sizes="(max-width: 768px) 100vw, 400px"
           />
         </Link>
+        {badge && (
+          <div className="absolute top-3 left-3 bg-amber-400 text-gray-900 rounded-full px-2.5 py-1 text-xs font-bold flex items-center gap-1">
+            <Award className="h-3 w-3" />
+            {badge}
+          </div>
+        )}
         {/* Score Badge */}
         <div className="absolute top-3 right-3 bg-brand-600 text-white rounded-full px-2.5 py-1 text-xs font-bold flex items-center gap-1">
           <Award className="h-3 w-3" />
