@@ -271,28 +271,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  // ── Roundup articles ─────────────────────────────────────────────────────
-  const roundupSlugs = [
-    'best-strollers-2026',
-    'best-baby-monitors-2026',
-    'best-baby-carriers-2026',
-    'best-budget-baby-monitors-2026',
-    'best-convertible-car-seats-2026',
-    'best-baby-bouncers-2026',
-    'best-breast-pumps-2026',
-    'best-cribs-under-300-2026',
-    'best-sleep-sacks-swaddles-2026',
-    'best-baby-high-chairs-2026',
-    'best-baby-carriers-newborns-2026',
-    'best-white-noise-machines-2026',
-    'best-diaper-bags-2026',
-  ];
-  const roundupPages: MetadataRoute.Sitemap = roundupSlugs.map((slug) => ({
-    url: url(`/products/roundups/${slug}`),
-    lastModified: BUILD_DATE,
-    changeFrequency: 'monthly' as const,
-    priority: 0.9,
-  }));
+  // Roundup pages ("Best X of 2026") were retired 2026-08-08 — 301-redirected
+  // to their matching category page (see next.config.mjs). No longer in the
+  // sitemap; the category pages already cover this content in the sitemap.
 
   // ── Baby name detail pages ────────────────────────────────────────────────
   // Names dataset changes very infrequently — use data file mtime
@@ -321,7 +302,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...parentingTopicPages,
     ...productPages,
     ...productCategoryPages,
-    ...roundupPages,
     ...namePages,
   ];
 }

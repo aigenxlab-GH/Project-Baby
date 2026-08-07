@@ -79,6 +79,24 @@ const nextConfig = {
       { source: '/blog/blog/:path*', destination: '/blog/:path*', permanent: true },
       { source: '/studio', destination: 'https://pregnancysprout.sanity.studio', permanent: false },
       { source: '/studio/:path*', destination: 'https://pregnancysprout.sanity.studio/:path*', permanent: false },
+
+      // Roundup pages retired 2026-08-08 — they were hardcoded, hand-written
+      // "Best X of 2026" pages requiring separate manual upkeep whenever a
+      // product's ASIN/price changed, duplicating the Sanity-driven category
+      // page. Redirecting to the single Sanity-backed page per category.
+      { source: '/products/roundups/best-strollers-2026', destination: '/products/strollers', permanent: true },
+      { source: '/products/roundups/best-baby-carriers-2026', destination: '/products/baby-carriers', permanent: true },
+      { source: '/products/roundups/best-baby-carriers-newborns-2026', destination: '/products/baby-carriers', permanent: true },
+      { source: '/products/roundups/best-breast-pumps-2026', destination: '/products/breast-pumps', permanent: true },
+      { source: '/products/roundups/best-convertible-car-seats-2026', destination: '/products/car-seats', permanent: true },
+      { source: '/products/roundups/best-cribs-under-300-2026', destination: '/products/cribs', permanent: true },
+      { source: '/products/roundups/best-diaper-bags-2026', destination: '/products/diaper-bags', permanent: true },
+      { source: '/products/roundups/best-sleep-sacks-swaddles-2026', destination: '/products/sleep-sacks', permanent: true },
+      { source: '/products/roundups/best-white-noise-machines-2026', destination: '/products/white-noise', permanent: true },
+      { source: '/products/roundups/best-baby-bouncers-2026', destination: '/products/baby-bouncers', permanent: true },
+      { source: '/products/roundups/best-baby-monitors-2026', destination: '/products/monitors', permanent: true },
+      { source: '/products/roundups/best-budget-baby-monitors-2026', destination: '/products/monitors', permanent: true },
+      { source: '/products/roundups/best-baby-high-chairs-2026', destination: '/products/high-chairs', permanent: true },
     ];
   },
 
