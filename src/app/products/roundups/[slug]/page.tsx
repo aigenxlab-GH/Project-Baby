@@ -5,6 +5,7 @@ import { Star, Check, X, ArrowRight, Trophy, Shield, TrendingUp } from 'lucide-r
 import { siteConfig } from '@/config/site';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { BuyButton } from '@/components/affiliate/BuyButton';
 
 export const dynamic = 'force-static';
 
@@ -38,6 +39,11 @@ interface RoundupProduct {
   summary: string;
   affiliateUrl: string;
   affiliatePrice: string;
+  // Verified per-region ASINs, only set where a matching live Sanity product
+  // confirms the real ASIN per marketplace — see BuyButton's regionalAsins
+  // prop. Omit rather than guess; a wrong ASIN can link to an unrelated
+  // product on another Amazon marketplace.
+  regionalAsins?: Record<string, string>;
 }
 
 interface RoundupData {
@@ -823,6 +829,11 @@ const roundups: Record<string, RoundupData> = {
         summary: 'At just $29, the Haakaa is the best accessory any breastfeeding mother can own. It catches letdown milk from the non-nursing breast passively — many mothers collect 2–4 oz per feed without any effort. An essential companion to any electric pump.',
         affiliateUrl: 'https://www.amazon.com/dp/B07CWK4S5W?tag=pregnancysp0a-20',
         affiliatePrice: '$29',
+        // Verified against the live "haakaa Silicone Manual Breast Pump 100ml" Sanity product.
+        regionalAsins: {
+          US: 'B07CWK4S5W', UK: 'B07PSDFMLQ', CA: 'B08DLHNFXT',
+          DE: 'B07CWK4S5W', FR: 'B07CWK4S5W', IT: 'B07CWK4S5W', ES: 'B07CWK4S5W',
+        },
       },
     ],
     buyingGuide: [
@@ -1620,15 +1631,14 @@ export default async function RoundupPage({ params }: { params: Promise<{ slug: 
 
               {/* CTA row */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-4 border-t border-gray-100">
-                <a
+                <BuyButton
                   href={product.affiliateUrl}
-                  target="_blank"
-                  rel="noopener noreferrer nofollow sponsored"
-                  className="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition-colors text-center flex items-center justify-center gap-2"
-                >
-                  Check Price on Amazon — {product.affiliatePrice}
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </a>
+                  price={product.affiliatePrice}
+                  productName={product.name}
+                  regionalAsins={product.regionalAsins}
+                  size="lg"
+                  className="flex-1"
+                />
                 {product.reviewSlug && (
                   <Link
                     href={product.reviewSlug}

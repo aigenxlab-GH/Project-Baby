@@ -1,0 +1,9 @@
+{
+  "US": { "domain": "amazon.com", "tag": "pregnancysp0a-20" },
+  "UK": { "domain": "amazon.co.uk", "tag": "pregnancysp0a-21" },
+  "CA": { "domain": "amazon.ca", "tag": "pregnancysp07-20" },
+  "DE": { "domain": "amazon.de", "tag": "pregnancyspde-21" },
+  "FR": { "domain": "amazon.fr", "tag": "pregnancyspfr-21" },
+  "IT": { "domain": "amazon.it", "tag": "pregnancyspit-21" },
+  "ES": { "domain": "amazon.es", "tag": "pregnancyspes-21" }
+}

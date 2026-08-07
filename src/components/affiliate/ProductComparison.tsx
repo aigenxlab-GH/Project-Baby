@@ -4,6 +4,9 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { X, BarChart2, CheckCircle, XCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import type { ProductReview } from '@/types/product';
+import { useCountry } from '@/hooks/useCountry';
+import { filterAffiliateLinksForCountry } from '@/lib/geo';
+import { BuyButton } from '@/components/affiliate/BuyButton';
 
 interface Props {
   products: ProductReview[];
@@ -20,6 +23,7 @@ export function ProductComparison({ products, categoryLabel }: Props) {
   const [selected, setSelected] = useState<string[]>([]);
   const [showTable, setShowTable] = useState(false);
   const [open, setOpen] = useState(false);
+  const country = useCountry();
 
   function toggleSelect(slug: string) {
     setSelected((prev) => {
@@ -239,7 +243,7 @@ export function ProductComparison({ products, categoryLabel }: Props) {
                   <tr className="bg-brand-50">
                     <td className="px-6 py-4 font-medium text-gray-600">Review</td>
                     {selectedProducts.map((p) => {
-                      const link = p.affiliateLinks?.[0];
+                      const link = filterAffiliateLinksForCountry(p.affiliateLinks ?? [], country)[0];
                       return (
                         <td key={p.slug} className="px-6 py-4 text-center space-y-2">
                           <Link
@@ -249,14 +253,13 @@ export function ProductComparison({ products, categoryLabel }: Props) {
                             Full Review →
                           </Link>
                           {link && (
-                            <a
+                            <BuyButton
                               href={link.url}
-                              target="_blank"
-                              rel="nofollow sponsored noopener noreferrer"
-                              className="block text-xs bg-brand-600 hover:bg-brand-700 text-white font-semibold px-4 py-2 rounded-lg transition-colors"
-                            >
-                              {link.price ? `Buy ${link.price}` : 'View Price'}
-                            </a>
+                              price={link.price}
+                              productName={p.title}
+                              size="sm"
+                              className="w-full"
+                            />
                           )}
                         </td>
                       );

@@ -2,6 +2,7 @@ import { createClient } from 'next-sanity';
 import fs from 'fs';
 import path from 'path';
 import type { ProductReview, ProductCategory, AffiliateLink } from '@/types/product';
+import REGION_CONFIG from '@/config/regions.json';
 
 export const sanityClient = createClient({
   projectId: 'mnwolxvz',
@@ -9,17 +10,6 @@ export const sanityClient = createClient({
   apiVersion: '2024-06-28',
   useCdn: false, // Always fresh data at build time
 });
-
-// ── Region config ──────────────────────────────────────────────────────────────
-const REGION_CONFIG: Record<string, { domain: string; tag: string }> = {
-  US: { domain: 'amazon.com',    tag: 'pregnancysp0a-20' },
-  UK: { domain: 'amazon.co.uk', tag: 'pregnancysp0a-21' },
-  CA: { domain: 'amazon.ca',    tag: 'pregnancysp07-20' },
-  DE: { domain: 'amazon.de',    tag: 'pregnancyspde-21' },
-  FR: { domain: 'amazon.fr',    tag: 'pregnancyspfr-21' },
-  IT: { domain: 'amazon.it',    tag: 'pregnancyspit-21' },
-  ES: { domain: 'amazon.es',    tag: 'pregnancyspes-21' },
-};
 
 // ── Portable text → markdown ───────────────────────────────────────────────────
 type SanityChild = { _type?: string; text?: string; marks?: string[] };
@@ -72,13 +62,14 @@ function portableTextToMarkdown(blocks: SanityBlock[]): string {
 // ── Affiliate link transform ───────────────────────────────────────────────────
 type SanityRegionLink = { asin?: string; available?: boolean; price?: string };
 type SanityAffiliateLinks = Record<string, SanityRegionLink>;
+const REGIONS = REGION_CONFIG as Record<string, { domain: string; tag: string }>;
 
 function transformAffiliateLinks(links: SanityAffiliateLinks | null | undefined): AffiliateLink[] {
   if (!links) return [];
   return Object.entries(links)
-    .filter(([key, val]) => val?.asin && val?.available !== false && REGION_CONFIG[key])
+    .filter(([key, val]) => val?.asin && val?.available !== false && REGIONS[key])
     .map(([key, val]) => {
-      const { domain, tag } = REGION_CONFIG[key];
+      const { domain, tag } = REGIONS[key];
       return {
         retailer: 'amazon' as const,
         url: `https://www.${domain}/dp/${val.asin}?tag=${tag}`,

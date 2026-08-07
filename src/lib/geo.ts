@@ -1,4 +1,5 @@
 import type { AffiliateLink } from '@/types/product';
+import REGION_CONFIG from '@/config/regions.json';
 
 const COUNTRY_TO_REGION: Record<string, string> = {
   // North America
@@ -34,23 +35,21 @@ export function filterAffiliateLinksForCountry(
 
   const region = getRegionForCountry(countryCode);
 
-  // Try to find link for user's region
+  // Try to find link for the visitor's own region.
   const regionLink = links.find((link) => link.url?.includes(getAmazonDomain(region)));
   if (regionLink) return [regionLink];
 
-  // Fallback: return all links
+  // That product isn't available in the visitor's region (e.g. a DE-only gap).
+  // Prefer the US link over an arbitrary one — US has near-total coverage
+  // (113/113 products), so this is far more likely to be a working link than
+  // whichever region happens to come first in the data.
+  const usLink = links.find((link) => link.url?.includes(getAmazonDomain('US')));
+  if (usLink) return [usLink];
+
   return links;
 }
 
 function getAmazonDomain(region: string): string {
-  const domains: Record<string, string> = {
-    US: 'amazon.com',
-    UK: 'amazon.co.uk',
-    CA: 'amazon.ca',
-    DE: 'amazon.de',
-    FR: 'amazon.fr',
-    IT: 'amazon.it',
-    ES: 'amazon.es',
-  };
-  return domains[region] || 'amazon.com';
+  const domains = REGION_CONFIG as Record<string, { domain: string; tag: string }>;
+  return domains[region]?.domain || 'amazon.com';
 }

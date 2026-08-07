@@ -9,19 +9,19 @@
  */
 
 const https = require('https');
+const path = require('path');
 
 const TOKEN = process.env.SANITY_AUTH_TOKEN;
 if (!TOKEN) { console.error('Missing SANITY_AUTH_TOKEN'); process.exit(1); }
 
-const REGIONS = [
-  { key: 'US', domain: 'www.amazon.com',    tag: 'pregnancysp0a-20' },
-  { key: 'UK', domain: 'www.amazon.co.uk',  tag: 'pregnancysp0a-21' },
-  { key: 'CA', domain: 'www.amazon.ca',     tag: 'pregnancysp07-20' },
-  { key: 'DE', domain: 'www.amazon.de',     tag: 'pregnancyspde-21' },
-  { key: 'FR', domain: 'www.amazon.fr',     tag: 'pregnancyspfr-21' },
-  { key: 'IT', domain: 'www.amazon.it',     tag: 'pregnancyspit-21' },
-  { key: 'ES', domain: 'www.amazon.es',     tag: 'pregnancyspes-21' },
-];
+// Single source of truth for region -> {domain, tag}, shared with src/lib/sanity-client.ts
+// and src/lib/geo.ts, so a tag update can never drift out of sync between them.
+const REGION_CONFIG = require(path.join(__dirname, '..', 'src', 'config', 'regions.json'));
+const REGIONS = Object.entries(REGION_CONFIG).map(([key, { domain, tag }]) => ({
+  key,
+  domain: `www.${domain}`,
+  tag,
+}));
 
 // Realistic browser headers to avoid bot detection
 const HEADERS = {

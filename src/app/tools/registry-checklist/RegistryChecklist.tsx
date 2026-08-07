@@ -3,6 +3,40 @@
 import { useState } from 'react';
 import { ExternalLink, CheckSquare, Square, ShoppingCart, Printer } from 'lucide-react';
 import registryData from '@/data/registry-checklist.json';
+import { useCountry } from '@/hooks/useCountry';
+import { getRegionForCountry } from '@/lib/geo';
+import REGION_CONFIG from '@/config/regions.json';
+
+// These are generic Amazon search-result links (not ASIN-specific), so unlike
+// individual product links, it's always safe to swap domain+tag for the
+// visitor's region — the same keyword search works on any Amazon marketplace.
+function regionalizeSearchUrl(url: string, countryCode: string): string {
+  try {
+    const parsed = new URL(url);
+    const query = parsed.searchParams.get('k');
+    if (!query) return url;
+    const region = getRegionForCountry(countryCode);
+    const config = (REGION_CONFIG as Record<string, { domain: string; tag: string }>)[region];
+    if (!config) return url;
+    return `https://www.${config.domain}/s?k=${encodeURIComponent(query)}&tag=${config.tag}`;
+  } catch {
+    return url;
+  }
+}
+
+function trackRegistryClick(itemName: string, href: string) {
+  if (typeof window === 'undefined') return;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const gtag = (window as any).gtag;
+  if (typeof gtag === 'function') {
+    gtag('event', 'affiliate_click', {
+      retailer: 'Amazon',
+      product_name: itemName,
+      link_url: href,
+      source: 'registry_checklist',
+    });
+  }
+}
 
 const CATEGORY_LABELS: Record<string, string> = {
   nursery: '🛏️ Nursery',
@@ -23,6 +57,7 @@ const PRIORITY_LABELS: Record<string, string> = {
 export function RegistryChecklist() {
   const [checked, setChecked] = useState<Set<string>>(new Set());
   const [filter, setFilter] = useState<'all' | 'essential' | 'nice-to-have'>('all');
+  const country = useCountry();
 
   function toggle(id: string) {
     setChecked((prev) => {
@@ -118,10 +153,11 @@ export function RegistryChecklist() {
                     </div>
                     {item.affiliateUrl && (
                       <a
-                        href={item.affiliateUrl}
+                        href={regionalizeSearchUrl(item.affiliateUrl, country)}
                         target="_blank"
                         rel="nofollow sponsored noopener noreferrer"
                         aria-label={`Shop for ${item.name} (opens in new tab)`}
+                        onClick={() => trackRegistryClick(item.name, item.affiliateUrl)}
                         className="flex-shrink-0 flex items-center gap-1 text-xs font-medium text-amber-700 bg-amber-50 hover:bg-amber-100 px-3 py-2.5 rounded-full transition-colors"
                       >
                         <ShoppingCart className="h-3.5 w-3.5" aria-hidden="true" />
