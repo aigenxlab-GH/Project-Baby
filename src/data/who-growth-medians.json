@@ -1,0 +1,12 @@
+{
+  "_source": "Approximate median (50th percentile) values from the WHO Child Growth Standards (0-24 months), widely republished in pediatric reference materials. Standard deviations are approximated as a percentage of the median (weight ~13%, length ~3.5%) rather than the WHO's exact LMS/Box-Cox parameters, so percentile results here are estimates for general reference only -- not a clinical growth chart calculation.",
+  "ageMonths": [0, 1, 2, 3, 4, 5, 6, 9, 12, 15, 18, 21, 24],
+  "boys": {
+    "weightKg": [3.3, 4.5, 5.6, 6.4, 7.0, 7.5, 7.9, 8.9, 9.6, 10.3, 10.9, 11.5, 12.2],
+    "lengthCm": [49.9, 54.7, 58.4, 61.4, 63.9, 65.9, 67.6, 72.0, 75.7, 79.1, 82.3, 85.1, 87.8]
+  },
+  "girls": {
+    "weightKg": [3.2, 4.2, 5.1, 5.8, 6.4, 6.9, 7.3, 8.2, 8.9, 9.6, 10.2, 10.9, 11.5],
+    "lengthCm": [49.1, 53.7, 57.1, 59.8, 62.1, 64.0, 65.7, 70.1, 74.0, 77.5, 80.7, 83.7, 86.4]
+  }
+}

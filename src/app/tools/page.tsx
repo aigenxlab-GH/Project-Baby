@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
-import { Calculator, Heart, Timer, Search, List, Activity, ChevronRight } from 'lucide-react';
+import { Calculator, Heart, Timer, Search, List, Activity, ChevronRight, Briefcase, Utensils, TrendingUp } from 'lucide-react';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 
@@ -19,6 +19,9 @@ const tools = [
   { title: 'Contraction Timer', desc: 'Time contractions during labor and know when to go to the hospital.', href: '/tools/contraction-timer', icon: Timer, color: 'text-blue-600 bg-blue-50 dark:text-blue-400 dark:bg-blue-950/40' },
   { title: 'Baby Name Generator', desc: 'Generate unique baby name ideas filtered by gender, origin, and more.', href: '/tools/baby-name-generator', icon: Search, color: 'text-green-600 bg-green-50 dark:text-green-400 dark:bg-green-950/40' },
   { title: 'Registry Checklist', desc: 'Complete baby registry with 30+ essential items and product recommendations.', href: '/tools/registry-checklist', icon: List, color: 'text-amber-600 bg-amber-50 dark:text-amber-400 dark:bg-amber-950/40' },
+  { title: 'Hospital Bag Checklist', desc: 'What to pack for you, baby, and your partner — interactive and printable.', href: '/tools/hospital-bag-checklist', icon: Briefcase, color: 'text-rose-600 bg-rose-50 dark:text-rose-400 dark:bg-rose-950/40' },
+  { title: 'Feeding Schedule Tracker', desc: 'See typical feeding frequency and amounts by age, for breastfeeding and formula.', href: '/tools/feeding-schedule-tracker', icon: Utensils, color: 'text-orange-600 bg-orange-50 dark:text-orange-400 dark:bg-orange-950/40' },
+  { title: 'Growth Percentile Calculator', desc: 'Estimate your baby\'s weight and length percentile by age, based on WHO reference data.', href: '/tools/growth-percentile-calculator', icon: TrendingUp, color: 'text-cyan-600 bg-cyan-50 dark:text-cyan-400 dark:bg-cyan-950/40' },
   { title: 'Symptom Checker', desc: 'Look up pregnancy symptoms to learn what\'s normal and when to call your doctor.', href: '/tools/symptom-checker', icon: Activity, color: 'text-teal-600 bg-teal-50 dark:text-teal-400 dark:bg-teal-950/40' },
 ];
 

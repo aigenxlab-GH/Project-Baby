@@ -1,0 +1,90 @@
+[
+  {
+    "id": "newborn",
+    "ageLabel": "0-2 weeks",
+    "ageMinDays": 0,
+    "ageMaxDays": 14,
+    "feedsPerDay": "8-12",
+    "intervalHours": "2-3",
+    "formulaAmountOz": "1-3 oz per feed",
+    "breastfeedingNote": "Feed on demand — newborns often cluster-feed, especially in the evening. Frequency matters more than a strict schedule at this stage.",
+    "solidsNote": null
+  },
+  {
+    "id": "2-4-weeks",
+    "ageLabel": "2-4 weeks",
+    "ageMinDays": 15,
+    "ageMaxDays": 28,
+    "feedsPerDay": "7-9",
+    "intervalHours": "2.5-3.5",
+    "formulaAmountOz": "2-4 oz per feed",
+    "breastfeedingNote": "Feeds may start to space out slightly as your baby's stomach capacity grows. Continue feeding on demand.",
+    "solidsNote": null
+  },
+  {
+    "id": "1-2-months",
+    "ageLabel": "1-2 months",
+    "ageMinDays": 29,
+    "ageMaxDays": 60,
+    "feedsPerDay": "6-8",
+    "intervalHours": "3-4",
+    "formulaAmountOz": "4-5 oz per feed",
+    "breastfeedingNote": "A more predictable rhythm often emerges, though every baby's pattern varies. Growth spurts (commonly around 3 weeks and 6 weeks) can temporarily increase feeding frequency.",
+    "solidsNote": null
+  },
+  {
+    "id": "2-4-months",
+    "ageLabel": "2-4 months",
+    "ageMinDays": 61,
+    "ageMaxDays": 120,
+    "feedsPerDay": "5-6",
+    "intervalHours": "3-4",
+    "formulaAmountOz": "4-6 oz per feed",
+    "breastfeedingNote": "Feeding sessions often become more efficient (shorter but just as effective) as your baby gets better at nursing.",
+    "solidsNote": null
+  },
+  {
+    "id": "4-6-months",
+    "ageLabel": "4-6 months",
+    "ageMinDays": 121,
+    "ageMaxDays": 182,
+    "feedsPerDay": "4-5",
+    "intervalHours": "4-5",
+    "formulaAmountOz": "6-8 oz per feed",
+    "breastfeedingNote": "Milk (breast milk or formula) is still the primary source of nutrition through this stage, even after solids begin.",
+    "solidsNote": "Most babies show readiness signs for solid foods somewhere in this window (good head control, sitting with support, interest in food) — but milk remains the main source of nutrition, with solids introduced gradually as a complement, not a replacement."
+  },
+  {
+    "id": "6-9-months",
+    "ageLabel": "6-9 months",
+    "ageMinDays": 183,
+    "ageMaxDays": 273,
+    "feedsPerDay": "3-5",
+    "intervalHours": "4-5",
+    "formulaAmountOz": "6-8 oz per feed",
+    "breastfeedingNote": "Milk feeds may reduce slightly in frequency as solid food intake increases, but milk still provides the majority of nutrition and calories at this stage.",
+    "solidsNote": "Solid meals are typically offered 2-3 times per day alongside milk feeds. Textures can progress from purees to soft finger foods depending on your baby's readiness and your pediatrician's guidance."
+  },
+  {
+    "id": "9-12-months",
+    "ageLabel": "9-12 months",
+    "ageMinDays": 274,
+    "ageMaxDays": 365,
+    "feedsPerDay": "3-4",
+    "intervalHours": "4-6",
+    "formulaAmountOz": "6-8 oz per feed",
+    "breastfeedingNote": "Milk remains an important part of nutrition, though solid foods now make up a larger share of daily intake.",
+    "solidsNote": "Most babies are eating 3 meals a day plus 1-2 snacks, with a widening variety of textures and finger foods."
+  },
+  {
+    "id": "12-plus-months",
+    "ageLabel": "12+ months",
+    "ageMinDays": 366,
+    "ageMaxDays": 9999,
+    "feedsPerDay": "3 meals + 1-2 snacks",
+    "intervalHours": "3-4",
+    "formulaAmountOz": "Whole milk typically replaces formula/breast milk as the main drink, alongside water",
+    "breastfeedingNote": "Continued breastfeeding beyond 12 months is supported by the WHO and AAP for as long as mother and baby wish to continue, alongside a full diet of solid foods.",
+    "solidsNote": "Most toddlers are eating a version of family meals by this stage, with attention to choking-hazard foods (whole grapes, nuts, hard raw vegetables) still needed."
+  }
+]

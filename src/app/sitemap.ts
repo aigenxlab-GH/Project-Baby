@@ -142,6 +142,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
+      url: url('/tools/hospital-bag-checklist'),
+      lastModified: fileMtime('src/app/tools/hospital-bag-checklist/page.tsx', BUILD_DATE),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: url('/tools/feeding-schedule-tracker'),
+      lastModified: fileMtime('src/app/tools/feeding-schedule-tracker/page.tsx', BUILD_DATE),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: url('/tools/growth-percentile-calculator'),
+      lastModified: fileMtime('src/app/tools/growth-percentile-calculator/page.tsx', BUILD_DATE),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: url('/tools/symptom-checker'),
       lastModified: fileMtime('src/app/tools/symptom-checker/page.tsx', BUILD_DATE),
       changeFrequency: 'monthly',
