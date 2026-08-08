@@ -7,6 +7,7 @@ import { ChevronRight, Star, CheckCircle, XCircle, AlertCircle, Clock } from 'lu
 import { getProductBySlug, getAllProducts, getProductsByCategory } from '@/lib/products';
 import { resolveProductImage } from '@/lib/product-images';
 import { markdownToHtml } from '@/lib/markdown';
+import { formatDate } from '@/lib/utils';
 import { siteConfig } from '@/config/site';
 import { WhereToBuySection } from '@/components/affiliate/WhereToBySection';
 import { InContentAd } from '@/components/ads/InContentAd';
@@ -164,9 +165,9 @@ export default async function ProductReviewPage({ params }: Props) {
           <div className="bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 rounded-xl p-4 mb-6 flex items-start gap-3">
             <AlertCircle className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
             <div className="text-sm">
-              <p className="font-semibold text-blue-900 dark:text-blue-200">Thoroughly Reviewed</p>
+              <p className="font-semibold text-blue-900 dark:text-blue-200">Compiled &amp; Fact-Checked</p>
               <p className="text-blue-800 dark:text-blue-300 text-xs mt-0.5">
-                This product was evaluated based on verified specifications, safety standards, and independent research. Last tested: June 2026.
+                This review is compiled from manufacturer specifications, safety certifications, and verified sources. Last updated: {formatDate(product.updatedAt || product.publishedAt)}.
               </p>
             </div>
           </div>
