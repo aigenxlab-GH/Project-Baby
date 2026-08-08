@@ -1,6 +1,11 @@
 $ProjectId = "mnwolxvz"
 $Dataset = "production"
-$Token = "sklFNvCc0KCw7YX4KQpJrZ84sUU5m39QR1JZUa68bUuP8vaXfXHeREVRjeOieDxsmK5bOmhnNRcGvywuKYV4UuqEBsGM1XDJqL2yxDzPwWskQ14qGmVhuABkwhhbXVZHhc67YkooRBgVLW2TUxn88JxkkHl2ryODCOKlnY6FSqFwNSkB5yqr"
+$Token = $env:SANITY_TOKEN
+if (-not $Token) {
+    Write-Host "Missing SANITY_TOKEN environment variable. Set it first:" -ForegroundColor Red
+    Write-Host '  $env:SANITY_TOKEN = "your-editor-token"' -ForegroundColor Yellow
+    exit 1
+}
 
 $ProductData = @{
     _type = "productReview"

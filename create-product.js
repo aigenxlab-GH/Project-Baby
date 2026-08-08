@@ -5,7 +5,12 @@ const https = require('https');
 // CONFIG
 const PROJECT_ID = 'mnwolxvz';
 const DATASET = 'production';
-const API_TOKEN = process.env.SANITY_TOKEN || 'sklFNvCc0KCw7YX4KQpJrZ84sUU5m39QR1JZUa68bUuP8vaXfXHeREVRjeOieDxsmK5bOmhnNRcGvywuKYV4UuqEBsGM1XDJqL2yxDzPwWskQ14qGmVhuABkwhhbXVZHhc67YkooRBgVLW2TUxn88JxkkHl2ryODCOKlnY6FSqFwNSkB5yqr';
+const API_TOKEN = process.env.SANITY_TOKEN;
+if (!API_TOKEN) {
+  console.error('Missing SANITY_TOKEN environment variable. Set it before running this script:');
+  console.error('  $env:SANITY_TOKEN = "your-editor-token"   (PowerShell)');
+  process.exit(1);
+}
 
 const product = {
   _type: 'productReview',

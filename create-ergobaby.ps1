@@ -1,6 +1,11 @@
 $ProjectId = "mnwolxvz"
 $Dataset = "production"
-$Token = "sklfTLYhf1CEEg6WYD8BgNjqTNGwKxnREXGcYRNNCnXezDkUpBSTzIoNSZ87jTal0u46IJRchXEMxG1ADLJ4mmQDzP9pan6uEOd8YS8JIRSywRh7uHLrNT5zQSOSN1cUFgrIegnobc4yEH8O2GqK5nFwHdZkeAqqcjXc6xIgvvfyzylDXsTt"
+$Token = $env:SANITY_TOKEN
+if (-not $Token) {
+    Write-Host "Missing SANITY_TOKEN environment variable. Set it first:" -ForegroundColor Red
+    Write-Host '  $env:SANITY_TOKEN = "your-editor-token"' -ForegroundColor Yellow
+    exit 1
+}
 
 $Uri = "https://$ProjectId.api.sanity.io/v2021-06-07/data/mutate/$Dataset`?returnIds=true"
 
