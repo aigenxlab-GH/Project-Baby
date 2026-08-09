@@ -32,6 +32,13 @@ export function generateStaticParams() {
 // Any slug not in the pre-rendered list → 404 (never hits the Worker at runtime).
 export const dynamicParams = false;
 
+// Serve these as prerendered static assets from the CDN edge rather than
+// rendering them in the Worker. Every other content route already does this.
+// Without it, OpenNext renders name pages on demand in the Worker, where `fs`
+// is unavailable — which broke all 1,085 pages into empty shells once the SSA
+// dataset moved to a build-time file read.
+export const dynamic = 'force-static';
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { name: nameSlug } = await params;
   const nameData = getNameBySlug(nameSlug);

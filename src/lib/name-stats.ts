@@ -46,15 +46,28 @@ interface StatsFile {
 // (handler.mjs hit 12.5 MB). Every route that reads this is prerendered, so the
 // read only ever happens at build time in Node, never on the edge. This is the
 // same build-time-fs pattern src/app/sitemap.ts already relies on.
+const EMPTY: StatsFile = {
+  meta: { source: 'US Social Security Administration', license: 'Public domain (CC0)', firstYear: 1880, latestYear: 2025, generated: '' },
+  names: {},
+};
+
 let _data: StatsFile | null = null;
 function getData(): StatsFile {
   if (!_data) {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const fs = require('node:fs') as typeof import('node:fs');
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const path = require('node:path') as typeof import('node:path');
-    const file = path.join(process.cwd(), 'src', 'data', 'name-stats.json');
-    _data = JSON.parse(fs.readFileSync(file, 'utf8')) as StatsFile;
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const fs = require('node:fs') as typeof import('node:fs');
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const path = require('node:path') as typeof import('node:path');
+      const file = path.join(process.cwd(), 'src', 'data', 'name-stats.json');
+      _data = JSON.parse(fs.readFileSync(file, 'utf8')) as StatsFile;
+    } catch {
+      // Never let a missing/unreadable dataset take the whole page down. If this
+      // is ever reached outside a build (e.g. the route loses force-static and
+      // renders in the Worker, where fs doesn't exist), the page degrades to the
+      // name, meaning and quick facts instead of rendering an empty shell.
+      _data = EMPTY;
+    }
   }
   return _data;
 }
