@@ -11,8 +11,10 @@
  * Administration's public-domain dataset (1880-2025).
  */
 
-/** One observation: [year, births, rank within sex that year] */
-export type StatPoint = [number, number, number];
+/** One observation: [year, births]. Per-point rank is deliberately not stored —
+ * only peak/latest ranks are ever rendered, and carrying a third number per
+ * point inflated the dataset by a third for no benefit. */
+export type StatPoint = [number, number];
 
 export interface SexStats {
   series: StatPoint[];
@@ -38,14 +40,21 @@ interface StatsFile {
   names: Record<string, NameStats>;
 }
 
-// Lazy require (not a top-level import) for the same reason as baby-names.ts:
-// keeps the 2.6 MB parse off the Worker cold-start path, and avoids TypeScript
-// inferring a vast literal type from the JSON.
+// Read from disk rather than import/require. A static `require` is resolved by
+// the bundler and INLINED into the Cloudflare Worker script — that blew past
+// Cloudflare's 3 MiB Worker size limit and failed the deploy outright
+// (handler.mjs hit 12.5 MB). Every route that reads this is prerendered, so the
+// read only ever happens at build time in Node, never on the edge. This is the
+// same build-time-fs pattern src/app/sitemap.ts already relies on.
 let _data: StatsFile | null = null;
 function getData(): StatsFile {
   if (!_data) {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
-    _data = require('@/data/name-stats.json') as StatsFile;
+    const fs = require('node:fs') as typeof import('node:fs');
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const path = require('node:path') as typeof import('node:path');
+    const file = path.join(process.cwd(), 'src', 'data', 'name-stats.json');
+    _data = JSON.parse(fs.readFileSync(file, 'utf8')) as StatsFile;
   }
   return _data;
 }

@@ -130,7 +130,11 @@ function summarize(points) {
     return hit ? hit[2] : null;
   };
   return {
-    series: points,
+    // Emit [year, count] only. Per-point rank is never rendered (the chart
+    // plots births; peak/latest ranks are precomputed below), and carrying a
+    // third number per point inflated the file by ~a third. File size matters
+    // here: this data must not push the Cloudflare Worker past its 3 MiB limit.
+    series: points.map((p) => [p[0], p[1]]),
     peak: { year: peak[0], count: peak[1], rank: peak[2] },
     latest: { year: latest[0], count: latest[1], rank: latest[2] },
     firstSeen: points[0][0],
