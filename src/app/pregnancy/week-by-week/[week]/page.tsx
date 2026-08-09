@@ -135,7 +135,7 @@ export default async function WeekPage({ params }: Props) {
       />
       <MedicalWebPageJsonLd
         title={`${weekNum} Weeks Pregnant — Baby Development & Symptoms`}
-        description={`Evidence-based guide to week ${weekNum} of pregnancy: baby development, maternal symptoms, and health tips reviewed against NHS and WHO guidelines.`}
+        description={`Guide to week ${weekNum} of pregnancy: baby development, maternal symptoms, and health tips, researched against NHS, WHO, NICE and RCOG guidance with sources cited.`}
         url={`/pregnancy/week-by-week/week-${weekNum}`}
         about={`Week ${weekNum} Pregnancy`}
       />

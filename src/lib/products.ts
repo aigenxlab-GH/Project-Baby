@@ -99,3 +99,13 @@ export async function getFeaturedProducts(limit = 6): Promise<ProductReview[]> {
   const products = await getAllProducts();
   return products.filter((p) => p.featured).slice(0, limit);
 }
+
+/**
+ * Minimum products for a category page to be worth indexing.
+ *
+ * A "Best X of 2026" page listing one item isn't a comparison — it's a thin
+ * page by definition, and there's no real data to enrich it with. Categories
+ * below this stay browsable but are noindexed and kept out of the sitemap
+ * (see src/app/products/[category]/page.tsx and src/app/sitemap.ts).
+ */
+export const MIN_PRODUCTS_FOR_INDEX = 3;

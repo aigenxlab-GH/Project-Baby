@@ -6,7 +6,13 @@ interface Props {
   title: string;
   description: string;
   url: string;
-  /** ISO date of last medical content review, e.g. "2026-06-05" */
+  /**
+   * ISO date this page's content was last reviewed, e.g. "2026-06-05".
+   * Only pass a real date. It used to default to a hardcoded 2026-06-05, which
+   * asserted a review date to Google for every health page regardless of when
+   * the content actually changed. Omitted from the schema when not supplied —
+   * schema.org treats it as optional, and no claim beats a false one.
+   */
   lastReviewed?: string;
   /** The medical topic this page is about */
   about?: string;
@@ -23,7 +29,7 @@ export function MedicalWebPageJsonLd({
   title,
   description,
   url,
-  lastReviewed = '2026-06-05',
+  lastReviewed,
   about = 'Pregnancy',
 }: Props) {
   const data = {
@@ -33,7 +39,7 @@ export function MedicalWebPageJsonLd({
     description,
     url: absoluteUrl(url),
     inLanguage: 'en',
-    lastReviewed,
+    ...(lastReviewed ? { lastReviewed } : {}),
     reviewedBy: {
       '@type': 'Organization',
       name: `${siteConfig.name} Editorial Team`,

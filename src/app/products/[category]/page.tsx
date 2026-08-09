@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Star, ShieldCheck, RefreshCw, Trophy, ArrowRight } from 'lucide-react';
-import { getProductsByCategory } from '@/lib/products';
+import { getProductsByCategory, getAllProducts, MIN_PRODUCTS_FOR_INDEX } from '@/lib/products';
 import { siteConfig } from '@/config/site';
 import { ProductCard } from '@/components/affiliate/ProductCard';
 import { ProductComparison } from '@/components/affiliate/ProductComparison';
@@ -97,10 +97,30 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category } = await params;
   const label = categoryLabels[category] || category;
+  const allProducts = await getAllProducts();
+  const products = allProducts.filter((p) => p.category === category);
+  const cleanLabel = label.replace(/^Best\s+/i, '').toLowerCase();
+
+  // Fail OPEN. If the Sanity product cache is empty — which happens on a plain
+  // `next build` without `npm run sanity-cache`, and would happen in CI if that
+  // step ever failed — every category would look sparse and we'd silently
+  // noindex the entire product section. Only apply the threshold when we
+  // actually have data to judge with.
+  const haveProductData = allProducts.length > 0;
+  const isSparse = haveProductData && products.length < MIN_PRODUCTS_FOR_INDEX;
+
+  // Describe what the page actually contains. The previous copy claimed
+  // "Expert tested, parent approved" — nothing here is hands-on tested, and
+  // that is exactly the fabricated-testing pattern removed from product pages.
+  const description = products.length >= 2
+    ? `Compare ${products.length} ${cleanLabel} for 2026 — specifications, current pricing, pros and cons, and our score out of 10 for each.`
+    : `${label} for 2026 — specifications, pricing, and honest pros and cons.`;
+
   return {
     title: `${label} 2026 — Reviews & Buying Guide`,
-    description: `Honest reviews of the ${label.toLowerCase()} for 2026. Expert tested, parent approved — find the best option for every budget.`,
+    description,
     alternates: { canonical: `${siteConfig.url}/products/${category}` },
+    ...(isSparse ? { robots: { index: false, follow: true } } : {}),
   };
 }
 
@@ -114,6 +134,18 @@ export default async function CategoryPage({ params }: Props) {
   const topPick = products.length >= 2
     ? [...products].sort((a, b) => b.ourScore - a.ourScore)[0]
     : undefined;
+
+  // Real freshness from the products themselves. This row previously hardcoded
+  // "Updated June 2026", which was already stale and is the same class of issue
+  // as the fabricated "Last tested" banner removed from product pages.
+  const latestUpdate = products.reduce<string | null>((latest, p) => {
+    const d = p.updatedAt || p.publishedAt;
+    if (!d) return latest;
+    return !latest || new Date(d).getTime() > new Date(latest).getTime() ? d : latest;
+  }, null);
+  const updatedLabel = latestUpdate
+    ? new Date(latestUpdate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+    : null;
 
   return (
     <>
@@ -150,9 +182,11 @@ export default async function CategoryPage({ params }: Props) {
         <span className="flex items-center gap-1.5">
           <ShieldCheck className="h-3.5 w-3.5 text-green-500" aria-hidden="true" /> Safety-checked
         </span>
-        <span className="flex items-center gap-1.5">
-          <RefreshCw className="h-3.5 w-3.5 text-blue-500" aria-hidden="true" /> Updated June 2026
-        </span>
+        {updatedLabel && (
+          <span className="flex items-center gap-1.5">
+            <RefreshCw className="h-3.5 w-3.5 text-blue-500" aria-hidden="true" /> Updated {updatedLabel}
+          </span>
+        )}
         <span className="hidden sm:inline text-gray-300 dark:text-gray-600" aria-hidden="true">|</span>
         <span className="text-gray-400 dark:text-gray-500">
           Affiliate disclosure: we may earn a commission. <Link href="/affiliate-disclosure" className="underline hover:text-brand-600">Learn more</Link>
@@ -160,9 +194,31 @@ export default async function CategoryPage({ params }: Props) {
       </div>
 
       {products.length === 0 ? (
-        <div className="text-center py-20 text-gray-500">
-          <p className="text-xl mb-2">Reviews coming soon!</p>
-          <p className="text-sm">We are currently testing products in this category.</p>
+        // No products yet. Don't claim testing is underway — nothing here is
+        // hands-on tested — and don't leave the visitor at a dead end.
+        <div className="text-center py-16">
+          <p className="text-xl font-medium text-gray-700 dark:text-gray-200 mb-2">
+            We haven&rsquo;t covered {cleanLabel} yet
+          </p>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 max-w-md mx-auto">
+            This category doesn&rsquo;t have any reviews yet. In the meantime, these sections have
+            full comparisons with specifications, pricing and scores.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              { href: '/products', label: 'All product categories' },
+              { href: '/tools/registry-checklist', label: 'Registry checklist' },
+              { href: '/blog', label: 'Buying guides' },
+            ].map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-200 hover:border-brand-300 hover:text-brand-600 transition-colors"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </div>
         </div>
       ) : (
         <>

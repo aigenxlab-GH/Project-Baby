@@ -34,8 +34,10 @@ export default function AffiliateDisclosurePage() {
         <h2 className="font-serif text-2xl font-bold text-gray-900 mt-8 mb-4">Our Commitment</h2>
         <p>
           We only recommend products we genuinely believe will benefit our readers. Our editorial
-          opinions are never influenced by affiliate relationships. All product reviews are based on
-          research, expert input, and/or hands-on testing.
+          opinions are never influenced by affiliate relationships. Our reviews are research-based:
+          we compare manufacturer specifications, safety certifications, current pricing and
+          published guidance, alongside patterns in verified customer reviews. We do not claim
+          hands-on testing of the products we write about.
         </p>
 
         <h2 className="font-serif text-2xl font-bold text-gray-900 mt-8 mb-4">Identifying Affiliate Links</h2>

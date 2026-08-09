@@ -121,7 +121,7 @@ export default function HomePage() {
               { '@type': 'Question', name: 'How accurate is the due date calculator?', acceptedAnswer: { '@type': 'Answer', text: 'Our due date calculator uses Naegele\'s Rule — the same method used by midwives and OBs worldwide. It adds 280 days to the first day of your last menstrual period (LMP). About 80% of babies arrive within two weeks either side of the estimated due date.' } },
               { '@type': 'Question', name: 'When do pregnancy symptoms start?', acceptedAnswer: { '@type': 'Answer', text: 'Most people first notice pregnancy symptoms between 4 and 6 weeks after their last period. Early signs include fatigue, breast tenderness, and morning sickness. Every pregnancy is different — symptoms can range from mild to strong.' } },
               { '@type': 'Question', name: 'What are the most important items for a baby registry?', acceptedAnswer: { '@type': 'Answer', text: 'The essentials are: a safe firm crib or Moses basket, an infant car seat, feeding supplies (bottles, breast pump), a pram or pushchair, and baby clothing. Everything else is helpful but not essential from day one.' } },
-              { '@type': 'Question', name: 'Is PregnancySprout content medically reviewed?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. All health content is written by qualified writers and reviewed by certified midwives and registered nurses. We follow NHS, WHO, and AAP clinical guidelines and update articles regularly.' } },
+              { '@type': 'Question', name: 'How is PregnancySprout health content researched?', acceptedAnswer: { '@type': 'Answer', text: 'Every health article is researched against published clinical guidance from the NHS, WHO, NICE, RCOG and the American Academy of Pediatrics, and the specific sources used are cited at the end of each article so you can check them yourself. PregnancySprout is an informational resource, not a medical provider — it does not replace advice from your own midwife, GP or obstetrician.' } },
             ],
           }),
         }}
@@ -406,9 +406,9 @@ export default function HomePage() {
             {/* Left — prose content */}
             <div className="space-y-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
               <p>
-                PregnancySprout is written and reviewed by a team of certified midwives,
-                registered nurses, and experienced parenting writers. Every guide is checked
-                against the latest clinical standards from the{' '}
+                PregnancySprout is written by experienced parenting writers and researched
+                against published clinical guidance, with the sources cited on every health
+                article. Every guide is checked against the latest clinical standards from the{' '}
                 <a
                   href="https://www.nhs.uk/pregnancy/"
                   target="_blank"
@@ -459,7 +459,7 @@ export default function HomePage() {
             {/* Right — trust badges */}
             <div className="grid grid-cols-2 gap-3">
               {[
-                { icon: '🩺', title: 'Medically Reviewed', desc: 'All health content reviewed by certified midwives and nurses' },
+                { icon: '🩺', title: 'Sources Cited', desc: 'Every health article lists the guidance it was researched against' },
                 { icon: '📋', title: 'NHS & WHO Aligned', desc: 'Content checked against NHS, WHO, and AAP clinical guidelines' },
                 { icon: '🔍', title: 'Unbiased Reviews', desc: 'Product reviews are independent — no paid placements' },
                 { icon: '🔒', title: 'No Personal Data Sold', desc: 'We do not sell or share personal data with third parties' },
@@ -509,8 +509,8 @@ export default function HomePage() {
                 a: 'A good baby name should be easy to spell, easy to pronounce, and work at every life stage — from nursery to a professional career. Consider how it sounds with your surname, any potential nicknames, and whether initials spell anything unfortunate. Classic names tend to age better than trend-driven ones, though both can work well. Our baby names database includes 1,188+ names with meanings, origins, and current popularity trends to help you make an informed choice.',
               },
               {
-                q: 'Is PregnancySprout content medically reviewed?',
-                a: 'Yes. All health and pregnancy content on PregnancySprout is written by qualified writers and reviewed by certified midwives and registered nurses before publication. We follow clinical guidelines from the NHS, WHO, and the American Academy of Pediatrics (AAP). We update articles regularly as guidance changes. PregnancySprout is an informational resource — it does not replace advice from your own healthcare provider, midwife, or GP.',
+                q: 'How is PregnancySprout health content researched?',
+                a: 'Every health and pregnancy article is researched against published clinical guidance from the NHS, WHO, NICE, RCOG and the American Academy of Pediatrics (AAP), and the specific sources used are listed at the end of each article so you can check them yourself. Articles are updated as guidance changes. To be clear about what we are: PregnancySprout is an independent informational resource, not a medical provider, and nothing here is individually reviewed by a clinician for your situation. It does not replace advice from your own healthcare provider, midwife, or GP.',
               },
             ].map(({ q, a }) => (
               <details key={q} className="group py-5">

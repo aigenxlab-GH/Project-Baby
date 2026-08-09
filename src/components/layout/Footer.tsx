@@ -131,12 +131,8 @@ export function Footer() {
             </p>
             {/* Enhanced trust signals + location (fixes #18/#25) */}
             <div className="mt-3 pt-3 border-t border-gray-800 space-y-1">
-              <p className="text-xs text-gray-500">✓ Reviewed by certified midwives &amp; nurses</p>
-              <p className="text-xs text-gray-500">✓ Aligned with NHS, WHO &amp; AAP guidelines</p>
-              <p className="text-xs text-gray-500">
-                ✓ Last reviewed:{' '}
-                <time dateTime="2026-06">June 2026</time>
-              </p>
+              <p className="text-xs text-gray-500">✓ Sources cited on every health article</p>
+              <p className="text-xs text-gray-500">✓ Researched against NHS, WHO &amp; AAP guidance</p>
               {/* Location signal for E-E-A-T (fix #25) */}
               <p className="text-xs text-gray-500 mt-1">
                 🌍 Serving readers in the United States, United Kingdom &amp; worldwide

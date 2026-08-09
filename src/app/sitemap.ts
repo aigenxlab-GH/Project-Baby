@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { siteConfig } from '@/config/site';
 import { getAllSlugs, getAllArticles } from '@/lib/mdx';
-import { getAllProducts } from '@/lib/products';
+import { getAllProducts, MIN_PRODUCTS_FOR_INDEX } from '@/lib/products';
 import { getAllNames } from '@/lib/baby-names';
 import unmatchedNames from '@/data/name-stats-unmatched.json';
 
@@ -283,12 +283,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       return new Date(d).getTime() > new Date(latest).getTime() ? d : latest;
     }, BUILD_DATE);
   };
-  const productCategoryPages: MetadataRoute.Sitemap = productCategories.map((cat) => ({
-    url: url(`/products/${cat}`),
-    lastModified: productCategoryLatest(cat),
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }));
+  // A "Best X of 2026" page needs enough products to be a real comparison.
+  // Categories below this threshold are noindexed on the page itself (see
+  // src/app/products/[category]/page.tsx) and must not be advertised here:
+  // nursing-feeding currently has 0 products, and baby-essentials,
+  // nursing-chairs and baby-loungers have 1 each — a category page listing a
+  // single item is thin by definition and there is no real data to enrich it
+  // with. They stay reachable for visitors; they just aren't submitted to
+  // Google until they have enough products to be worth ranking.
+  // Fail open: if the product cache is empty, keep every category rather than
+  // silently emptying the product section out of the sitemap.
+  const productCategoryPages: MetadataRoute.Sitemap = productCategories
+    .filter(
+      (cat) =>
+        products.length === 0 ||
+        products.filter((p) => p.category === cat).length >= MIN_PRODUCTS_FOR_INDEX
+    )
+    .map((cat) => ({
+      url: url(`/products/${cat}`),
+      lastModified: productCategoryLatest(cat),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    }));
 
   // Roundup pages ("Best X of 2026") were retired 2026-08-08 — 301-redirected
   // to their matching category page (see next.config.mjs). No longer in the
