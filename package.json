@@ -13,6 +13,7 @@
     "generate:batch": "tsx scripts/generate-content.ts --batch",
     "generate:mega": "tsx scripts/generate-content.ts --mega",
     "search-index": "tsx scripts/build-search-index.ts",
+    "name-stats": "node scripts/build-name-stats.mjs",
     "content-cache": "tsx scripts/build-content-cache.ts",
     "sanity-cache": "tsx scripts/build-sanity-cache.ts",
     "dev:cf": "npx @opennextjs/cloudflare dev",

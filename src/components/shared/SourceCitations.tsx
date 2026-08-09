@@ -9,6 +9,8 @@ export interface Citation {
 
 interface Props {
   citations: Citation[];
+  /** Overrides the default lead-in, which is worded for health articles. */
+  intro?: string;
 }
 
 /**
@@ -16,7 +18,7 @@ interface Props {
  * All sources are external links to NHS, WHO, AAP, NICE, RCOG, or peer-reviewed journals.
  * Improves E-E-A-T by making reference chain transparent.
  */
-export function SourceCitations({ citations }: Props) {
+export function SourceCitations({ citations, intro }: Props) {
   if (!citations || citations.length === 0) return null;
 
   return (
@@ -29,7 +31,7 @@ export function SourceCitations({ citations }: Props) {
         <h2 className="font-semibold text-gray-900 dark:text-white text-sm">Sources & References</h2>
       </div>
       <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">
-        This article was researched against the following authoritative health sources:
+        {intro ?? 'This article was researched against the following authoritative health sources:'}
       </p>
       <ol className="space-y-2">
         {citations.map((c, i) => (

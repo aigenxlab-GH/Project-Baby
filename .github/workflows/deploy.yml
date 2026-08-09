@@ -48,6 +48,10 @@ jobs:
       - name: Build & Deploy to Cloudflare Workers
         run: npm run deploy
         env:
+          # 1,542 prerendered pages plus the 2.6 MB SSA name-stats dataset push
+          # the build past Node's default heap — without this the build worker
+          # dies with exit code 3221226505 / OOM during "Collecting page data".
+          NODE_OPTIONS: --max-old-space-size=8192
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}

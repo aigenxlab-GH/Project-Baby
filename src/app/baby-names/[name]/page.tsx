@@ -6,17 +6,27 @@ import { getNameBySlug, getRelatedNames, getAllNames } from '@/lib/baby-names';
 import { siteConfig } from '@/config/site';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
-import { InContentAd } from '@/components/ads/InContentAd';
-import { HeaderAd } from '@/components/ads/HeaderAd';
+import { SourceCitations } from '@/components/shared/SourceCitations';
+import { PopularityChart } from '@/components/baby-names/PopularityChart';
+import { getNameStats, primaryStats, computeTrend, describeMove, getStatsMeta } from '@/lib/name-stats';
 
 interface Props {
   params: Promise<{ name: string }>;
 }
 
-// Pre-render all 1205 name pages at build time as static HTML.
+// Pre-render every name page at build time as static HTML (1202 records
+// collapse to ~1101 unique slugs — Next dedupes the duplicates below).
 // Cloudflare serves them from the CDN edge — zero Worker CPU usage.
 export function generateStaticParams() {
-  return getAllNames().map((n) => ({ name: n.name.toLowerCase() }));
+  const seen = new Set<string>();
+  const params: { name: string }[] = [];
+  for (const n of getAllNames()) {
+    const slug = n.name.toLowerCase();
+    if (seen.has(slug)) continue;
+    seen.add(slug);
+    params.push({ name: slug });
+  }
+  return params;
 }
 
 // Any slug not in the pre-rendered list → 404 (never hits the Worker at runtime).
@@ -27,8 +37,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const nameData = getNameBySlug(nameSlug);
   if (!nameData) return {};
 
+  const stats = getNameStats(nameSlug);
   const title = `${nameData.name} Baby Name Meaning, Origin & Popularity`;
-  const rawDesc = `The name ${nameData.name} means "${nameData.meaning}" and has ${nameData.origin.join(', ')} origins. Learn about the name's popularity, nicknames, and more.`;
+
+  // Lead the description with real SSA figures where we have them — far more
+  // useful in a SERP than the generic meaning sentence.
+  let rawDesc: string;
+  if (stats) {
+    const s = primaryStats(stats);
+    rawDesc = `${nameData.name} means "${nameData.meaning}". In ${s.latest.year} it ranked #${s.latest.rank} in the US with ${s.latest.count.toLocaleString()} babies named ${nameData.name}. See its full popularity history since ${s.firstSeen}.`;
+  } else {
+    rawDesc = `The name ${nameData.name} means "${nameData.meaning}" and has ${nameData.origin.join(', ')} origins. Learn about the name's meaning, nicknames, and similar names.`;
+  }
   // Cap at 153 chars at the last word boundary to avoid SERP truncation warnings.
   const description = rawDesc.length > 153
     ? rawDesc.substring(0, rawDesc.lastIndexOf(' ', 150)) + '…'
@@ -39,6 +59,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     alternates: { canonical: `${siteConfig.url}/baby-names/${nameData.name.toLowerCase()}` },
     openGraph: { title, description },
+    // Names with no SSA record (given to fewer than 5 US babies in any year)
+    // can't be given real popularity data, so they'd stay genuinely thin.
+    // Keep them browsable for visitors, but don't ask Google to index them.
+    ...(stats ? {} : { robots: { index: false, follow: true } }),
   };
 }
 
@@ -49,12 +73,22 @@ export default async function NameDetailPage({ params }: Props) {
 
   const related = getRelatedNames(nameData, 8);
 
+  // Real popularity data from the SSA dataset (null for names never given to
+  // 5+ US babies in a single year — SSA's publication threshold).
+  const stats = getNameStats(nameSlug);
+  const s = stats ? primaryStats(stats) : null;
+  const trend = s ? computeTrend(s) : 'unknown';
+  const move = s ? describeMove(s) : null;
+  const statsMeta = getStatsMeta();
+
   const genderColor = nameData.gender === 'girl' ? 'text-pink-600 bg-pink-50 dark:text-pink-400 dark:bg-pink-950/40' :
     nameData.gender === 'boy' ? 'text-blue-600 bg-blue-50 dark:text-blue-400 dark:bg-blue-950/40' : 'text-purple-600 bg-purple-50 dark:text-purple-400 dark:bg-purple-950/40';
 
-  const trendIcon = nameData.popularityTrend === 'rising' ?
+  const chartTone = nameData.gender === 'girl' ? 'pink' : nameData.gender === 'boy' ? 'blue' : 'purple';
+
+  const trendIcon = trend === 'rising' ?
     <TrendingUp className="h-4 w-4 text-green-500" /> :
-    nameData.popularityTrend === 'falling' ?
+    trend === 'falling' ?
     <TrendingDown className="h-4 w-4 text-red-400" /> :
     <Minus className="h-4 w-4 text-gray-400" />;
 
@@ -89,8 +123,6 @@ export default async function NameDetailPage({ params }: Props) {
         </div>
       </div>
 
-      <HeaderAd />
-
       <div className="container mx-auto max-w-4xl px-4 pt-6 pb-12">
         {/* Header */}
         <div className={`rounded-3xl p-8 mb-10 text-center ${nameData.gender === 'girl' ? 'bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-950/40 dark:to-rose-950/40' : nameData.gender === 'boy' ? 'bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/40 dark:to-sky-950/40' : 'bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-950/40 dark:to-violet-950/40'}`}>
@@ -104,10 +136,17 @@ export default async function NameDetailPage({ params }: Props) {
                 {o}
               </span>
             ))}
-            <div className="flex items-center gap-1.5 bg-white dark:bg-gray-800 rounded-full px-3 py-1.5 border border-gray-200 dark:border-gray-700">
-              {trendIcon}
-              <span className="text-sm text-gray-600 dark:text-gray-300 capitalize">{nameData.popularityTrend}</span>
-            </div>
+            {trend !== 'unknown' && (
+              <div className="flex items-center gap-1.5 bg-white dark:bg-gray-800 rounded-full px-3 py-1.5 border border-gray-200 dark:border-gray-700">
+                {trendIcon}
+                <span className="text-sm text-gray-600 dark:text-gray-300 capitalize">{trend}</span>
+              </div>
+            )}
+            {s && (
+              <span className="px-3 py-1.5 bg-white dark:bg-gray-800 rounded-full text-sm font-medium text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700">
+                #{s.latest.rank.toLocaleString()} in {s.latest.year}
+              </span>
+            )}
           </div>
         </div>
 
@@ -127,7 +166,53 @@ export default async function NameDetailPage({ params }: Props) {
           </div>
         </section>
 
-        <InContentAd />
+        {/* Popularity — real SSA data */}
+        {s && (
+          <section className="mb-10">
+            <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              How Popular Is {nameData.name}?
+            </h2>
+
+            <p className="text-gray-700 dark:text-gray-200 leading-relaxed mb-2">
+              In {s.latest.year}, <strong>{s.latest.count.toLocaleString()}</strong> babies in the United States
+              were named {nameData.name}, making it the <strong>#{s.latest.rank.toLocaleString()}</strong> most
+              popular {stats!.primary === 'F' ? "girls'" : "boys'"} name that year
+              {move ? <> — {move}</> : null}.
+            </p>
+            <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
+              {nameData.name} was at its most popular in <strong>{s.peak.year}</strong>, when it ranked{' '}
+              <strong>#{s.peak.rank.toLocaleString()}</strong> with {s.peak.count.toLocaleString()} births.
+              It first appears in the records in {s.firstSeen}, and roughly{' '}
+              <strong>{s.totalBabies.toLocaleString()}</strong> babies have been given the name since then.
+            </p>
+
+            <PopularityChart series={s.series} name={nameData.name} tone={chartTone} />
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+              {[
+                { label: `Rank in ${s.latest.year}`, value: `#${s.latest.rank.toLocaleString()}` },
+                { label: 'Peak rank', value: `#${s.peak.rank.toLocaleString()} (${s.peak.year})` },
+                { label: 'First recorded', value: s.firstSeen.toString() },
+                { label: 'Babies named, all-time', value: s.totalBabies.toLocaleString() },
+              ].map((fact) => (
+                <div key={fact.label} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 p-4 text-center">
+                  <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">{fact.label}</p>
+                  <p className="font-bold text-gray-900 dark:text-white">{fact.value}</p>
+                </div>
+              ))}
+            </div>
+
+            {stats!.f && stats!.m && stats!.splitF >= 10 && stats!.splitF <= 90 && (
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-5 bg-purple-50 dark:bg-purple-950/30 border border-purple-100 dark:border-purple-900 rounded-xl p-4">
+                <strong>{nameData.name} is used for both girls and boys.</strong> Across all years on record,{' '}
+                {stats!.splitF}% of babies named {nameData.name} were girls and {100 - stats!.splitF}% were boys.
+                In {stats!.f.latest.year} it ranked #{stats!.f.latest.rank.toLocaleString()} for girls
+                ({stats!.f.latest.count.toLocaleString()} births) and #{stats!.m.latest.rank.toLocaleString()} for
+                boys ({stats!.m.latest.count.toLocaleString()} births).
+              </p>
+            )}
+          </section>
+        )}
 
         {/* Quick Facts */}
         <section className="mb-10">
@@ -137,7 +222,7 @@ export default async function NameDetailPage({ params }: Props) {
               { label: 'Gender', value: nameData.gender },
               { label: 'Origin', value: nameData.origin.join(', ') },
               { label: 'Syllables', value: nameData.syllables.toString() },
-              { label: 'Popularity Rank', value: nameData.popularityRank ? `#${nameData.popularityRank}` : 'Unranked' },
+              { label: 'Popularity Rank', value: s ? `#${s.latest.rank.toLocaleString()}` : 'Not ranked' },
             ].map((fact) => (
               <div key={fact.label} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 p-4 text-center">
                 <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">{fact.label}</p>
@@ -188,6 +273,41 @@ export default async function NameDetailPage({ params }: Props) {
               ))}
             </div>
           </section>
+        )}
+
+        {/* Keep exploring — the page previously dead-ended on the related grid */}
+        <section className="mb-10">
+          <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-4">Keep Exploring Baby Names</h2>
+          <div className="grid sm:grid-cols-3 gap-3">
+            {[
+              { href: '/baby-names', title: 'Browse all baby names', desc: 'Filter by gender, origin, letter and style' },
+              { href: '/baby-names/top-100', title: 'Top 100 names', desc: 'The most popular picks this year' },
+              { href: '/tools/baby-name-generator', title: 'Name generator', desc: 'Find names matching your taste' },
+            ].map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="block bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 p-4 hover:border-brand-300 dark:hover:border-brand-700 hover:shadow-sm transition-all"
+              >
+                <p className="font-semibold text-gray-900 dark:text-white mb-1">{l.title}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">{l.desc}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {s && (
+          <SourceCitations
+            intro={`Popularity figures on this page are calculated from ${statsMeta.source} birth records covering ${statsMeta.firstYear}–${statsMeta.latestYear}. SSA publishes names given to at least five babies in a year.`}
+            citations={[
+              {
+                organisation: 'US Social Security Administration',
+                title: 'Popular Baby Names — national data, 1880 to present',
+                url: 'https://www.ssa.gov/oact/babynames/limits.html',
+                year: statsMeta.latestYear,
+              },
+            ]}
+          />
         )}
       </div>
     </div>

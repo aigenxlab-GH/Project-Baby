@@ -5,6 +5,7 @@ import { siteConfig } from '@/config/site';
 import { getAllSlugs, getAllArticles } from '@/lib/mdx';
 import { getAllProducts } from '@/lib/products';
 import { getAllNames } from '@/lib/baby-names';
+import unmatchedNames from '@/data/name-stats-unmatched.json';
 
 // Force static pre-rendering at build time (Node.js context where `fs` is available).
 // Without this, Cloudflare Workers would try to execute `fs.statSync` at request
@@ -295,14 +296,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // ── Baby name detail pages ────────────────────────────────────────────────
   // Names dataset changes very infrequently — use data file mtime
-  const nameDataMtime = fileMtime('src/data/baby-names.json', BUILD_DATE);
-  const allNames = getAllNames();
-  const namePages: MetadataRoute.Sitemap = allNames.map((n) => ({
-    url: url(`/baby-names/${n.name.toLowerCase()}`),
-    lastModified: nameDataMtime,
-    changeFrequency: 'yearly' as const,
-    priority: 0.6,
-  }));
+  // lastModified tracks the stats file too — regenerating SSA data should
+  // prompt a recrawl of every name page, not just a baby-names.json edit.
+  const nameDataMtime = fileMtime('src/data/name-stats.json', fileMtime('src/data/baby-names.json', BUILD_DATE));
+
+  // 1202 records collapse to ~1101 unique slugs (a name can be catalogued as
+  // both a boy's and a girl's name). Emitting both produced ~97 duplicate URLs.
+  // Names with no SSA record are noindexed on the page itself, so they must not
+  // be advertised here either.
+  const unmatched = new Set((unmatchedNames as string[]).map((s) => s.toLowerCase()));
+  const seenSlugs = new Set<string>();
+  const namePages: MetadataRoute.Sitemap = [];
+  for (const n of getAllNames()) {
+    const slug = n.name.toLowerCase();
+    if (seenSlugs.has(slug) || unmatched.has(slug)) continue;
+    seenSlugs.add(slug);
+    namePages.push({
+      url: url(`/baby-names/${slug}`),
+      lastModified: nameDataMtime,
+      changeFrequency: 'yearly' as const,
+      priority: 0.6,
+    });
+  }
 
   // ── Parenting topic hub pages (all 8 topics) ─────────────────────────────
   const parentingTopicPages: MetadataRoute.Sitemap = parentingTopics.map((topic) => ({
