@@ -14,6 +14,16 @@ import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { BookmarkButton, SavedWeeksPanel } from '@/components/shared/BookmarkButton';
 import { MedicalWebPageJsonLd } from '@/components/seo/MedicalWebPageJsonLd';
 import { SourceCitations, PREGNANCY_CITATIONS } from '@/components/shared/SourceCitations';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { GrowthCurveChart } from '@/components/pregnancy/GrowthCurveChart';
+import {
+  cmToInches,
+  gramsToImperial,
+  weekOverWeekGrowth,
+  shareOfBirthSize,
+  timeline,
+  type WeekRecord,
+} from '@/lib/pregnancy-week-stats';
 
 export const dynamic = 'force-static';
 
@@ -68,6 +78,45 @@ export default async function WeekPage({ params }: Props) {
 
   const emoji = weekNum <= 4 ? '🌱' : weekNum <= 8 ? '🫘' : weekNum <= 13 ? '🍋' : weekNum <= 20 ? '🥑' : weekNum <= 28 ? '🌽' : weekNum <= 35 ? '🍍' : '👶';
 
+  // Derived figures — all computed from the existing 40-week dataset.
+  const allWeeks = getAllWeeks() as unknown as WeekRecord[];
+  const growth = weekOverWeekGrowth(allWeeks, weekNum);
+  const share = shareOfBirthSize(allWeeks, weekNum);
+  const t = timeline(weekNum);
+  const hasLength = data.babySize.lengthCm > 0;
+  const hasWeight = data.babySize.weightGrams > 0;
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: `How big is your baby at ${weekNum} weeks pregnant?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `At ${weekNum} weeks, a baby is on average about ${data.babySize.lengthCm} cm (${cmToInches(data.babySize.lengthCm)} inches) long${hasWeight ? ` and weighs around ${data.babySize.weightGrams} g (${gramsToImperial(data.babySize.weightGrams)})` : ''} — roughly the size of ${data.babySize.comparison}. These are averages and healthy babies vary considerably.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: `How many weeks are left at ${weekNum} weeks pregnant?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `At ${weekNum} weeks you are ${t.percentComplete}% of the way through a 40-week pregnancy, with about ${t.weeksLeft} weeks (${t.daysLeft} days) to go until your due date. Pregnancy is considered full term from 39 weeks.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: `Which trimester is week ${weekNum}?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `Week ${weekNum} falls in the ${trimesterLabel.toLowerCase()} trimester, which runs to week ${t.trimesterEnd}. That is ${t.weeksToTrimesterEnd} more week${t.weeksToTrimesterEnd === 1 ? '' : 's'} in this trimester.`,
+        },
+      },
+    ],
+  };
+
   return (
     <div>
       <BreadcrumbJsonLd items={[
@@ -90,6 +139,7 @@ export default async function WeekPage({ params }: Props) {
         url={`/pregnancy/week-by-week/week-${weekNum}`}
         about={`Week ${weekNum} Pregnancy`}
       />
+      <JsonLd data={faqSchema} />
 
       {/* Breadcrumb */}
       <div className="bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 py-3 px-4">
@@ -202,6 +252,88 @@ export default async function WeekPage({ params }: Props) {
 
             <InContentAd />
 
+            {/* Baby's size this week — computed from the 40-week dataset */}
+            {hasLength && (
+              <section className="mb-10">
+                <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  How Big Is Your Baby at {weekNum} Weeks?
+                </h2>
+                <p className="text-gray-700 dark:text-gray-200 leading-relaxed mb-2">
+                  At {weekNum} weeks your baby measures about{' '}
+                  <strong>{data.babySize.lengthCm} cm ({cmToInches(data.babySize.lengthCm)} in)</strong>
+                  {hasWeight && (
+                    <> and weighs roughly <strong>{data.babySize.weightGrams} g ({gramsToImperial(data.babySize.weightGrams)})</strong></>
+                  )}
+                  {' '}— about the size of {data.babySize.comparison}.
+                  {share?.lengthPct != null && (
+                    <> That is around {share.lengthPct}% of the length a baby typically reaches by week 40
+                    {share.weightPct != null && <>, and about {share.weightPct}% of typical birth weight</>}.</>
+                  )}
+                </p>
+                {growth && (
+                  <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
+                    Since last week your baby has grown roughly{' '}
+                    {growth.lengthDelta > 0 && <strong>{growth.lengthDelta} cm longer</strong>}
+                    {growth.lengthDelta > 0 && growth.weightDelta > 0 && ' and '}
+                    {growth.weightDelta > 0 && <strong>{growth.weightDelta} g heavier</strong>}
+                    {growth.weightPct != null && growth.weightPct > 0 && (
+                      <> — a {growth.weightPct}% gain in body weight in seven days</>
+                    )}.
+                  </p>
+                )}
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-5">
+                  {[
+                    { label: 'Length', value: `${data.babySize.lengthCm} cm / ${cmToInches(data.babySize.lengthCm)} in` },
+                    { label: 'Weight', value: hasWeight ? `${data.babySize.weightGrams} g / ${gramsToImperial(data.babySize.weightGrams)}` : 'Too small to measure' },
+                    { label: 'Weeks to go', value: `${t.weeksLeft} (${t.daysLeft} days)` },
+                    { label: 'Progress', value: `${t.percentComplete}% of 40 weeks` },
+                  ].map((f) => (
+                    <div key={f.label} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 p-4 text-center">
+                      <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">{f.label}</p>
+                      <p className="font-bold text-gray-900 dark:text-white text-sm">{f.value}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <h3 className="font-semibold text-gray-900 dark:text-white mt-8 mb-1">
+                  Average length through pregnancy
+                </h3>
+                <GrowthCurveChart weeks={allWeeks} currentWeek={weekNum} metric="length" />
+
+                {hasWeight && (
+                  <>
+                    <h3 className="font-semibold text-gray-900 dark:text-white mt-8 mb-1">
+                      Average weight through pregnancy
+                    </h3>
+                    <GrowthCurveChart weeks={allWeeks} currentWeek={weekNum} metric="weight" />
+                  </>
+                )}
+              </section>
+            )}
+
+            {/* Where you are — computed timeline */}
+            <section className="mb-10">
+              <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                Where You Are in Your Pregnancy
+              </h2>
+              <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
+                Week {weekNum} sits in the <strong>{trimesterLabel.toLowerCase()} trimester</strong>, which runs
+                through week {t.trimesterEnd}
+                {t.weeksToTrimesterEnd > 0 ? (
+                  <> — {`${t.weeksToTrimesterEnd} more ${t.weeksToTrimesterEnd === 1 ? 'week' : 'weeks'}`} to go in this stage</>
+                ) : (
+                  <>, so this is the final week of the stage</>
+                )}
+                . You are <strong>{t.percentComplete}%</strong> of the way through a 40-week pregnancy, with about{' '}
+                <strong>{`${t.weeksLeft} ${t.weeksLeft === 1 ? 'week' : 'weeks'}`}</strong> ({t.daysLeft} days) until your
+                estimated due date.
+                {t.weeksToFullTerm > 0
+                  ? <> Pregnancy is considered full term from 39 weeks, which is {`${t.weeksToFullTerm} ${t.weeksToFullTerm === 1 ? 'week' : 'weeks'}`} away.</>
+                  : <> You have already reached full term (39 weeks or more).</>}
+              </p>
+            </section>
+
             {/* Baby Development */}
             <section className="mb-10">
               <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-5 flex items-center gap-2">
@@ -266,6 +398,27 @@ export default async function WeekPage({ params }: Props) {
                 </ul>
               </section>
             )}
+
+            {/* FAQ — mirrors the FAQPage schema above so the rich result matches
+                what is actually on the page */}
+            <section className="mb-10">
+              <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-5">
+                Common Questions About Week {weekNum}
+              </h2>
+              <div className="space-y-4">
+                {faqSchema.mainEntity.map((q) => (
+                  <div
+                    key={q.name}
+                    className="bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 p-5"
+                  >
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{q.name}</h3>
+                    <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {q.acceptedAnswer.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
 
             {/* Source citations */}
             <SourceCitations citations={PREGNANCY_CITATIONS} />
