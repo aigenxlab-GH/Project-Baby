@@ -14,22 +14,19 @@ export const metadata: Metadata = {
 };
 
 export default function CorrectionsPage() {
-  const corrections = [
-    {
-      date: 'June 2026',
-      article: '12 Weeks Pregnant: Baby Development & Symptoms',
-      issue: 'Clarified average baby weight range based on latest ultrasound standards',
-      severity: 'minor',
-      status: 'updated',
-    },
-    {
-      date: 'May 2026',
-      article: 'Best Baby Monitors 2026',
-      issue: 'Updated product availability and pricing information for current market',
-      severity: 'minor',
-      status: 'updated',
-    },
-  ];
+  // A corrections log exists to signal honesty, so it must only ever contain
+  // corrections that actually happened. This previously held two hardcoded
+  // placeholder entries ("Clarified average baby weight range...", "Updated
+  // product availability...") that were never real corrections — invented
+  // entries on a transparency page undermine the exact thing the page is for.
+  // Add real entries here as corrections are genuinely made.
+  const corrections: {
+    date: string;
+    article: string;
+    issue: string;
+    severity: 'minor' | 'important';
+    status: 'updated' | 'in-progress';
+  }[] = [];
 
   return (
     <div className="bg-white">
@@ -173,9 +170,9 @@ export default function CorrectionsPage() {
           ) : (
             <div className="text-center py-12 bg-gray-50 rounded-xl border border-gray-100">
               <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
-              <p className="text-gray-600 font-medium">No active corrections at this time.</p>
+              <p className="text-gray-600 font-medium">No corrections have been published yet.</p>
               <p className="text-sm text-gray-500 mt-2">
-                We review all content quarterly for accuracy.
+                Corrections are published here when they are made.
               </p>
             </div>
           )}

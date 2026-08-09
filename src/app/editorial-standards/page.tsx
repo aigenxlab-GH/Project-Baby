@@ -166,19 +166,22 @@ export default function EditorialStandardsPage() {
             Keeping Content Fresh & Accurate
           </h2>
           <p className="text-gray-600 leading-relaxed mb-4">
-            Medical guidelines and research evolve. We update our content regularly:
+            Medical guidelines and research evolve, so content is revisited as guidance changes
+            rather than on a fixed schedule:
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-gray-50 rounded-xl p-5 border border-gray-100">
-              <h3 className="font-semibold text-gray-900 mb-2">Monthly Updates</h3>
+              <h3 className="font-semibold text-gray-900 mb-2">Sources Cited</h3>
               <p className="text-sm text-gray-600">
-                High-priority articles are reviewed monthly for accuracy and alignment with latest guidelines.
+                Health articles list the NHS, WHO, NICE, RCOG and AAP guidance they were researched
+                against, so you can check any claim at its source.
               </p>
             </div>
             <div className="bg-gray-50 rounded-xl p-5 border border-gray-100">
-              <h3 className="font-semibold text-gray-900 mb-2">Quarterly Reviews</h3>
+              <h3 className="font-semibold text-gray-900 mb-2">Updated When Guidance Changes</h3>
               <p className="text-sm text-gray-600">
-                All articles receive a thorough review every quarter to ensure accuracy.
+                Articles are revised when the underlying clinical guidance is updated, or when a
+                reader flags something that needs correcting.
               </p>
             </div>
             <div className="bg-gray-50 rounded-xl p-5 border border-gray-100">
