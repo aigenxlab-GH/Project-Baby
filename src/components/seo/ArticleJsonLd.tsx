@@ -1,6 +1,7 @@
 import { JsonLd } from './JsonLd';
 import { siteConfig } from '@/config/site';
 import { absoluteUrl } from '@/lib/utils';
+import { resolveAuthor, authorSchema } from '@/config/authors';
 
 interface Props {
   title: string;
@@ -14,13 +15,19 @@ interface Props {
 }
 
 export function ArticleJsonLd({ title, description, publishedAt, updatedAt, author, image, url, faqs }: Props) {
+  // Resolve the frontmatter byline to a real author record. This previously
+  // emitted `{'@type':'Person', name:'PregnancySprout Editorial Team'}` on every
+  // article — declaring an editorial team to be a person. authorSchema() picks
+  // Person or Organization correctly and adds sameAs/knowsAbout when known.
+  const resolved = resolveAuthor(author);
+
   const schemas: Record<string, unknown>[] = [
     {
       '@context': 'https://schema.org',
       '@type': 'Article',
       headline: title,
       description,
-      author: { '@type': 'Person', name: author },
+      author: authorSchema(resolved, siteConfig.url),
       publisher: {
         '@type': 'Organization',
         name: siteConfig.name,

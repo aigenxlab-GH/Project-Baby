@@ -6,6 +6,7 @@ import { getAllSlugs, getAllArticles } from '@/lib/mdx';
 import { getAllProducts, MIN_PRODUCTS_FOR_INDEX } from '@/lib/products';
 import { getAllNames } from '@/lib/baby-names';
 import unmatchedNames from '@/data/name-stats-unmatched.json';
+import { getPersonAuthors } from '@/config/authors';
 
 // Force static pre-rendering at build time (Node.js context where `fs` is available).
 // Without this, Cloudflare Workers would try to execute `fs.statSync` at request
@@ -343,6 +344,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
+  // Author pages exist only for named humans, and are worth indexing — they are
+  // how Google connects a byline to a real, identifiable person (an E-E-A-T
+  // signal the site had none of while every article was credited to an
+  // anonymous "Editorial Team").
+  const authorPages: MetadataRoute.Sitemap = getPersonAuthors().map((a) => ({
+    url: url(`/authors/${a.slug}`),
+    lastModified: BUILD_DATE,
+    changeFrequency: 'monthly' as const,
+    priority: 0.5,
+  }));
+
   return [
     ...staticPages,
     ...weekPages,
@@ -352,5 +364,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...productPages,
     ...productCategoryPages,
     ...namePages,
+    ...authorPages,
   ];
 }

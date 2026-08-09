@@ -21,6 +21,8 @@ import { injectHeadingIds, extractToc } from '@/lib/toc';
 import { markdownToHtml } from '@/lib/markdown';
 import { getArticleImage } from '@/lib/article-images';
 import { getRelatedShoppingLink, injectSectionShoppingLinks } from '@/lib/related-shopping';
+import { AuthorBio } from '@/components/article/AuthorBio';
+import { resolveAuthor } from '@/config/authors';
 
 export const dynamic = 'force-static';
 
@@ -248,6 +250,9 @@ export default async function BlogArticlePage({ params }: Props) {
           )}
 
           <ArticleBottomAd />
+
+          {/* Who wrote this — provenance was previously only a one-line byline */}
+          <AuthorBio author={resolveAuthor(article.author)} />
 
           {/* Source citations — authoritative references per category */}
           <SourceCitations citations={citations} />
