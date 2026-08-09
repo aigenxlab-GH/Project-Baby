@@ -19,12 +19,28 @@ function getIndexes(): NamesIndexes {
   if (_indexes) return _indexes;
 
   // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const names = require('@/data/baby-names.json') as BabyName[];
+  const raw = require('@/data/baby-names.json') as BabyName[];
 
-  // Pre-built lookup indexes — computed once on first call, O(1) access thereafter.
-  const nameBySlugMap = new Map<string, BabyName>(
-    names.map((n) => [n.name.toLowerCase(), n])
-  );
+  // The data file has 97 duplicate slugs — the name-generation scripts append
+  // without deduping. They aren't boy/girl pairs; they're redundant entries
+  // where one is more complete than the other (41 differ in meaning, 30 in
+  // origin). A plain last-wins Map silently kept whichever came last, which
+  // lost detail: Emma's origin dropped from "Germanic, Latin" to "Germanic".
+  // Keep the richest record per slug so pages show the fuller entry, and
+  // dedupe the array itself so browse/search/sitemap all agree on one row
+  // per name.
+  const richness = (n: BabyName) =>
+    n.origin.length * 100 + n.meaning.length + (n.nicknames?.length ?? 0) + n.tags.length;
+
+  const bestBySlug = new Map<string, BabyName>();
+  for (const n of raw) {
+    const slug = n.name.toLowerCase();
+    const existing = bestBySlug.get(slug);
+    if (!existing || richness(n) > richness(existing)) bestBySlug.set(slug, n);
+  }
+
+  const names = Array.from(bestBySlug.values());
+  const nameBySlugMap = bestBySlug;
 
   // Index names by gender and by each origin tag for fast related-name lookup.
   const namesByGender = new Map<string, BabyName[]>();
