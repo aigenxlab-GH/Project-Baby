@@ -450,8 +450,8 @@ export default function HomePage() {
                 for sleep surfaces, and ease of use for tired new parents at 3 a.m.
               </p>
               <p className="text-xs text-gray-400 dark:text-gray-500 pt-2 border-t border-gray-200 dark:border-gray-700">
-                Content last reviewed by our editorial team:{' '}
-                <time dateTime="2026-06">June 2026</time>.
+                Written by Sandeep Singsarva, a parent rather than a healthcare professional.
+                Each article carries its own publication and update dates.
                 This site is for informational purposes only — always consult your healthcare
                 provider for personal medical advice.
               </p>

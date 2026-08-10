@@ -23,6 +23,12 @@ const CHECKS = [
   ['medication doses', /\b\d+(\.\d+)?\s?(mg|mcg|IU|micrograms?)\b/],
   ['dosing instructions', /\b(paracetamol|ibuprofen|calpol|nurofen|aspirin)[^.]{0,110}(times a day|every \d+ ?hours?|maximum of)/i],
   ['stale claims', /1,188|\/products\/roundups/],
+  // The site is written by one named person. Claiming a team of people is the
+  // same class of problem as claiming credentials nobody holds — it was still
+  // on /about, the homepage, category pages and the old AuthorBox after the
+  // named byline shipped, contradicting "One person, not a team" on the very
+  // same page. Editorial "we" for the site as an entity is fine and not matched.
+  ['team-implying claims', /\bour editorial team\b|\bour team of\b|\bour (writers|reviewers|experts|editors)\b|\bwe are (health )?writers\b|\bteam of (writers|experts|editors)\b/i],
 ];
 
 // Legitimate matches that must not be reported.

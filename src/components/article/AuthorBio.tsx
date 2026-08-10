@@ -5,6 +5,15 @@ import type { Author } from '@/config/authors';
 
 interface Props {
   author: Author;
+  /** Shown alongside the byline so readers can judge freshness. */
+  publishedAt?: string;
+  updatedAt?: string;
+  /** e.g. "NHS, WHO, NICE" — the guidance this article was researched against. */
+  reviewedBy?: string;
+}
+
+function fmt(d: string) {
+  return new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
 /**
@@ -15,7 +24,7 @@ interface Props {
  * Renders only what the author record actually contains — no placeholder
  * credentials, no invented experience.
  */
-export function AuthorBio({ author }: Props) {
+export function AuthorBio({ author, publishedAt, updatedAt, reviewedBy }: Props) {
   return (
     <aside
       aria-label={`About ${author.name}`}
@@ -63,14 +72,27 @@ export function AuthorBio({ author }: Props) {
           <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mt-1">
             {author.short}
           </p>
-          {author.isPerson && (
-            <Link
-              href={`/authors/${author.slug}`}
-              className="inline-block mt-3 text-xs font-medium text-brand-600 dark:text-brand-400 hover:underline"
-            >
-              More from {author.name.split(' ')[0]} →
-            </Link>
+          {reviewedBy && (
+            <p className="text-sm text-brand-700 dark:text-brand-400 mt-2 font-medium">
+              ✓ Researched against {reviewedBy} guidance
+            </p>
           )}
+
+          <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-500 dark:text-gray-400">
+            {publishedAt && <span>Published {fmt(publishedAt)}</span>}
+            {updatedAt && updatedAt !== publishedAt && <span>Updated {fmt(updatedAt)}</span>}
+            {author.isPerson && (
+              <Link
+                href={`/authors/${author.slug}`}
+                className="font-medium text-brand-600 dark:text-brand-400 hover:underline"
+              >
+                More from {author.name.split(' ')[0]} →
+              </Link>
+            )}
+            <Link href="/editorial-standards" className="text-brand-600 dark:text-brand-400 hover:underline">
+              Editorial standards
+            </Link>
+          </div>
         </div>
       </div>
     </aside>

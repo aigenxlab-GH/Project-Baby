@@ -15,7 +15,6 @@ import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
 import { SourceCitations, PREGNANCY_CITATIONS, NEWBORN_CITATIONS, SLEEP_CITATIONS, FEEDING_CITATIONS, POSTPARTUM_CITATIONS, TODDLER_CITATIONS, PRODUCT_CITATIONS } from '@/components/shared/SourceCitations';
 import { TableOfContents } from '@/components/blog/TableOfContents';
-import { AuthorBox } from '@/components/blog/AuthorBox';
 import { ShareButtons } from '@/components/shared/ShareButtons';
 import { injectHeadingIds, extractToc } from '@/lib/toc';
 import { markdownToHtml } from '@/lib/markdown';
@@ -252,7 +251,12 @@ export default async function BlogArticlePage({ params }: Props) {
           <ArticleBottomAd />
 
           {/* Who wrote this — provenance was previously only a one-line byline */}
-          <AuthorBio author={resolveAuthor(article.author)} />
+          <AuthorBio
+            author={resolveAuthor(article.author)}
+            reviewedBy="NHS, WHO and NICE"
+            publishedAt={article.publishedAt}
+            updatedAt={article.updatedAt}
+          />
 
           {/* Source citations — authoritative references per category */}
           <SourceCitations citations={citations} />
@@ -298,13 +302,6 @@ export default async function BlogArticlePage({ params }: Props) {
             </Link>
           )}
 
-          {/* Author attribution box */}
-          <AuthorBox
-            author={article.author}
-            reviewedBy="NHS, WHO, and NICE"
-            publishedAt={article.publishedAt}
-            updatedAt={article.updatedAt}
-          />
 
           {/* Share buttons */}
           <div className="mt-6 pt-5 border-t border-gray-100 dark:border-gray-800">

@@ -10,7 +10,8 @@ import { formatDate } from '@/lib/utils';
 import { MedicalDisclaimer } from '@/components/shared/MedicalDisclaimer';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { SourceCitations, NEWBORN_CITATIONS, SLEEP_CITATIONS, FEEDING_CITATIONS, PREGNANCY_CITATIONS } from '@/components/shared/SourceCitations';
-import { AuthorBox } from '@/components/blog/AuthorBox';
+import { AuthorBio } from '@/components/article/AuthorBio';
+import { resolveAuthor } from '@/config/authors';
 import { getRelatedShoppingLink } from '@/lib/related-shopping';
 
 export const dynamic = 'force-static';
@@ -190,9 +191,9 @@ export default async function ParentingArticlePage({ params }: Props) {
         )}
 
         {/* Author attribution box */}
-        <AuthorBox
-          author={article.author}
-          reviewedBy="NHS, WHO, and NICE"
+        <AuthorBio
+          author={resolveAuthor(article.author)}
+          reviewedBy="NHS, WHO and NICE"
           publishedAt={article.publishedAt}
           updatedAt={article.updatedAt}
         />

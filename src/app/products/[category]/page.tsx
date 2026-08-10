@@ -169,8 +169,8 @@ export default async function CategoryPage({ params }: Props) {
       <h1 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">{label} — 2026 Reviews</h1>
       <p className="text-gray-600 dark:text-gray-300 mb-4 max-w-3xl">
         {topPick
-          ? <>Our editorial team researched and scored {products.length} {cleanLabel} for 2026. Our top pick is the <strong className="text-gray-900 dark:text-white">{topPick.productName}</strong>, scoring {topPick.ourScore}/10 — but we've ranked options for every budget below.</>
-          : <>Our editorial team researched and ranked the best {cleanLabel} for 2026 — honest pros, cons, and picks for every budget.</>
+          ? <>We researched and scored {products.length} {cleanLabel} for 2026 against published specifications, safety standards and verified customer reviews. The top pick is the <strong className="text-gray-900 dark:text-white">{topPick.productName}</strong>, scoring {topPick.ourScore}/10 — with options ranked for every budget below.</>
+          : <>Researched and ranked against published specifications, safety standards and verified customer reviews — honest pros, cons, and picks for every budget.</>
         }
       </p>
 

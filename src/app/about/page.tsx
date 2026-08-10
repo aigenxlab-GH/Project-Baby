@@ -209,10 +209,11 @@ export default function AboutPage() {
         <h2 className="font-serif text-2xl font-bold text-gray-900 mb-6">Our Editorial Process</h2>
         <div className="bg-white rounded-2xl border border-gray-100 p-6 md:p-8 mb-8 shadow-sm">
           <p className="text-gray-600 text-sm leading-relaxed mb-8">
-            All PregnancySprout content is written and reviewed by our editorial team using current
-            medical guidelines, peer-reviewed research, and trusted health organisations including the
-            NHS, WHO, AAP, NICE, and RCOG. Product guidance is based on published specifications,
-            verified customer reviews, and established safety standards.
+            All PregnancySprout content is written by Sandeep Singsarva, researched against current
+            guidance from the NHS, WHO, AAP, NICE and RCOG, with the sources cited on each health
+            article. Product guidance is based on published specifications, verified customer
+            reviews, and established safety standards. There is no separate review step and no
+            clinician sign-off — what you get is published guidance, summarised and sourced.
           </p>
           <p className="text-sm text-gray-500 mb-6">
             <Link href="/editorial-standards" className="text-brand-600 hover:underline font-semibold">
