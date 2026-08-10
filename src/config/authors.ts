@@ -77,10 +77,27 @@ export const EDITORIAL_TEAM: Author = {
  *     isPerson: true,
  *   }
  */
-export const AUTHORS: Author[] = [EDITORIAL_TEAM];
+export const SANDEEP: Author = {
+  slug: 'sandeep-singsarva',
+  name: 'Sandeep Singsarva',
+  role: 'Founder & Editor',
+  short:
+    "I'm a parent of two — my youngest is three — and I started researching all of this the day my wife told me she was pregnant with our first. I work in IT, not medicine, so everything health-related here is researched against published NHS, WHO and AAP guidance with the sources cited.",
+  bio: [
+    "I'm Sandeep Singsarva, founder and editor of PregnancySprout. I started researching pregnancy, newborn care and baby gear the day my wife told me she was expecting our first child, and I never really stopped. We now have two children; our youngest daughter is three.",
+    "I work in IT, not healthcare. I am not a doctor, midwife or nurse, and nothing on this site is individually reviewed by a clinician. What I do is read the published guidance — NHS, WHO, NICE, RCOG and the American Academy of Pediatrics — and set it out in plain language, citing the sources on each article so you can check any claim at its origin.",
+    "For product research I compare manufacturer specifications, safety certifications and current pricing, and draw on patterns in verified customer reviews. I don't claim to have hands-on tested products I haven't.",
+    'For anything concerning your own care or your baby\'s, please speak to your midwife, GP or health visitor. This site is a starting point for questions, not a replacement for them.',
+  ],
+  knowsAbout: ['Pregnancy', 'Newborn care', 'Infant feeding', 'Baby products', 'Baby names', 'Parenting'],
+  sameAs: ['https://www.linkedin.com/in/sandeep-singsarva'],
+  isPerson: true,
+};
+
+export const AUTHORS: Author[] = [SANDEEP, EDITORIAL_TEAM];
 
 /** Byline used when an article doesn't name one. */
-export const DEFAULT_AUTHOR = EDITORIAL_TEAM;
+export const DEFAULT_AUTHOR = SANDEEP;
 
 const bySlug = new Map(AUTHORS.map((a) => [a.slug, a]));
 const byName = new Map(AUTHORS.map((a) => [a.name.toLowerCase(), a]));

@@ -24,7 +24,7 @@ export const siteConfig = {
     youtube:   'https://youtube.com/@pregnancysprout',
     linkedin:  'https://linkedin.com/company/pregnancysprout',
   },
-  authors: [{ name: 'PregnancySprout Editorial Team', url: 'https://pregnancysprout.com/about' }],
+  authors: [{ name: 'Sandeep Singsarva', url: 'https://pregnancysprout.com/authors/sandeep-singsarva' }],
   keywords: [
     'pregnancy',
     'baby',
