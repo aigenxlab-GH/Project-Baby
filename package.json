@@ -18,7 +18,8 @@
     "sanity-cache": "tsx scripts/build-sanity-cache.ts",
     "dev:cf": "npx @opennextjs/cloudflare dev",
     "preview": "npm run build:cloudflare && wrangler dev",
-    "deploy": "npm run build:cloudflare && wrangler deploy"
+    "deploy": "npm run build:cloudflare && wrangler deploy",
+    "check:fabrication": "node scripts/check-fabrication.mjs"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.1.4",
