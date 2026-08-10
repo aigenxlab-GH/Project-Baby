@@ -34,7 +34,7 @@
     {
       "name": "Baby Names",
       "short_name": "Names",
-      "description": "Browse 1,188+ baby names",
+      "description": "Browse 1,100+ baby names",
       "url": "/baby-names",
       "icons": [{ "src": "/apple-icon", "sizes": "180x180" }]
     }

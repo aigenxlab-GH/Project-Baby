@@ -8,7 +8,7 @@ import { Breadcrumb } from '@/components/layout/Breadcrumb';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Baby Names — Browse 1,188+ Names with Meanings & Origins',
+  title: 'Baby Names — Browse 1,100+ Names with Meanings & Origins',
   description: 'Search over 1,100 baby names by gender, origin, meaning, and starting letter. Find the perfect name for your baby girl, boy, or gender-neutral names.',
   alternates: { canonical: `${siteConfig.url}/baby-names` },
 };
@@ -23,7 +23,7 @@ export default function BabyNamesPage() {
           Baby Names
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          Browse 1,188+ baby names with meanings, origins, and popularity trends.
+          Browse 1,100+ baby names with meanings, origins, and popularity trends.
           Filter by gender, starting letter, or origin to find the perfect name.
         </p>
       </div>

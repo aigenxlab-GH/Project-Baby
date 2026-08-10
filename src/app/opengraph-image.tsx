@@ -89,7 +89,7 @@ export default function OGImage() {
               Pregnancy & Baby Guide
             </div>
             <div style={{ fontSize: 24, color: 'rgba(249,168,212,0.7)', marginTop: 8, lineHeight: 1.5, fontWeight: 400 }}>
-              Week-by-week guides · 1,188+ baby names · honest product reviews · free tools
+              Week-by-week guides · 1,100+ baby names · honest product reviews · free tools
             </div>
           </div>
 
@@ -99,7 +99,7 @@ export default function OGImage() {
               {[
                 { n: '40', label: 'Pregnancy\nWeeks' },
                 { n: '6', label: 'Free\nTools' },
-                { n: '1,188+', label: 'Baby\nNames' },
+                { n: '1,100+', label: 'Baby\nNames' },
                 { n: '72+', label: 'Expert\nArticles' },
               ].map((s) => (
                 <div key={s.n} style={{

@@ -1,12 +1,11 @@
 # PregnancySprout
 
-> PregnancySprout is a pregnancy and parenting information website based in the United States, serving readers worldwide. Content is written and reviewed by certified midwives, registered nurses, and experienced parenting writers. All health content is aligned with NHS, WHO, and American Academy of Pediatrics (AAP) clinical guidelines. The site does not provide personal medical advice.
+> PregnancySprout is a pregnancy and parenting information website serving readers worldwide. Content is written by Sandeep Singsarva, the site's founder and editor, who is a parent rather than a healthcare professional. Health articles are researched against published guidance from the NHS, WHO, NICE, RCOG and the American Academy of Pediatrics, and cite their sources so any claim can be checked. Nothing on the site is individually reviewed by a clinician, and it does not provide personal medical advice or state medication dosages.
 
 ## Primary Topics
 - [Pregnancy Week by Week](https://pregnancysprout.com/pregnancy/week-by-week): Guides for each of the 40 weeks of pregnancy
-- [Baby Names](https://pregnancysprout.com/baby-names): 1,188+ names with meanings, origins, and popularity data
+- [Baby Names](https://pregnancysprout.com/baby-names): 1,085 names with meanings, origins, and popularity data
 - [Product Reviews](https://pregnancysprout.com/products): Honest, unbiased reviews of baby and parenting products organised by category (strollers, car seats, monitors, and more)
-- [Best-Of Roundups](https://pregnancysprout.com/products/roundups): Buying guides comparing top products in each category with FAQs
 - [Parenting Tips](https://pregnancysprout.com/parenting): Newborn care, sleep training, feeding, and child development
 - [Blog](https://pregnancysprout.com/blog): Expert pregnancy and parenting articles
 

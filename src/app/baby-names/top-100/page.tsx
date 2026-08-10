@@ -129,7 +129,7 @@ export default function Top100BabyNamesPage() {
             href="/baby-names"
             className="inline-flex items-center gap-2 text-brand-600 dark:text-brand-400 hover:underline font-medium"
           >
-            Search all 1,188+ baby names <ChevronRight className="h-4 w-4" />
+            Search all 1,100+ baby names <ChevronRight className="h-4 w-4" />
           </Link>
         </div>
 
@@ -292,7 +292,7 @@ export default function Top100BabyNamesPage() {
         {/* CTA */}
         <section className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-950/30 dark:to-pink-950/30 rounded-2xl p-8 border border-purple-100 dark:border-purple-900 text-center">
           <h3 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-3">
-            Explore All 1,188+ Baby Names
+            Explore All 1,100+ Baby Names
           </h3>
           <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
             Not finding what you're looking for in the top 100? Our full baby names database lets you search by origin, meaning, starting letter, and more.

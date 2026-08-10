@@ -104,46 +104,59 @@ export default function AboutPage() {
 
         {/* Editorial Team */}
         <section className="mb-14">
-          <h2 className="font-serif text-2xl font-bold text-gray-900 mb-8 text-center">Our Editorial Team</h2>
+          <h2 className="font-serif text-2xl font-bold text-gray-900 mb-8 text-center">Who Writes PregnancySprout</h2>
           <p className="text-gray-600 text-center mb-10 max-w-2xl mx-auto">
-            PregnancySprout is maintained by a dedicated team committed to evidence-based, accurate content. All articles are reviewed against NHS, WHO, and NICE guidelines.
+            One person, not a team — and not a clinician. Being straightforward about that matters
+            more than sounding impressive.
           </p>
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Team member 1 */}
+            {/* The actual author. Replaces two fabricated "team members" who
+                claimed midwifery and nursing degrees from real universities and
+                to review every article — none of which was true. */}
             <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
               <div className="w-16 h-16 bg-gradient-to-br from-brand-400 to-brand-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-serif text-2xl font-bold">
-                EC
+                SS
               </div>
               <h3 className="font-serif text-lg font-bold text-gray-900 text-center mb-1">
-                Emma Clarke, MSc
+                Sandeep Singsarva
               </h3>
               <p className="text-sm text-brand-600 text-center font-medium mb-1">
-                Editor-in-Chief · Midwifery & Maternal Health
+                Founder &amp; Editor
               </p>
               <p className="text-xs text-gray-400 text-center mb-3">
-                MSc Midwifery, King&apos;s College London · 9 years clinical experience
+                Parent of two · works in IT, not healthcare
               </p>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Emma leads all health and pregnancy content at PregnancySprout. A registered midwife with nine years of NHS experience, she reviews every article against current NHS, WHO, NICE, AAP, and RCOG guidelines before publication.
+                I started researching pregnancy, newborn care and baby gear the day my wife told me
+                she was expecting our first child, and never really stopped. I write everything here
+                myself, researched against published guidance from the NHS, WHO, NICE, RCOG and the
+                AAP, with the sources cited on each article.{' '}
+                <Link href="/authors/sandeep-singsarva" className="text-brand-600 underline underline-offset-2 hover:no-underline">
+                  More about me
+                </Link>
+                .
               </p>
             </div>
 
-            {/* Team member 2 */}
+            {/* What we are not — the honest counterpart to the claims removed above */}
             <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-serif text-2xl font-bold">
-                SR
+              <div className="w-16 h-16 bg-gradient-to-br from-gray-300 to-gray-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-serif text-2xl font-bold">
+                ?
               </div>
               <h3 className="font-serif text-lg font-bold text-gray-900 text-center mb-1">
-                Sarah Reynolds, RN
+                No Medical Reviewer
               </h3>
               <p className="text-sm text-brand-600 text-center font-medium mb-1">
-                Senior Content Reviewer · Neonatal & Infant Care
+                Stated plainly, because it matters
               </p>
               <p className="text-xs text-gray-400 text-center mb-3">
-                BSc Nursing, University of Manchester · 6 years NICU experience
+                No midwife, nurse or doctor reviews this site
               </p>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Sarah specialises in newborn care and infant development content. With six years in neonatal intensive care, she reviews all baby and early parenting articles for clinical accuracy and practical relevance.
+                Plenty of health sites imply clinical oversight they do not have. This one does not
+                have it, so it does not claim it. What you get instead is published guidance,
+                summarised in plain language with every source listed so you can check it. For
+                anything about your own care, speak to your midwife, GP or health visitor.
               </p>
             </div>
 
@@ -160,7 +173,7 @@ export default function AboutPage() {
                   <span className="text-amber-600 font-bold mt-0.5">✓</span> Medical claims backed by peer-reviewed sources
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-amber-600 font-bold mt-0.5">✓</span> Updated quarterly for medical accuracy
+                  <span className="text-amber-600 font-bold mt-0.5">✓</span> Revised when the underlying guidance changes
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-amber-600 font-bold mt-0.5">✓</span> Clear publication & update dates on every article
@@ -293,7 +306,7 @@ export default function AboutPage() {
               </p>
               <ul className="text-xs text-gray-600 space-y-1">
                 <li>✓ Articles show publication and update dates</li>
-                <li>✓ Medical guidelines are reviewed quarterly</li>
+                <li>✓ Articles are revised when the underlying guidance changes</li>
                 <li>✓ Outdated content is updated or removed</li>
                 <li>✓ Reader corrections are welcomed and credited</li>
               </ul>

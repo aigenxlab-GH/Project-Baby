@@ -29,7 +29,7 @@ for (const cat of Object.values(productCache)) {
 }
 
 // 2. Roundup page
-const roundupContent = fs.readFileSync(path.join(projectRoot, 'src/app/products/roundups/[slug]/page.tsx'), 'utf8');
+const roundupContent = fs.readFileSync(path.join(projectRoot, 'src/app/products/[category]/page.tsx'), 'utf8');
 for (const m of roundupContent.matchAll(/href:\s*['"]+(https:\/\/www\.amazon\.com[^'"]+)['"]/g)) {
   allLinks.push({ url: m[1], source: 'roundups/page.tsx' });
 }

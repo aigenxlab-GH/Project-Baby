@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: `${siteConfig.name} — ${siteConfig.tagline}`,
   // Kept under 160 chars (~920px wide) to prevent SERP truncation (fixes #3/#5).
   description:
-    'Free week-by-week pregnancy guides, 1,188+ names with meanings, honest product reviews, and due date calculator — trusted by expecting parents.',
+    'Free week-by-week pregnancy guides, 1,100+ names with meanings, honest product reviews, and due date calculator — trusted by expecting parents.',
 };
 
 const tools = [
@@ -147,7 +147,7 @@ export default function HomePage() {
                 </span>{' '}Guide
               </h1>
               <p className="text-sm text-gray-600 dark:text-gray-300 max-w-md mb-6 leading-relaxed">
-                Week-by-week pregnancy guides, 1,188+ baby names, honest product reviews,
+                Week-by-week pregnancy guides, 1,100+ baby names, honest product reviews,
                 and free tools — everything you need for your journey to parenthood.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 mb-6">
@@ -173,7 +173,7 @@ export default function HomePage() {
                   <span aria-hidden="true">✅</span> 180+ expert articles
                 </Link>
                 <Link href="/baby-names" className="flex items-center gap-1 py-3 underline underline-offset-2 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
-                  <span aria-hidden="true">✅</span> 1,188+ baby names
+                  <span aria-hidden="true">✅</span> 1,100+ baby names
                 </Link>
               </div>
             </div>
@@ -506,7 +506,7 @@ export default function HomePage() {
               },
               {
                 q: 'How do I choose a safe baby name?',
-                a: 'A good baby name should be easy to spell, easy to pronounce, and work at every life stage — from nursery to a professional career. Consider how it sounds with your surname, any potential nicknames, and whether initials spell anything unfortunate. Classic names tend to age better than trend-driven ones, though both can work well. Our baby names database includes 1,188+ names with meanings, origins, and current popularity trends to help you make an informed choice.',
+                a: 'A good baby name should be easy to spell, easy to pronounce, and work at every life stage — from nursery to a professional career. Consider how it sounds with your surname, any potential nicknames, and whether initials spell anything unfortunate. Classic names tend to age better than trend-driven ones, though both can work well. Our baby names database includes 1,100+ names with meanings, origins, and current popularity trends to help you make an informed choice.',
               },
               {
                 q: 'How is PregnancySprout health content researched?',

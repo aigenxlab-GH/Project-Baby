@@ -90,7 +90,7 @@ title: "[SEO-optimised title including main keyword]"
 description: "[150â€“160 char meta description with keyword]"
 publishedAt: "${date}"
 updatedAt: "${date}"
-author: "PregnancySprout Editorial Team"
+author: "Sandeep Singsarva"
 category: "${section}"
 tags: ${tags}
 image: "${imgPath}"

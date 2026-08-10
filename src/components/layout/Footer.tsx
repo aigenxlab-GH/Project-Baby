@@ -94,7 +94,7 @@ export function Footer() {
               <Logo size="md" variant="dark" />
             </div>
             <p className="text-sm text-gray-300 leading-relaxed max-w-xs">
-              Practical pregnancy and baby guidance — week-by-week guides, 1,188+ baby names,
+              Practical pregnancy and baby guidance — week-by-week guides, 1,100+ baby names,
               honest product reviews, and free tools. All free.
             </p>
             <div className="mt-5 flex items-center gap-4">
