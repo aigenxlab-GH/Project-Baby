@@ -12,8 +12,16 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+// Same source of truth the pages use. This script reads MDX frontmatter
+// directly rather than going through src/lib/mdx.ts, so it must substitute the
+// {{year}} token itself — otherwise the raw token ends up in search results.
+// Safe to bake in here: npm run search-index runs on every deploy as part of
+// build:cloudflare, so the index is always regenerated with the current year.
+import { CURRENT_YEAR } from '../src/config/year';
 
 const cwd = process.cwd();
+
+const withYear = (s: string) => s.replaceAll('{{year}}', String(CURRENT_YEAR));
 
 interface SearchItem {
   title: string;
@@ -33,8 +41,8 @@ function readFrontmatter(filePath: string): { title: string; description: string
     const raw = fs.readFileSync(path.join(cwd, filePath), 'utf-8');
     const { data } = matter(raw);
     return {
-      title: (data.title as string) || '',
-      description: (data.description as string) || '',
+      title: withYear((data.title as string) || ''),
+      description: withYear((data.description as string) || ''),
     };
   } catch {
     return { title: '', description: '' };

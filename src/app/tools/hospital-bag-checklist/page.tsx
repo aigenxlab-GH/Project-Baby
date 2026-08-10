@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CURRENT_YEAR } from '@/config/year';
 import { siteConfig } from '@/config/site';
 import { HospitalBagChecklist } from './HospitalBagChecklist';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -9,7 +10,7 @@ import { InContentAd } from '@/components/ads/InContentAd';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Hospital Bag Checklist 2026 — What to Pack for Labor & Delivery',
+  title: `Hospital Bag Checklist ${CURRENT_YEAR} — What to Pack for Labor & Delivery`,
   description: 'Complete hospital bag checklist for mom, baby, and your partner. Interactive, printable list covering essentials, postpartum recovery, and documents to bring.',
   alternates: { canonical: `${siteConfig.url}/tools/hospital-bag-checklist` },
 };

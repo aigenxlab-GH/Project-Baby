@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Star, ShieldCheck, RefreshCw, Trophy, ArrowRight } from 'lucide-react';
 import { getProductsByCategory, getAllProducts, MIN_PRODUCTS_FOR_INDEX } from '@/lib/products';
+import { CURRENT_YEAR } from '@/config/year';
 import { siteConfig } from '@/config/site';
 import { ProductCard } from '@/components/affiliate/ProductCard';
 import { ProductComparison } from '@/components/affiliate/ProductComparison';
@@ -113,11 +114,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // "Expert tested, parent approved" — nothing here is hands-on tested, and
   // that is exactly the fabricated-testing pattern removed from product pages.
   const description = products.length >= 2
-    ? `Compare ${products.length} ${cleanLabel} for 2026 — specifications, current pricing, pros and cons, and our score out of 10 for each.`
-    : `${label} for 2026 — specifications, pricing, and honest pros and cons.`;
+    ? `Compare ${products.length} ${cleanLabel} for ${CURRENT_YEAR} — specifications, current pricing, pros and cons, and our score out of 10 for each.`
+    : `${label} for ${CURRENT_YEAR} — specifications, pricing, and honest pros and cons.`;
 
   return {
-    title: `${label} 2026 — Reviews & Buying Guide`,
+    title: `${label} ${CURRENT_YEAR} — Reviews & Buying Guide`,
     description,
     alternates: { canonical: `${siteConfig.url}/products/${category}` },
     ...(isSparse ? { robots: { index: false, follow: true } } : {}),
@@ -166,10 +167,10 @@ export default async function CategoryPage({ params }: Props) {
         <span className="text-gray-900 dark:text-gray-100 font-medium" aria-current="page">{label}</span>
       </nav>
 
-      <h1 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">{label} — 2026 Reviews</h1>
+      <h1 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">{label} — {CURRENT_YEAR} Reviews</h1>
       <p className="text-gray-600 dark:text-gray-300 mb-4 max-w-3xl">
         {topPick
-          ? <>We researched and scored {products.length} {cleanLabel} for 2026 against published specifications, safety standards and verified customer reviews. The top pick is the <strong className="text-gray-900 dark:text-white">{topPick.productName}</strong>, scoring {topPick.ourScore}/10 — with options ranked for every budget below.</>
+          ? <>We researched and scored {products.length} {cleanLabel} for {CURRENT_YEAR} against published specifications, safety standards and verified customer reviews. The top pick is the <strong className="text-gray-900 dark:text-white">{topPick.productName}</strong>, scoring {topPick.ourScore}/10 — with options ranked for every budget below.</>
           : <>Researched and ranked against published specifications, safety standards and verified customer reviews — honest pros, cons, and picks for every budget.</>
         }
       </p>

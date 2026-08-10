@@ -14,6 +14,7 @@
  */
 
 import fs from 'fs';
+import { CURRENT_YEAR } from '@/config/year';
 import path from 'path';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
@@ -78,14 +79,39 @@ function readArticleFromFs(subDir: string, slug: string): Article | null {
   };
 }
 
+/**
+ * Substitutes the `{{year}}` token used in article titles and descriptions
+ * (e.g. "Best Baby Carriers {{year}}: Types Explained").
+ *
+ * Applied on read rather than baked into the content cache, so the year is
+ * always current even if the cache file is stale.
+ *
+ * Deliberately touches ONLY title and description. Date fields — publishedAt,
+ * updatedAt — record when something actually happened and must never be
+ * rewritten; advancing them would state something untrue.
+ */
+function hydrateYear<T extends Article>(article: T): T {
+  const swap = (s?: string) => (s ? s.replaceAll('{{year}}', String(CURRENT_YEAR)) : s);
+  if (!article.title?.includes('{{year}}') && !article.description?.includes('{{year}}')) {
+    return article;
+  }
+  return {
+    ...article,
+    title: swap(article.title) as string,
+    description: swap(article.description) as string,
+  };
+}
+
 // ── Public API ────────────────────────────────────────────────────────────────
 
 export function getArticleBySlug(subDir: string, slug: string): Article | null {
   const cache = getCompiledCache();
   if (cache) {
-    return (cache[subDir]?.[slug] as Article) ?? null;
+    const hit = (cache[subDir]?.[slug] as Article) ?? null;
+    return hit ? hydrateYear(hit) : null;
   }
-  return readArticleFromFs(subDir, slug);
+  const fromFs = readArticleFromFs(subDir, slug);
+  return fromFs ? hydrateYear(fromFs) : null;
 }
 
 export function getAllArticles(subDir: string): Article[] {
@@ -93,7 +119,7 @@ export function getAllArticles(subDir: string): Article[] {
   if (cache) {
     const section = cache[subDir];
     if (!section) return [];
-    return (Object.values(section) as Article[]).sort(
+    return (Object.values(section) as Article[]).map(hydrateYear).sort(
       (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
     );
   }
@@ -104,6 +130,7 @@ export function getAllArticles(subDir: string): Article[] {
   return files
     .map((file) => readArticleFromFs(subDir, file.replace(/\.mdx$/, '')))
     .filter((a): a is Article => a !== null)
+    .map(hydrateYear)
     .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
 }
 
@@ -123,7 +150,7 @@ export function getAllArticlesUnder(prefix: string): Array<Article & { section: 
     for (const section of Object.keys(cache)) {
       if (section === prefix || section.startsWith(`${prefix}/`)) {
         for (const article of Object.values(cache[section])) {
-          out.push({ ...(article as Article), section });
+          out.push(hydrateYear({ ...(article as Article), section }));
         }
       }
     }

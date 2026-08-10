@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CURRENT_YEAR } from '@/config/year';
 import { siteConfig } from '@/config/site';
 import { RegistryChecklist } from './RegistryChecklist';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -9,7 +10,7 @@ import { InContentAd } from '@/components/ads/InContentAd';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Baby Registry Checklist — Essential Items for Newborns 2026',
+  title: `Baby Registry Checklist — Essential Items for Newborns ${CURRENT_YEAR}`,
   description: 'Complete baby registry checklist: essential nursery, feeding, travel, clothing, safety items. Budget-friendly options & premium picks. Everything you really need.',
   alternates: { canonical: `${siteConfig.url}/tools/registry-checklist` },
 };

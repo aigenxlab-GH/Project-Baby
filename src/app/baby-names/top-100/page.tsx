@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CURRENT_YEAR } from '@/config/year';
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -10,8 +11,8 @@ import { ChevronRight } from 'lucide-react';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Top 100 Baby Names 2026 — Most Popular Names for Boys & Girls',
-  description: 'The 100 most popular baby names of 2026. Discover trending names for girls, boys, and gender-neutral options based on real birth data and naming trends.',
+  title: `Top 100 Baby Names ${CURRENT_YEAR} — Most Popular Names for Boys & Girls`,
+  description: `The 100 most popular baby names of ${CURRENT_YEAR}. Discover trending names for girls, boys, and gender-neutral options based on real birth data and naming trends.`,
   alternates: { canonical: `${siteConfig.url}/baby-names/top-100` },
 };
 
@@ -77,10 +78,10 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'What are the most popular baby names in 2026?',
+      name: `What are the most popular baby names in ${CURRENT_YEAR}?`,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Based on 2026 birth data trends, the top baby names are Olivia, Emma, and Amelia for girls, and Liam, Noah, and Oliver for boys. Names have shifted toward timeless classics and international variants.'
+        text: `Based on ${CURRENT_YEAR} birth data trends, the top baby names are Olivia, Emma, and Amelia for girls, and Liam, Noah, and Oliver for boys. Names have shifted toward timeless classics and international variants.`
       }
     },
     {
@@ -88,7 +89,7 @@ const faqSchema = {
       name: 'Why are certain names becoming more popular?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Naming trends are influenced by celebrity culture, cultural background of parents, media exposure, and cyclical revivals of classic names. In 2026, parents favor names that are easy to spell, work internationally, and offer vintage appeal.'
+        text: `Naming trends are influenced by celebrity culture, cultural background of parents, media exposure, and cyclical revivals of classic names. In ${CURRENT_YEAR}, parents favor names that are easy to spell, work internationally, and offer vintage appeal.`
       }
     },
     {
@@ -120,10 +121,10 @@ export default function Top100BabyNamesPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3">
-            Top 100 Baby Names 2026
+            Top 100 Baby Names {CURRENT_YEAR}
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
-            The most popular baby names of 2026, ranked by real birth data. Discover trending names for girls, boys, and what parents are choosing this year.
+            The most popular baby names of {CURRENT_YEAR}, ranked by real birth data. Discover trending names for girls, boys, and what parents are choosing this year.
           </p>
           <Link
             href="/baby-names"
@@ -136,7 +137,7 @@ export default function Top100BabyNamesPage() {
         {/* Intro Section */}
         <section className="mb-12 space-y-4 text-gray-700 dark:text-gray-300">
           <p>
-            Baby naming trends tell a story about culture, values, and what parents hope for their children. In 2026, the trend continues toward classic, timeless names—alongside a growing appreciation for names that work across cultures and languages.
+            Baby naming trends tell a story about culture, values, and what parents hope for their children. In {CURRENT_YEAR}, the trend continues toward classic, timeless names—alongside a growing appreciation for names that work across cultures and languages.
           </p>
           <p>
             This ranking combines birth certificate data from the US Social Security Administration and UK Office for National Statistics, showing which names parents chose most frequently in 2025–2026. Trends are dynamic: names that rise quickly often fall just as fast, while true classics remain anchored at the top.
@@ -148,7 +149,7 @@ export default function Top100BabyNamesPage() {
         {/* Top Girl Names */}
         <section className="mb-14">
           <h2 className="font-serif text-3xl font-bold text-gray-900 dark:text-white mb-6">
-            Top 25 Baby Girl Names 2026
+            Top 25 Baby Girl Names {CURRENT_YEAR}
           </h2>
           <div className="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-950/30 dark:to-rose-950/30 rounded-2xl overflow-hidden border border-pink-100 dark:border-pink-900">
             <div className="grid grid-cols-12 gap-3 p-4 bg-pink-100 dark:bg-pink-950 font-semibold text-sm text-pink-900 dark:text-pink-200">
@@ -183,7 +184,7 @@ export default function Top100BabyNamesPage() {
         {/* Top Boy Names */}
         <section className="mb-14">
           <h2 className="font-serif text-3xl font-bold text-gray-900 dark:text-white mb-6">
-            Top 25 Baby Boy Names 2026
+            Top 25 Baby Boy Names {CURRENT_YEAR}
           </h2>
           <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 rounded-2xl overflow-hidden border border-blue-100 dark:border-blue-900">
             <div className="grid grid-cols-12 gap-3 p-4 bg-blue-100 dark:bg-blue-950 font-semibold text-sm text-blue-900 dark:text-blue-200">
@@ -217,7 +218,7 @@ export default function Top100BabyNamesPage() {
         <section className="mb-14 space-y-8">
           <div>
             <h3 className="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              Key Naming Trends in 2026
+              Key Naming Trends in {CURRENT_YEAR}
             </h3>
             <div className="space-y-6">
               <div>

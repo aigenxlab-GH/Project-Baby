@@ -5,6 +5,19 @@ on:
     branches:
       - main
   workflow_dispatch:
+  # Monthly rebuild. Its real job is the year rollover: titles like
+  # "Best Strollers 2026" come from src/config/year.ts, which is evaluated at
+  # BUILD time, so the site needs a build after the rollover date (10 January)
+  # for the new year to appear. This runs on the 10th so the January build
+  # lands exactly on it.
+  #
+  # Monthly rather than January-only for two reasons: GitHub disables scheduled
+  # workflows on a repo with no commits for 60 days — a once-a-year cron is the
+  # most likely to be silently paused when it finally matters — and the other
+  # eleven runs act as a build heartbeat, surfacing a broken deploy within a
+  # month instead of whenever someone next pushes.
+  schedule:
+    - cron: '0 3 10 * *'   # 03:00 UTC on the 10th of every month
 
 jobs:
   deploy:

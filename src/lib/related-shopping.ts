@@ -40,7 +40,7 @@ const PRODUCT_CATEGORY_KEYWORDS: Array<[string[], string, string]> = [
   [['humidifier'], 'humidifiers', 'Best Humidifiers for Baby Rooms'],
   [['high chair'], 'nursing-feeding', 'Best Nursing & Feeding Products'],
   [['monitor'], 'baby-essentials', 'Baby Essentials'],
-  [['gear 2026', 'gear guide', "gear:"], 'baby-essentials', 'Baby Essentials'],
+  [['gear guide', 'gear guide', "gear:"], 'baby-essentials', 'Baby Essentials'],
 ];
 
 export interface ShoppingMatch {
