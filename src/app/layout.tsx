@@ -84,7 +84,6 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [`${siteConfig.url}/opengraph-image`],
-    creator: siteConfig.twitterHandle,
   },
   robots: {
     index: true,

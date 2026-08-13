@@ -2,6 +2,8 @@
  * Schema.org structured data helpers
  */
 
+import { siteConfig } from '@/config/site';
+
 export interface FAQItem {
   question: string;
   answer: string;
@@ -122,11 +124,7 @@ export function generateOrganizationSchema() {
     logo: 'https://pregnancysprout.com/logo.png',
     description:
       'Complete pregnancy and baby parenting guide with expert advice and product reviews',
-    sameAs: [
-      'https://www.facebook.com/pregnancysprout',
-      'https://www.instagram.com/pregnancysprout',
-      'https://www.twitter.com/pregnancysprout',
-    ],
+    sameAs: Object.values(siteConfig.social),
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Customer Support',

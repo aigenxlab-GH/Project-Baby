@@ -19,7 +19,8 @@
     "dev:cf": "npx @opennextjs/cloudflare dev",
     "preview": "npm run build:cloudflare && wrangler dev",
     "deploy": "npm run build:cloudflare && wrangler deploy",
-    "check:fabrication": "node scripts/check-fabrication.mjs"
+    "check:fabrication": "node scripts/check-fabrication.mjs",
+    "check:links": "node scripts/check-links.mjs"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.1.4",

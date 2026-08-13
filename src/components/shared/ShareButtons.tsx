@@ -22,7 +22,7 @@ export function ShareButtons({ url, title, image, description }: Props) {
     ? `https://pinterest.com/pin/create/button/?url=${encodedUrl}&media=${encodeURIComponent(image)}&description=${encodedDesc}`
     : `https://pinterest.com/pin/create/button/?url=${encodedUrl}&description=${encodedDesc}`;
 
-  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}&via=pregnancysprout`;
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
 
   const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
 

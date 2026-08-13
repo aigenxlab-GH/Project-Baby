@@ -42,11 +42,6 @@ export function WebSiteJsonLd() {
       },
       description: siteConfig.description,
       email: siteConfig.email,
-      address: {
-        '@type': 'PostalAddress',
-        addressCountry: 'US',
-        addressRegion: 'NY',
-      },
       areaServed: ['US', 'GB', 'AU', 'CA'],
       contactPoint: {
         '@type': 'ContactPoint',

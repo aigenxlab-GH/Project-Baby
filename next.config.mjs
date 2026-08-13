@@ -94,9 +94,9 @@ const nextConfig = {
       { source: '/products/roundups/best-sleep-sacks-swaddles-2026', destination: '/products/sleep-sacks', permanent: true },
       { source: '/products/roundups/best-white-noise-machines-2026', destination: '/products/white-noise', permanent: true },
       { source: '/products/roundups/best-baby-bouncers-2026', destination: '/products/baby-bouncers', permanent: true },
-      { source: '/products/roundups/best-baby-monitors-2026', destination: '/products/monitors', permanent: true },
-      { source: '/products/roundups/best-budget-baby-monitors-2026', destination: '/products/monitors', permanent: true },
-      { source: '/products/roundups/best-baby-high-chairs-2026', destination: '/products/high-chairs', permanent: true },
+      { source: '/products/roundups/best-baby-monitors-2026', destination: '/blog/best-baby-monitors-2026-comparison', permanent: true },
+      { source: '/products/roundups/best-budget-baby-monitors-2026', destination: '/blog/best-baby-monitors-2026-comparison', permanent: true },
+      { source: '/products/roundups/best-baby-high-chairs-2026', destination: '/blog/best-baby-high-chairs-safety', permanent: true },
     ];
   },
 

@@ -13,16 +13,16 @@ export const siteConfig = {
   // The route /opengraph-image returns a branded 1200×630 PNG at edge runtime.
   // Never reference the old /og-default.jpg — that file does not exist.
   ogImage: `${siteUrl}/opengraph-image`,
-  twitterHandle: '@pregnancysprout',
   email: 'hello@pregnancysprout.com',
-  // Social media profiles — used in Footer, JSON-LD sameAs, and meta tags
+  // Social media profiles — used in Footer and JSON-LD sameAs.
+  // ONLY list profiles that actually exist. Every entry here is emitted to
+  // Google as an Organization "sameAs", i.e. a claim that this profile is us.
+  // Four dead handles (twitter/facebook/instagram/youtube) were listed here and
+  // rendered as footer links that 404'd. Do not add a platform before the
+  // account is live.
   social: {
-    twitter:   'https://twitter.com/pregnancysprout',
-    facebook:  'https://facebook.com/pregnancysprout',
     pinterest: 'https://pinterest.com/pregnancysprout',
-    instagram: 'https://instagram.com/pregnancysprout',
-    youtube:   'https://youtube.com/@pregnancysprout',
-    linkedin:  'https://linkedin.com/company/pregnancysprout',
+    linkedin:  'https://www.linkedin.com/in/sandeep-singsarva',
   },
   authors: [{ name: 'Sandeep Singsarva', url: 'https://pregnancysprout.com/authors/sandeep-singsarva' }],
   keywords: [
