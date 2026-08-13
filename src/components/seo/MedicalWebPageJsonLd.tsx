@@ -1,5 +1,6 @@
 import { JsonLd } from './JsonLd';
 import { siteConfig } from '@/config/site';
+import { authorSchema, DEFAULT_AUTHOR } from '@/config/authors';
 import { absoluteUrl } from '@/lib/utils';
 
 interface Props {
@@ -21,8 +22,8 @@ interface Props {
 /**
  * MedicalWebPage JSON-LD schema.
  * Use on all health-related content pages (pregnancy weeks, symptom guides, etc.)
- * Signals to Google that this page is health-specific content reviewed against
- * authoritative medical sources.
+ * Signals to Google that this page is health-specific content. It asserts
+ * authorship, not medical review — see the note on `reviewedBy` below.
  * See: https://schema.org/MedicalWebPage
  */
 export function MedicalWebPageJsonLd({
@@ -40,11 +41,13 @@ export function MedicalWebPageJsonLd({
     url: absoluteUrl(url),
     inLanguage: 'en',
     ...(lastReviewed ? { lastReviewed } : {}),
-    reviewedBy: {
-      '@type': 'Organization',
-      name: `${siteConfig.name} Editorial Team`,
-      url: `${siteConfig.url}/editorial-standards`,
-    },
+    // NO `reviewedBy`. schema.org treats it as a claim that this medical content
+    // was reviewed by the named entity. It used to name a "PregnancySprout
+    // Editorial Team" that does not exist, on 40 YMYL pregnancy pages, while the
+    // author bio states in as many words that nothing here is individually
+    // reviewed by a clinician. Same reasoning as `lastReviewed` above: no claim
+    // beats a false one. Do not reinstate it without a real named reviewer.
+    author: authorSchema(DEFAULT_AUTHOR, siteConfig.url),
     about: {
       '@type': 'MedicalCondition',
       name: about,

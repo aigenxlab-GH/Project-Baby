@@ -165,7 +165,7 @@ title: "${title}"
 description: "Practical parenting guidance on ${title.toLowerCase()}"
 publishedAt: "${publishedAt}"
 updatedAt: "${publishedAt}"
-author: "PregnancySprout Editorial Team"
+author: "Sandeep Singsarva"
 category: "${topic}"
 tags: ["${topic}", "parenting", "baby-care"]
 readingTime: 7

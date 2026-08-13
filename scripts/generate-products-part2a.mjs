@@ -19,7 +19,7 @@ function mdx(p) {
 description: >-\n  ${p.desc}
 publishedAt: '${p.date}'
 updatedAt: '2026-11-01'
-author: PregnancySprout Editorial Team
+author: Sandeep Singsarva
 featured: ${p.featured??false}
 productName: ${p.productName}
 brand: ${p.brand}

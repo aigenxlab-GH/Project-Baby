@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import type { ProductReview, ProductCategory, AffiliateLink } from '@/types/product';
 import REGION_CONFIG from '@/config/regions.json';
+import { DEFAULT_AUTHOR } from '@/config/authors';
 
 export const sanityClient = createClient({
   projectId: 'mnwolxvz',
@@ -125,7 +126,7 @@ export function sanityProductToReview(p: SanityProduct): ProductReview {
     description: p.description || '',
     publishedAt: p.publishedAt || new Date().toISOString(),
     updatedAt: p.updatedAt,
-    author: p.author || 'PregnancySprout Editorial Team',
+    author: p.author || DEFAULT_AUTHOR.name,
     category: p.category as ProductCategory,
     slug: p.slug,
     productName: p.productName,

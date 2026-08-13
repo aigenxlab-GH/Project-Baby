@@ -105,7 +105,7 @@ async function createProduct(data) {
       starRating: data.starRating || 0,
       publishedAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
-      author: data.author || 'PregnancySprout Editorial Team',
+      author: data.author || 'Sandeep Singsarva',
       featured: data.featured || false,
       pros: data.pros || [],
       cons: data.cons || [],

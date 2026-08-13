@@ -29,6 +29,18 @@ const CHECKS = [
   // named byline shipped, contradicting "One person, not a team" on the very
   // same page. Editorial "we" for the site as an entity is fine and not matched.
   ['team-implying claims', /\bour editorial team\b|\bour team of\b|\bour (writers|reviewers|experts|editors)\b|\bwe are (health )?writers\b|\bteam of (writers|experts|editors)\b/i],
+  // Added 2026-08-13. The pattern above requires the word "our", so it read as
+  // prose-only and missed `name: "PregnancySprout Editorial Team"` sitting in a
+  // schema.org reviewedBy field on 40 live week-by-week pages — a medical-review
+  // claim made to Google rather than to the reader. Match the entity name itself,
+  // wherever it appears.
+  ['editorial-team entity', /\bEditorial Team\b/],
+  // A review claim is only honest with a real named reviewer, and there is none.
+  // Deliberately NOT a bare /reviewedBy/: AuthorBio takes a `reviewedBy` prop
+  // that renders "Researched against NHS, WHO and NICE guidance" — a true
+  // statement about sources, not a claim that anyone reviewed the page. Match
+  // only the schema-object forms (`reviewedBy: {`, `"reviewedBy":`) plus prose.
+  ['unbacked review claims', /\breviewedBy\s*:\s*[{'"]|"reviewedBy"\s*:|\bmedically reviewed by\b|\breviewed by (our|the) (team|editorial|medical|expert)/i],
 ];
 
 // Legitimate matches that must not be reported.
@@ -117,11 +129,16 @@ for (const sub of ['src', 'content', 'public', 'scripts']) {
     try { text = fs.readFileSync(file, 'utf8'); } catch { continue; }
     // Big generated data files: check as one blob, report once.
     const lines = text.length > 2_000_000 ? [text] : text.split('\n');
+    const isCode = /\.(tsx?|jsx?|mjs|cjs)$/.test(rel);
     lines.forEach((line, i) => {
       if (isAllowed(line, rel)) return;
+      // A code comment ships to nobody. Applied only to the two categories below,
+      // because they legitimately match the notes we leave explaining a removal.
+      const comment = isCode && /^\s*(\/\/|\*|\/\*|\{\/\*)/.test(line);
       for (const [label, re] of CHECKS) {
         // Doses only matter in prose content, not code/data.
         if (label === 'medication doses' && !rel.startsWith('content/')) continue;
+        if (comment && (label === 'editorial-team entity' || label === 'unbacked review claims')) continue;
         if (re.test(line)) {
           findings.push({ where: rel, line: text.length > 2_000_000 ? '(blob)' : i + 1, label, snippet: line.trim().slice(0, 110) });
           break;

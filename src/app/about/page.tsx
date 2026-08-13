@@ -102,7 +102,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-        {/* Editorial Team */}
+        {/* Who writes this site */}
         <section className="mb-14">
           <h2 className="font-serif text-2xl font-bold text-gray-900 mb-8 text-center">Who Writes PregnancySprout</h2>
           <p className="text-gray-600 text-center mb-10 max-w-2xl mx-auto">

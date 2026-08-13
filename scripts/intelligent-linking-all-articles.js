@@ -203,7 +203,7 @@ title: "${hub.title}"
 description: "${hub.description}"
 publishedAt: "${new Date().toISOString().split('T')[0]}"
 updatedAt: "${new Date().toISOString().split('T')[0]}"
-author: "PregnancySprout Editorial Team"
+author: "Sandeep Singsarva"
 category: "hub"
 tags: ["guide", "hub", "resource"]
 readingTime: 10

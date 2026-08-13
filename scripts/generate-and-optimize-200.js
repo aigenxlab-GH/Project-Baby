@@ -240,7 +240,7 @@ title: "${optimizedTitle}"
 description: "${optimizedDesc}"
 publishedAt: "${publishedAt}"
 updatedAt: "${publishedAt}"
-author: "PregnancySprout Editorial Team"
+author: "Sandeep Singsarva"
 category: "${category}"
 tags: ["${category}", "parenting", "baby", "pregnancy"]
 readingTime: 8

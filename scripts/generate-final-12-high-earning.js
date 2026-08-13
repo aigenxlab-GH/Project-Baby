@@ -211,7 +211,7 @@ title: "${seoTitle}"
 description: "${seoDescription}"
 publishedAt: "${publishedAt}"
 updatedAt: "${publishedAt}"
-author: "PregnancySprout Editorial Team"
+author: "Sandeep Singsarva"
 category: "${category}"
 tags: ["${category}", "buying-guide", "product-review", "baby-gear"]
 readingTime: 9

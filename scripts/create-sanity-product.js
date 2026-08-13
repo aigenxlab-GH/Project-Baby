@@ -63,7 +63,7 @@ function transformProduct(input) {
     starRating: input.starRating || 0,
     publishedAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
-    author: input.author || 'PregnancySprout Editorial Team',
+    author: input.author || 'Sandeep Singsarva',
     featured: input.featured || false,
     pros: input.pros || [],
     cons: input.cons || [],

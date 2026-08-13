@@ -97,7 +97,7 @@ title: "${title}"
 description: "${title.toLowerCase()}"
 publishedAt: "${publishedAt}"
 updatedAt: "${publishedAt}"
-author: "PregnancySprout Editorial Team"
+author: "Sandeep Singsarva"
 category: "${category}"
 tags: ["${category}", "pregnancy", "baby", "parenting"]
 readingTime: 8

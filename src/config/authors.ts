@@ -43,12 +43,18 @@ export interface Author {
 /**
  * The organisational fallback. Correctly typed as an Organization rather than
  * pretending to be a Person. Used for any article without a named human.
+ *
+ * It is named plainly 'PregnancySprout', NOT an 'Editorial Team': the site is
+ * run by one person, so naming a team would be a claim of staff that do not
+ * exist. In practice this never resolves — all 208 articles and 113 products
+ * carry a real author — and getPersonAuthors() excludes it, so no author page
+ * is generated for it.
  */
 export const EDITORIAL_TEAM: Author = {
   slug: 'editorial-team',
-  name: 'PregnancySprout Editorial Team',
+  name: 'PregnancySprout',
   short:
-    'Researched and written by the PregnancySprout editorial team, against published guidance from the NHS, WHO, NICE, RCOG and the AAP.',
+    'Researched against published guidance from the NHS, WHO, NICE, RCOG and the AAP, with sources cited.',
   bio: [
     'PregnancySprout articles are researched against published clinical guidance and cite their sources so you can check any claim yourself.',
     'We are not a medical provider, and nothing here is individually reviewed by a clinician for your situation. Always speak to your own midwife, GP or health visitor about your care.',

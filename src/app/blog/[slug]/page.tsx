@@ -21,7 +21,7 @@ import { markdownToHtml } from '@/lib/markdown';
 import { getArticleImage } from '@/lib/article-images';
 import { getRelatedShoppingLink, injectSectionShoppingLinks } from '@/lib/related-shopping';
 import { AuthorBio } from '@/components/article/AuthorBio';
-import { resolveAuthor } from '@/config/authors';
+import { resolveAuthor, DEFAULT_AUTHOR } from '@/config/authors';
 
 export const dynamic = 'force-static';
 
@@ -174,7 +174,7 @@ export default async function BlogArticlePage({ params }: Props) {
             <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-5">{article.description}</p>
             <div className="flex flex-wrap items-center gap-5 text-xs text-gray-400 dark:text-gray-500 pb-6 border-b border-gray-100 dark:border-gray-800">
               <span className="flex items-center gap-1.5">
-                <User className="h-3.5 w-3.5" /> {article.author || 'PregnancySprout Editorial Team'}
+                <User className="h-3.5 w-3.5" /> {article.author || DEFAULT_AUTHOR.name}
               </span>
               <span className="flex items-center gap-1.5">
                 <Calendar className="h-3.5 w-3.5" /> Published {formatDate(article.publishedAt)}

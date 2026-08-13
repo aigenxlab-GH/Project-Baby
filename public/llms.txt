@@ -23,6 +23,6 @@
 - [Corrections](https://pregnancysprout.com/corrections): Published corrections log
 
 ## Optional
-- [About](https://pregnancysprout.com/about): About the PregnancySprout editorial team
+- [About](https://pregnancysprout.com/about): About PregnancySprout and its author, Sandeep Singsarva
 - [Contact](https://pregnancysprout.com/contact): Contact PregnancySprout — hello@pregnancysprout.com
 - [Sitemap](https://pregnancysprout.com/sitemap.xml): Full XML sitemap of all indexed pages
