@@ -91,6 +91,7 @@ export const SANDEEP: Author = {
   ],
   knowsAbout: ['Pregnancy', 'Newborn care', 'Infant feeding', 'Baby products', 'Baby names', 'Parenting'],
   sameAs: ['https://www.linkedin.com/in/sandeep-singsarva'],
+  avatar: '/authors/sandeep-singsarva.jpg',
   isPerson: true,
 };
 
