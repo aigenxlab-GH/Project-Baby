@@ -18,6 +18,12 @@ export function ProductJsonLd({ product }: Props) {
       brand: { '@type': 'Brand', name: product.brand },
       image: absoluteUrl(product.image),
       description: product.description,
+      // Only emit a Review when there is a real score. 15 of 113 products have no
+      // starRating in Sanity, and `ratingValue: undefined` was serialising to 0 —
+      // publishing a 0-out-of-5 rating for products that were never rated, below
+      // the worstRating of 1 this same object declares. Google can surface that
+      // as a zero-star rich result.
+      ...(typeof product.starRating === 'number' && product.starRating > 0 && {
       review: {
         '@type': 'Review',
         reviewRating: {
@@ -36,6 +42,7 @@ export function ProductJsonLd({ product }: Props) {
         reviewBody: product.bottomLine,
         datePublished: product.publishedAt,
       },
+      }),
       // Only include aggregateRating when we have genuine multi-source data
       // Single editorial review is expressed via Review only (no AggregateRating)
       // to comply with Google's structured data guidelines

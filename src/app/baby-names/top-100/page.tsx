@@ -7,70 +7,87 @@ import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 import { InContentAd } from '@/components/ads/InContentAd';
 import { ChevronRight } from 'lucide-react';
+import { getTopNames, getStatsMeta } from '@/lib/name-stats';
+import { getNameBySlug } from '@/lib/baby-names';
 
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   title: `Top 100 Baby Names ${CURRENT_YEAR} — Most Popular Names for Boys & Girls`,
-  description: `The 100 most popular baby names of ${CURRENT_YEAR}. Discover trending names for girls, boys, and gender-neutral options based on real birth data and naming trends.`,
+  description: `The 100 most popular baby names — 50 girls and 50 boys — ranked by official US Social Security Administration birth data, with meanings, origins and five-year trends.`,
   alternates: { canonical: `${siteConfig.url}/baby-names/top-100` },
 };
 
-const topGirlNames = [
-  { rank: 1, name: 'Olivia', origin: 'Latin', meaning: 'Olive tree', trend: '↑ Stable #1' },
-  { rank: 2, name: 'Emma', origin: 'Germanic', meaning: 'Whole, universal', trend: '↑ Consistent top 3' },
-  { rank: 3, name: 'Amelia', origin: 'Germanic', meaning: 'Industrious', trend: '↑ Rising steadily' },
-  { rank: 4, name: 'Sophia', origin: 'Greek', meaning: 'Wisdom', trend: '↓ Slight decline' },
-  { rank: 5, name: 'Isabella', origin: 'Spanish/Italian', meaning: 'Devoted to God', trend: '↓ Slowly declining' },
-  { rank: 6, name: 'Ava', origin: 'Latin', meaning: 'Bird', trend: '↑ Rising' },
-  { rank: 7, name: 'Mia', origin: 'Scandinavian', meaning: 'Mine', trend: '↑ Stable top 10' },
-  { rank: 8, name: 'Charlotte', origin: 'French', meaning: 'Free woman', trend: '↑ Consistent rise' },
-  { rank: 9, name: 'Evelyn', origin: 'English', meaning: 'Desired', trend: '↑ Fast rising' },
-  { rank: 10, name: 'Harper', origin: 'English', meaning: 'Harp player', trend: '↑ Rapid rise (modern)' },
-  { rank: 11, name: 'Luna', origin: 'Latin', meaning: 'Moon', trend: '↑ Entering top 10' },
-  { rank: 12, name: 'Ella', origin: 'Germanic', meaning: 'All, completely', trend: '↑ Classic revival' },
-  { rank: 13, name: 'Madison', origin: 'English', meaning: 'Daughter of Matthew', trend: '↓ Declining' },
-  { rank: 14, name: 'Scarlett', origin: 'English', meaning: 'Red', trend: '↑ Consistent' },
-  { rank: 15, name: 'Grace', origin: 'Latin', meaning: 'Grace', trend: '↑ Timeless' },
-  { rank: 16, name: 'Chloe', origin: 'Greek', meaning: 'Green shoot', trend: '↑ Stable' },
-  { rank: 17, name: 'Victoria', origin: 'Latin', meaning: 'Victory', trend: '↑ Classic revival' },
-  { rank: 18, name: 'Riley', origin: 'English', meaning: 'Courageous', trend: '↑ Modern rising' },
-  { rank: 19, name: 'Aria', origin: 'Italian/Greek', meaning: 'Lioness, melody', trend: '↑ Rapidly rising' },
-  { rank: 20, name: 'Nora', origin: 'Irish/Scandinavian', meaning: 'Honor', trend: '↑ Classic revival' },
-  { rank: 21, name: 'Layla', origin: 'Arabic', meaning: 'Night', trend: '↑ Increasing diversity' },
-  { rank: 22, name: 'Lily', origin: 'English', meaning: 'Flower', trend: '↑ Nature-inspired trend' },
-  { rank: 23, name: 'Eleanor', origin: 'Greek', meaning: 'Bright light', trend: '↑ Vintage revival' },
-  { rank: 24, name: 'Penelope', origin: 'Greek', meaning: 'Weaver', trend: '↑ Literary revival' },
-  { rank: 25, name: 'Zoey', origin: 'Greek', meaning: 'Life', trend: '↑ Modern variation' },
-];
+/**
+ * Rows are derived, never typed by hand.
+ *
+ * This page previously carried a hand-written ranking while telling readers it
+ * came from SSA and ONS birth-certificate data. It had drifted badly — Charlotte
+ * was listed at #8 against an actual SSA rank of #2, Mason at #9 against #36 —
+ * and there is no ONS data anywhere in this project. `rank` below is the SSA's
+ * own national rank for the latest year; meaning and origin come from
+ * baby-names.json. One source of truth for each field.
+ *
+ * Note the ranks are not contiguous: a handful of names in the national top 100
+ * have no page on this site, so their ranks are absent rather than invented. The
+ * intro copy says so plainly.
+ */
+type Row = {
+  rank: number;
+  name: string;
+  slug: string;
+  origin: string;
+  meaning: string;
+  trend: string;
+};
 
-const topBoyNames = [
-  { rank: 1, name: 'Liam', origin: 'Irish', meaning: 'Strong-willed warrior', trend: '↑ Stable #1' },
-  { rank: 2, name: 'Noah', origin: 'Hebrew', meaning: 'Rest, comfort', trend: '↑ Consistent top 3' },
-  { rank: 3, name: 'Oliver', origin: 'Latin', meaning: 'Olive tree', trend: '↑ Steady rise' },
-  { rank: 4, name: 'Elijah', origin: 'Hebrew', meaning: 'My God is Yahweh', trend: '↑ Biblical strength' },
-  { rank: 5, name: 'Benjamin', origin: 'Hebrew', meaning: 'Son of the right hand', trend: '↑ Classic stability' },
-  { rank: 6, name: 'Lucas', origin: 'Latin', meaning: 'From Lucania', trend: '↑ Rising steadily' },
-  { rank: 7, name: 'Henry', origin: 'Germanic', meaning: 'Estate ruler', trend: '↑ Vintage revival' },
-  { rank: 8, name: 'Alexander', origin: 'Greek', meaning: 'Defender of men', trend: '↑ Timeless' },
-  { rank: 9, name: 'Mason', origin: 'English', meaning: 'Stone worker', trend: '↓ Slight decline' },
-  { rank: 10, name: 'Michael', origin: 'Hebrew', meaning: 'Who is like God', trend: '↑ Evergreen' },
-  { rank: 11, name: 'Ethan', origin: 'Hebrew', meaning: 'Strong, firm', trend: '↑ Consistent' },
-  { rank: 12, name: 'Daniel', origin: 'Hebrew', meaning: 'God is my judge', trend: '↑ Steadfast' },
-  { rank: 13, name: 'Jacob', origin: 'Hebrew', meaning: 'Supplanter', trend: '↑ Enduring' },
-  { rank: 14, name: 'Logan', origin: 'Scottish', meaning: 'Small hollow', trend: '↓ Slowly declining' },
-  { rank: 15, name: 'Jackson', origin: 'English', meaning: 'Son of Jack', trend: '↑ Modern rising' },
-  { rank: 16, name: 'Aiden', origin: 'Irish', meaning: 'Little fire', trend: '↑ Modern trend' },
-  { rank: 17, name: 'Samuel', origin: 'Hebrew', meaning: 'God has heard', trend: '↑ Biblical revival' },
-  { rank: 18, name: 'Sebastian', origin: 'Latin', meaning: 'Venerable, revered', trend: '↑ International rise' },
-  { rank: 19, name: 'James', origin: 'Hebrew', meaning: 'Supplanter', trend: '↑ Royal classic' },
-  { rank: 20, name: 'Matthew', origin: 'Hebrew', meaning: 'Gift of God', trend: '↑ Biblical steadfast' },
-  { rank: 21, name: 'Owen', origin: 'Welsh', meaning: 'Young warrior', trend: '↑ Rising modern' },
-  { rank: 22, name: 'Benjamin', origin: 'Hebrew', meaning: 'Son of right hand', trend: '↑ Classic enduring' },
-  { rank: 23, name: 'Asher', origin: 'Hebrew', meaning: 'Happy, blessed', trend: '↑ Rising biblical' },
-  { rank: 24, name: 'David', origin: 'Hebrew', meaning: 'Beloved', trend: '↑ Evergreen classic' },
-  { rank: 25, name: 'Joseph', origin: 'Hebrew', meaning: 'God will increase', trend: '↑ Biblical traditional' },
-];
+const TREND_LABEL: Record<string, string> = {
+  rising: '↑ Rising',
+  falling: '↓ Falling',
+  stable: '→ Stable',
+  unknown: '—',
+};
+
+function buildRows(sex: 'F' | 'M', limit: number): Row[] {
+  return getTopNames(sex, limit).map((t) => {
+    const entry = getNameBySlug(t.slug);
+    return {
+      rank: t.rank,
+      name: t.name,
+      slug: t.slug,
+      origin: entry?.origin?.join(', ') ?? '—',
+      meaning: entry?.meaning ?? '',
+      trend: TREND_LABEL[t.trend] ?? '—',
+    };
+  });
+}
+
+const topGirlNames = buildRows('F', 50);
+const topBoyNames = buildRows('M', 50);
+const SSA_YEAR = getStatsMeta().latestYear;
+
+// Prose below cites specific names as rising or falling. Those used to be
+// hand-picked and had gone stale against the data on the site's own name pages —
+// Victoria was called "rising steadily" while its rank fell #34 -> #54, Luna was
+// "gaining traction" while falling #14 -> #27, Harper "climbed" while falling
+// #10 -> #16. A reader clicking through would have seen the opposite chart.
+// Derive the examples instead so prose and charts cannot disagree.
+const movers = getTopNames('F', 200)
+  .concat(getTopNames('M', 200))
+  .filter((t) => t.rank <= 100 && t.gain != null);
+// Sorted by the size of the move, because the copy says "fastest" and
+// "furthest". Sorting by current rank would have made those words untrue.
+const RISING = movers
+  .filter((m) => m.trend === 'rising')
+  .sort((a, b) => (b.gain ?? 0) - (a.gain ?? 0))
+  .map((m) => m.name);
+const FALLING = movers
+  .filter((m) => m.trend === 'falling')
+  .sort((a, b) => (a.gain ?? 0) - (b.gain ?? 0))
+  .map((m) => m.name);
+const list = (arr: string[], n: number) => arr.slice(0, n).join(', ');
+const TOP3_GIRLS = list(topGirlNames.map((r) => r.name), 3);
+const TOP3_BOYS = list(topBoyNames.map((r) => r.name), 3);
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -81,7 +98,7 @@ const faqSchema = {
       name: `What are the most popular baby names in ${CURRENT_YEAR}?`,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: `Based on ${CURRENT_YEAR} birth data trends, the top baby names are Olivia, Emma, and Amelia for girls, and Liam, Noah, and Oliver for boys. Names have shifted toward timeless classics and international variants.`
+        text: `In the SSA's ${SSA_YEAR} birth data — the most recent year published — the top names are ${TOP3_GIRLS} for girls and ${TOP3_BOYS} for boys.`
       }
     },
     {
@@ -89,7 +106,7 @@ const faqSchema = {
       name: 'Why are certain names becoming more popular?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: `Naming trends are influenced by celebrity culture, cultural background of parents, media exposure, and cyclical revivals of classic names. In ${CURRENT_YEAR}, parents favor names that are easy to spell, work internationally, and offer vintage appeal.`
+        text: `Naming trends are influenced by celebrity culture, the cultural background of parents, media exposure, and cyclical revivals of classic names. Measured against the last five years of SSA data, the names climbing fastest inside the top 100 are ${list(RISING, 4)}.`
       }
     },
     {
@@ -124,7 +141,7 @@ export default function Top100BabyNamesPage() {
             Top 100 Baby Names {CURRENT_YEAR}
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
-            The most popular baby names of {CURRENT_YEAR}, ranked by real birth data. Discover trending names for girls, boys, and what parents are choosing this year.
+            The 100 most popular baby names — 50 girls and 50 boys — ranked by US Social Security Administration birth-certificate data for {SSA_YEAR}, the most recent year published.
           </p>
           <Link
             href="/baby-names"
@@ -140,7 +157,7 @@ export default function Top100BabyNamesPage() {
             Baby naming trends tell a story about culture, values, and what parents hope for their children. In {CURRENT_YEAR}, the trend continues toward classic, timeless names—alongside a growing appreciation for names that work across cultures and languages.
           </p>
           <p>
-            This ranking combines birth certificate data from the US Social Security Administration and UK Office for National Statistics, showing which names parents chose most frequently in 2025–2026. Trends are dynamic: names that rise quickly often fall just as fast, while true classics remain anchored at the top.
+            Every rank on this page is the name&apos;s official position in the US Social Security Administration&apos;s {SSA_YEAR} birth-certificate data, which is public domain. Rank numbers skip where a name in the national top 100 does not yet have a page on this site — those positions are left out rather than filled in. Trends are calculated from each name&apos;s own rank movement over the last five years of that data.
           </p>
         </section>
 
@@ -149,7 +166,7 @@ export default function Top100BabyNamesPage() {
         {/* Top Girl Names */}
         <section className="mb-14">
           <h2 className="font-serif text-3xl font-bold text-gray-900 dark:text-white mb-6">
-            Top 25 Baby Girl Names {CURRENT_YEAR}
+            Top 50 Baby Girl Names ({SSA_YEAR} SSA data)
           </h2>
           <div className="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-950/30 dark:to-rose-950/30 rounded-2xl overflow-hidden border border-pink-100 dark:border-pink-900">
             <div className="grid grid-cols-12 gap-3 p-4 bg-pink-100 dark:bg-pink-950 font-semibold text-sm text-pink-900 dark:text-pink-200">
@@ -164,7 +181,7 @@ export default function Top100BabyNamesPage() {
                   <div className="col-span-2 font-bold text-pink-600 dark:text-pink-400">{name.rank}</div>
                   <div className="col-span-4">
                     <Link
-                      href={`/baby-names/${name.name.toLowerCase()}`}
+                      href={`/baby-names/${name.slug}`}
                       className="font-semibold text-gray-900 dark:text-white hover:text-pink-600 dark:hover:text-pink-400"
                     >
                       {name.name}
@@ -184,7 +201,7 @@ export default function Top100BabyNamesPage() {
         {/* Top Boy Names */}
         <section className="mb-14">
           <h2 className="font-serif text-3xl font-bold text-gray-900 dark:text-white mb-6">
-            Top 25 Baby Boy Names {CURRENT_YEAR}
+            Top 50 Baby Boy Names ({SSA_YEAR} SSA data)
           </h2>
           <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 rounded-2xl overflow-hidden border border-blue-100 dark:border-blue-900">
             <div className="grid grid-cols-12 gap-3 p-4 bg-blue-100 dark:bg-blue-950 font-semibold text-sm text-blue-900 dark:text-blue-200">
@@ -199,7 +216,7 @@ export default function Top100BabyNamesPage() {
                   <div className="col-span-2 font-bold text-blue-600 dark:text-blue-400">{name.rank}</div>
                   <div className="col-span-4">
                     <Link
-                      href={`/baby-names/${name.name.toLowerCase()}`}
+                      href={`/baby-names/${name.slug}`}
                       className="font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
                     >
                       {name.name}
@@ -224,13 +241,13 @@ export default function Top100BabyNamesPage() {
               <div>
                 <h4 className="font-semibold text-gray-900 dark:text-white mb-2">1. Vintage Revival Continues</h4>
                 <p className="text-gray-700 dark:text-gray-300">
-                  Names like Eleanor, Penelope, Victoria, and Henry are rising steadily as parents seek names that feel timeless and work across generations. Vintage does not mean outdated—these names offer sophistication and longevity.
+                  Measured over the last five years of SSA data, these names are climbing fastest inside the top 100: {list(RISING, 5)}. Vintage does not mean outdated — these names offer sophistication and longevity.
                 </p>
               </div>
               <div>
                 <h4 className="font-semibold text-gray-900 dark:text-white mb-2">2. Nature-Inspired Names Growing</h4>
                 <p className="text-gray-700 dark:text-gray-300">
-                  Luna, Lily, and similar nature-connected names continue gaining traction. Parents are drawn to the calming associations and environmental values these names represent.
+                  Movement runs both ways. Over the same five years these top-100 names lost the most ground: {list(FALLING, 5)}. A name peaking is often the start of its decline.
                 </p>
               </div>
               <div>
@@ -264,7 +281,7 @@ export default function Top100BabyNamesPage() {
             {[
               {
                 q: 'What makes a name "popular"?',
-                a: 'A popular name is one that appears frequently on birth certificates in a given year. Popularity is measured by the Social Security Administration (US) and Office for National Statistics (UK), which release annual rankings. Names rise and fall based on cultural shifts, media influence, and generational preferences.'
+                a: `A popular name is one that appears frequently on birth certificates in a given year. The rankings on this page come from the US Social Security Administration, which publishes national counts annually; the latest year available is ${SSA_YEAR}. Names rise and fall with cultural shifts, media influence and generational preferences.`
               },
               {
                 q: 'Should I choose a popular name?',
@@ -272,7 +289,7 @@ export default function Top100BabyNamesPage() {
               },
               {
                 q: 'How quickly do naming trends change?',
-                a: 'Trends vary. Some names (like Liam and Olivia) have held top positions for years. Others rise rapidly — Harper and Aria climbed the rankings in just 5–7 years. Classic names like James and Grace remain relatively stable across decades, while trend-driven names (often tied to pop culture) can peak and decline within a generation.'
+                a: `Trends vary. Some names hold the top spots for years — Liam and Olivia have both led their rankings for a decade. Others move fast in either direction: over the last five years of SSA data, ${list(RISING, 3)} climbed hardest inside the top 100, while ${list(FALLING, 3)} fell furthest. Trend-driven names, often tied to pop culture, can peak and decline within a single generation.`
               },
               {
                 q: 'What if I want a unique name but also practical?',

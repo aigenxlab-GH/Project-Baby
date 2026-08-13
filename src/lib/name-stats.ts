@@ -76,6 +76,55 @@ export function getNameStats(slug: string): NameStats | null {
   return getData().names[slug.toLowerCase()] ?? null;
 }
 
+export interface TopName {
+  slug: string;
+  name: string;
+  /** The SSA's own national rank for the latest year — not a rank recomputed
+   *  over this dataset's 1,085-name subset. */
+  rank: number;
+  births: number;
+  trend: Trend;
+  move: string | null;
+  /** 5-year rank change; positive = climbed. null when there is no comparison
+   *  point. Exposed so copy that says "fastest" can sort by it rather than
+   *  approximating with current rank. */
+  gain: number | null;
+}
+
+/**
+ * The most popular names of the dataset's latest year, straight from the SSA's
+ * national ranking.
+ *
+ * Exists because /baby-names/top-100 previously carried a hand-typed ranking
+ * that had drifted from this dataset — it listed Charlotte at #8 when the SSA
+ * had her at #2, and Mason at #9 against an actual #36, while the page told
+ * readers the ranking came from SSA birth-certificate data. One source of truth
+ * or none.
+ *
+ * Build-time only: getData() reads from disk (see the note on it above).
+ */
+export function getTopNames(sex: 'F' | 'M', limit: number): TopName[] {
+  const { names, meta } = getData();
+  const key = sex === 'F' ? 'f' : 'm';
+  const out: TopName[] = [];
+  for (const [slug, d] of Object.entries(names)) {
+    const st = d[key];
+    // Skip names absent from the latest year: their `latest` describes an
+    // earlier year and would rank against a different cohort.
+    if (!st || st.latest.year !== meta.latestYear) continue;
+    out.push({
+      slug,
+      name: d.name,
+      rank: st.latest.rank,
+      births: st.latest.count,
+      trend: computeTrend(st),
+      move: describeMove(st),
+      gain: st.rank5YearsAgo == null ? null : st.rank5YearsAgo - st.latest.rank,
+    });
+  }
+  return out.sort((a, b) => a.rank - b.rank).slice(0, limit);
+}
+
 export function getStatsMeta() {
   return getData().meta;
 }
