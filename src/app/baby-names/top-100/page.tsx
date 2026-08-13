@@ -7,14 +7,15 @@ import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 import { InContentAd } from '@/components/ads/InContentAd';
 import { ChevronRight } from 'lucide-react';
-import { getTopNames, getStatsMeta } from '@/lib/name-stats';
+import { getNameStats } from '@/lib/name-stats';
 import { getNameBySlug } from '@/lib/baby-names';
+import topData from '@/data/name-top100.json';
 
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   title: `Top 100 Baby Names ${CURRENT_YEAR} — Most Popular Names for Boys & Girls`,
-  description: `The 100 most popular baby names — 50 girls and 50 boys — ranked by official US Social Security Administration birth data, with meanings, origins and five-year trends.`,
+  description: `The top 100 baby girl names and top 100 baby boy names, ranked by official US Social Security Administration birth data, with meanings, origins and five-year trends.`,
   alternates: { canonical: `${siteConfig.url}/baby-names/top-100` },
 };
 
@@ -24,14 +25,31 @@ export const metadata: Metadata = {
  * This page previously carried a hand-written ranking while telling readers it
  * came from SSA and ONS birth-certificate data. It had drifted badly — Charlotte
  * was listed at #8 against an actual SSA rank of #2, Mason at #9 against #36 —
- * and there is no ONS data anywhere in this project. `rank` below is the SSA's
- * own national rank for the latest year; meaning and origin come from
- * baby-names.json. One source of truth for each field.
+ * and there is no ONS data anywhere in this project.
  *
- * Note the ranks are not contiguous: a handful of names in the national top 100
- * have no page on this site, so their ranks are absent rather than invented. The
- * intro copy says so plainly.
+ * name-top100.json is the SSA's own national top 100 per sex, built by
+ * scripts/build-name-top100.mjs straight from the raw yob*.txt files, so the
+ * ranks are complete: 1-100 with no gaps. It is a separate file from
+ * name-stats.json because that one only covers names this site has a page for,
+ * which left 14 girls' and 24 boys' ranks missing from the national top 100.
+ *
+ * Names without a page here still appear at their true rank — they simply are
+ * not linked, and show no meaning or origin, rather than being skipped or
+ * invented. Meaning and origin come from baby-names.json where we have them.
+ *
+ * ~30 KB, so importing it directly is fine. The big one (name-stats.json,
+ * ~2 MB) must be read with fs at build time instead — see the note in
+ * src/lib/name-stats.ts about the 3 MiB Cloudflare Worker limit.
  */
+type TopEntry = {
+  rank: number;
+  name: string;
+  slug: string;
+  births: number;
+  rank5YearsAgo: number | null;
+  trend: string;
+};
+
 type Row = {
   rank: number;
   name: string;
@@ -39,6 +57,9 @@ type Row = {
   origin: string;
   meaning: string;
   trend: string;
+  births: number;
+  /** false = no page on this site, so the name renders unlinked. */
+  hasPage: boolean;
 };
 
 const TREND_LABEL: Record<string, string> = {
@@ -48,23 +69,27 @@ const TREND_LABEL: Record<string, string> = {
   unknown: '—',
 };
 
-function buildRows(sex: 'F' | 'M', limit: number): Row[] {
-  return getTopNames(sex, limit).map((t) => {
+function buildRows(entries: TopEntry[]): Row[] {
+  return entries.map((t) => {
     const entry = getNameBySlug(t.slug);
     return {
       rank: t.rank,
       name: t.name,
       slug: t.slug,
+      births: t.births,
       origin: entry?.origin?.join(', ') ?? '—',
       meaning: entry?.meaning ?? '',
       trend: TREND_LABEL[t.trend] ?? '—',
+      hasPage: getNameStats(t.slug) !== null,
     };
   });
 }
 
-const topGirlNames = buildRows('F', 50);
-const topBoyNames = buildRows('M', 50);
-const SSA_YEAR = getStatsMeta().latestYear;
+const topGirlNames = buildRows(topData.girls as TopEntry[]);
+const topBoyNames = buildRows(topData.boys as TopEntry[]);
+const SSA_YEAR = topData.meta.year;
+const COMPARISON_YEAR = topData.meta.comparisonYear;
+const LINKED_COUNT = [...topGirlNames, ...topBoyNames].filter((r) => r.hasPage).length;
 
 // Prose below cites specific names as rising or falling. Those used to be
 // hand-picked and had gone stale against the data on the site's own name pages —
@@ -72,18 +97,18 @@ const SSA_YEAR = getStatsMeta().latestYear;
 // "gaining traction" while falling #14 -> #27, Harper "climbed" while falling
 // #10 -> #16. A reader clicking through would have seen the opposite chart.
 // Derive the examples instead so prose and charts cannot disagree.
-const movers = getTopNames('F', 200)
-  .concat(getTopNames('M', 200))
-  .filter((t) => t.rank <= 100 && t.gain != null);
+const movers = [...(topData.girls as TopEntry[]), ...(topData.boys as TopEntry[])]
+  .filter((t) => t.rank5YearsAgo != null)
+  .map((t) => ({ name: t.name, trend: t.trend, gain: (t.rank5YearsAgo as number) - t.rank }));
 // Sorted by the size of the move, because the copy says "fastest" and
 // "furthest". Sorting by current rank would have made those words untrue.
 const RISING = movers
   .filter((m) => m.trend === 'rising')
-  .sort((a, b) => (b.gain ?? 0) - (a.gain ?? 0))
+  .sort((a, b) => b.gain - a.gain)
   .map((m) => m.name);
 const FALLING = movers
   .filter((m) => m.trend === 'falling')
-  .sort((a, b) => (a.gain ?? 0) - (b.gain ?? 0))
+  .sort((a, b) => a.gain - b.gain)
   .map((m) => m.name);
 const list = (arr: string[], n: number) => arr.slice(0, n).join(', ');
 const TOP3_GIRLS = list(topGirlNames.map((r) => r.name), 3);
@@ -141,7 +166,7 @@ export default function Top100BabyNamesPage() {
             Top 100 Baby Names {CURRENT_YEAR}
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
-            The 100 most popular baby names — 50 girls and 50 boys — ranked by US Social Security Administration birth-certificate data for {SSA_YEAR}, the most recent year published.
+            The 100 most popular girls&apos; names and the 100 most popular boys&apos; names, ranked by US Social Security Administration birth-certificate data for {SSA_YEAR} — the most recent year published.
           </p>
           <Link
             href="/baby-names"
@@ -157,7 +182,7 @@ export default function Top100BabyNamesPage() {
             Baby naming trends tell a story about culture, values, and what parents hope for their children. In {CURRENT_YEAR}, the trend continues toward classic, timeless names—alongside a growing appreciation for names that work across cultures and languages.
           </p>
           <p>
-            Every rank on this page is the name&apos;s official position in the US Social Security Administration&apos;s {SSA_YEAR} birth-certificate data, which is public domain. Rank numbers skip where a name in the national top 100 does not yet have a page on this site — those positions are left out rather than filled in. Trends are calculated from each name&apos;s own rank movement over the last five years of that data.
+            Every rank on this page is the name&apos;s official position in the US Social Security Administration&apos;s {SSA_YEAR} birth-certificate data, which is public domain. The list is complete — ranks 1 to 100 for each sex, with nothing skipped. {LINKED_COUNT} of the 200 names link through to a full page on this site; the rest are shown at their rank without one. Trends compare each name against its {COMPARISON_YEAR} rank.
           </p>
         </section>
 
@@ -166,7 +191,7 @@ export default function Top100BabyNamesPage() {
         {/* Top Girl Names */}
         <section className="mb-14">
           <h2 className="font-serif text-3xl font-bold text-gray-900 dark:text-white mb-6">
-            Top 50 Baby Girl Names ({SSA_YEAR} SSA data)
+            Top 100 Baby Girl Names ({SSA_YEAR} SSA data)
           </h2>
           <div className="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-950/30 dark:to-rose-950/30 rounded-2xl overflow-hidden border border-pink-100 dark:border-pink-900">
             <div className="grid grid-cols-12 gap-3 p-4 bg-pink-100 dark:bg-pink-950 font-semibold text-sm text-pink-900 dark:text-pink-200">
@@ -180,12 +205,18 @@ export default function Top100BabyNamesPage() {
                 <div key={name.rank} className="grid grid-cols-12 gap-3 p-4 items-center hover:bg-pink-50 dark:hover:bg-pink-950/50 transition-colors">
                   <div className="col-span-2 font-bold text-pink-600 dark:text-pink-400">{name.rank}</div>
                   <div className="col-span-4">
-                    <Link
-                      href={`/baby-names/${name.slug}`}
-                      className="font-semibold text-gray-900 dark:text-white hover:text-pink-600 dark:hover:text-pink-400"
-                    >
-                      {name.name}
-                    </Link>
+                    {name.hasPage ? (
+                      <Link
+                        href={`/baby-names/${name.slug}`}
+                        className="font-semibold text-gray-900 dark:text-white hover:text-pink-600 dark:hover:text-pink-400"
+                      >
+                        {name.name}
+                      </Link>
+                    ) : (
+                      /* No page for this name yet. It still appears at its true
+                         rank — omitting it would leave a hole in the ranking. */
+                      <span className="font-semibold text-gray-900 dark:text-white">{name.name}</span>
+                    )}
                     <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{name.meaning}</p>
                   </div>
                   <div className="col-span-3 text-sm text-gray-600 dark:text-gray-400">{name.origin}</div>
@@ -201,7 +232,7 @@ export default function Top100BabyNamesPage() {
         {/* Top Boy Names */}
         <section className="mb-14">
           <h2 className="font-serif text-3xl font-bold text-gray-900 dark:text-white mb-6">
-            Top 50 Baby Boy Names ({SSA_YEAR} SSA data)
+            Top 100 Baby Boy Names ({SSA_YEAR} SSA data)
           </h2>
           <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 rounded-2xl overflow-hidden border border-blue-100 dark:border-blue-900">
             <div className="grid grid-cols-12 gap-3 p-4 bg-blue-100 dark:bg-blue-950 font-semibold text-sm text-blue-900 dark:text-blue-200">
@@ -215,12 +246,18 @@ export default function Top100BabyNamesPage() {
                 <div key={name.rank} className="grid grid-cols-12 gap-3 p-4 items-center hover:bg-blue-50 dark:hover:bg-blue-950/50 transition-colors">
                   <div className="col-span-2 font-bold text-blue-600 dark:text-blue-400">{name.rank}</div>
                   <div className="col-span-4">
-                    <Link
-                      href={`/baby-names/${name.slug}`}
-                      className="font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
-                    >
-                      {name.name}
-                    </Link>
+                    {name.hasPage ? (
+                      <Link
+                        href={`/baby-names/${name.slug}`}
+                        className="font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
+                      >
+                        {name.name}
+                      </Link>
+                    ) : (
+                      /* No page for this name yet. It still appears at its true
+                         rank — omitting it would leave a hole in the ranking. */
+                      <span className="font-semibold text-gray-900 dark:text-white">{name.name}</span>
+                    )}
                     <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{name.meaning}</p>
                   </div>
                   <div className="col-span-3 text-sm text-gray-600 dark:text-gray-400">{name.origin}</div>
