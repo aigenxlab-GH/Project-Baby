@@ -9,6 +9,7 @@ import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { SourceCitations } from '@/components/shared/SourceCitations';
 import { PopularityChart } from '@/components/baby-names/PopularityChart';
 import { getNameStats, primaryStats, computeTrend, describeMove, getStatsMeta } from '@/lib/name-stats';
+import { getNameStates, getStatesMeta } from '@/lib/name-states';
 
 interface Props {
   params: Promise<{ name: string }>;
@@ -84,6 +85,8 @@ export default async function NameDetailPage({ params }: Props) {
   // 5+ US babies in a single year — SSA's publication threshold).
   const stats = getNameStats(nameSlug);
   const s = stats ? primaryStats(stats) : null;
+  const stateRows = getNameStates(nameSlug);
+  const statesMeta = getStatesMeta();
   const trend = s ? computeTrend(s) : 'unknown';
   const move = s ? describeMove(s) : null;
   const statsMeta = getStatsMeta();
@@ -217,6 +220,32 @@ export default async function NameDetailPage({ params }: Props) {
                 ({stats!.f.latest.count.toLocaleString()} births) and #{stats!.m.latest.rank.toLocaleString()} for
                 boys ({stats!.m.latest.count.toLocaleString()} births).
               </p>
+            )}
+
+            {/* Where the name is most used. Raw SSA state birth counts — no
+                score, no stars, no derived index. Renders nothing when the SSA
+                suppressed the counts (any state total under 5), which is why
+                ~160 of 1,085 names show no block here rather than a guess. */}
+            {stateRows && (
+              <div className="mt-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 p-5">
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+                  Where {nameData.name} is most popular
+                </h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">
+                  Babies named {nameData.name} in {statesMeta.year}, by US state — Social Security Administration
+                </p>
+                <ol className="space-y-2">
+                  {stateRows.map((row, i) => (
+                    <li key={row.code} className="flex items-center gap-3 text-sm">
+                      <span className="w-5 text-gray-400 dark:text-gray-500 tabular-nums">{i + 1}</span>
+                      <span className="flex-1 text-gray-900 dark:text-white">{row.state}</span>
+                      <span className="tabular-nums text-gray-600 dark:text-gray-300">
+                        {row.births.toLocaleString()}
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
             )}
           </section>
         )}

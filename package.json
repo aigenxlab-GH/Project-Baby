@@ -21,7 +21,8 @@
     "deploy": "npm run build:cloudflare && wrangler deploy",
     "check:fabrication": "node scripts/check-fabrication.mjs",
     "check:links": "node scripts/check-links.mjs",
-    "name-top100": "node scripts/build-name-top100.mjs"
+    "name-top100": "node scripts/build-name-top100.mjs",
+    "name-states": "node scripts/build-name-states.mjs"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.1.4",
