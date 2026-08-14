@@ -79,9 +79,11 @@ export function ProductJsonLd({ product }: Props) {
           url: primaryLink.url,
           ...(currencyFor(primaryLink.url) ? { priceCurrency: currencyFor(primaryLink.url) as string } : {}),
           ...(primaryLink.price && { price: primaryLink.price.replace(/[^0-9.]/g, '') }),
-          availability: primaryLink.inStock === false
-            ? 'https://schema.org/OutOfStock'
-            : 'https://schema.org/InStock',
+          // NO `availability`. This site has no live stock feed, so any value
+          // here is a guess — and it defaulted to InStock, asserting on all 113
+          // products that they were in stock right now. schema.org treats the
+          // field as optional. The link goes to Amazon; Amazon shows the truth.
+          // Do not reinstate without a real stock source.
         },
       }),
     },

@@ -13,7 +13,7 @@ function mdx(p) {
   const cons = p.cons.map(x => `  - '${x.replace(/'/g,"''")}'`).join('\n');
   const specs = Object.entries(p.specs).map(([k,v]) => `  ${k}: '${v}'`).join('\n');
   const faqs = p.faqs.map(f => `  - q: '${f.q.replace(/'/g,"''")}'\n    a: >-\n      ${f.a}`).join('\n');
-  const links = p.links.map(l => `  - retailer: ${l.retailer}\n    url: '${l.url}'\n    price: '${l.price}'\n    inStock: true`).join('\n');
+  const links = p.links.map(l => `  - retailer: ${l.retailer}\n    url: '${l.url}'\n    price: '${l.price}'`).join('\n');
   return `---\ntitle: '${p.title.replace(/'/g,"''")}'
 description: >-\n  ${p.desc}
 publishedAt: '${p.date}'

@@ -67,6 +67,15 @@ const REGIONS = REGION_CONFIG as Record<string, { domain: string; tag: string }>
 
 function transformAffiliateLinks(links: SanityAffiliateLinks | null | undefined): AffiliateLink[] {
   if (!links) return [];
+  // NOTE ON `available`: this is NOT a stock check and must not be turned into
+  // one. It records whether the ASIN is listed on that storefront at all — 5
+  // links are false because the product has no listing in that country (aden +
+  // anais on ES/IT, OXO Tot on CA/DE, Munchkin on CA). Dropping the filter would
+  // send those visitors to a dead Amazon page.
+  //
+  // Live stock is deliberately not modelled anywhere: no inStock field, and no
+  // `availability` in the Offer schema. The link goes to Amazon and Amazon shows
+  // whether it can be bought.
   return Object.entries(links)
     .filter(([key, val]) => val?.asin && val?.available !== false && REGIONS[key])
     .map(([key, val]) => {
@@ -75,7 +84,6 @@ function transformAffiliateLinks(links: SanityAffiliateLinks | null | undefined)
         retailer: 'amazon' as const,
         url: `https://www.${domain}/dp/${val.asin}?tag=${tag}`,
         price: val.price || undefined,
-        inStock: true,
       };
     });
 }

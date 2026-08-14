@@ -35,7 +35,6 @@ export interface AffiliateLink {
   retailer: 'amazon' | 'walmart' | 'target' | 'buybuybaby';
   url: string;
   price?: string;
-  inStock?: boolean;
 }
 
 export interface ProductReview {
