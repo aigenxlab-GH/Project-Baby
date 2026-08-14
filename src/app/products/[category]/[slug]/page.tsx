@@ -210,10 +210,18 @@ export default async function ProductReviewPage({ params }: Props) {
                   <p className="text-xs text-gray-400">out of 10</p>
                 </div>
               </div>
-              <div>
-                <div className="flex items-center gap-1 mb-0.5">{renderStars(product.starRating)}</div>
-                <p className="text-xs text-gray-400">{product.starRating}/5 rating</p>
-              </div>
+              {/* 15 of 113 products have no starRating in Sanity. This used to
+                  render an empty grey star row above the text "/5 rating" with
+                  nothing before the slash — visibly broken, and implying a
+                  rating that does not exist. Show the block only when there is a
+                  real score, matching ProductJsonLd, which omits the Review
+                  entirely in the same case. */}
+              {typeof product.starRating === 'number' && product.starRating > 0 && (
+                <div>
+                  <div className="flex items-center gap-1 mb-0.5">{renderStars(product.starRating)}</div>
+                  <p className="text-xs text-gray-400">{product.starRating}/5 rating</p>
+                </div>
+              )}
             </div>
           </header>
 
@@ -389,7 +397,9 @@ export default async function ProductReviewPage({ params }: Props) {
                       </div>
                       <div className="p-4">
                         <p className="font-semibold text-gray-900 dark:text-white text-sm leading-snug group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors line-clamp-2">{p.productName}</p>
-                        <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">{p.starRating}★ · Our Score {p.ourScore}/10</p>
+                        <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">
+                          {p.starRating > 0 ? `${p.starRating}★ · ` : ''}Our Score {p.ourScore}/10
+                        </p>
                       </div>
                     </Link>
                   );
