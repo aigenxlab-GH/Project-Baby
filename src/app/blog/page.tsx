@@ -7,9 +7,14 @@ import { getArticleImage } from '@/lib/article-images';
 
 export const dynamic = 'force-static';
 
+// Derived, not typed. This said "214+ guides" against an actual 208 — it was
+// written when the count was higher and never moved when 7 unreachable articles
+// were removed. A hand-typed count of your own content only ever drifts one way.
+const ARTICLE_COUNT = getAllArticles('blog').length + getAllArticlesUnder('parenting').length;
+
 export const metadata: Metadata = {
   title: 'Blog — Pregnancy & Baby Articles',
-  description: 'Expert articles on pregnancy, baby care, parenting tips, and product recommendations. Browse 214+ guides for expecting and new parents.',
+  description: `Articles on pregnancy, baby care, parenting and product research. Browse ${ARTICLE_COUNT} guides for expecting and new parents.`,
   alternates: { canonical: `${siteConfig.url}/blog` },
 };
 
