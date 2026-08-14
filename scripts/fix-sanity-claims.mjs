@@ -47,6 +47,12 @@ const TEXT_RULES = [
     'When our second baby arrived, we knew exactly what we actually needed from a bedside crib: easy overnight access, good airflow, and something that would not take up permanent residence in our bedroom. We did not need a premium brand name. We needed a product that worked. The Kinderkraft Neste is that product - and at its price point, it is one of the best-value baby purchases we have tested.',
     'Second-time parents usually know exactly what they need from a bedside crib: easy overnight access, good airflow, and something that will not take up permanent residence in the bedroom. A premium brand name is not the requirement; a product that works is. The Kinderkraft Neste meets that brief, and at its price point it is among the better-value options in the category.',
   ],
+  // Missed on the first pass because this sits in `bottomLine`, which the script
+  // did not patch. "we have tested" is a hands-on claim the author page denies.
+  [
+    'make it the most practical all-day nursing bra we have tested.',
+    'make it one of the more practical all-day nursing bras in this category.',
+  ],
 ];
 
 // ── prefix rules for section headings ───────────────────────────────────────
@@ -76,7 +82,7 @@ async function query(q) {
   return (await res.json()).result ?? [];
 }
 
-const docs = await query('*[_type=="productReview"]{_id,"slug":slug.current,description,body}');
+const docs = await query('*[_type=="productReview"]{_id,"slug":slug.current,description,bottomLine,excerpt,bestFor,title,body}');
 
 const mutations = [];
 let spanChanges = 0;
@@ -106,14 +112,19 @@ for (const doc of docs) {
     if (touched) set.body = body;
   }
 
-  if (typeof doc.description === 'string') {
-    let d = doc.description;
+  // Every plain-text field, not just description. `bottomLine` was skipped on the
+  // first run and still carried "the most practical all-day nursing bra we have
+  // tested" afterwards.
+  for (const field of ['description', 'bottomLine', 'excerpt', 'bestFor', 'title']) {
+    if (typeof doc[field] !== 'string') continue;
+    let d = doc[field];
     for (const [re, to] of DESC_RULES) d = d.replace(re, to);
-    if (d !== doc.description) {
-      console.log(`  [desc] ${doc.slug}`);
-      console.log(`      -  ${doc.description.slice(0, 100)}`);
+    d = fixSpanText(d);
+    if (d !== doc[field]) {
+      console.log(`  [${field}] ${doc.slug}`);
+      console.log(`      -  ${doc[field].slice(0, 100)}`);
       console.log(`      +  ${d.slice(0, 100)}`);
-      set.description = d;
+      set[field] = d;
       descChanges++;
       touched = true;
     }
