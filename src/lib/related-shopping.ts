@@ -21,7 +21,6 @@ const PRODUCT_CATEGORY_KEYWORDS: Array<[string[], string, string]> = [
   [['baby swing'], 'baby-swings', 'Best Baby Swings'],
   [['white noise', 'sound machine'], 'white-noise', 'Best White Noise Machines'],
   [['nursing chair', 'feeding chair', 'glider', 'rocking chair'], 'nursing-chairs', 'Best Nursing Chairs & Gliders'],
-  [['bottle feeding', 'nursing pillow', 'nursing bra', 'bottle sterilizer', 'breastfeeding vs formula'], 'nursing-feeding', 'Best Nursing & Feeding Products'],
   [['sleep sack', 'swaddle'], 'sleep-sacks', 'Best Sleep Sacks & Swaddles'],
   [['diaper bag', 'nappy bag'], 'diaper-bags', 'Best Diaper Bags'],
   [['diaper pail', 'nappy bin', 'nappy pail'], 'diaper-pails', 'Best Diaper Pails'],
@@ -38,7 +37,6 @@ const PRODUCT_CATEGORY_KEYWORDS: Array<[string[], string, string]> = [
   [['potty training', 'potty seat'], 'potty-training', 'Best Potty Training Seats & Chairs'],
   [['lounger'], 'baby-loungers', 'Best Baby Loungers'],
   [['humidifier'], 'humidifiers', 'Best Humidifiers for Baby Rooms'],
-  [['high chair'], 'nursing-feeding', 'Best Nursing & Feeding Products'],
   [['monitor'], 'baby-essentials', 'Baby Essentials'],
   [['gear guide', 'gear guide', "gear:"], 'baby-essentials', 'Baby Essentials'],
 ];

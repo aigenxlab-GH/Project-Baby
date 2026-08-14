@@ -142,7 +142,7 @@ export default function EditorialStandardsPage() {
             <li className="flex items-start gap-3">
               <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
               <div>
-                <strong className="text-gray-900">Independent Research:</strong> We research multiple sources including customer reviews, expert opinions, and safety data.
+                <strong className="text-gray-900">Independent Research:</strong> We research multiple sources including customer reviews, published professional assessments, and safety data.
               </div>
             </li>
             <li className="flex items-start gap-3">

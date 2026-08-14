@@ -28,7 +28,7 @@ export default function ParentingPage() {
       <div className="text-center mb-12">
         <h1 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 mb-4">Parenting Tips & Guides</h1>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          Expert-backed advice to help you navigate the joys and challenges of new parenthood.
+          Researched, source-cited guidance to help you navigate the joys and challenges of new parenthood.
         </p>
       </div>
       <div className="grid sm:grid-cols-2 gap-6">

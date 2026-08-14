@@ -165,7 +165,7 @@ function getTitleOptimizationRules(category, filename) {
   // Default rules if no match
   return {
     template: (title) => `${title}: Complete Guide for Parents (2026)`,
-    description: (title) => `Learn about ${title.toLowerCase()}. Includes expert tips, medical information, and answers to common parent questions.`,
+    description: (title) => `Learn about ${title.toLowerCase()}. Includes practical tips, medical information, and answers to common parent questions.`,
   };
 }
 

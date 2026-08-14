@@ -53,7 +53,7 @@ export default function BlogPage() {
       <div className="mb-8">
         <h1 className="font-serif text-4xl font-bold text-gray-900 mb-3">Blog</h1>
         <p className="text-gray-500 text-lg">
-          Expert articles on pregnancy, baby care, and parenting. {articles.length} guides and counting.
+          In-depth articles on pregnancy, baby care, and parenting. {articles.length} guides and counting.
         </p>
       </div>
 

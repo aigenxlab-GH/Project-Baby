@@ -29,7 +29,7 @@ function getExistingArticles() {
 // SEO title optimization rules (per category)
 const SEO_TEMPLATES = {
   toddler: (title) => `${title}: Developmental Guide & Tips for Parents (2026)`,
-  parenting: (title) => `${title}: How-To Guide, Tips & Expert Advice (2026)`,
+  parenting: (title) => `${title}: How-To Guide, Tips & Practical Advice (2026)`,
   product: (title) => `${title} 2026: Comparison, Features & Buying Guide`,
   health: (title) => `${title}: Medical Facts, Safety & When to Call Doctor`,
   lifestyle: (title) => `${title}: Complete Guide for Pregnant & New Moms`,
@@ -38,11 +38,11 @@ const SEO_TEMPLATES = {
 };
 
 const SEO_DESCRIPTIONS = {
-  toddler: (title) => `Complete guide to ${title.toLowerCase()} with milestones and development tips. Month-by-month expectations and expert advice for parents.`,
+  toddler: (title) => `Complete guide to ${title.toLowerCase()} with milestones and development tips. Month-by-month expectations and practical advice for parents.`,
   parenting: (title) => `Learn ${title.toLowerCase()}. Practical strategies, tips from pediatricians, and answers to common parent questions.`,
   product: (title) => `Compare ${title.toLowerCase()} options. See features, safety ratings, prices, and expert recommendations.`,
   health: (title) => `Medical information on ${title.toLowerCase()}. Based on NHS and WHO guidelines. Prevention tips and when to seek help.`,
-  lifestyle: (title) => `Guide to ${title.toLowerCase()} during pregnancy and after birth. Safety tips, what to expect, and expert advice.`,
+  lifestyle: (title) => `Guide to ${title.toLowerCase()} during pregnancy and after birth. Safety tips, what to expect, and practical advice.`,
   nutrition: (title) => `Guidelines for ${title.toLowerCase()}. Nutritional information, safety tips, and recommendations for your family.`,
   behavior: (title) => `Understand ${title.toLowerCase()} in children. What's normal, strategies for parents, and when to seek help.`,
 };

@@ -33,7 +33,7 @@ export default function WeekByWeekPage() {
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
           Detailed guides for all 40 weeks of pregnancy — baby development, symptoms,
-          what to expect, and expert tips.
+          what to expect, and practical tips.
         </p>
       </div>
 

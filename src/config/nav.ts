@@ -36,7 +36,7 @@ export const mainNav = [
       { title: 'White Noise', href: '/products/white-noise' },
       { title: 'Diaper Bags', href: '/products/diaper-bags' },
       { title: 'Baby Bouncers', href: '/products/baby-bouncers' },
-      { title: 'View All 28 Categories →', href: '/products', isViewAll: true },
+      { title: 'View All Categories →', href: '/products', isViewAll: true },
     ],
   },
   {

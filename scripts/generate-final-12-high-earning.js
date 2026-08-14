@@ -173,7 +173,7 @@ Requirements:
 - Use markdown with H2 and H3 headings
 - Include detailed product comparisons if relevant
 - Compare prices, features, safety, and value
-- Reference real customer reviews and expert opinions
+- Reference real customer reviews and published professional assessments
 - Practical, parent-friendly language
 - Include 4-5 actionable buying tips
 - Add FAQ section with 4-5 Q&A pairs
@@ -200,7 +200,7 @@ function createMDXFile(topicData, content) {
   // SEO title optimization for product/buying guide articles
   const seoTitle = title.includes('vs') || title.includes('comparison')
     ? `${title}: Complete Comparison & Buying Guide 2026`
-    : `${title} 2026: Expert Review, Comparison & Buying Guide`;
+    : `${title} 2026: Review, Comparison & Buying Guide`;
 
   const seoDescription = title.includes('vs') || title.includes('comparison')
     ? `Compare ${title.toLowerCase()}. See pros, cons, prices, safety ratings, and our expert recommendation for your family.`

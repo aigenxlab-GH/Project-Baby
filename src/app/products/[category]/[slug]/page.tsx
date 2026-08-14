@@ -318,7 +318,7 @@ export default async function ProductReviewPage({ params }: Props) {
           {/* Affiliate & Trust info */}
           <div className="bg-gray-50 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-700 rounded-xl p-4 mb-8">
             <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
-              <strong className="text-gray-700 dark:text-gray-200">Affiliate disclosure:</strong> PregnancySprout may earn a commission from purchases made through links on this page. This does not affect our recommendation — we only suggest products we genuinely believe offer good value. <Link href="/affiliate-disclosure" className="text-brand-600 hover:underline">Learn more about how we test products.</Link>
+              <strong className="text-gray-700 dark:text-gray-200">Affiliate disclosure:</strong> PregnancySprout may earn a commission from purchases made through links on this page. This does not affect our recommendation — we only suggest products we genuinely believe offer good value. <Link href="/affiliate-disclosure" className="text-brand-600 hover:underline">Learn more about how we research products.</Link>
             </p>
           </div>
 

@@ -129,7 +129,7 @@ const HIGH_EARNING_TOPICS = [
 // SEO Optimization Templates
 const SEO_TEMPLATES = {
   toddler: (title) => `${title}: Developmental Guide & Tips for Parents (2026)`,
-  parenting: (title) => `${title}: How-To Guide, Tips & Expert Advice (2026)`,
+  parenting: (title) => `${title}: How-To Guide, Tips & Practical Advice (2026)`,
   product: (title) => title.includes('vs') ? `${title}: Complete Comparison & Buying Guide 2026` : `${title} 2026: Expert Review, Comparison & Buying Guide`,
   health: (title) => `${title}: Medical Facts, Safety & When to Call Doctor`,
   lifestyle: (title) => `${title}: Complete Guide for Pregnant & New Moms`,
@@ -141,7 +141,7 @@ const SEO_DESCRIPTIONS = {
   parenting: (title) => `Learn ${title.toLowerCase()}. Practical strategies and answers to common parent questions.`,
   product: (title) => title.includes('vs') ? `Compare ${title.toLowerCase()}. See pros, cons, prices, and expert recommendations.` : `Expert guide to ${title.toLowerCase()}. See top products, features, prices, and recommendations.`,
   health: (title) => `Medical information on ${title.toLowerCase()}. Based on NHS guidelines. Prevention tips and when to seek help.`,
-  lifestyle: (title) => `Guide to ${title.toLowerCase()}. Safety tips, what to expect, and expert advice.`,
+  lifestyle: (title) => `Guide to ${title.toLowerCase()}. Safety tips, what to expect, and practical advice.`,
   behavior: (title) => `Understand ${title.toLowerCase()}. What's normal, strategies for parents, and when to seek help.`,
 };
 

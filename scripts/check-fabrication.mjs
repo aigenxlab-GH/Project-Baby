@@ -10,7 +10,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SKIP_DIRS = new Set(['node_modules', '.next', '.git', '_archive', '.open-next', 'dist']);
 
 const CHECKS = [
-  ['fabricated testing', /\b(we tested|i tested|our testing|in our tests|we put (it|this|these) through|expert tested|parent approved|hands-on tested|thoroughly reviewed)\b/i],
+  ['fabricated testing', /\b(we|i|our team)\s+(have\s+|had\s+|personally\s+)?(tested|trialled|trialed|road-tested|put .{0,20} through)\b|\bafter (weeks|months|days) of testing\b|\bin our tests\b/i],
   ['invented parent personas', /Real Parent Story|says [A-Z][a-z]+,? (a |an )?(mother|father|mum|mom|dad|parent) of/],
   ['invented expert attributions', /(explains|says|notes|according to)\s+(Dr\.?\s+)?[A-Z][a-z]+ [A-Z][a-z]+,?\s+(a |an )?(paediatric|pediatric|certified|registered|midwife|physiotherapist|sleep (consultant|researcher|educator|specialist)|lactation|nutritionist|dietitian)/],
   ['fake expert titles', /\b(Dr\.?\s+)?(Rachel Foster|Anna Bergstrom|Sarah Mitchell|Emma Richards|Emma Clarke|Lisa Thompson|Michael Thompson|Sophie Bennett)\b/],
@@ -18,7 +18,7 @@ const CHECKS = [
   // Only declarative site-voice narrative counts. Reader-voice FAQ questions
   // ("How do I stop my baby scratching?") are legitimate and pervasive, so
   // questions are excluded in isAllowed() below.
-  ['first-person family narrative', /\bmy (wife|husband|sister|grandmother|mother-in-law)\b|\bmy (baby|son|daughter)\b(?=[^?]*$)/i],
+  ['first-person family narrative', /\bmy (wife|husband|sister|grandmother|mother-in-law)\b|\bmy (baby|son|daughter)\b(?=[^?]*$)|\bour (midwife|health visitor|paediatrician|pediatrician|second baby|first baby|eldest|youngest)\b|\bwhen our (baby|son|daughter|first|second|child)\b/i],
   ['scene-setting fabrication', /\bit was \d{1,2}:\d{2}\s?(am|pm)\b/i],
   ['medication doses', /\b\d+(\.\d+)?\s?(mg|mcg|IU|micrograms?)\b/],
   ['dosing instructions', /\b(paracetamol|ibuprofen|calpol|nurofen|aspirin)[^.]{0,110}(times a day|every \d+ ?hours?|maximum of)/i],
@@ -35,6 +35,18 @@ const CHECKS = [
   // claim made to Google rather than to the reader. Match the entity name itself,
   // wherever it appears.
   ['editorial-team entity', /\bEditorial Team\b/],
+  // Added 2026-08-14. 'fabricated testing' looks for first-person testing
+  // ("I tested", "we tested") and so missed two live claims phrased around it:
+  // "Learn more about how we test products" on all 113 product pages, and "tested
+  // and rated by parents" on the products index -- both flatly contradicted by the
+  // author bio, which says hands-on testing is not claimed.
+  // `tested and rated` needs an actor: a bed guard "tested and rated for use with your mattress" is
+  // the manufacturer testing to a standard, which is a legitimate product fact.
+  ['implied testing', /\bhow we test\b|\btested and rated by (parents|us|our|the team)\b|\bour testing (process|method)\b/i],
+  // "Expert" is a credential claim. This site is researched curation by a named
+  // non-clinician, so calling its own output expert is the same class of unsupported
+  // claim as the "certified midwives" line removed earlier.
+  ['self-applied expert claims', /\bexpert (articles?|guidance|tips?|content|advice|reviews?|views?|perspectives?|opinions?|analysis|takes?|verdicts?)\b|\bour experts\b|\bexpert-(written|reviewed|backed)\b/i],
   // A review claim is only honest with a real named reviewer, and there is none.
   // Deliberately NOT a bare /reviewedBy/: AuthorBio takes a `reviewedBy` prop
   // that renders "Researched against NHS, WHO and NICE guidance" — a true
@@ -98,6 +110,9 @@ function isAllowed(line, rel = '') {
   if (QUESTIONY.some((r) => r.test(line))) return true;
   if (ATTRIBUTED_REVIEW.some((r) => r.test(line))) return true;
   if (insideQuote(line, /\bmy (wife|husband|sister|grandmother|mother-in-law|baby|son|daughter)\b/i)) return true;
+  // Same exemption for the widened first-person pattern: quoted = customer
+  // speaking, unquoted = site claiming. See feedback_no_fabricated_content.
+  if (insideQuote(line, /\bour (midwife|health visitor|second baby|first baby)\b|\bwhen our (baby|son|daughter|first|second|child)\b/i)) return true;
   // The named author's real, verifiable bio is the point, not a violation.
   if (/config\/authors\.ts$|app\/about\/page\.tsx$/.test(rel)) return true;
   // Caffeine article: dietary limits attributed to NHS/WHO/ACOG, not medication.
@@ -149,12 +164,25 @@ for (const sub of ['src', 'content', 'public', 'scripts']) {
 }
 
 // ── live Sanity ─────────────────────────────────────────────────────────────
-const q = '*[_type=="productReview"]{"slug":slug.current,author,"body":pt::text(body),"bottom":bottomLine,pros,cons,metaDescription,excerpt}';
+// Every text-bearing field, not a hand-picked subset. The old query asked for
+// `metaDescription`, which does not exist on this document type -- the real field
+// is `description` -- so product descriptions were never scanned at all, and body
+// text was only checked as a flat blob. That is how 18 claims sat live and
+// undetected: 13 "Expert View:" section headings, 3 invented first-person
+// narratives ("When our midwife suggested..."), and 2 "Expert review" descriptions.
+// If a field is added to the schema, add it here.
+const q = '*[_type=="productReview"]{"slug":slug.current,author,title,productName,description,excerpt,bestFor,award,"body":pt::text(body),"bottom":bottomLine,pros,cons,"faqtext":faqs[].q + faqs[].a,"specs":specsTable[].value}';
 const res = await fetch(`https://mnwolxvz.api.sanity.io/v2021-06-07/data/query/production?query=${encodeURIComponent(q)}`);
 const products = (await res.json()).result ?? [];
 for (const p of products) {
-  const text = [p.body, p.bottom, (p.pros || []).join(' '), (p.cons || []).join(' '), p.metaDescription, p.excerpt, p.author]
-    .filter(Boolean).join('\n');
+  // Mirrors the projection above. `metaDescription` was listed here and is not a
+  // real field, so it silently contributed nothing.
+  const text = [
+    p.body, p.bottom, p.description, p.excerpt, p.title, p.productName, p.bestFor,
+    p.award, p.author,
+    (p.pros || []).join(' '), (p.cons || []).join(' '),
+    (p.faqtext || []).join(' '), (p.specs || []).join(' '),
+  ].filter(Boolean).join('\n');
   for (const line of text.split('\n')) {
     if (isAllowed(line)) continue;
     for (const [label, re] of CHECKS) {

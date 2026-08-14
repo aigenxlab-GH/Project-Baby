@@ -81,7 +81,7 @@ const TITLE_PATTERNS = {
       return `${title}: How-To Guide, Tips & Answers to Common Questions`;
     },
     description: (title) => {
-      return `Complete guide to ${title.toLowerCase()}. Best practices, common challenges, solutions, and expert tips.`;
+      return `Complete guide to ${title.toLowerCase()}. Best practices, common challenges, solutions, and practical tips.`;
     }
   },
 
@@ -160,7 +160,7 @@ function getTitleOptimizationRules(category, filename) {
 
   return {
     template: (title) => `${title}: Complete Guide for Parents (2026)`,
-    description: (title) => `Learn about ${title.toLowerCase()}. Expert tips, medical info, and parent Q&A.`,
+    description: (title) => `Learn about ${title.toLowerCase()}. Practical tips, medical info, and parent Q&A.`,
   };
 }
 

@@ -9,7 +9,7 @@ export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   title: 'Best Baby Products — Honest Reviews & Buying Guides',
-  description: 'Expert reviews of the best baby products — strollers, car seats, cribs, monitors, breast pumps, and more. Find the right products for every budget.',
+  description: 'Researched reviews of baby products — strollers, car seats, cribs, monitors, breast pumps, and more. Find the right products for every budget.',
   alternates: { canonical: `${siteConfig.url}/products` },
 };
 
@@ -28,7 +28,6 @@ const categoryGroups = [
     categories: [
       { slug: 'breast-pumps', label: 'Breast Pumps', desc: 'Electric, manual & wearable' },
       { slug: 'nursing-chairs', label: 'Nursing Chairs', desc: 'Gliders & recliners' },
-      { slug: 'nursing-feeding', label: 'Nursing & Feeding', desc: 'Accessories & supplies' },
       { slug: 'sippy-cups', label: 'Sippy Cups', desc: 'Toddler drinking cups' },
       { slug: 'baby-food-makers', label: 'Food Makers', desc: 'Blenders & steamers' },
     ],
@@ -90,8 +89,9 @@ export default function ProductsPage() {
           Baby Product Reviews
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          Honest, in-depth reviews of the best baby products — tested and rated by parents,
-          for every budget. All 28 categories organized by type.
+            Honest, in-depth reviews of baby products — researched against manufacturer
+            specifications, safety certifications and verified customer reviews, for every
+            budget. Organised by type.
         </p>
         <p className="mt-3 text-xs text-gray-400 dark:text-gray-500">
           Some links on this page are affiliate links. <Link href="/affiliate-disclosure" className="underline hover:text-brand-600">Learn more</Link>.

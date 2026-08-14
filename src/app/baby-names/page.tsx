@@ -4,12 +4,17 @@ import { siteConfig } from '@/config/site';
 import { BabyNamesBrowser } from './BabyNamesBrowser';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
+import { getAllNames } from '@/lib/baby-names';
 
 export const dynamic = 'force-static';
 
+// Derived so the advertised total cannot drift from the data.
+const NAME_COUNT = getAllNames().length;
+const NAME_COUNT_ROUNDED = Math.floor(NAME_COUNT / 100) * 100;
+
 export const metadata: Metadata = {
-  title: 'Baby Names — Browse 1,100+ Names with Meanings & Origins',
-  description: 'Search over 1,100 baby names by gender, origin, meaning, and starting letter. Find the perfect name for your baby girl, boy, or gender-neutral names.',
+  title: `Baby Names — Browse ${NAME_COUNT_ROUNDED.toLocaleString()}+ Names with Meanings & Origins`,
+  description: `Search over ${NAME_COUNT_ROUNDED.toLocaleString()} baby names by gender, origin, meaning, and starting letter. Find the perfect name for your baby girl, boy, or gender-neutral names.`,
   alternates: { canonical: `${siteConfig.url}/baby-names` },
 };
 
@@ -23,7 +28,7 @@ export default function BabyNamesPage() {
           Baby Names
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          Browse 1,100+ baby names with meanings, origins, and popularity trends.
+          Browse {NAME_COUNT_ROUNDED.toLocaleString()}+ baby names with meanings, origins, and popularity trends.
           Filter by gender, starting letter, or origin to find the perfect name.
         </p>
       </div>

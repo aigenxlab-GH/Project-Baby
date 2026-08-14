@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import Image from 'next/image';
 import { getAllWeeks } from '@/lib/pregnancy-data';
-import { getAllArticles } from '@/lib/mdx';
+import { getAllArticles, getAllArticlesUnder } from '@/lib/mdx';
 import { getArticleImage } from '@/lib/article-images';
 import { InContentAd } from '@/components/ads/InContentAd';
 import { WebSiteJsonLd } from '@/components/seo/WebSiteJsonLd';
@@ -12,6 +12,11 @@ import {
   Baby, Calculator, Timer, List, Search,
   ChevronRight, Heart, BookOpen
 } from 'lucide-react';
+
+// Derived, never typed. The homepage previously advertised "180+ expert
+// articles" against an actual 208 — stale low, and "expert" is a credential
+// claim this site deliberately does not make (see src/config/authors.ts).
+const ARTICLE_COUNT = getAllArticles('blog').length + getAllArticlesUnder('parenting').length;
 
 export const dynamic = 'force-static';
 
@@ -74,14 +79,14 @@ const categories = [
   },
   {
     title: 'Parenting Tips',
-    desc: 'Expert advice for new parents',
+    desc: 'Practical advice for new parents',
     href: '/parenting',
     emoji: '💡',
     color: 'from-teal-500 to-emerald-500',
     bg: 'bg-teal-50',
     border: 'hover:border-teal-300',
     img: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&q=70&auto=format&fit=crop&crop=faces,center&fm=webp',
-    imgAlt: 'Parent holding their newborn — expert parenting guidance',
+    imgAlt: 'Parent holding their newborn',
     imgPriority: false,
   },
 ];
@@ -170,7 +175,7 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-3 text-xs text-gray-600 dark:text-gray-300">
                 <span className="flex items-center gap-1 py-3"><span aria-hidden="true">✅</span> Free forever</span>
                 <Link href="/blog" className="flex items-center gap-1 py-3 underline underline-offset-2 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
-                  <span aria-hidden="true">✅</span> 180+ expert articles
+                    <span aria-hidden="true">✅</span> {ARTICLE_COUNT} in-depth articles
                 </Link>
                 <Link href="/baby-names" className="flex items-center gap-1 py-3 underline underline-offset-2 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
                   <span aria-hidden="true">✅</span> 1,100+ baby names
