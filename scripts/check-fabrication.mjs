@@ -1,6 +1,8 @@
 /**
  * Recursive fabrication validator. Re-runnable; exits non-zero if anything is
  * found so it can be looped until clean. Checks repo sources AND live Sanity.
+ *
+ * Full criteria, rationale and known blind spots: docs/CONTENT-STANDARDS.md
  */
 import fs from 'node:fs';
 import path from 'node:path';

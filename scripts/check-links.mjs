@@ -14,6 +14,8 @@
  *       npm run check:links -- --live  (also sweeps the deployed sitemap)
  *
  * Exits non-zero on any finding so it can gate a build.
+ *
+ * Full criteria, rationale and known blind spots: docs/CONTENT-STANDARDS.md
  */
 
 import fs from 'node:fs';
