@@ -137,8 +137,10 @@ for (const sub of ['src', 'content', 'public', 'scripts']) {
   const dir = path.join(ROOT, sub);
   if (!fs.existsSync(dir)) continue;
   for (const file of walk(dir)) {
-    // Skip this validator: its own pattern definitions contain the strings it hunts for.
-    if (file.endsWith('check-fabrication.mjs')) continue;
+    // Skip the two scripts that must quote the strings they hunt for: this
+    // validator's own patterns, and the Sanity remediation script's before/after
+    // rules. Both are tooling, neither is content.
+    if (file.endsWith('check-fabrication.mjs') || file.endsWith('fix-sanity-claims.mjs')) continue;
     const rel = path.relative(ROOT, file).replace(/\\/g, '/');
     let text;
     try { text = fs.readFileSync(file, 'utf8'); } catch { continue; }
