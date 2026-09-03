@@ -1,0 +1,17 @@
+# Cloudflare's static-asset layer (the [assets] binding in wrangler.toml) serves
+# files under .open-next/assets/ DIRECTLY — it never invokes the Next.js request
+# pipeline for them, so next.config.mjs's headers() function (which already sets
+# the correct Cache-Control for /_next/static/*) never actually applies to them.
+# That silently left every hashed, content-addressed JS/CSS chunk being served
+# with Cloudflare's generic default of `max-age=0, must-revalidate` -- forcing
+# every browser (and Cloudflare's own edge cache) to re-validate files that can,
+# by construction, never change. One page load pulls ~18 of these chunks, so this
+# multiplied real traffic into far more Workers/Pages requests than the visit
+# count justified. This file is Cloudflare's own mechanism (same convention as
+# Pages) for setting headers on statically-served assets, read directly from the
+# deployed assets directory.
+#
+# Immutable: 1 year, matches the value already declared (and now actually
+# enforced) in next.config.mjs.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
