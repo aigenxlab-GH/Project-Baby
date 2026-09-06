@@ -73,6 +73,14 @@ const nextConfig = {
       { source: '/blog/newborn-care-tips', destination: '/blog/newborn-care-tips-every-new-parent-needs-to-know', permanent: true },
       { source: '/blog/breastfeeding-vs-formula-feeding', destination: '/blog/breastfeeding-vs-formula-an-honest-comparison', permanent: true },
       { source: '/blog/gestational-diabetes-pregnancy', destination: '/blog/gestational-diabetes-symptoms-diet-and-management-guide', permanent: true },
+      // Keyword-cannibalization consolidation (GSC "Crawled - currently not indexed", Sep 2026):
+      // same topic, independently written, low textual overlap (Jaccard 2.9-4.0%) but Google
+      // was only ever going to pick one to index — retiring the shorter/thinner of each pair.
+      { source: '/blog/preeclampsia-signs-risks-and-what-to-do', destination: '/blog/preeclampsia-warning-signs', permanent: true },
+      { source: '/blog/signs-of-labor-starting-what-to-watch-for', destination: '/blog/signs-of-labor', permanent: true },
+      { source: '/blog/how-to-write-a-birth-plan-templates-and-tips', destination: '/blog/birth-plan-template', permanent: true },
+      { source: '/blog/second-trimester-complete-guide-weeks-14-to-27', destination: '/blog/second-trimester-guide', permanent: true },
+      { source: '/blog/postpartum-recovery-guide', destination: '/blog/postpartum-recovery-timeline', permanent: true },
       // Wrong-prefix URLs: /blog/parenting/... → /parenting/... (Google crawled old internal links)
       { source: '/blog/parenting/:path*', destination: '/parenting/:path*', permanent: true },
       // Wrong-prefix URLs: /blog/blog/... → /blog/...
