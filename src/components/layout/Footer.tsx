@@ -22,7 +22,7 @@ const socialLinks = [
     href: siteConfig.social.linkedin,
     icon: (
       <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden="true">
-        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 .774 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .792 0 1.771v20.451C0 23.2.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
       </svg>
     ),
   },
@@ -43,6 +43,7 @@ export function Footer() {
           </div>
           <Link
             href="/tools/due-date-calculator"
+            prefetch={false}
             className="inline-flex items-center gap-2 bg-white text-brand-700 font-semibold px-5 py-3 rounded-full text-sm hover:bg-brand-50 transition-colors shadow-md flex-shrink-0"
           >
             Calculate Due Date <ArrowRight className="h-4 w-4" />
@@ -112,7 +113,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {footerNav.topics.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
+                  <Link href={link.href} prefetch={false} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
                     {link.title}
                   </Link>
                 </li>
@@ -126,7 +127,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {footerNav.tools.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
+                  <Link href={link.href} prefetch={false} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
                     {link.title}
                   </Link>
                 </li>
@@ -140,7 +141,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {footerNav.products.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
+                  <Link href={link.href} prefetch={false} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
                     {link.title}
                   </Link>
                 </li>
@@ -154,23 +155,23 @@ export function Footer() {
             <ul className="space-y-2.5">
               {footerNav.company.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
+                  <Link href={link.href} prefetch={false} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
                     {link.title}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link href="/editorial-standards" className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
+                <Link href="/editorial-standards" prefetch={false} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
                   Editorial Standards
                 </Link>
               </li>
               <li>
-                <Link href="/corrections" className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
+                <Link href="/corrections" prefetch={false} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
                   Corrections
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
+                <Link href="/terms" prefetch={false} className="text-sm hover:text-white hover:translate-x-0.5 transition-[color,transform] inline-block py-2">
                   Terms &amp; Conditions
                 </Link>
               </li>
@@ -185,15 +186,15 @@ export function Footer() {
             Made with <Heart className="h-3 w-3 text-brand-500 fill-brand-500" aria-hidden="true" /> for expecting parents
           </p>
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <Link href="/affiliate-disclosure" className="text-gray-400 hover:text-white transition-colors py-2">Affiliate Disclosure</Link>
+            <Link href="/affiliate-disclosure" prefetch={false} className="text-gray-400 hover:text-white transition-colors py-2">Affiliate Disclosure</Link>
             <span className="text-gray-500" aria-hidden="true">·</span>
-            <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors py-2">Privacy</Link>
+            <Link href="/privacy-policy" prefetch={false} className="text-gray-400 hover:text-white transition-colors py-2">Privacy</Link>
             <span className="text-gray-500" aria-hidden="true">·</span>
-            <Link href="/cookie-policy" className="text-gray-400 hover:text-white transition-colors py-2">Cookies</Link>
+            <Link href="/cookie-policy" prefetch={false} className="text-gray-400 hover:text-white transition-colors py-2">Cookies</Link>
             <span className="text-gray-500" aria-hidden="true">·</span>
-            <Link href="/terms" className="text-gray-400 hover:text-white transition-colors py-2">Terms</Link>
+            <Link href="/terms" prefetch={false} className="text-gray-400 hover:text-white transition-colors py-2">Terms</Link>
             <span className="text-gray-500" aria-hidden="true">·</span>
-            <Link href="/cookie-policy#ccpa" className="text-gray-400 hover:text-white transition-colors py-2">Do Not Sell My Info</Link>
+            <Link href="/cookie-policy#ccpa" prefetch={false} className="text-gray-400 hover:text-white transition-colors py-2">Do Not Sell My Info</Link>
           </div>
         </div>
       </div>

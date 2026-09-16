@@ -118,6 +118,7 @@ export function Header() {
                             {isViewAll && <div className="border-t border-gray-200 dark:border-gray-700 my-1" />}
                             <Link
                               href={sub.href}
+                              prefetch={false}
                               role="menuitem"
                               onClick={() => setOpenDropdown(null)}
                               className={`flex items-center px-4 py-2.5 text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-600 ${
