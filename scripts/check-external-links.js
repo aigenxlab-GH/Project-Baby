@@ -174,10 +174,17 @@ async function main() {
 
   if (dead.length > 0) {
     console.log('\nDEAD LINKS:');
+    const affected = new Set();
     for (const d of dead) {
+      d.files.forEach(f => affected.add(f));
       console.log(`  ✗ [${d.status}] ${d.url}`);
-      d.files.slice(0, 2).forEach(f => console.log(`    ← ${f}`));
+      // List every referencing file. This used to slice to 2 with no "+N more",
+      // so the summary under-reported the blast radius: 20 files shown against
+      // 28 real. Counts state their unit and scope - see docs/CONTENT-STANDARDS.md.
+      console.log(`    referenced by ${d.files.length} file(s) in content/:`);
+      d.files.forEach(f => console.log(`    ← ${f}`));
     }
+    console.log(`\n${dead.length} dead URL(s) across ${affected.size} file(s) in content/.`);
     process.exit(1);
   }
 

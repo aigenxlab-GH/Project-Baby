@@ -1,0 +1,344 @@
+{
+  "totalUnique": 92,
+  "checked": 92,
+  "ok": 76,
+  "dead": [
+    {
+      "url": "https://images.unsplash.com/photo-1590650046871-92965baa6be8?w=1200&q=85&auto=format&fit=crop",
+      "status": 404,
+      "result": "DEAD",
+      "files": [
+        "content/blog/baby-eczema-treatment-prevention.mdx:4",
+        "content/blog/newborn-care-hub.mdx:4",
+        "content/parenting/health/teething-symptoms-remedies.mdx:9"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1631563019676-dade0dbf9b20?w=1200&q=85&auto=format&fit=crop",
+      "status": 404,
+      "result": "DEAD",
+      "files": [
+        "content/blog/baby-milestones-complete-first-year-development-guide.mdx:6",
+        "content/parenting/postpartum/postpartum-recovery-first-6-weeks.mdx:9"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1590492239080-e50b66d15a3d?w=1200&q=85&auto=format&fit=crop",
+      "status": 404,
+      "result": "DEAD",
+      "files": [
+        "content/blog/best-baby-carriers-types.mdx:4"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1528557375823-3f77a7b6c8bc?w=1200&q=85&auto=format&fit=crop",
+      "status": 404,
+      "result": "DEAD",
+      "files": [
+        "content/blog/best-baby-sleep-solutions-bunpers.mdx:4"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=1200&q=85&auto=format&fit=crop",
+      "status": 404,
+      "result": "DEAD",
+      "files": [
+        "content/blog/best-bottle-sterilizers.mdx:4"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1548531174879-f38a17e5b0a3?w=1200&q=85&auto=format&fit=crop",
+      "status": 404,
+      "result": "DEAD",
+      "files": [
+        "content/blog/best-convertible-car-seats-newborn-toddler.mdx:4"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1554819177-a87aec3fc66d?w=1200&q=85&auto=format&fit=crop",
+      "status": 404,
+      "result": "DEAD",
+      "files": [
+        "content/blog/best-humidifiers-babies.mdx:4"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1567967412737-0b22be20d25e?w=1200&q=85&auto=format&fit=crop",
+      "status": 404,
+      "result": "DEAD",
+      "files": [
+        "content/blog/best-travel-systems-stroller-car-seat.mdx:4"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1574158622682-e029699b87b7?w=1200&q=85&auto=format&fit=crop",
+      "status": 404,
+      "result": "DEAD",
+      "files": [
+        "content/blog/best-white-noise-machines.mdx:4"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1513094775335-5ae4cf4a7b80?w=1200&q=85&auto=format&fit=crop",
+      "status": 404,
+      "result": "DEAD",
+      "files": [
+        "content/blog/budget-friendly-baby-products-saving.mdx:5",
+        "content/blog/episiotomy-explanation-recovery.mdx:5",
+        "content/blog/parenting-styles-comparison-effects.mdx:4",
+        "content/blog/postpartum-recovery-timeline.mdx:4",
+        "content/blog/ultimate-pregnancy-guide-week-by-week.mdx:4"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1578004608831-4c28e75c81c3?w=1200&q=85&auto=format&fit=crop",
+      "status": 404,
+      "result": "DEAD",
+      "files": [
+        "content/blog/buying-guides-hub.mdx:4"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1514706986008-37c7f3e48f05?w=1200&q=85&auto=format&fit=crop",
+      "status": 404,
+      "result": "DEAD",
+      "files": [
+        "content/blog/c-section-vs-vaginal-delivery.mdx:4",
+        "content/blog/exercise-after-childbirth-timeline.mdx:4",
+        "content/blog/parenting-temperament-types-children.mdx:4",
+        "content/blog/when-call-pediatrician-urgent-care.mdx:4"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1611946443064-be5ddf96b4e2?w=1200&q=85&auto=format&fit=crop",
+      "status": 404,
+      "result": "DEAD",
+      "files": [
+        "content/blog/group-b-strep-pregnancy.mdx:5",
+        "content/blog/pregnancy-brain-fog-explained.mdx:4",
+        "content/blog/pregnancy-weight-gain-guide-how-much-is-normal.mdx:6",
+        "content/blog/travelling-while-pregnant-safety-tips-by-trimester.mdx:6"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1616391182219-e080b4d1042a?w=1200&q=85&auto=format&fit=crop",
+      "status": 404,
+      "result": "DEAD",
+      "files": [
+        "content/blog/infant-formula-types-comparison.mdx:5"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1514706986008-37c7f3e48f05?w=1200&h=630&fit=crop",
+      "status": 404,
+      "result": "DEAD",
+      "files": [
+        "content/blog/postpartum-recovery-what-to-expect-after-birth.mdx:5"
+      ]
+    }
+  ],
+  "errors": [],
+  "blocked": [
+    {
+      "url": "https://cdc.gov",
+      "status": 403,
+      "result": "BLOCKED",
+      "files": [
+        "content/blog/baby-constipation-diarrhea-signs.mdx:224",
+        "content/blog/baby-cpr-first-aid-essential-skills.mdx:164",
+        "content/blog/baby-eczema-treatment-prevention.mdx:201",
+        "content/blog/baby-fever-temperature-when-dangerous.mdx:180",
+        "content/blog/baby-milestones-complete-first-year-development-guide.mdx:257",
+        "content/blog/baby-name-generator-guide.mdx:159",
+        "content/blog/baby-proofing-your-home-room-by-room-checklist.mdx:231",
+        "content/blog/baby-registry-essentials-priority-items.mdx:196",
+        "content/blog/baby-registry-guide-needs-vs-wants.mdx:156",
+        "content/blog/baby-sleep-training-methods-complete-guide-for-new-parents.mdx:260",
+        "content/blog/baby-thrush-breastfeeding-treatment.mdx:190",
+        "content/blog/best-baby-bath-tubs.mdx:179",
+        "content/blog/best-baby-bathing-systems-safety.mdx:158",
+        "content/blog/best-baby-bouncers-rockers.mdx:177",
+        "content/blog/best-baby-carriers-types.mdx:177",
+        "content/blog/best-baby-furniture-sets-convertible-cribs.mdx:165",
+        "content/blog/best-baby-gates-safety.mdx:183",
+        "content/blog/best-baby-gear-2025.mdx:230",
+        "content/blog/best-baby-high-chairs-safety.mdx:169",
+        "content/blog/best-baby-monitors-2026-comparison.mdx:199",
+        "content/blog/best-baby-nail-clippers-safety.mdx:172",
+        "content/blog/best-baby-sleep-solutions-bunpers.mdx:148",
+        "content/blog/best-baby-swings-motion-features.mdx:178",
+        "content/blog/best-baby-thermometers-accuracy.mdx:166",
+        "content/blog/best-baby-video-monitors-features.mdx:213",
+        "content/blog/best-bottle-sterilizers.mdx:233",
+        "content/blog/best-breast-pumps-comparison.mdx:134",
+        "content/blog/best-car-seats-newborns.mdx:157",
+        "content/blog/best-convertible-car-seats-newborn-toddler.mdx:168",
+        "content/blog/best-cribs-bassinets-safety.mdx:171",
+        "content/blog/best-diaper-pails-odor-control.mdx:163",
+        "content/blog/best-feeding-chairs-babies-toddlers.mdx:161",
+        "content/blog/best-humidifiers-babies.mdx:146",
+        "content/blog/best-nursing-pillows-support.mdx:170",
+        "content/blog/best-strollers-newborns-toddlers.mdx:171",
+        "content/blog/best-toddler-beds-crib-transition.mdx:179",
+        "content/blog/best-travel-systems-stroller-car-seat.mdx:184",
+        "content/blog/best-white-noise-machines.mdx:183",
+        "content/blog/birth-plan-template.mdx:186",
+        "content/blog/breastfeeding-vs-formula-an-honest-comparison.mdx:214",
+        "content/blog/budget-friendly-baby-products-saving.mdx:184",
+        "content/blog/buying-guides-hub.mdx:198",
+        "content/blog/buying-guides-product-reviews-hub.mdx:258",
+        "content/blog/c-section-vs-vaginal-delivery.mdx:205",
+        "content/blog/caffeine-pregnancy-safe-amount.mdx:198",
+        "content/blog/calculate-due-date-accuracy.mdx:165",
+        "content/blog/childcare-options-daycare-nanny-family.mdx:170",
+        "content/blog/cloth-diapers-vs-disposable-comparison.mdx:180",
+        "content/blog/co-parenting-communication-strategies.mdx:159",
+        "content/blog/common-toddler-illnesses-colds-flu.mdx:147",
+        "content/blog/communication-toddlers-language.mdx:166",
+        "content/blog/complete-hospital-bag-checklist-for-mom-and-baby.mdx:226",
+        "content/blog/complete-nursery-setup-guide-furniture.mdx:204",
+        "content/blog/complete-pregnancy-diet-guide-what-to-eat-and-avoid.mdx:251",
+        "content/blog/consistency-parenting-importance.mdx:180",
+        "content/blog/convertible-vs-modular-stroller-comparison.mdx:177",
+        "content/blog/creative-pregnancy-announcement-ideas-for-every-stage.mdx:222",
+        "content/blog/dating-relationships-after-baby.mdx:168",
+        "content/blog/diaper-rash-treatment-prevention.mdx:140",
+        "content/blog/dye-hair-pregnancy-safe.mdx:162",
+        "content/blog/ear-infections-babies-signs-treatment.mdx:205",
+        "content/blog/emotional-intelligence-children-building.mdx:131",
+        "content/blog/encouraging-toddler-independence-safely.mdx:172",
+        "content/blog/episiotomy-explanation-recovery.mdx:178",
+        "content/blog/exclusive-pumping-guide.mdx:187",
+        "content/blog/exercise-after-childbirth-timeline.mdx:176",
+        "content/blog/exercise-during-pregnancy-safe.mdx:190",
+        "content/blog/first-trimester-guide.mdx:202",
+        "content/blog/first-trimester-survival-guide.mdx:227",
+        "content/blog/flying-while-pregnant-safety.mdx:204",
+        "content/blog/food-introduction-order-allergies.mdx:192",
+        "content/blog/gestational-diabetes-symptoms-diet-and-management-guide.mdx:280",
+        "content/blog/group-b-strep-pregnancy.mdx:173",
+        "content/blog/heartburn-during-pregnancy-why-it-happens-and-how-to-get-relief.mdx:225",
+        "content/blog/how-often-bathe-newborn.mdx:135",
+        "content/blog/how-to-bathe-newborn-safely.mdx:174",
+        "content/blog/how-to-track-contractions.mdx:194",
+        "content/blog/infant-formula-types-comparison.mdx:170",
+        "content/blog/labor-positions-guide.mdx:201",
+        "content/blog/listeria-pregnancy-food-safety.mdx:163",
+        "content/blog/morning-sickness-remedies-that-actually-work.mdx:256",
+        "content/blog/mother-baby-bonding-activities.mdx:167",
+        "content/blog/natural-vs-medicated-labor.mdx:186",
+        "content/blog/newborn-baby-care-hub.mdx:249",
+        "content/blog/newborn-breathing-patterns.mdx:175",
+        "content/blog/newborn-care-hub.mdx:200",
+        "content/blog/newborn-care-tips-every-new-parent-needs-to-know.mdx:211",
+        "content/blog/newborn-essentials-checklist.mdx:214",
+        "content/blog/newborn-scratching-prevention.mdx:141",
+        "content/blog/ovulation-window-tracking.mdx:205",
+        "content/blog/pain-relief-pregnancy-safe.mdx:188",
+        "content/blog/parent-self-care-burnout-prevention.mdx:139",
+        "content/blog/parenting-styles-comparison-effects.mdx:154",
+        "content/blog/parenting-temperament-types-children.mdx:162",
+        "content/blog/pelvic-floor-exercises-during-pregnancy-complete-guide.mdx:299",
+        "content/blog/pelvic-floor-recovery-postpartum.mdx:176",
+        "content/blog/positive-parenting-techniques-confidence.mdx:142",
+        "content/blog/postpartum-bleeding-lochia.mdx:161",
+        "content/blog/postpartum-depression-vs-baby-blues.mdx:165",
+        "content/blog/postpartum-fitness-safe-exercises.mdx:169",
+        "content/blog/postpartum-hair-loss-causes-solutions.mdx:173",
+        "content/blog/postpartum-recovery-timeline.mdx:179",
+        "content/blog/postpartum-recovery-what-to-expect-after-birth.mdx:223",
+        "content/blog/potty-training-readiness-signs.mdx:169",
+        "content/blog/preeclampsia-warning-signs.mdx:171",
+        "content/blog/pregnancy-back-pain-causes-relief-and-when-to-see-a-doctor.mdx:231",
+        "content/blog/pregnancy-brain-fog-explained.mdx:165",
+        "content/blog/pregnancy-complete-hub.mdx:241",
+        "content/blog/pregnancy-cravings-safe-foods.mdx:177",
+        "content/blog/pregnancy-cravings-what-they-mean-and-how-to-handle-them.mdx:247",
+        "content/blog/pregnancy-diet-guide.mdx:293",
+        "content/blog/pregnancy-guide-hub.mdx:223",
+        "content/blog/pregnancy-insomnia-how-to-sleep-better-when-pregnant.mdx:210",
+        "content/blog/pregnancy-stretch-marks-prevention-and-treatment.mdx:227",
+        "content/blog/pregnancy-swollen-feet-and-ankles-causes-and-remedies.mdx:219",
+        "content/blog/pregnancy-symptom-tracker-guide.mdx:182",
+        "content/blog/pregnancy-symptoms-by-week.mdx:187",
+        "content/blog/pregnancy-warning-signs-you-should-never-ignore.mdx:258",
+        "content/blog/pregnancy-weight-gain-guide-how-much-is-normal.mdx:245",
+        "content/blog/pregnancy-weight-gain-guide.mdx:187",
+        "content/blog/pregnancy-yoga-benefits-poses-to-avoid-and-getting-started.mdx:227",
+        "content/blog/pregnant-while-breastfeeding.mdx:165",
+        "content/blog/prenatal-vitamins-guide.mdx:201",
+        "content/blog/prenatal-vitamins-what-to-take-when-to-start-and-why.mdx:259",
+        "content/blog/returning-work-maternity-leave-transition.mdx:137",
+        "content/blog/round-ligament-pain-in-pregnancy-what-it-is-and-how-to-cope.mdx:234",
+        "content/blog/safe-exercises-during-pregnancy.mdx:207",
+        "content/blog/screen-time-toddlers-guidelines.mdx:115",
+        "content/blog/second-trimester-guide.mdx:206",
+        "content/blog/sex-during-pregnancy-what-is-safe-and-what-changes.mdx:231",
+        "content/blog/sibling-rivalry-management-strategies.mdx:121",
+        "content/blog/signs-of-labor.mdx:250",
+        "content/blog/sustainable-baby-products-eco-friendly.mdx:135",
+        "content/blog/swing-vs-bouncer-which-better.mdx:161",
+        "content/blog/teaching-toddlers-sharing-turns.mdx:168",
+        "content/blog/teething-pain-remedies-what-works.mdx:193",
+        "content/blog/third-trimester-complete-guide-weeks-28-to-40.mdx:265",
+        "content/blog/third-trimester-guide.mdx:216",
+        "content/blog/toddler-allergies-food-environmental.mdx:209",
+        "content/blog/toddler-boundaries-discipline-strategies.mdx:194",
+        "content/blog/toddler-cognitive-development-learning.mdx:142",
+        "content/blog/toddler-development-delays-concerns.mdx:208",
+        "content/blog/toddler-emotional-development-empathy.mdx:172",
+        "content/blog/toddler-fine-motor-skills-coordination.mdx:180",
+        "content/blog/toddler-friendships-making-friends.mdx:195",
+        "content/blog/toddler-gross-motor-development.mdx:163",
+        "content/blog/toddler-independence-self-care.mdx:165",
+        "content/blog/toddler-language-development-talking.mdx:178",
+        "content/blog/toddler-memory-imagination-play.mdx:140",
+        "content/blog/toddler-milestones-12-24-months.mdx:192",
+        "content/blog/toddler-parenting-hub.mdx:229",
+        "content/blog/toddler-picky-eating-solutions.mdx:178",
+        "content/blog/toddler-separation-anxiety-handling.mdx:139",
+        "content/blog/toddler-sleep-regression-causes.mdx:176",
+        "content/blog/toddler-social-skills-peers.mdx:181",
+        "content/blog/toddler-tantrums-why-how-respond.mdx:165",
+        "content/blog/transition-to-cows-milk.mdx:191",
+        "content/blog/travel-with-baby-packing-flying-tips.mdx:188",
+        "content/blog/travelling-while-pregnant-safety-tips-by-trimester.mdx:304",
+        "content/blog/ultimate-baby-sleep-guide.mdx:336",
+        "content/blog/ultimate-pregnancy-guide-week-by-week.mdx:410",
+        "content/blog/vaccinations-pregnancy-safety.mdx:166",
+        "content/blog/when-and-how-to-start-solid-foods-complete-guide.mdx:253",
+        "content/blog/when-call-pediatrician-urgent-care.mdx:185",
+        "content/blog/when-to-go-to-hospital-labor.mdx:181",
+        "content/blog/wipe-warmer-vs-regular-wipes-comparison.mdx:164",
+        "content/blog/working-during-pregnancy-rights-tips-and-when-to-stop.mdx:267",
+        "content/blog/working-parents-work-life-balance.mdx:141",
+        "content/parenting/activities/sensory-play-ideas-0-12-months.mdx:121",
+        "content/parenting/development/baby-milestones-by-month.mdx:201",
+        "content/parenting/development/language-development-birth-to-18-months.mdx:139",
+        "content/parenting/development/reading-to-baby.mdx:165",
+        "content/parenting/feeding/breastfeeding-for-beginners-latch-positions-and-getting-started.mdx:239",
+        "content/parenting/feeding/breastfeeding-guide-beginners.mdx:185",
+        "content/parenting/feeding/formula-feeding-guide-choosing-and-preparing-formula.mdx:258",
+        "content/parenting/feeding/formula-feeding-guide.mdx:165",
+        "content/parenting/newborn/bathing-a-newborn-step-by-step.mdx:110",
+        "content/parenting/newborn/how-to-soothe-a-crying-newborn-10-proven-techniques.mdx:211",
+        "content/parenting/newborn/newborn-sleep-patterns-what-to-expect-in-the-first-month.mdx:212",
+        "content/parenting/newborn/newborn-sleep-patterns.mdx:149",
+        "content/parenting/newborn/soothe-crying-newborn.mdx:176",
+        "content/parenting/newborn/tummy-time-guide-why-it-matters-and-how-to-start.mdx:212",
+        "content/parenting/newborn/tummy-time-guide.mdx:147",
+        "content/parenting/newborn/umbilical-cord-care-keeping-it-clean-and-dry.mdx:181",
+        "content/parenting/newborn/when-to-call-the-doctor-newborn-warning-signs.mdx:224",
+        "content/parenting/sleep/baby-sleep-schedule-by-age-0-to-12-months.mdx:228",
+        "content/parenting/sleep/baby-sleep-schedule-by-age.mdx:175",
+        "content/parenting/sleep/creating-the-perfect-baby-bedtime-routine.mdx:240",
+        "content/parenting/sleep/ferber-method-explained.mdx:141",
+        "content/parenting/sleep/safe-sleep-guidelines-to-reduce-the-risk-of-sids.mdx:239",
+        "content/parenting/sleep/sleep-regressions-guide.mdx:145",
+        "content/parenting/sleep/sleep-regressions-what-they-are-and-how-to-survive-them.mdx:196",
+        "content/parenting/sleep/the-ferber-method-explained-is-cry-it-out-right-for-you.mdx:212"
+      ]
+    }
+  ],
+  "date": "2026-10-02"
+}

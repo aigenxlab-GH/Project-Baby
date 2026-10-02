@@ -61,7 +61,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'article',
       publishedTime: article.publishedAt,
       modifiedTime: article.updatedAt || article.publishedAt,
-      images: article.image?.startsWith('http') ? [{ url: article.image, width: 1200, height: 630 }] : [],
+      // Resolve through the verified registry rather than raw frontmatter.
+      // The frontmatter URLs have rotted — 15 of them now 404 across 26 blog
+      // articles — so og:image/twitter:image advertised a dead share image
+      // while the visible hero (which already calls getArticleImage) was fine.
+      // Keeping both on the same resolver means the share preview matches the
+      // image on the page.
+      images: [{ url: getArticleImage(slug, article.category), width: 1200, height: 630 }],
     },
     twitter: { card: 'summary_large_image', title: article.title, description: article.description },
   };

@@ -57,6 +57,8 @@ jobs:
             const r = require('./external-check-results.json');
             let body = '## Dead External Links — ' + r.date + '\n\n';
             body += r.dead.length + ' dead links found out of ' + r.checked + ' unique URLs checked.\n\n';
+            const affected = new Set(); r.dead.forEach(d => d.files.forEach(f => affected.add(f)));
+            body += 'Referenced by ' + affected.size + ' file(s) in content/. The table below lists at most 2 per URL.\n\n';
             body += '> Bot-blocked hosts (PubMed, NHS, journals) are skipped — they block crawlers but are not dead.\n\n';
             body += '| URL | Status | Referenced In |\n';
             body += '|-----|--------|---------------|\n';
