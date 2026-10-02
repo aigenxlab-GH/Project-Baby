@@ -35,7 +35,19 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { topic, slug } = await params;
   const article = getArticleBySlug(`parenting/${topic}`, slug);
-  if (!article) return { title: 'Article Not Found' };
+  if (!article) {
+    // A URL for something that does not exist. Without an explicit canonical
+    // here, the root layout's default (alternates.canonical = siteConfig.url)
+    // leaks through and tells Google this URL duplicates the HOMEPAGE — GSC
+    // reported these under "Duplicate without user-selected canonical".
+    // Setting alternates also drops the inherited hreflang set, which pointed
+    // at the homepage for the same reason.
+    return {
+      title: 'Article Not Found',
+      robots: { index: false, follow: false },
+      alternates: { canonical: `${siteConfig.url}/parenting/${topic}/${slug}` },
+    };
+  }
   return {
     title: article.title,
     description: article.description,

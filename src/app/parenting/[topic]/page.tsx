@@ -138,9 +138,21 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ topic: string }> }): Promise<Metadata> {
   const { topic } = await params;
   const meta = topicMeta[topic];
-  if (!meta) return { title: 'Not Found' };
+  if (!meta) {
+    // A URL for something that does not exist. Without an explicit canonical
+    // here, the root layout's default (alternates.canonical = siteConfig.url)
+    // leaks through and tells Google this URL duplicates the HOMEPAGE — GSC
+    // reported these under "Duplicate without user-selected canonical".
+    // Setting alternates also drops the inherited hreflang set, which pointed
+    // at the homepage for the same reason.
+    return {
+      title: 'Not Found',
+      robots: { index: false, follow: false },
+      alternates: { canonical: `${siteConfig.url}/parenting/${topic}` },
+    };
+  }
   return {
-    title: `${meta.title} Guides & Tips | PregnancySprout`,
+    title: `${meta.title} Guides & Tips`,
     description: meta.description,
     alternates: { canonical: `${siteConfig.url}/parenting/${topic}` },
   };

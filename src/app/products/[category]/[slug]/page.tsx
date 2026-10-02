@@ -87,12 +87,38 @@ export async function generateStaticParams() {
   return products.map((p) => ({ category: p.category, slug: p.slug }));
 }
 
+/** Some Sanity titles already end in "| PregnancySprout" (26 of 113), and the
+ *  root layout's title template appends the site name again, producing a
+ *  doubled suffix. Drop a trailing site-name segment so exactly one is added. */
+function stripSiteSuffix(title: string): string {
+  const parts = title.split('|');
+  // Tolerate trailing punctuation: one title ends "| PregnancySprout ." and
+  // would otherwise slip through and still render a doubled suffix.
+  const last = parts[parts.length - 1].replace(/[\s.]+$/, '').trim();
+  if (parts.length > 1 && last === siteConfig.name) {
+    return parts.slice(0, -1).join('|').trim();
+  }
+  return title;
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category, slug } = await params;
   const product = await getProductBySlug(category as ProductCategory, slug);
-  if (!product) return { title: 'Product Not Found' };
+  if (!product) {
+    // A URL for something that does not exist. Without an explicit canonical
+    // here, the root layout's default (alternates.canonical = siteConfig.url)
+    // leaks through and tells Google this URL duplicates the HOMEPAGE — GSC
+    // reported these under "Duplicate without user-selected canonical".
+    // Setting alternates also drops the inherited hreflang set, which pointed
+    // at the homepage for the same reason.
+    return {
+      title: 'Product Not Found',
+      robots: { index: false, follow: false },
+      alternates: { canonical: `${siteConfig.url}/products/${category}/${slug}` },
+    };
+  }
   return {
-    title: `${product.title}`,
+    title: stripSiteSuffix(product.title),
     description: product.description,
     alternates: { canonical: `${siteConfig.url}/products/${category}/${slug}` },
     openGraph: {

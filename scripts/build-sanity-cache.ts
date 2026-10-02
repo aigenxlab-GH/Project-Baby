@@ -64,9 +64,16 @@ function fetchSanity(query: string): Promise<unknown[]> {
     };
 
     const req = https.request(options, (res) => {
-      let body = '';
-      res.on('data', (chunk: string) => (body += chunk));
+      const chunks: Buffer[] = [];
+      res.on('data', (chunk: Buffer) => chunks.push(chunk));
       res.on('end', () => {
+        // Concatenate as Buffers, not strings. setEncoding is never called, so
+        // each chunk arrives as a Buffer; `body += chunk` decodes each one on
+        // its own, and a multi-byte UTF-8 character split across a chunk
+        // boundary becomes U+FFFD. That shipped mojibake to live product
+        // pages (e.g. "31<?>31-inch" for "31x31-inch"). Non-deterministic,
+        // because it depends on where the network splits the response.
+        const body = Buffer.concat(chunks).toString('utf8');
         if (res.statusCode !== 200) {
           reject(new Error(`HTTP ${res.statusCode}: ${body.slice(0, 200)}`));
           return;
@@ -90,12 +97,21 @@ async function main() {
   console.log('Fetching Sanity products for build cache...');
   try {
     const results = await fetchSanity(GROQ_QUERY);
+    if (!Array.isArray(results) || results.length === 0) {
+      // Deliberately fatal. This used to fall through to an empty cache,
+      // which shipped all 113 product pages as 200-status "Product Not
+      // Found" shells until the next deploy. A bad fetch must stop the
+      // deploy, not silently publish a broken catalogue.
+      console.error('  ✗ Sanity returned no products — aborting the build.');
+      process.exit(1);
+    }
     fs.writeFileSync(outputPath, JSON.stringify(results));
     console.log(`  ✓ sanity-products-cache.json: ${results.length} products`);
   } catch (err) {
-    console.warn('  ⚠ Sanity fetch failed — writing empty cache:', err);
-    // Write empty array so the build doesn't crash; pages show "coming soon"
-    fs.writeFileSync(outputPath, JSON.stringify([]));
+    // Do not write the cache here: leaving the previous file in place is
+    // safer than clobbering it with an empty array.
+    console.error('  ✗ Sanity fetch failed — aborting the build:', err);
+    process.exit(1);
   }
 }
 
