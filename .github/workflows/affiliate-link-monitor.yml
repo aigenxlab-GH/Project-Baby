@@ -5,6 +5,14 @@ on:
     - cron: '0 8 * * 1'   # Every Monday at 8:00 AM UTC
   workflow_dispatch:        # Allow manual run from GitHub Actions tab
 
+# The GITHUB_TOKEN defaults to read-only, so issues.create returned 403 and the
+# "Create GitHub Issue" step failed on every run since this workflow was added —
+# zero issues were ever filed, while the checker itself was working and finding
+# real broken links. Least-privilege: read the repo, write issues, nothing else.
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   check-links:
     name: Check Amazon Affiliate Links
@@ -73,6 +81,21 @@ jobs:
           script: |
             const fs = require('fs');
             const body = fs.readFileSync('issue-body.md', 'utf8');
+
+            // The label must exist before it can be attached; relying on the API
+            // to invent it is not documented behaviour. Create it once, ignore
+            // the 422 that means another run already did.
+            try {
+              await github.rest.issues.getLabel({
+                owner: context.repo.owner, repo: context.repo.repo, name: "affiliate-links",
+              });
+            } catch {
+              await github.rest.issues.createLabel({
+                owner: context.repo.owner, repo: context.repo.repo,
+                name: "affiliate-links", color: 'd93f0b',
+                description: "Opened automatically by the affiliate-link-monitor workflow",
+              }).catch(() => {});
+            }
             const broken = '${{ steps.results.outputs.broken }}';
 
             // Check if an open issue already exists for this
