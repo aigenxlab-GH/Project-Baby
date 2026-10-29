@@ -8,7 +8,7 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { SourceCitations } from '@/components/shared/SourceCitations';
 import { PopularityChart } from '@/components/baby-names/PopularityChart';
-import { getNameStats, primaryStats, computeTrend, describeMove, getStatsMeta } from '@/lib/name-stats';
+import { getNameStats, primaryStats, computeTrend, describeMove, getStatsMeta, isNameIndexable } from '@/lib/name-stats';
 import { getNameStates, getStatesMeta } from '@/lib/name-states';
 
 interface Props {
@@ -67,10 +67,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     alternates: { canonical: `${siteConfig.url}/baby-names/${nameData.name.toLowerCase()}` },
     openGraph: { title, description },
-    // Names with no SSA record (given to fewer than 5 US babies in any year)
-    // can't be given real popularity data, so they'd stay genuinely thin.
-    // Keep them browsable for visitors, but don't ask Google to index them.
-    ...(stats ? {} : { robots: { index: false, follow: true } }),
+    // Thin-tail names are kept browsable but not advertised to Google: either
+    // no SSA record at all, or a current rank past MIN_RANK_FOR_INDEX, where
+    // there is no real search demand and the page can only render ~320 words
+    // of mostly-templated figures. follow: true so the internal links still
+    // pass through. See isNameIndexable() for the full reasoning.
+    ...(isNameIndexable(nameSlug) ? {} : { robots: { index: false, follow: true } }),
   };
 }
 

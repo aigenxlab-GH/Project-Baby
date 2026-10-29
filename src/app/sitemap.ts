@@ -5,7 +5,7 @@ import { siteConfig } from '@/config/site';
 import { getAllSlugs, getAllArticles } from '@/lib/mdx';
 import { getAllProducts, MIN_PRODUCTS_FOR_INDEX } from '@/lib/products';
 import { getAllNames } from '@/lib/baby-names';
-import unmatchedNames from '@/data/name-stats-unmatched.json';
+import { isNameIndexable } from '@/lib/name-stats';
 import { getPersonAuthors } from '@/config/authors';
 
 // Force static pre-rendering at build time (Node.js context where `fs` is available).
@@ -321,12 +321,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // both a boy's and a girl's name). Emitting both produced ~97 duplicate URLs.
   // Names with no SSA record are noindexed on the page itself, so they must not
   // be advertised here either.
-  const unmatched = new Set((unmatchedNames as string[]).map((s) => s.toLowerCase()));
+  // isNameIndexable() is the single source of truth, shared with the name
+  // page's robots meta — it already covers the unmatched list and adds the
+  // rank floor. Do not re-derive the rule here.
   const seenSlugs = new Set<string>();
   const namePages: MetadataRoute.Sitemap = [];
   for (const n of getAllNames()) {
     const slug = n.name.toLowerCase();
-    if (seenSlugs.has(slug) || unmatched.has(slug)) continue;
+    if (seenSlugs.has(slug) || !isNameIndexable(slug)) continue;
     seenSlugs.add(slug);
     namePages.push({
       url: url(`/baby-names/${slug}`),

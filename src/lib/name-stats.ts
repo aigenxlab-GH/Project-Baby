@@ -134,6 +134,40 @@ export function primaryStats(stats: NameStats): SexStats {
   return (stats.primary === 'F' ? stats.f : stats.m) as SexStats;
 }
 
+/**
+ * Worst current SSA rank a name page may have and still be advertised to Google.
+ *
+ * Measured 2026-10-29: a name page renders ~324 words, most of it figures in a
+ * shared template (blog articles render ~2,750 at a sixth of the cross-page
+ * similarity). The sitemap was 73% name pages, and GSC was moving them out of
+ * the index and into "Crawled - currently not indexed" roughly one-for-one —
+ * 109 such pages on 6 Sep, 376 by 23 Oct, while Indexed fell 1,392 -> 1,039.
+ *
+ * Past this rank a name has effectively no search demand AND the thinnest data
+ * to render, so the page cannot win the query and only dilutes the site. The
+ * pages stay fully browsable and internally linked; they are simply not
+ * advertised for indexing. Raise or remove this to put them back.
+ */
+export const MIN_RANK_FOR_INDEX = 5000;
+
+/**
+ * Whether a name page should be indexed. Used by both the page's robots meta
+ * and `sitemap.ts` — keep it that way, or the two will drift and the sitemap
+ * will advertise URLs the page tells Google to drop.
+ *
+ * Takes the BEST rank across both sexes: a name catalogued primarily as one sex
+ * may still be common as the other, and demand is demand.
+ */
+export function isNameIndexable(slug: string): boolean {
+  const stats = getNameStats(slug);
+  if (!stats) return false; // no SSA record at all - never given to 5+ US babies
+  const ranks: number[] = [];
+  if (stats.f?.latest) ranks.push(stats.f.latest.rank);
+  if (stats.m?.latest) ranks.push(stats.m.latest.rank);
+  if (ranks.length === 0) return false;
+  return Math.min(...ranks) <= MIN_RANK_FOR_INDEX;
+}
+
 export type Trend = 'rising' | 'falling' | 'stable' | 'unknown';
 
 /**
