@@ -1,8 +1,8 @@
 diff --git a/node_modules/next/dist/compiled/react/cjs/react.development.js b/node_modules/next/dist/compiled/react/cjs/react.development.js
-index 5f7b622..ef84d29 100644
+index e7fc7fc..176eb0d 100644
 --- a/node_modules/next/dist/compiled/react/cjs/react.development.js
 +++ b/node_modules/next/dist/compiled/react/cjs/react.development.js
-@@ -1186,6 +1186,14 @@
+@@ -1207,6 +1207,14 @@
      exports.useDeferredValue = function (value, initialValue) {
        return resolveDispatcher().useDeferredValue(value, initialValue);
      };
@@ -18,10 +18,10 @@ index 5f7b622..ef84d29 100644
        null == create &&
          console.warn(
 diff --git a/node_modules/next/dist/compiled/react/cjs/react.production.js b/node_modules/next/dist/compiled/react/cjs/react.production.js
-index 6479d22..ffad066 100644
+index ffa2118..2bb2b64 100644
 --- a/node_modules/next/dist/compiled/react/cjs/react.production.js
 +++ b/node_modules/next/dist/compiled/react/cjs/react.production.js
-@@ -497,6 +497,11 @@ exports.useDebugValue = function () {};
+@@ -489,6 +489,11 @@ exports.useDebugValue = function () {};
  exports.useDeferredValue = function (value, initialValue) {
    return ReactSharedInternals.H.useDeferredValue(value, initialValue);
  };
